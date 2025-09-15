@@ -3,8 +3,7 @@ title: "Sobre mí"
 page-layout: article
 toc: false
 ---
-
-# Hola, soy César 👋
+# Hola, soy César👋
 
 - BI & Data practitioner — modelado, DAX, visualización y publicación en **Power BI**.
 - Foco en **resultados aplicables** y buenas prácticas reproducibles.

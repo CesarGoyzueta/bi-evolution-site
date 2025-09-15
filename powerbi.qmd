@@ -346,7 +346,7 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
 
 
 ## 👨‍🏫 Tu docente
-
+```{=html}   
 <!-- SOBRE EL DOCENTE (versión mejorada) -->
 <div class="instructor-card">
   <img src="assets/cesar.jpg" alt="César Goyzueta" class="instr-photo">
