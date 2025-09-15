@@ -1,0 +1,26 @@
+{
+  "index.qmd": {
+    "index.html": "8a2d970a"
+  },
+  "powerbi.qmd": {
+    "powerbi.html": "a865a2ed"
+  },
+  "python.qmd": {
+    "python.html": "f587b4ff"
+  },
+  "r-course.qmd": {
+    "r-course.html": "20d8d27f"
+  },
+  "pronostico.qmd": {
+    "pronostico.html": "423c3705"
+  },
+  "asesorias.qmd": {
+    "asesorias.html": "34b90eeb"
+  },
+  "faq.qmd": {
+    "faq.html": "73a0bb61"
+  },
+  "about.qmd": {
+    "about.html": "e6653e53"
+  }
+}

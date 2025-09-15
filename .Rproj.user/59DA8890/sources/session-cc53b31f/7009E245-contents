@@ -1,0 +1,207 @@
+---
+page-layout: full
+toc: false
+---
+```{=html}
+<style>
+/* ======== Estilos suaves del front ======== */
+.hero-wrap { margin-top:.5rem; margin-bottom:1.25rem; }
+.hero-eyebrow { opacity:.85; font-size:.95rem; }
+.hero-title {
+  font-size: clamp(1.8rem, 2.8vw + 1rem, 2.6rem);
+  font-weight: 800;
+  letter-spacing: .2px;
+  line-height: 1.1;
+  margin: .15rem 0 .35rem;
+}
+.hero-sub {
+  font-size: clamp(1.02rem, 1.2vw + .6rem, 1.2rem);
+  opacity: .92;
+  max-width: 62rem;
+}
+.chip-row { display:flex; flex-wrap:wrap; gap:.5rem; margin:.85rem 0 0; }
+.chip {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .6rem; border-radius: 999px;
+  font-size:.9rem; border:1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+}
+.chip .icon { font-size:1rem; opacity:.95; }
+.cta-row { margin: 1rem 0 1.2rem; display:flex; flex-wrap:wrap; gap:.5rem; }
+.btn-xl { padding:.9rem 1.25rem; font-size:1.05rem; border-radius:.9rem; }
+
+/* Mejor legibilidad del título del callout en tema oscuro */
+details.callout details, details.callout summary { color: inherit; }
+
+/* Mejora cuando el callout está abierto + hover */
+details.callout[open] > summary {
+  background: rgba(76,111,255,.12);
+  border-color: rgba(76,111,255,.30);
+}
+details.callout > summary:hover { filter: brightness(1.06); }
+
+/* Desfase de scroll cuando navegas a un id (por el header) */
+[id] { scroll-margin-top: 80px; }
+</style>
+```
+
+:::::: hero-wrap
+::: {.hero-eyebrow .chip}
+```{=html}         
+<span class="icon">📊</span> Reporte cuantitativo
+```
+:::
+```{=html}
+<h1 class="hero-title">
+
+Pronósticos de Mercado — Reporte Diario
+
+</h1>
+
+<p class="hero-sub">
+
+Explora <strong>estrategias</strong>, <strong>señales por acción</strong> y <strong>métricas de riesgo/rendimiento</strong> (CAGR, Sharpe, MaxDD), con tablas y gráficos interactivos.
+
+</p>
+```
+::: chip-row
+```{=html}       
+<span class="chip"><span class="icon">⚡</span> Actualización diaria</span>
+<span class="chip"><span class="icon">📈</span> Cobertura múltiple de acciones/ETFs</span>
+<span class="chip"><span class="icon">🎓</span> Uso educativo</span>
+```
+:::
+
+::: cta-row
+```{=html}        
+<a class="btn btn-primary btn-xl"
+   href="output/Pronostico.html"
+   target="_blank"
+   rel="noopener"
+   aria-label="Abrir reporte diario en una pestaña nueva">
+  🚀 Abrir reporte
+</a>
+
+```
+:::
+::::::
+
+::: {#como-leer .callout-tip collapse="true" title="¿Cómo leer este reporte?" icon="book-open"}
+Este reporte está pensado para una revisión rápida y accionable:
+
+Metadatos de la corrida (arriba del reporte): ventana histórica, tickers, semilla, fecha/hora de ejecución.
+
+Diccionario de columnas: descripción clara de cada campo usado en tablas.
+
+Tabla de versiones: 3 enfoques cuantitativos
+
+1.  Tendencia clásica
+
+2.  Alta actividad
+
+3.  Premium filtrada.
+
+Úsala para decidir qué estrategia conviene a cada activo/entorno.
+
+Sentimiento del mercado: variaciones recientes por día y promedio 3 días.
+
+Estrategias (tabs): ranking por métrica (CAGR, Sharpe, MaxDD) y un Resumen con todas las señales por acción.
+
+Colores ayudan a priorizar: p. ej., drawdowns altos y/o Sharpe bajo aparecen resaltados.
+
+Gráficos: evolución de precio y equity normalizado por ticker.
+
+💡 Recomendación: abre el reporte en otra pestaña, explora primero “Versiones” y “Resumen”, y luego baja a gráficos para validar rápidamente el comportamiento.
+:::
+
+::: {.callout-note title="Transparencia y frecuencia"}
+El reporte se genera automáticamente (base diaria) y se ofrece con fines educativos. No constituye asesoría de inversión.
+:::
+
+::: cta-row
+```{=html}
+<a class="btn btn-primary btn-xl" href="output/Pronostico.html" target="_blank" rel="noopener"> Ver el reporte completo ahora </a>
+```
+:::
+
+## Introducción
+
+Este reporte presenta un análisis cuantitativo de distintas **estrategias de trading** aplicadas a un conjunto de activos. El objetivo es **mostrar cómo se habrían comportado históricamente**, evaluando métricas clave como:
+
+-   CAGR (crecimiento anual compuesto)
+-   Sharpe (rentabilidad ajustada por riesgo)
+-   MaxDD (máximo drawdown o pérdida máxima)
+-   Profit Factor y WinRate
+
+Permite **comparar resultados históricos** (Tendencia clásica, Alta actividad, Premium filtrada) y evaluar su aplicabilidad hoy.
+
+## Aviso Legal {#aviso-legal}
+
+Este informe y sus métricas se entregan **únicamente con fines educativos e informativos**. No constituyen:
+
+-   Asesoría de inversión personalizada.
+-   Recomendación de compra o venta.
+-   Garantía de resultados futuros.
+
+Cada usuario es responsable de **evaluar los riesgos** y tomar sus propias decisiones. BI Evolution no gestiona capital de terceros ni brinda asesoría financiera regulada.
+
+------------------------------------------------------------------------
+
+### Acceso rápido
+
+* 👉 **Abrir reporte:** [Reporte diario](output/Pronostico.html){target="_blank" rel="noopener" aria-label="Abrir reporte diario en una pestaña nueva"}
+
+<!-- - 📘 **Cómo leer:** [Sección guía](#como-leer) · ⚖️ **Legal:** [Aviso legal](#aviso-legal) -->
+```{=html}
+<style>
+  /* Que cualquier elemento con id tenga margen superior al hacer scroll */
+  [id] { scroll-margin-top: 80px; }
+</style>
+<script>
+(function() {
+  const NAV_OFFSET = 72; // ajusta si tu header es más alto
+
+  function openIfDetails(el) {
+    if (!el) return;
+    // Si el objetivo ES un <details> (callout), ábrelo
+    if (el.tagName === 'DETAILS') {
+      el.open = true;
+    } else {
+      // Si está dentro de un <details>, ábrelo
+      const d = el.closest('details');
+      if (d) d.open = true;
+    }
+  }
+
+  function scrollToId(id) {
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    openIfDetails(el);
+    const top = el.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  // Al cargar con hash (p.ej., .../pronostico.html#como-leer o #aviso-legal)
+  if (location.hash) {
+    scrollToId(location.hash.slice(1));
+  }
+
+  // Clicks en enlaces internos
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return; // deja pasar anchors vacíos (#)
+    e.preventDefault();
+    history.pushState(null, '', '#' + id);
+    scrollToId(id);
+  });
+
+  // Navegación con atrás/adelante del navegador
+  window.addEventListener('hashchange', () => scrollToId(location.hash.slice(1)));
+})();
+</script>
+```

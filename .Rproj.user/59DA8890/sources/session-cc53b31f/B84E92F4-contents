@@ -1,0 +1,21 @@
+---
+title: "Curso Python para Data Analytics"
+draft: true  # Es para que no aparezca
+---
+
+
+Domina **pandas**, visualización con **matplotlib/plotly** y automatización de reportes.
+
+## Explicación
+Aprenderás a limpiar, transformar y visualizar datos. Además, automatizarás pipelines simples para reportes recurrentes.
+
+## Currícula sugerida
+1. Entorno y buenas prácticas  
+2. Pandas I — lectura, índices, merges  
+3. Pandas II — groupby, pivot, ventanas  
+4. Visualización — matplotlib/plotly  
+5. Automatización con scripts  
+6. Casos prácticos: KPI de negocio  
+7. Proyecto final — pipeline y reporte  
+
+[👉 Inscribirme](https://forms.gle/uCYe7FUNUorufCBZ9){.btn .btn-primary}

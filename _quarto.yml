@@ -1,0 +1,59 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - powerbi.qmd
+    - pronostico.qmd
+    - asesorias.qmd        # <-- añade esta línea
+    - faq.qmd
+    - about.qmd
+  resources:
+    - output/**            # copia al sitio todo lo que esté en /output (incluye Pronostico.html)
+
+website:
+  title: "BI Evolution"
+  navbar:
+    logo: logo.png
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: powerbi.qmd
+        text: Curso Power BI
+      # - href: python.qmd
+      #   text: Curso Python
+      # - href: r-course.qmd
+      #   text: Curso R
+      - text: Asesorías & Freelance
+        href: asesorias.qmd
+      - text: Proyecto Forecasting
+        href: pronostico.qmd
+        icon: graph-up
+      - text: Más
+        menu:
+          - href: faq.qmd
+            text: Preguntas frecuentes
+          - href: about.qmd
+            text: Sobre mí
+    right:
+      - href: https://sendfox.com/cesargoyzuetameneses
+        text: Quiero más info
+        icon: pencil
+
+format:
+  html:
+    theme: darkly
+    css: styles.scss
+    toc: true
+    link-external-newwindow: true
+    smooth-scroll: true
+
+lang: es
+language:
+  toc-title-document: "En esta página"
+  toc-title-website: "En esta página"
+
+metadata-files:
+  - metrics.yml
+  
+  
+#{{< env WHATSAPP_LINK >}}

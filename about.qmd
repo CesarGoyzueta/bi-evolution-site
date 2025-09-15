@@ -1,0 +1,23 @@
+---
+title: "Sobre mí"
+page-layout: article
+toc: false
+---
+
+# Hola, soy César 👋
+
+- BI & Data practitioner — modelado, DAX, visualización y publicación en **Power BI**.
+- Foco en **resultados aplicables** y buenas prácticas reproducibles.
+- He trabajado con finanzas, operaciones, marketing y productos digitales.
+
+## Qué me diferencia
+- **Flujos reproducibles** (no solo “bonitos”), con control de cambios.
+- **Storytelling con datos** y UX clara (tableros accionables).
+- Publicación segura en **Power BI Service** (RLS, workspaces, permisos).
+
+## Herramientas
+Power BI, Power Query (M), DAX, SQL, GitHub Actions (automations), Quarto.
+
+## Contacto
+- WhatsApp: [+51 963 909 815](https://wa.me/51963909815)
+- Newsletter: [SendFox](https://sendfox.com/cesargoyzuetameneses)
