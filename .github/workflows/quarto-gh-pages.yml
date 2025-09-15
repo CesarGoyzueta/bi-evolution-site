@@ -1,0 +1,34 @@
+name: Publish Quarto site to GH Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # Render pasando el secreto como metadato "whatsapp"
+      - name: Render site
+        run: |
+          quarto render . -M whatsapp="${{ secrets.whatsapp_biEvolution }}"
+
+      # Publicación a la rama gh-pages
+      - name: Publish to gh-pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
