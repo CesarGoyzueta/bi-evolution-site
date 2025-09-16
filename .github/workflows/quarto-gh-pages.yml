@@ -1,4 +1,4 @@
-name: Publish Quarto site to GH Pages
+name: Build & Deploy (Quarto → GitHub Pages)
 
 on:
   push:
@@ -6,12 +6,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,13 +26,29 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      # Render pasando el secreto como metadato "whatsapp"
+      # Render del sitio (inyecta el link de WhatsApp si hay secreto)
       - name: Render site
         run: |
-          quarto render . -M whatsapp="${{ secrets.whatsapp_biEvolution }}"
+          WHATSAPP_LINK="${{ secrets.WHATSAPP_BI_EVOLUTION || secrets.whatsapp_biEvolution }}"
+          if [ -n "$WHATSAPP_LINK" ]; then
+            quarto render . -M whatsapp="$WHATSAPP_LINK"
+          else
+            quarto render .
+          fi
 
-      # Publicación a la rama gh-pages
-      - name: Publish to gh-pages
-        uses: quarto-dev/quarto-actions/publish@v2
+      # Sube el HTML generado en _site como artefacto para Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          target: gh-pages
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
