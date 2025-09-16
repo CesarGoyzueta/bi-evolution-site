@@ -18,23 +18,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout sitio
+        uses: actions/checkout@v4
+
+      # ⬇️ Trae el repo privado Forecast con un PAT
+      - name: Checkout Forecast (privado)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          repository: CesarGoyzueta/Forecast
+          ref: main                 # ajusta si tu branch es otro
+          token: ${{ secrets.FORECAST_PAT }}
+          path: forecast
 
-      # ↓↓↓ Traer el HTML privado desde Forecast ↓↓↓
-      - name: Fetch Pronostico.html from private Forecast
-        env:
-          TOKEN: ${{ secrets.FORECAST_PAT }}
+      # ⬇️ Copia el archivo al folder que Quarto publica (definido en resources)
+      - name: Copiar Pronostico.html
         run: |
           mkdir -p output
-          curl -sSL \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Accept: application/vnd.github.raw" \
-            https://api.github.com/repos/CesarGoyzueta/Forecast/contents/Forecast/output/Pronostico.html \
-            -o output/Pronostico.html
-      # Si tu archivo está en otra ruta del repo Forecast, ajusta la URL anterior.
+          cp "forecast/output/Pronostico.html" "output/Pronostico.html"
 
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -58,4 +58,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 
