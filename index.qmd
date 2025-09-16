@@ -32,6 +32,17 @@ Domina las herramientas que necesitas y avanza en tu carrera profesional.
 
 ```
 
+```{=html}
+<!-- Mini-CTA centrado para atajos rápidos -->
+<div class="enroll-cta" style="justify-content:center;margin:.5rem 0 1.25rem;gap:.6rem;flex-wrap:wrap">
+  <a class="btn btn-outline-secondary" href="powerbi.html">📚 Curso Power BI</a>
+  <a class="btn btn-primary" href="plantillas.html">🧩 Plantillas</a>
+  <a class="btn btn-outline-secondary" href="asesorias.html">🤝 Asesorías</a>
+  
+</div>
+```
+
+
 # 🌟 Nuestra Visión
 
 En **BI Evolution** entendemos los retos de aprender BI y Data Science.  
@@ -39,7 +50,69 @@ Creamos cursos **claros, prácticos y enfocados en tu éxito**, para que domines
 
 Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu camino y te dé confianza para enfrentar nuevos desafíos.
 
-## 📊 Confían en BI Evolution
+
+
+
+## Empieza aquí
+
+```{=html}
+<!-- Dos caminos principales: Plantillas vs Asesorías -->
+<div class="grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch">
+
+  <!-- Plantillas -->
+  <div class="course-card">
+    <h3 style="margin-top:0">🧩 Plantillas listas para usar</h3>
+    <p>Arranca rápido con <strong>tableros y flujos listos</strong> (Control de gastos, API Meta + Python, GA4 en Power BI). Incluye datos de ejemplo, guía y soporte de instalación.</p>
+    <ul>
+      <li>PBIX + datasets de ejemplo</li>
+      <li>Guía paso a paso (PDF/Video)</li>
+      <li>Soporte para dejarlo funcionando</li>
+    </ul>
+    <div class="enroll-cta">
+      <a class="btn btn-primary" href="plantillas.html">Ver plantillas</a>
+      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Asesorías -->
+  <div class="course-card">
+    <h3 style="margin-top:0">🤝 Asesorías & Freelance</h3>
+    <p>Diseño e implementación de tableros en <strong>Power BI</strong> y <strong>flujos reproducibles</strong> de datos. Entregables claros, buenas prácticas y publicación en Service (si aplica).</p>
+    <ul>
+      <li>Revisión de KPIs y alcance</li>
+      <li>Modelo de datos + DAX</li>
+      <li>Publicación, RLS y handover</li>
+    </ul>
+    <div class="enroll-cta">
+      <a class="btn btn-primary" href="asesorias.html">Ver servicios</a>
+      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+</div>
+
+```
+
+## ¿Prefieres aprender tú?
+```{=html}
+<!-- Tarjeta única para el curso -->
+<div class="course-card">
+  <h3 style="margin-top:0">📚 Curso Power BI</h3>
+  <p>Aprende BI con un enfoque práctico: <strong>modelado, DAX y storytelling</strong>. Ejemplos reales, soporte y materiales descargables.</p>
+  <ul>
+    <li>Clases claras y enfocadas</li>
+    <li>Materiales y datasets</li>
+    <li>Proyecto final guiado</li>
+  </ul>
+  <div class="enroll-cta">
+    <a class="btn btn-primary" href="powerbi.html">Ir al curso</a>
+    <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero más info</a>
+  </div>
+</div>
+
+```
+
+## 📊 Confían en BI Evolution - Cursos
 ```{=html}
 <!-- Banda completa con total de alumnos -->
 <div class="kpi-total">
@@ -120,7 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-## 👨‍🏫 Sobre el docente
+## 👨‍🏫 Sobre mí (Instructor & Consultor) {#sobre-mi}
+```{=html}
+<p style="opacity:.85;margin-top:-6px;margin-bottom:10px">
+  Ayudo a equipos a crear productos de datos y tableros accionables: Power BI, Python/Databricks y Analytics.
+</p>
+```
+
 ```{=html}
 <div class="instructor-card">
   <img src="assets/cesar.jpg" alt="César Goyzueta" class="instr-photo">
@@ -155,6 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <a class="btn btn-primary" href="https://www.linkedin.com/in/cesargoyzueta/" target="_blank" rel="noopener">
         Ver perfil en LinkedIn
       </a>
+      <a class="btn btn-outline-secondary" href="asesorias.html">Ver servicios</a>
+      <a class="btn btn-outline-secondary" href="powerbi.html">Ver curso Power BI</a>
     </div>
 
     <div class="instr-tech">

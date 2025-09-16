@@ -1,0 +1,151 @@
+---
+title: "Plantillas listas para usar"
+page-layout: article
+format:
+  html:
+    toc: true
+    toc-title: "En esta página"
+---
+
+## 🧩 Tienda de Plantillas
+
+Arranca en horas (no semanas). Consigue **tableros y flujos listos** con datos de ejemplo, guía de instalación y soporte básico.  
+Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren resultados rápidos y bien hechos.
+
+```{=html}
+<div class="stat-pills">
+  <span class="pill pill--count"><strong>3</strong> plantillas</span>
+  <span class="pill">Guía + video</span>
+  <span class="pill">Soporte de instalación</span>
+</div>
+```
+
+
+
+## 👀 Demo en vivo
+
+> Usa el menú / pestañas del reporte para navegar por las 3 soluciones (Gastos, API Meta + Python y GA4).
+
+```{=html}
+<div class="viz">
+  <iframe title="Plantillas - Demo"
+          src="https://app.powerbi.com/view?r=eyJrIjoiYWQ2MDA2YWEtYmJlMS00ODI4LWExNjUtNmM4Nzc1MTI0MjY2IiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
+          allowfullscreen="true"></iframe>
+</div>
+```
+
+---
+
+## 💳 Control de Gastos (Excel/CSV → Power BI)
+
+**Para quién es:** profesionales, microempresas y equipos que quieren **ordenar ingresos/egresos** y entender en qué se va el dinero.
+**Qué resuelve:** centraliza movimientos, categoriza, compara **presupuesto vs. real** y muestra tendencia mensual.
+
+**Lo que te llevas**
+
+* Dataset de ejemplo + diccionario de datos.
+* PBIX con **medidas listas** (mes, categoría, cuenta, medio de pago).
+* Visuales de **flujo de caja, top gastos e insight de ahorro**.
+* Guía de carga y actualización programada.
+
+**Resultados en 1–2 días**
+
+* Visibilidad total de gastos y focos de recorte.
+* Control de metas mensuales y previsión simple de caja.
+* Decisiones de gasto con evidencia (no con intuición).
+
+```{=html}
+<div class="enroll-cta">
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero esta plantilla</a>
+  <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Pedir demo guiada</a>
+</div>
+```
+
+---
+
+## 🔌 Flujo API Meta + Python + Reporte (FB/IG Ads)
+
+**Para quién es:** marketing y analítica que necesitan **automatizar** extracción de **Facebook/Instagram Ads** y ver rendimiento por campañas/adsets/ads.
+**Qué resuelve:** pipeline reproducible con **Python + Meta API** y tablero en Power BI listo para usar.
+
+**Lo que te llevas**
+
+* Scripts Python (autenticación, endpoints, paginación, guardado).
+* Estructura de tablas + job scheduler (ej. Databricks/Job Scheduler).
+* PBIX base con rendimiento, embudo y creatividades, CPA, CPC, entre otras métricas.
+
+**Resultados en 8–15 días**
+
+* **Adiós Excel manual**: datos frescos automáticamente.
+* Visión unificada de **performance real** por campaña.
+* Capacidad de iterar hipótesis creativas y de segmentación.
+
+```{=html}
+<div class="enroll-cta">
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero esta plantilla</a>
+  <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Ver alcance técnico</a>
+</div>
+```
+
+---
+
+## 📈 Google Analytics (GA4) en Power BI
+
+**Para quién es:** sitios/e-commerce que quieren **embudos, eventos y campañas** de GA4 en un tablero limpio y accionable.
+**Qué resuelve:** lectura clara de adquisición, comportamiento y conversiones con **buenas prácticas de modelo**.
+
+**Lo que te llevas**
+
+* Conectores/Parámetros documentados (propiedad, rango, dimensiones).
+* PBIX con **Adquisición, Comportamiento, Conversiones y Embudos**.
+* Tips para refresco y gestión de cuotas.
+* Métricas de calidad (bounce, engagement, tasa de conversión).
+
+**Resultados en 5–9 días**
+
+* Entiendes **qué canal trae ventas** (y cuál solo tráfico).
+* Detectas fricción en el embudo y priorizas mejoras UX.
+* Tomas decisiones de inversión con números, no “suposiciones”.
+
+```{=html}
+<div class="enroll-cta">
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero esta plantilla</a>
+  <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Solicitar revisión de datos</a>
+</div>
+```
+
+---
+
+## 📦 ¿Qué incluye cada compra?
+
+* **Archivos fuente** (PBIX / scripts / datasets de ejemplo).
+* **Guía rápida (PDF) + video** corto de instalación.
+* **Soporte de instalación** por WhatsApp para dejarlo funcionando.
+
+> **Licencia:** uso por una empresa/cliente. Para agencias o uso extendido, consulta planes.
+
+---
+
+## ❓Preguntas frecuentes
+
+**¿Puedo personalizarlas?**
+Sí. Puedes editarlas o contratar horas para adaptar visuales y métricas.
+
+**¿Cómo pago?**
+Transferencia, Yape/Plin. Escríbeme y te comparto el checkout.
+
+
+
+
+```{=html}
+<!-- Estilos locales del visor (si ya tienes algo similar en styles.css, puedes omitirlos) -->
+<style>
+  .viz{position:relative;width:100%;margin:.75rem 0 1rem;border:1px solid rgba(255,255,255,.10);
+       border-radius:12px;overflow:hidden;background:rgba(255,255,255,.02);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .viz::before{content:"";display:block;padding-top:56.25%} /* 16:9 */
+  .viz>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+</style>
+```
+
+
+

@@ -4,7 +4,8 @@ project:
     - index.qmd
     - powerbi.qmd
     - pronostico.qmd
-    - asesorias.qmd        # <-- añade esta línea
+    - asesorias.qmd
+    - plantillas.qmd
     - faq.qmd
     - about.qmd
   resources:
@@ -25,6 +26,8 @@ website:
       #   text: Curso R
       - text: Asesorías & Freelance
         href: asesorias.qmd
+      - text: Plantillas
+        href: plantillas.qmd
       - text: Proyecto Forecasting
         href: pronostico.qmd
         icon: graph-up

@@ -134,9 +134,7 @@ details.callout details, details.callout summary{color:inherit}
 
 ## Portafolio / Ejemplos  {#portafolio}
 
-### 📘 Registro Contable (Power BI)
-
-Dashboard para visualizar asientos, egresos/ingresos, categorías y tendencia mensual.
+### 📘 Registro Contable, Facebook & Instagram y Google Analytics (Power BI)
 ```{=html}
 <div class="viz">
   <iframe title="registro_contable" 
@@ -144,16 +142,7 @@ Dashboard para visualizar asientos, egresos/ingresos, categorías y tendencia me
           allowfullscreen="true"></iframe>
 </div>
 ```
-### 📲 RRSS & Web Analytics (Power BI)
 
-Tableros para *Facebook/Instagram* y *Google Analytics/GA4* (alcance, engagement, campañas, embudos).
-```{=html}
-<div class="chips">
-  <span class="chip"><span class="icon">📣</span> Social insights</span>
-  <span class="chip"><span class="icon">🕸️</span> Tráfico & Embudos (GA/GA4)</span>
-  <span class="chip"><span class="icon">🎯</span> Rendimiento de campañas</span>
-</div>
-```
 
 
 ## ¿Cómo trabajamos?
