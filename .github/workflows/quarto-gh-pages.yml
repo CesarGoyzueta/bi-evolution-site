@@ -1,4 +1,4 @@
-name: Build & Deploy (Quarto → GitHub Pages)
+name: Build & Deploy (Quarto → GH Pages)
 
 on:
   push:
@@ -23,20 +23,26 @@ jobs:
         with:
           fetch-depth: 0
 
+      # ↓↓↓ Traer el HTML privado desde Forecast ↓↓↓
+      - name: Fetch Pronostico.html from private Forecast
+        env:
+          TOKEN: ${{ secrets.FORECAST_PAT }}
+        run: |
+          mkdir -p output
+          curl -sSL \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github.raw" \
+            https://api.github.com/repos/CesarGoyzueta/Forecast/contents/Forecast/output/Pronostico.html \
+            -o output/Pronostico.html
+      # Si tu archivo está en otra ruta del repo Forecast, ajusta la URL anterior.
+
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      # Render del sitio (inyecta el link de WhatsApp si hay secreto)
       - name: Render site
         run: |
-          WHATSAPP_LINK="${{ secrets.WHATSAPP_BI_EVOLUTION || secrets.whatsapp_biEvolution }}"
-          if [ -n "$WHATSAPP_LINK" ]; then
-            quarto render . -M whatsapp="$WHATSAPP_LINK"
-          else
-            quarto render .
-          fi
+          quarto render . -M whatsapp="${{ secrets.WHATSAPP_BI_EVOLUTION }}"
 
-      # Sube el HTML generado en _site como artefacto para Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -52,3 +58,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
