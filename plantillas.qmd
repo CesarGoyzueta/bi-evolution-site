@@ -36,17 +36,16 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 
 ---
 
-## 💳 Control de Gastos (Excel/CSV → Power BI)
+## 💳 Control de Gastos Personales (Excel/CSV → Power BI) (25 soles)
 
 **Para quién es:** profesionales, microempresas y equipos que quieren **ordenar ingresos/egresos** y entender en qué se va el dinero.
 **Qué resuelve:** centraliza movimientos, categoriza, compara **presupuesto vs. real** y muestra tendencia mensual.
 
 **Lo que te llevas**
 
-* Dataset de ejemplo + diccionario de datos.
+* Guía de uso (Pivotea con la aplicación de "Registro Contable")
 * PBIX con **medidas listas** (mes, categoría, cuenta, medio de pago).
 * Visuales de **flujo de caja, top gastos e insight de ahorro**.
-* Guía de carga y actualización programada.
 
 **Resultados en 1–2 días**
 
@@ -74,7 +73,7 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 * Estructura de tablas + job scheduler (ej. Databricks/Job Scheduler).
 * PBIX base con rendimiento, embudo y creatividades, CPA, CPC, entre otras métricas.
 
-**Resultados en 8–15 días**
+**Resultados en 8–17 días**
 
 * **Adiós Excel manual**: datos frescos automáticamente.
 * Visión unificada de **performance real** por campaña.
@@ -101,7 +100,7 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 * Tips para refresco y gestión de cuotas.
 * Métricas de calidad (bounce, engagement, tasa de conversión).
 
-**Resultados en 5–9 días**
+**Resultados en 8–17 días**
 
 * Entiendes **qué canal trae ventas** (y cuál solo tráfico).
 * Detectas fricción en el embudo y priorizas mejoras UX.
@@ -118,9 +117,9 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 
 ## 📦 ¿Qué incluye cada compra?
 
-* **Archivos fuente** (PBIX / scripts / datasets de ejemplo).
-* **Guía rápida (PDF) + video** corto de instalación.
-* **Soporte de instalación** por WhatsApp para dejarlo funcionando.
+* **Servicio completo** (PBIX / scripts).
+* **Guía rápida video** corto.
+* **Soporte** por WhatsApp para dejarlo funcionando.
 
 > **Licencia:** uso por una empresa/cliente. Para agencias o uso extendido, consulta planes.
 
