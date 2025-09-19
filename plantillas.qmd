@@ -56,7 +56,6 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 ```{=html}
 <div class="enroll-cta">
   <a class="btn btn-primary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero esta plantilla</a>
-  <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Pedir demo guiada</a>
 </div>
 ```
 
@@ -82,7 +81,6 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 ```{=html}
 <div class="enroll-cta">
   <a class="btn btn-primary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero esta plantilla</a>
-  <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Ver alcance técnico</a>
 </div>
 ```
 
@@ -109,7 +107,6 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 ```{=html}
 <div class="enroll-cta">
   <a class="btn btn-primary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero esta plantilla</a>
-  <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Solicitar revisión de datos</a>
 </div>
 ```
 

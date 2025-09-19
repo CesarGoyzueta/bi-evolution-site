@@ -17,7 +17,7 @@ Domina las herramientas que necesitas y avanza en tu carrera profesional.
 
 ```{=html}
 <div align="center" style="margin-top:20px">
-  <a class="btn btn-primary" href="https://sendfox.com/cesargoyzuetameneses">📬 Quiero más info</a>
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}">📬 Quiero más info</a>
   <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}">WhatsApp</a>
 </div>
 
