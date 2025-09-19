@@ -17,8 +17,8 @@ Domina las herramientas que necesitas y avanza en tu carrera profesional.
 
 ```{=html}
 <div align="center" style="margin-top:20px">
-  <a class="btn btn-primary" href="{{< meta whatsapp >}}">📬 Quiero más info</a>
-  <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}">WhatsApp</a>
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">📬 Quiero más info</a>
+  <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">WhatsApp</a>
 </div>
 
 ```
@@ -70,7 +70,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
     </ul>
     <div class="enroll-cta">
       <a class="btn btn-primary" href="plantillas.html">Ver plantillas</a>
-      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20las%20plantillas." target="_blank" rel="noopener">Consultar por WhatsApp</a>
     </div>
   </div>
 
@@ -85,7 +85,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
     </ul>
     <div class="enroll-cta">
       <a class="btn btn-primary" href="asesorias.html">Ver servicios</a>
-      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance." target="_blank" rel="noopener">Cotizar por WhatsApp</a>
     </div>
   </div>
 
@@ -106,7 +106,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
   </ul>
   <div class="enroll-cta">
     <a class="btn btn-primary" href="powerbi.html">Ir al curso</a>
-    <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Quiero más info</a>
+    <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20del%20curso%20de%20Power%20BI." target="_blank" rel="noopener">Quiero más info</a>
   </div>
 </div>
 

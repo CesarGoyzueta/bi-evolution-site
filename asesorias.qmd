@@ -68,7 +68,7 @@ details.callout details, details.callout summary{color:inherit}
 
   <div class="cta-row">
     <a class="btn btn-primary btn-xl" 
-       href="{{< meta whatsapp >}}" 
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance." 
        target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
       💬 Cotizar por WhatsApp
     </a>
@@ -93,7 +93,7 @@ details.callout details, details.callout summary{color:inherit}
     </ul>
     <div class="cta-row">
       <a class="btn btn-outline-primary btn-xl" 
-         href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Solicitar</a>
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20b%C3%A1sico." target="_blank" rel="noopener">Solicitar</a>
     </div>
   </div>
 
@@ -108,7 +108,7 @@ details.callout details, details.callout summary{color:inherit}
     </ul>
     <div class="cta-row">
       <a class="btn btn-primary btn-xl" 
-         href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Cotizar ahora</a>
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20personalizado." target="_blank" rel="noopener">Cotizar ahora</a>
     </div>
   </div>
 
@@ -123,7 +123,7 @@ details.callout details, details.callout summary{color:inherit}
     </ul>
     <div class="cta-row">
       <a class="btn btn-outline-primary btn-xl" 
-         href="{{< meta whatsapp >}}" target="_blank" rel="noopener">Más info</a>
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20sobre%20mantenimiento%20mensual%20de%20un%20dashboard." target="_blank" rel="noopener">Más info</a>
     </div>
   </div>
 </div>
@@ -188,7 +188,7 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
 ```{=html}
 <div class="cta-row">
   <a class="btn btn-primary btn-xl" 
-     href="{{< meta whatsapp >}}" 
+     href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance." 
      target="_blank" rel="noopener">💬 Cotizar por WhatsApp</a>
   
 </div>
