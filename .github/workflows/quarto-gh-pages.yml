@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    # 07:20 am América/Lima (UTC-5) == 12:20 UTC
+    - cron: '20 12 * * *'
 
 permissions:
   contents: read
@@ -26,7 +29,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: CesarGoyzueta/Forecast
-          ref: main                 # ajusta si tu branch es otro
+          ref: main
           token: ${{ secrets.FORECAST_PAT }}
           path: forecast
 
@@ -58,5 +61,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
