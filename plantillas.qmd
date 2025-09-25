@@ -9,8 +9,9 @@ format:
 
 ## 🧩 Tienda de Plantillas
 
-Arranca en horas (no semanas). Consigue **tableros y flujos listos** con datos de ejemplo, guía de instalación y soporte básico.  
-Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren resultados rápidos y bien hechos.
+Arranca rápidamente (no semanas). Consigue **tableros y flujos listos**.  
+Pensadas para **freelancers, equipos pequeños,medianos o grandes y emprendedores** que quieren resultados rápidos y bien hechos.
+Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el dashboard
 
 ```{=html}
 <div class="stat-pills">
@@ -36,7 +37,7 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 
 ---
 
-## 💳 Control de Gastos Personales (Excel/CSV → Power BI) (25 soles)
+## 💳 Control de Gastos Personales (Excel/CSV → Power BI) · **US$ 7**
 
 **Para quién es:** profesionales, microempresas y equipos que quieren **ordenar ingresos/egresos** y entender en qué se va el dinero.
 **Qué resuelve:** centraliza movimientos, categoriza, compara **presupuesto vs. real** y muestra tendencia mensual.
@@ -61,7 +62,7 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 
 ---
 
-## 🔌 Flujo API Meta + Python + Reporte (FB/IG Ads)
+## 🔌 Flujo API Meta + Python + Reporte (FB/IG Ads) · **A partir de US$ 33**
 
 **Para quién es:** marketing y analítica que necesitan **automatizar** extracción de **Facebook/Instagram Ads** y ver rendimiento por campañas/adsets/ads.
 **Qué resuelve:** pipeline reproducible con **Python + Meta API** y tablero en Power BI listo para usar.
@@ -86,7 +87,7 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 
 ---
 
-## 📈 Google Analytics (GA4) en Power BI
+## 📈 Google Analytics (GA4) en Power BI · **A partir de US$ 23**
 
 **Para quién es:** sitios/e-commerce que quieren **embudos, eventos y campañas** de GA4 en un tablero limpio y accionable.
 **Qué resuelve:** lectura clara de adquisición, comportamiento y conversiones con **buenas prácticas de modelo**.
@@ -94,6 +95,7 @@ Pensadas para **freelancers, equipos pequeños y emprendedores** que quieren res
 **Lo que te llevas**
 
 * Conectores/Parámetros documentados (propiedad, rango, dimensiones).
+* Actualización diaria
 * PBIX con **Adquisición, Comportamiento, Conversiones y Embudos**.
 * Tips para refresco y gestión de cuotas.
 * Métricas de calidad (bounce, engagement, tasa de conversión).

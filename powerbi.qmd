@@ -386,14 +386,9 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
 
 ## 💬 Comentarios
 
-> “Muy buenos materiales.”  
-> — Alumno anónimo
-
-> “Las presentaciones estuvieron muy buenas, aunque podrían usarse más ejemplos.”  
-> — Alumno anónimo
-
-> “Preciso y directo.”  
-> — Alumno anónimo
+> “Tuve la oportunidad de llevar un curso de Power BI dictado por César Goyzueta, y fue una experiencia valiosa. César no solo domina la herramienta a profundidad, sino que también tiene la habilidad de explicar conceptos complejos de manera clara y práctica. Gracias a su guía, pude comprender cómo transformar datos en información visual y accionable, aplicable a mi trabajo diario en Recursos Humanos.  
+> Lo recomiendo ampliamente a quienes busquen aprender Power BI de forma estructurada y dinámica.”  
+> — [**Christian Jiménez**](https://www.linkedin.com/in/christian-jim%C3%A9nez-b142b2108/){target="_blank" rel="noopener"}
 
 ---
 
