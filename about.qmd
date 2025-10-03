@@ -3,9 +3,10 @@ title: "Sobre mí"
 page-layout: article
 toc: false
 ---
-# Hola, soy César👋
 
-- BI & Data practitioner — modelado, DAX, visualización y publicación en **Power BI**.
+# Hola, soy César Goyzueta 👋
+
+- Data Scientist con más de 4 años de experiencia de Data Science, BI & Data practitioner — modelado, DAX, visualización y publicación en **Power BI**, con experiencia en AI Engineering
 - Foco en **resultados aplicables** y buenas prácticas reproducibles.
 - He trabajado con finanzas, operaciones, marketing y productos digitales.
 
@@ -14,9 +15,15 @@ toc: false
 - **Storytelling con datos** y UX clara (tableros accionables).
 - Publicación segura en **Power BI Service** (RLS, workspaces, permisos).
 
+## Machine Learning & AI Engineering
+- Diseño de **pipelines de ML** de punta a punta: preparación de datos, feature engineering, entrenamiento, validación y despliegue.
+- Modelos supervisados/ no supervisados y **series de tiempo** para forecasting.
+- Integración de modelos con aplicaciones analíticas y tableros para generar **impacto de negocio**.
+- Generación de chatbot, RAG y flujos para enriquecimiento de datos con modelos LLM's.
+
 ## Herramientas
-Power BI, Power Query (M), DAX, SQL, GitHub Actions (automations), Quarto.
+Power BI, Power Query (M), DAX, **Python (pandas, scikit-learn,etc)**, R, SQL, Langchain/LangGraph/LangSmith, Databricks & Azure.
+
 
 ## Contacto
-- WhatsApp: [+51 963 909 815]({{< meta whatsapp >}})
 - Newsletter: [SendFox](https://sendfox.com/cesargoyzuetameneses)

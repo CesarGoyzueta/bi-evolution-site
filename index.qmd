@@ -98,7 +98,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
 <!-- Tarjeta única para el curso -->
 <div class="course-card">
   <h3 style="margin-top:0">📚 Curso Power BI</h3>
-  <p>Aprende BI con un enfoque práctico: <strong>modelado, DAX y storytelling</strong>. Ejemplos reales, soporte y materiales descargables.</p>
+  <p>Aprende BI con un enfoque práctico: <strong>modelado, dashboard y storytelling</strong>. Ejemplos reales, soporte y materiales descargables.</p>
   <ul>
     <li>Clases claras y enfocadas</li>
     <li>Materiales y datasets</li>
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="course-grid">
   <div class="course-card">
     <h3>Power BI</h3>
-    <p>De cero a dashboard ejecutivo: modelado, DAX y publicación.</p>
+    <p>De cero a dashboard ejecutivo: modelado, dashboard y publicación.</p>
     <a class="btn btn-primary" href="powerbi.qmd">Ver temario</a>
   </div>
   
@@ -257,7 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
 > Lo recomiendo ampliamente a quienes busquen aprender Power BI de forma estructurada y dinámica.”  
 > — [**Christian Jiménez**](https://www.linkedin.com/in/christian-jim%C3%A9nez-b142b2108/){target="_blank" rel="noopener"}
 
-
+> “El curso de Power BI ha superado mis expectativas, tanto por la forma práctica en que se imparten las clases como por el acompañamiento constante del docente durante todo el proceso de aprendizaje. Se nota claramente la experiencia y dominio del tema por parte del docente, lo que hace que cada explicación sea clara y útil. Además, las distintas técnicas y la retroalimentación en cada sesión permiten consolidar mis conocimientos previos de manera progresiva.”  
+> — [**Erika Rubio**](https://www.linkedin.com/in/erikarubiolima/){target="_blank" rel="noopener"}
 
 
 ---

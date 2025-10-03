@@ -71,7 +71,7 @@ Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el d
 
 * Scripts Python (autenticación, endpoints, paginación, guardado).
 * Estructura de tablas + job scheduler (ej. Databricks/Job Scheduler).
-* PBIX base con rendimiento, embudo y creatividades, CPA, CPC, entre otras métricas.
+* PBIX compartido con rendimiento, embudo y creatividades, CPA, CPC, entre otras métricas.
 
 **Resultados en 8–17 días**
 
@@ -96,7 +96,7 @@ Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el d
 
 * Conectores/Parámetros documentados (propiedad, rango, dimensiones).
 * Actualización diaria
-* PBIX con **Adquisición, Comportamiento, Conversiones y Embudos**.
+* PBIX compartido con **Adquisición, Comportamiento, Conversiones y Embudos**.
 * Tips para refresco y gestión de cuotas.
 * Métricas de calidad (bounce, engagement, tasa de conversión).
 

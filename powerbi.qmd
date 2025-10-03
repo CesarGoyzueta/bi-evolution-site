@@ -80,11 +80,11 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
     <div class="enroll-meta">
       <div class="enroll-item">
         <span class="enroll-tag">Inscripciones</span>
-        Hasta <strong>dom 12 oct 2025</strong>
+        Hasta <strong>miércoles 15 oct 2025</strong>
       </div>
       <div class="enroll-item">
         <span class="enroll-tag">Inicio</span>
-        <strong>lun 13 oct 2025</strong> (2.º lunes de octubre)
+        <strong>lun 20 oct 2025</strong> (3.º lunes de octubre)
       </div>
       <div class="enroll-item">
         <span class="enroll-tag">Duración</span>
@@ -108,12 +108,12 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
   <div class="enroll-sessions-wrap">
     <div class="enroll-sessions-title">Sesiones (6)</div>
     <ul class="enroll-sessions">
-      <li><strong>Lun 13 oct 2025</strong> · 7–9 pm</li>
-      <li><strong>Sáb 18 oct 2025</strong> · 2–4 pm</li>
       <li><strong>Lun 20 oct 2025</strong> · 7–9 pm</li>
       <li><strong>Sáb 25 oct 2025</strong> · 2–4 pm</li>
       <li><strong>Lun 27 oct 2025</strong> · 7–9 pm</li>
-      <li><strong>Sáb 1 nov 2025</strong> · 2–4 pm</li>
+      <li><strong>Sáb 01 oct 2025</strong> · 2–4 pm</li>
+      <li><strong>Lun 03 nov 2025</strong> · 7–9 pm</li>
+      <li><strong>Sáb 08 nov 2025</strong> · 2–4 pm</li>
     </ul>
     <div class="enroll-note">
       Total: <strong>12 h</strong> (4 h/semana · 3 semanas). Horario local.
@@ -389,6 +389,9 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
 > “Tuve la oportunidad de llevar un curso de Power BI dictado por César Goyzueta, y fue una experiencia valiosa. César no solo domina la herramienta a profundidad, sino que también tiene la habilidad de explicar conceptos complejos de manera clara y práctica. Gracias a su guía, pude comprender cómo transformar datos en información visual y accionable, aplicable a mi trabajo diario en Recursos Humanos.  
 > Lo recomiendo ampliamente a quienes busquen aprender Power BI de forma estructurada y dinámica.”  
 > — [**Christian Jiménez**](https://www.linkedin.com/in/christian-jim%C3%A9nez-b142b2108/){target="_blank" rel="noopener"}
+
+> “El curso de Power BI ha superado mis expectativas, tanto por la forma práctica en que se imparten las clases como por el acompañamiento constante del docente durante todo el proceso de aprendizaje. Se nota claramente la experiencia y dominio del tema por parte del docente, lo que hace que cada explicación sea clara y útil. Además, las distintas técnicas y la retroalimentación en cada sesión permiten consolidar mis conocimientos previos de manera progresiva.”  
+> — [**Erika Rubio**](https://www.linkedin.com/in/erikarubiolima/){target="_blank" rel="noopener"}
 
 ---
 
