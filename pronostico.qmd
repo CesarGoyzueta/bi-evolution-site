@@ -81,8 +81,17 @@ Explora <strong>estrategias</strong>, <strong>señales por acción</strong> y <s
    aria-label="Abrir reporte diario en una pestaña nueva">
   🚀 Abrir reporte
 </a>
+<a class="btn btn-outline-secondary btn-xl"
+   href="https://forms.gle/b8xyLZFuDq1iYeF27"
+   target="_blank"
+   rel="noopener"
+   aria-label="Apuntarme a la lista de espera para recibir prioridad">
+  📝 Unirme a la lista de espera
+</a>
 
 ```
+
+
 :::
 ::::::
 
@@ -120,7 +129,17 @@ El reporte se genera automáticamente (base diaria) y se ofrece con fines educat
 
 ::: cta-row
 ```{=html}
-<a class="btn btn-primary btn-xl" href="output/Pronostico.html" target="_blank" rel="noopener"> Ver el reporte completo ahora </a>
+<a class="btn btn-primary btn-xl" href="output/Pronostico.html" target="_blank" rel="noopener">
+  Ver el reporte completo ahora
+</a>
+<a class="btn btn-outline-secondary btn-xl"
+   href="https://forms.gle/b8xyLZFuDq1iYeF27"
+   target="_blank"
+   rel="noopener"
+   aria-label="Apuntarme a la lista de espera para recibir prioridad">
+  📝 Lista de espera
+</a>
+
 ```
 :::
 
