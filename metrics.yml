@@ -1,13 +1,13 @@
 metrics:
   global:
-    total_students: 15
+    total_students: 16
     sat_general: 4.7
     clarity_teacher: 4.7
     recommend_pct: 100
     recommend_score10: 9.3
     survey_count: 7
   powerbi:
-    total_students: 15
+    total_students: 16
     sat_general: 4.7
     clarity_teacher: 4.7
     recommend_pct: 100
