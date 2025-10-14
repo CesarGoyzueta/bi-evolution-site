@@ -2,7 +2,7 @@
 title: "Curso Power BI — Zero to Hero"
 ---
 
-Aprende el flujo completo: **modelado, DAX, visualización y publicación** en el servicio de Power BI.
+Aprende el flujo completo: **modelado, storytelling, visualización y publicación** en el servicio de Power BI.
 
 ```{=html}
 <!-- CTA principal de inscripción (encima, visible de inmediato) -->
