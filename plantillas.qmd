@@ -30,7 +30,7 @@ Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el d
 ```{=html}
 <div class="viz">
   <iframe title="Plantillas - Demo"
-          src="https://app.powerbi.com/view?r=eyJrIjoiYWQ2MDA2YWEtYmJlMS00ODI4LWExNjUtNmM4Nzc1MTI0MjY2IiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
+          src="https://app.powerbi.com/view?r=eyJrIjoiZDBiYjMxNzgtNWFiYy00YzI2LWIzY2QtZWY2NDhjNmQ5NjcxIiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
           allowfullscreen="true"></iframe>
 </div>
 ```
