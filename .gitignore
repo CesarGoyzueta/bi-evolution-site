@@ -1,4 +1,26 @@
+# --- Quarto / R ---
+/_site/
 /.quarto/
-.Rhistory
-.Rproj.user/
-_site/
+/.quarto/idx/
+/Rproj.user/
+/.Rhistory
+/.RData
+
+# --- Node/JS (si lo usas) ---
+node_modules/
+dist/
+*.log
+
+# --- Python (si lo usas) ---
+__pycache__/
+*.pyc
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- Archivos grandes que NO quieres versionar ---
+*.pbix
+*.zip
+*.mp4

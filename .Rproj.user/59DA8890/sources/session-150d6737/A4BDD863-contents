@@ -1,0 +1,296 @@
+library(httr2)
+library(jsonlite)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tibble)
+
+TZ_PERU <- "America/Lima"
+
+fred_release_dates <- function(start_date, end_date, api_key) {
+  req <- request("https://api.stlouisfed.org/fred/releases/dates") |>
+    req_url_query(
+      api_key   = api_key,
+      file_type = "json",
+      realtime_start = format(start_date, "%Y-%m-%d"),
+      realtime_end   = format(end_date, "%Y-%m-%d"),
+      include_release_dates_with_no_data = "true",
+      order_by  = "release_date",
+      sort_order= "asc"
+    )
+  
+  resp <- tryCatch(req_perform(req), error = function(e) NULL)
+  if (is.null(resp)) stop("No hubo respuesta de FRED (red/timeout).")
+  if (resp_status(resp) >= 400) stop("HTTP FRED: ", resp_status(resp))
+  
+  raw <- tryCatch(resp_body_json(resp, simplifyVector = TRUE), error = function(e) NULL)
+  if (is.null(raw)) stop("FRED no devolvió JSON.")
+  if (!is.null(raw$error_message)) stop("FRED error: ", raw$error_message)
+  
+  if (is.null(raw$release_dates) || length(raw$release_dates) == 0) return(tibble())
+  
+  df <- as_tibble(raw$release_dates)
+  # nombres de columnas esperadas
+  if (!all(c("release_name","date") %in% names(df)))
+    stop("Estructura inesperada de FRED. Campos disponibles: ", paste(names(df), collapse=", "))
+  
+  df |>
+    transmute(
+      release_name,
+      date = as.Date(date)
+    )
+}
+
+guess_et_time <- function(release_name) {
+  nm <- str_to_lower(release_name)
+  dplyr::case_when(
+    str_detect(nm, "employment situation") ~ "08:30",
+    str_detect(nm, "consumer price index") ~ "08:30",
+    str_detect(nm, "producer price index") ~ "08:30",
+    str_detect(nm, "personal income and outlays") ~ "08:30",
+    str_detect(nm, "gross domestic product") ~ "08:30",
+    str_detect(nm, "retail sales") ~ "08:30",
+    str_detect(nm, "ism") ~ "10:00",
+    TRUE ~ "08:30"
+  )
+}
+
+to_lima_dt <- function(date, et_hhmm) {
+  ny <- lubridate::ymd_hm(paste0(date, " ", et_hhmm), tz = "America/New_York")
+  with_tz(ny, TZ_PERU)
+}
+
+get_macro_calendar_fred <- function(days_ahead = 60, api_key = Sys.getenv("FRED_API_KEY")) {
+  if (is.null(api_key) || api_key == "" || api_key == "PON_AQUI_TU_FRED_KEY")
+    stop("Falta FRED_API_KEY. Coloca tu key (gratis) en FRED_API_KEY.")
+  
+  d1 <- Sys.Date(); d2 <- d1 + days(days_ahead)
+  
+  all_dates <- fred_release_dates(d1, d2, api_key)
+  if (nrow(all_dates) == 0) return(tibble())
+  
+  big_keywords <- c(
+    "Employment Situation",
+    "Consumer Price Index",
+    "Producer Price Index",
+    "Personal Income and Outlays",
+    "Gross Domestic Product",
+    "Retail Sales",
+    "ISM"
+  )
+  pat <- paste0("(", paste(big_keywords, collapse = "|"), ")")
+  
+  all_dates |>
+    mutate(is_big = str_detect(release_name, pat)) |>
+    filter(is_big) |>
+    mutate(
+      et_hhmm = guess_et_time(release_name),
+      datetime_lima = to_lima_dt(date, et_hhmm)
+    ) |>
+    transmute(
+      tipo        = "Indicador (programado)",
+      evento      = release_name,
+      fecha_lima  = as_datetime(datetime_lima),
+      fecha_ny    = with_tz(datetime_lima, "America/New_York"),
+      nota        = paste0("Hora estimada ", et_hhmm, " ET (ajústala si aplica)")
+    ) |>
+    arrange(fecha_lima)
+}
+
+
+
+is_market_open_ny <- function(dt_ny) {
+  wd <- wday(dt_ny, week_start = 1)      # 1=Lunes … 5=Viernes
+  hr <- hour(dt_ny) + minute(dt_ny)/60
+  wd %in% 1:5 & hr >= 9.5 & hr <= 16     # 09:30–16:00 ET (sin feriados)
+}
+
+macro_cal2 <- macro_cal %>%
+  mutate(mkt_open_ny = is_market_open_ny(fecha_ny))
+
+
+generar_radar_macro <- function(days_ahead = 60, api_key = Sys.getenv("FRED_API_KEY")) {
+  stopifnot(nchar(api_key) > 0)
+  out <- get_macro_calendar_fred(days_ahead, api_key = api_key) %>%
+    mutate(mkt_open_ny = is_market_open_ny(fecha_ny))
+  # orden sugerido: primero lo más cercano
+  arrange(out, fecha_lima)
+}
+
+
+FRED_API_KEY <- "2782f8f2ebd905f2a09f3418c36700e2"   # <- pon tu key real
+radar <- generar_radar_macro(60, api_key = FRED_API_KEY)
+radar
+readr::write_csv(radar, "radar_eventos_usa_lima.csv")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# install.packages(c("httr2","xml2","jsonlite","dplyr","stringr","lubridate","tibble"))
+library(httr2); library(xml2); library(jsonlite)
+library(dplyr); library(stringr); library(lubridate); library(tibble)
+
+TZ_PERU <- "America/Lima"
+
+# --------- 1) Google News RSS (sin key) ----------
+# query: usa + palabras clave + (opcional) dominios (ustr.gov, whitehouse.gov)
+google_news_rss <- function(query, lang = "en-US", country = "US") {
+  q <- URLencode(query)
+  url <- sprintf("https://news.google.com/rss/search?q=%s&hl=%s&gl=%s&ceid=%s:%s",
+                 q, lang, country, country, substr(lang, 1, 2))
+  req <- request(url) |> req_user_agent("Mozilla/5.0 (R httr2)")
+  resp <- tryCatch(req_perform(req), error = function(e) NULL)
+  if (is.null(resp) || resp_status(resp) >= 400) return(tibble())
+  
+  doc <- tryCatch(read_xml(resp_body_string(resp)), error = function(e) NULL)
+  if (is.null(doc)) return(tibble())
+  
+  items <- xml_find_all(doc, ".//item")
+  if (length(items) == 0) return(tibble())
+  
+  tibble(
+    fuente   = "GoogleNewsRSS",
+    titulo   = xml_text(xml_find_all(items, ".//title")),
+    link     = xml_text(xml_find_all(items, ".//link")),
+    pub_raw  = xml_text(xml_find_all(items, ".//pubDate"))
+  ) |>
+    mutate(
+      pub_utc  = suppressWarnings(lubridate::as_datetime(pub_raw, tz = "UTC")),
+      pub_lima = with_tz(pub_utc, TZ_PERU)
+    ) |>
+    filter(!is.na(pub_lima)) |>
+    select(fuente, titulo, link, pub_lima)
+}
+
+# --------- 2) Federal Register RSS (sin key) ----------
+federal_register_rss <- function(term) {
+  base <- "https://www.federalregister.gov/documents/search.rss"
+  req <- request(base) |>
+    req_url_query("conditions[term]" = term) |>
+    req_user_agent("Mozilla/5.0 (R httr2)")
+  resp <- tryCatch(req_perform(req), error = function(e) NULL)
+  if (is.null(resp) || resp_status(resp) >= 400) return(tibble())
+  
+  doc <- tryCatch(read_xml(resp_body_string(resp)), error = function(e) NULL)
+  if (is.null(doc)) return(tibble())
+  items <- xml_find_all(doc, ".//item")
+  if (length(items) == 0) return(tibble())
+  
+  tibble(
+    fuente   = "FederalRegister",
+    titulo   = xml_text(xml_find_all(items, ".//title")),
+    link     = xml_text(xml_find_all(items, ".//link")),
+    pub_raw  = xml_text(xml_find_all(items, ".//pubDate"))
+  ) |>
+    mutate(
+      pub_utc  = suppressWarnings(lubridate::as_datetime(pub_raw, tz = "UTC")),
+      pub_lima = with_tz(pub_utc, TZ_PERU)
+    ) |>
+    filter(!is.na(pub_lima)) |>
+    select(fuente, titulo, link, pub_lima)
+}
+
+# --------- 3) (Opcional) GDELT Doc API (sin key) ----------
+gdelt_docs <- function(query, maxrecords = 50) {
+  # Docs sobre tu query (noticias; campos incluyen seendate)
+  url <- sprintf("https://api.gdeltproject.org/api/v2/doc/doc?query=%s&mode=ArtList&maxrecords=%d&format=json",
+                 URLencode(query), maxrecords)
+  raw <- tryCatch(jsonlite::fromJSON(url), error = function(e) NULL)
+  if (is.null(raw) || is.null(raw$articles)) return(tibble())
+  
+  as_tibble(raw$articles) |>
+    transmute(
+      fuente   = "GDELT",
+      titulo   = title,
+      link     = url,
+      # seendate viene como "YYYYMMDDHHMMSS"
+      pub_utc  = suppressWarnings(ymd_hms(seendate, tz = "UTC")),
+      pub_lima = with_tz(pub_utc, TZ_PERU)
+    ) |>
+    filter(!is.na(pub_lima))
+}
+
+# --------- 4) Radar de aranceles/medidas ----------
+get_tariff_radar <- function(days_back = 10) {
+  # Keywords + limitar a dominios oficiales en Google News
+  q_news <- paste(
+    '(tariff OR tariffs OR "section 301" OR "trade duties" OR arancel OR aranceles)',
+    '(site:ustr.gov OR site:whitehouse.gov OR site:commerce.gov OR site:treasury.gov OR site:federalregister.gov)'
+  )
+  
+  gnews <- google_news_rss(q_news)
+  freg  <- federal_register_rss("tariff OR tariffs OR Section 301 OR arancel")
+  # opcional respaldo general (no solo oficiales)
+  # gd    <- gdelt_docs('tariff OR tariffs OR "Section 301" sourceCountry:USA', maxrecords = 75)
+  
+  out <- bind_rows(gnews, freg) |>      # añade gd si lo activas
+    mutate(titulo_lc = str_to_lower(titulo)) |>
+    distinct(titulo_lc, .keep_all = TRUE) |>
+    select(-titulo_lc) |>
+    filter(pub_lima >= now(tzone = TZ_PERU) - days(days_back)) |>
+    arrange(desc(pub_lima))
+  
+  out
+}
+
+# --------- 5) USO ----------
+radar_news <- get_tariff_radar(days_back = 10)
+print(radar_news, n = 30)
+
+# Y si quieres unir a tu calendario FRED:
+# radar_total <- dplyr::bind_rows(
+#   dplyr::transmute(radar_news,
+#     tipo = "Titular/Comunicado", evento = titulo,
+#     fecha_lima = pub_lima, nota = fuente, link = link),
+#   dplyr::transmute(macro_cal,  # <- tu tabla de FRED
+#     tipo = "Indicador (programado)", evento = evento,
+#     fecha_lima = fecha_lima, nota = "FRED", link = NA_character_)
+# ) |> arrange(desc(fecha_lima))
+
+
+
