@@ -80,11 +80,11 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
     <div class="enroll-meta">
       <div class="enroll-item">
         <span class="enroll-tag">Inscripciones</span>
-        Hasta <strong>miércoles 15 oct 2025</strong>
+        Hasta <strong>domingo 16 oct 2025</strong>
       </div>
       <div class="enroll-item">
         <span class="enroll-tag">Inicio</span>
-        <strong>lun 20 oct 2025</strong> (3.º lunes de octubre)
+        <strong>lun 17 nov 2025</strong> (3.º lunes de noviembre)
       </div>
       <div class="enroll-item">
         <span class="enroll-tag">Duración</span>
@@ -99,7 +99,7 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
     <!-- PRECIO destacado (separado de fechas) -->
     <aside class="enroll-price">
       <div class="enroll-price__label">Inversión</div>
-      <div class="enroll-price__value"><span class="currency">S/</span> 60</div>
+      <div class="enroll-price__value"><span class="currency">S/</span> 70</div>
       <div class="enroll-price__note">Incluye material y plantillas</div>
     </aside>
   </div>
@@ -108,12 +108,12 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
   <div class="enroll-sessions-wrap">
     <div class="enroll-sessions-title">Sesiones (6)</div>
     <ul class="enroll-sessions">
-      <li><strong>Lun 20 oct 2025</strong> · 7–9 pm</li>
-      <li><strong>Sáb 25 oct 2025</strong> · 2–4 pm</li>
-      <li><strong>Lun 27 oct 2025</strong> · 7–9 pm</li>
-      <li><strong>Sáb 01 oct 2025</strong> · 2–4 pm</li>
-      <li><strong>Lun 03 nov 2025</strong> · 7–9 pm</li>
-      <li><strong>Sáb 08 nov 2025</strong> · 2–4 pm</li>
+      <li><strong>Lun 17 nov 2025</strong> · 7 pm – 9 pm</li>
+      <li><strong>Sáb 21 nov 2025</strong> · 10 am – 12 pm</li>
+      <li><strong>Lun 24 nov 2025</strong> · 7 pm – 9 pm</li>
+      <li><strong>Sáb 29 nov 2025</strong> · 10 am – 12 pm</li>
+      <li><strong>Lun 01 dic 2025</strong> · 7 pm – 9 pm</li>
+      <li><strong>Sab 06 dic 2025</strong> · 10 am – 12 pm</li>
     </ul>
     <div class="enroll-note">
       Total: <strong>12 h</strong> (4 h/semana · 3 semanas). Horario local.

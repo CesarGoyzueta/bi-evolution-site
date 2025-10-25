@@ -24,3 +24,5 @@ Thumbs.db
 *.pbix
 *.zip
 *.mp4
+
+**/*.quarto_ipynb

@@ -1,5 +1,5 @@
 ---
-title: "Plantillas listas para usar"
+title: "🧩 Plantillas listas para decidir"
 page-layout: article
 format:
   html:
@@ -7,11 +7,14 @@ format:
     toc-title: "En esta página"
 ---
 
-## 🧩 Tienda de Plantillas
 
-Arranca rápidamente (no semanas). Consigue **tableros y flujos listos**.  
-Pensadas para **freelancers, equipos pequeños,medianos o grandes y emprendedores** que quieren resultados rápidos y bien hechos.
-Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el dashboard
+Decide en minutos, no en meses. **Tableros y flujos listos** con enfoque **Ejecutivo · Analítico · Evolutivo**.  
+Para **freelancers, equipos y empresas** que quieren resultados rápidos y bien hechos.
+
+::: callout-note
+**Requisito:** Power BI **Pro** para compartir el dashboard.
+:::
+
 
 ```{=html}
 <div class="stat-pills">
@@ -32,6 +35,86 @@ Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el d
   <iframe title="Plantillas - Demo"
           src="https://app.powerbi.com/view?r=eyJrIjoiZDBiYjMxNzgtNWFiYy00YzI2LWIzY2QtZWY2NDhjNmQ5NjcxIiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
           allowfullscreen="true"></iframe>
+</div>
+```
+
+---
+
+## 🔌 Meta (Facebook/Instagram/Messenger) — “más allá de Ads Manager” · **A partir de US$ 33**
+
+**Dolor de lo nativo**
+
+* **Vista fragmentada:** FB, IG y Messenger separados → *comparaciones manuales eternas*.
+* **KPIs volátiles por pantalla:** cambia el header → *no hay lectura ejecutiva consistente*.
+* **Sin embudo ni cruces clave:** no existe **Frecuencia ↔ CTR** → *no detectas saturación*.
+* **Histórico inestable:** ventanas cortas / campañas archivadas → *pierdes contexto al comparar meses*.
+* **Exportitis crónica:** CSV, filtros y “vistas guardadas” → *cada analista ve algo distinto*.
+
+**Cómo lo resuelve tu dashboard (Ejecutivo · Analítico · Evolutivo)**
+
+* **Unifica FB/IG/Messenger** con **KPIs fijos** (Gasto, CTR/CPC ponderados, Clics únicos, “Actualizado el…”).
+* **Embudo real** + **burbuja Frecuencia↔CTR** para detectar **saturación** y eficiencia por dispositivo/creativo.
+* **Histórico consolidado** (meses/años) para comparar picos y estacionalidad.
+* **Filtros en cascada** (fecha, campaña, adset, ad, plataforma, dispositivo, estado, moneda) → **una sola verdad**.
+* **Automático (API + refresh)** y **compartible** con branding → *adopción gerencial inmediata*.
+
+**Tabla mini (dolor → impacto → solución)**
+
+| Dolor                         | Impacto                  | Solución                          |
+| ----------------------------- | ------------------------ | --------------------------------- |
+| Fragmentación FB/IG/Messenger | Comparaciones lentas     | Vista unificada + KPIs fijos      |
+| Sin Frecuencia↔CTR            | Quema de audiencia       | Burbuja de saturación (Analítico) |
+| Histórico corto               | Decisiones “miopes”      | Evolutivo con meses/años          |
+| Exportitis CSV                | Versiones inconsistentes | Refresh diario y filtros globales |
+| Sin sharing ejecutivo         | Baja adopción            | Link/ PDF con branding            |
+
+**Automático y confiable**
+API + refresh diario → sin CSV ni “cada uno vio algo distinto”.
+
+```{=html}
+<div class="enroll-cta">
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Facebook%20%26%20Instagram%20%28Meta%29%20con%20dashboard." target="_blank" rel="noopener">Quiero esta plantilla</a>
+</div>
+```
+
+---
+
+## 📈 GA4 — “más allá del panel nativo” · **A partir de US$ 23**
+
+**Dolores frecuentes (GA4)**
+
+* **KPIs dispersos:** no hay **header único** → *gerencia sin lectura de 10s*.
+* **Embudo escondido** en Exploraciones → *no convive con el resto de visuales*.
+* **Comparativos por país/dispositivo/canal** requieren armar vistas → *trabajo manual y fricción*.
+* **Thresholding / muestreo:** datos limitados por privacidad → *incierto para decisiones finas*.
+* **Retención corta por defecto:** histórico recortado → *pierdes estacionalidad real*.
+
+**Cómo lo resuelve tu dashboard (Ejecutivo · Analítico · Evolutivo)**
+
+* **Header ejecutivo constante:** Usuarios, Nuevos, Sesiones, Tiempo activo, Rebote, Conversiones.
+* **Embudo integrado** (vistas→sesiones→clics→conversiones) + **burbujas engagement↔conversión**.
+* **Sankey** (Dispositivo→SO→Origen→Medio) para entender el flujo de tráfico.
+* **Comparativos por país/dispositivo/canal en el tiempo** sin crear 3 reportes.
+* **Refresh diario** + unión con otros datos (costos, CRM) → *ROI visible y accionable*.
+
+**Tabla mini (dolor → impacto → solución)**
+
+| Dolor                 | Impacto             | Solución                                 |
+| --------------------- | ------------------- | ---------------------------------------- |
+| KPIs dispersos        | Lectura lenta       | Header ejecutivo                         |
+| Embudo aparte         | Diagnóstico parcial | Embudo en el tablero                     |
+| Comparativos manuales | Fricción/errores    | Comparativos listos (dimensión + tiempo) |
+| Thresholding/muestreo | Duda en cifras      | Tendencias + cruces robustos             |
+| Sin unión con costos  | ROI opaco           | Conexión a BI / costos / CRM             |
+
+
+**Automático y confiable**
+Conectores + refresh diario → foco en análisis, no en extracción.
+
+
+```{=html}
+<div class="enroll-cta">
+  <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Google%20Analytics%20%28GA4%29." target="_blank" rel="noopener">Quiero esta plantilla</a>
 </div>
 ```
 
@@ -62,61 +145,9 @@ Es necesario que el cliente tenga una cuenta Pro de Power BI para compartir el d
 
 ---
 
-## 🔌 Flujo API Meta + Python + Reporte (FB/IG Ads) · **A partir de US$ 33**
-
-**Para quién es:** marketing y analítica que necesitan **automatizar** extracción de **Facebook/Instagram Ads** y ver rendimiento por campañas/adsets/ads.
-**Qué resuelve:** pipeline reproducible con **Python + Meta API** y tablero en Power BI listo para usar.
-
-**Lo que te llevas**
-
-* Scripts Python (autenticación, endpoints, paginación, guardado).
-* Estructura de tablas + job scheduler (ej. Databricks/Job Scheduler).
-* PBIX compartido con rendimiento, embudo y creatividades, CPA, CPC, entre otras métricas.
-
-**Resultados en 8–17 días**
-
-* **Adiós Excel manual**: datos frescos automáticamente.
-* Visión unificada de **performance real** por campaña.
-* Capacidad de iterar hipótesis creativas y de segmentación.
-
-```{=html}
-<div class="enroll-cta">
-  <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Facebook%20%26%20Instagram%20%28Meta%29%20con%20dashboard." target="_blank" rel="noopener">Quiero esta plantilla</a>
-</div>
-```
-
----
-
-## 📈 Google Analytics (GA4) en Power BI · **A partir de US$ 23**
-
-**Para quién es:** sitios/e-commerce que quieren **embudos, eventos y campañas** de GA4 en un tablero limpio y accionable.
-**Qué resuelve:** lectura clara de adquisición, comportamiento y conversiones con **buenas prácticas de modelo**.
-
-**Lo que te llevas**
-
-* Conectores/Parámetros documentados (propiedad, rango, dimensiones).
-* Actualización diaria
-* PBIX compartido con **Adquisición, Comportamiento, Conversiones y Embudos**.
-* Tips para refresco y gestión de cuotas.
-* Métricas de calidad (bounce, engagement, tasa de conversión).
-
-**Resultados en 8–17 días**
-
-* Entiendes **qué canal trae ventas** (y cuál solo tráfico).
-* Detectas fricción en el embudo y priorizas mejoras UX.
-* Tomas decisiones de inversión con números, no “suposiciones”.
-
-```{=html}
-<div class="enroll-cta">
-  <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Google%20Analytics%20%28GA4%29." target="_blank" rel="noopener">Quiero esta plantilla</a>
-</div>
-```
-
----
-
 ## 📦 ¿Qué incluye cada compra?
 
-* **Servicio completo** (PBIX / scripts).
+* **Servicio completo** (PBIX / scripts que se requieran).
 * **Guía rápida video** corto.
 * **Soporte** por WhatsApp para dejarlo funcionando.
 
