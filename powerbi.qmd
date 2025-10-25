@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## Explicación
 Este curso está orientado a profesionales que buscan resultados rápidos y aplicables.  
-Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y crearás dashboards listos para presentar.
+Trabajarás con datasets, aprenderás buenas prácticas de modelado y crearás un dashboard con todo lo aprendido desde 0 listo para presentar.
 
 ```{=html}
 <!-- ====== Fechas e Inscripción del Curso (Power BI) ====== -->
