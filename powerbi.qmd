@@ -80,7 +80,7 @@ Trabajarás con datasets reales, aprenderás buenas prácticas de modelado y cre
     <div class="enroll-meta">
       <div class="enroll-item">
         <span class="enroll-tag">Inscripciones</span>
-        Hasta <strong>domingo 16 oct 2025</strong>
+        Hasta <strong>domingo 16 nov 2025</strong>
       </div>
       <div class="enroll-item">
         <span class="enroll-tag">Inicio</span>
