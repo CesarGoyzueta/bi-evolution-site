@@ -402,9 +402,9 @@ Trabajarás con datasets, aprenderás buenas prácticas de modelado y crearás u
 
 En **BI Evolution** respetamos tu privacidad. Los datos personales que compartas (como **nombre, correo electrónico y/o teléfono**) se usarán **exclusivamente** para:
 
-* enviarte **información del curso**, recordatorios y materiales relacionados;
-* gestionar tu **inscripción y facturación** en caso de compra;
-* comunicarte novedades de formación que podrían interesarte.
+* Enviarte **información del curso**, recordatorios y materiales relacionados;
+* Gestionar tu **inscripción y facturación** en caso de compra;
+* Comunicarte novedades de formación que podrían interesarte.
 
 **No vendemos** ni compartimos tus datos con terceros. Podemos usar proveedores de servicios (p. ej., plataformas de email o formularios) que procesan datos en nuestro nombre bajo acuerdos de confidencialidad.
 
