@@ -396,3 +396,20 @@ Trabajarás con datasets, aprenderás buenas prácticas de modelado y crearás u
 ---
 
 [ℹ️ Quiero más info](https://sendfox.com/cesargoyzuetameneses){.btn .btn-primary}
+
+
+## 🛡️ Política de Privacidad
+
+En **BI Evolution** respetamos tu privacidad. Los datos personales que compartas (como **nombre, correo electrónico y/o teléfono**) se usarán **exclusivamente** para:
+
+* enviarte **información del curso**, recordatorios y materiales relacionados;
+* gestionar tu **inscripción y facturación** en caso de compra;
+* comunicarte novedades de formación que podrían interesarte.
+
+**No vendemos** ni compartimos tus datos con terceros. Podemos usar proveedores de servicios (p. ej., plataformas de email o formularios) que procesan datos en nuestro nombre bajo acuerdos de confidencialidad.
+
+**Base legal:** tu **consentimiento** al enviar el formulario o comunicarte con nosotros.
+**Conservación:** guardaremos tus datos **mientras mantengas tu consentimiento o relación con nosotros** y/o **hasta que solicites su eliminación**. Algunos datos podrán conservarse por el **plazo necesario para cumplir obligaciones legales, contables o fiscales** aplicables.
+**Tus derechos:** acceso, rectificación, cancelación y oposición (ARCO). Puedes ejercerlos escribiendo a **[cesargoyzuetameneses@gmail.com](mailto:bievolution.cursos@gmail.com)**.
+**Responsable:** BI Evolution (Perú).
+
