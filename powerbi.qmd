@@ -13,57 +13,57 @@ Aprende el flujo completo: **modelado, storytelling, visualización y publicaci�
 ```
 
 
-## 📊 Opiniones del curso
-```{=html}
-<!-- Banda completa con total de alumnos -->
-<div class="kpi-total">
-  <div class="kpi-total__num kpi-num" data-target="{{< meta metrics.powerbi.total_students >}}">0</div>
-  <div class="kpi-total__label">Alumnos inscritos en total (histórico · curso Power BI)</div>
-</div>
+<!-- ## 📊 Opiniones del curso -->
+<!-- ```{=html} -->
+<!-- <!-- Banda completa con total de alumnos --> 
+<!-- <div class="kpi-total"> -->
+<!--   <div class="kpi-total__num kpi-num" data-target="{{< meta metrics.powerbi.total_students >}}">0</div> -->
+<!--   <div class="kpi-total__label">Alumnos inscritos en total (histórico · curso Power BI)</div> -->
+<!-- </div> -->
 
-<!-- Resultados de encuestas -->
-<div class="kpi-grid kpi-grid--results">
-  <div class="kpi">
-    <div class="kpi-num" data-target="{{< meta metrics.powerbi.sat_general >}}">0</div>
-    <div class="kpi-label">Satisfacción general / 5</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-num" data-target="{{< meta metrics.powerbi.clarity_teacher >}}">0</div>
-    <div class="kpi-label">Claridad del docente / 5</div>
-  </div>
-  <div class="kpi kpi--recommend">
-    <div class="kpi-row">
-      <div class="kpi-num kpi-num-main" data-target="{{< meta metrics.powerbi.recommend_pct >}}">0</div>
-      <div class="kpi-subnum">
-        <span class="kpi-num kpi-num-sub" data-target="{{< meta metrics.powerbi.recommend_score10 >}}">0</span>
-        <span class="kpi-subunit">/10</span>
-      </div>
-    </div>
-    <div class="kpi-label">Recomendarían el curso</div>
-  </div>
-</div>
+<!-- <!-- Resultados de encuestas --> 
+<!-- <div class="kpi-grid kpi-grid--results"> -->
+<!--   <div class="kpi"> -->
+<!--     <div class="kpi-num" data-target="{{< meta metrics.powerbi.sat_general >}}">0</div> -->
+<!--     <div class="kpi-label">Satisfacción general / 5</div> -->
+<!--   </div> -->
+<!--   <div class="kpi"> -->
+<!--     <div class="kpi-num" data-target="{{< meta metrics.powerbi.clarity_teacher >}}">0</div> -->
+<!--     <div class="kpi-label">Claridad del docente / 5</div> -->
+<!--   </div> -->
+<!--   <div class="kpi kpi--recommend"> -->
+<!--     <div class="kpi-row"> -->
+<!--       <div class="kpi-num kpi-num-main" data-target="{{< meta metrics.powerbi.recommend_pct >}}">0</div> -->
+<!--       <div class="kpi-subnum"> -->
+<!--         <span class="kpi-num kpi-num-sub" data-target="{{< meta metrics.powerbi.recommend_score10 >}}">0</span> -->
+<!--         <span class="kpi-subunit">/10</span> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--     <div class="kpi-label">Recomendarían el curso</div> -->
+<!--   </div> -->
+<!-- </div> -->
 
-<div class="kpi-caption">
-  *Métricas de satisfacción basadas en <strong>{{< meta metrics.powerbi.survey_count >}}</strong> encuestas respondidas del curso Power BI.
-</div>
+<!-- <div class="kpi-caption"> -->
+<!--   *Métricas de satisfacción basadas en <strong>{{< meta metrics.powerbi.survey_count >}}</strong> encuestas respondidas del curso Power BI. -->
+<!-- </div> -->
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const els = document.querySelectorAll('.kpi-num');
-  els.forEach(el => {
-    const target = parseFloat(el.getAttribute('data-target'));
-    const isFloat = !Number.isInteger(target);
-    let current = 0, steps = 40, inc = target / steps;
-    const it = setInterval(() => {
-      current += inc;
-      if (current >= target) { current = target; clearInterval(it); }
-      el.textContent = isFloat ? current.toFixed(1) : Math.floor(current);
-      if (el.textContent.endsWith('.0')) el.textContent = el.textContent.replace('.0','');
-    }, 30);
-  });
-});
-</script>
-```
+<!-- <script> -->
+<!-- document.addEventListener('DOMContentLoaded', () => { -->
+<!--   const els = document.querySelectorAll('.kpi-num'); -->
+<!--   els.forEach(el => { -->
+<!--     const target = parseFloat(el.getAttribute('data-target')); -->
+<!--     const isFloat = !Number.isInteger(target); -->
+<!--     let current = 0, steps = 40, inc = target / steps; -->
+<!--     const it = setInterval(() => { -->
+<!--       current += inc; -->
+<!--       if (current >= target) { current = target; clearInterval(it); } -->
+<!--       el.textContent = isFloat ? current.toFixed(1) : Math.floor(current); -->
+<!--       if (el.textContent.endsWith('.0')) el.textContent = el.textContent.replace('.0',''); -->
+<!--     }, 30); -->
+<!--   }); -->
+<!-- }); -->
+<!-- </script> -->
+<!-- ``` -->
 
 
 

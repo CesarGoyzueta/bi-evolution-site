@@ -25,8 +25,8 @@ Domina las herramientas que necesitas y avanza en tu carrera profesional.
 
 ```{=html}
 <div class="stat-pills">
-  <span class="pill pill--count"><strong>{{< meta metrics.global.total_students >}}</strong> inscritos totales</span>
-  <span class="pill pill--ok"><strong>{{< meta metrics.global.recommend_pct >}}%</strong> recomiendan</span>
+  <!-- <span class="pill pill--count"><strong>{{< meta metrics.global.total_students >}}</strong> inscritos totales</span> -->
+  <span class="pill pill--ok"><strong>{{< meta metrics.global.recommend_pct >}}%</strong> recomiendan</span>    
   <span class="pill pill--score"><strong>{{< meta metrics.global.sat_general >}}</strong> / 5 satisfacción</span>
 </div>
 
@@ -112,57 +112,57 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
 
 ```
 
-## 📊 Confían en BI Evolution - Cursos
-```{=html}
-<!-- Banda completa con total de alumnos -->
-<div class="kpi-total">
-  <div class="kpi-total__num kpi-num" data-target="{{< meta metrics.global.total_students >}}">0</div>
-  <div class="kpi-total__label">Alumnos inscritos en total (histórico)</div>
-</div>
+<!-- ## 📊 Confían en BI Evolution - Cursos -->
+<!-- ```{=html} -->
+<!-- <!-- Banda completa con total de alumnos --> 
+<!-- <div class="kpi-total"> -->
+<!--   <div class="kpi-total__num kpi-num" data-target="{{< meta metrics.global.total_students >}}">0</div> -->
+<!--   <div class="kpi-total__label">Alumnos inscritos en total (histórico)</div> -->
+<!-- </div> -->
 
-<!-- Resultados de encuestas -->
-<div class="kpi-grid kpi-grid--results">
-  <div class="kpi">
-    <div class="kpi-num" data-target="{{< meta metrics.global.sat_general >}}">0</div>
-    <div class="kpi-label">Satisfacción general / 5</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-num" data-target="{{< meta metrics.global.clarity_teacher >}}">0</div>
-    <div class="kpi-label">Claridad del docente / 5</div>
-  </div>
-  <div class="kpi kpi--recommend">
-    <div class="kpi-row">
-      <div class="kpi-num kpi-num-main" data-target="{{< meta metrics.global.recommend_pct >}}">0</div>
-      <div class="kpi-subnum">
-        <span class="kpi-num kpi-num-sub" data-target="{{< meta metrics.global.recommend_score10 >}}">0</span>
-        <span class="kpi-subunit">/10</span>
-      </div>
-    </div>
-    <div class="kpi-label">Recomendarían el curso</div>
-  </div>
-</div>
+<!-- <!-- Resultados de encuestas --> 
+<!-- <div class="kpi-grid kpi-grid--results"> -->
+<!--   <div class="kpi"> -->
+<!--     <div class="kpi-num" data-target="{{< meta metrics.global.sat_general >}}">0</div> -->
+<!--     <div class="kpi-label">Satisfacción general / 5</div> -->
+<!--   </div> -->
+<!--   <div class="kpi"> -->
+<!--     <div class="kpi-num" data-target="{{< meta metrics.global.clarity_teacher >}}">0</div> -->
+<!--     <div class="kpi-label">Claridad del docente / 5</div> -->
+<!--   </div> -->
+<!--   <div class="kpi kpi--recommend"> -->
+<!--     <div class="kpi-row"> -->
+<!--       <div class="kpi-num kpi-num-main" data-target="{{< meta metrics.global.recommend_pct >}}">0</div> -->
+<!--       <div class="kpi-subnum"> -->
+<!--         <span class="kpi-num kpi-num-sub" data-target="{{< meta metrics.global.recommend_score10 >}}">0</span> -->
+<!--         <span class="kpi-subunit">/10</span> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--     <div class="kpi-label">Recomendarían el curso</div> -->
+<!--   </div> -->
+<!-- </div> -->
 
-<div class="kpi-caption">
-  *Métricas de satisfacción basadas en <strong>{{< meta metrics.global.survey_count >}}</strong> encuestas respondidas del curso Power BI.
-</div>
+<!-- <div class="kpi-caption"> -->
+<!--   *Métricas de satisfacción basadas en <strong>{{< meta metrics.global.survey_count >}}</strong> encuestas respondidas del curso Power BI. -->
+<!-- </div> -->
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const els = document.querySelectorAll('.kpi-num');
-  els.forEach(el => {
-    const target = parseFloat(el.getAttribute('data-target'));
-    const isFloat = !Number.isInteger(target);
-    let current = 0, steps = 40, inc = target / steps;
-    const it = setInterval(() => {
-      current += inc;
-      if (current >= target) { current = target; clearInterval(it); }
-      el.textContent = isFloat ? current.toFixed(1) : Math.floor(current);
-      if (el.textContent.endsWith('.0')) el.textContent = el.textContent.replace('.0','');
-    }, 30);
-  });
-});
-</script>
-```
+<!-- <script> -->
+<!-- document.addEventListener('DOMContentLoaded', () => { -->
+<!--   const els = document.querySelectorAll('.kpi-num'); -->
+<!--   els.forEach(el => { -->
+<!--     const target = parseFloat(el.getAttribute('data-target')); -->
+<!--     const isFloat = !Number.isInteger(target); -->
+<!--     let current = 0, steps = 40, inc = target / steps; -->
+<!--     const it = setInterval(() => { -->
+<!--       current += inc; -->
+<!--       if (current >= target) { current = target; clearInterval(it); } -->
+<!--       el.textContent = isFloat ? current.toFixed(1) : Math.floor(current); -->
+<!--       if (el.textContent.endsWith('.0')) el.textContent = el.textContent.replace('.0',''); -->
+<!--     }, 30); -->
+<!--   }); -->
+<!-- }); -->
+<!-- </script> -->
+<!-- ``` -->
 
 
 # 🎓 Nuestros Cursos
