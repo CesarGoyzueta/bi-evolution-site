@@ -92,7 +92,7 @@ Trabajarás con datasets, aprenderás buenas prácticas de modelado y crearás u
       </div>
       <div class="enroll-item">
         <span class="enroll-tag">Horario</span>
-        <strong>Lunes 7–9 pm</strong> y <strong>Sábados 2–4 pm</strong>
+        <strong>Lunes 7–9 pm</strong> y <strong>Sábados 10 am – 12 pm</strong>
       </div>
     </div>
 
