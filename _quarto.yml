@@ -3,7 +3,7 @@ project:
   render:
     - index.qmd
     - powerbi.qmd
-    - pronostico.qmd
+    #- pronostico.qmd
     - asesorias.qmd
     - plantillas.qmd
     - faq.qmd
@@ -16,28 +16,45 @@ website:
   navbar:
     logo: logo.png
     left:
+      # Página principal
       - href: index.qmd
         text: Inicio
-      - href: powerbi.qmd
-        text: Curso Power BI
+
+      # Cursos (los tienes comentados por ahora)
+      #- href: powerbi.qmd
+      #  text: Curso Power BI
       # - href: python.qmd
       #   text: Curso Python
       # - href: r-course.qmd
       #   text: Curso R
-      - text: Asesorías & Freelance
+
+      # Servicios
+      - text: Asesorías & Freelance - Dashboards
         href: asesorias.qmd
-      - text: Plantillas
+
+      # Producto "rápido de comprar"
+      - text: Plantillas dashboards
         href: plantillas.qmd
-      - text: Proyecto Forecasting
-        href: pronostico.qmd
-        icon: graph-up
+
+      # Proyecto / laboratorio (lo tienes comentado)
+      #- text: Proyecto Forecasting
+      #  href: pronostico.qmd
+      #  icon: graph-up
+
+      # ✅ NUEVO: Hub de soluciones avanzadas
+      - text: Soluciones (IA & Analítica)
+        href: soluciones.qmd
+
+      # Menú secundario
       - text: Más
         menu:
           - href: faq.qmd
             text: Preguntas frecuentes
           - href: about.qmd
             text: Sobre mí
+
     right:
+      # CTA principal (lead capture)
       - href: https://sendfox.com/cesargoyzuetameneses
         text: Quiero más info
         icon: pencil
@@ -56,14 +73,15 @@ language:
   toc-title-website: "En esta página"
 
 metadata:
-  whatsapp: "#"   # <— valor por defecto (no expone el número)
-  
+  # WhatsApp por defecto en "#", para NO exponer el número en el repo público.
+  # Puedes sobreescribirlo al renderizar/preview:
+  # quarto preview . -M whatsapp="https://wa.me/51963909815"
+  whatsapp: "#"
+
 metadata-files:
+  # Métricas (p.ej. recommend_pct, sat_general, etc.)
   - metrics.yml
-  
 
-
-# quarto preview . -M whatsapp="https://wa.me/51963909815?text=Hola%20C%C3%A9sar"
-
-#{{< env WHATSAPP_LINK >}}
-
+# Nota:
+# Si algún día quieres usar env var:
+# {{< env WHATSAPP_LINK >}}

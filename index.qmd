@@ -165,7 +165,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
 <!-- ``` -->
 
 
-# 🎓 Nuestros Cursos
+<!-- # 🎓 Nuestros Cursos
 
 ```{=html}
 <div class="course-grid">
@@ -174,7 +174,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
     <p>De cero a dashboard ejecutivo: modelado, storytelling,publicación,etc.</p>
     <a class="btn btn-primary" href="powerbi.qmd">Ver temario</a>
   </div>
-  
+   -->
   
   <!--
   <div class="course-card">
@@ -188,8 +188,8 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
     <a class="btn btn-primary" href="r-course.qmd">Ver temario</a>
   </div>
   -->
-</div>
-```
+<!-- </div>
+``` -->
 
 
 
