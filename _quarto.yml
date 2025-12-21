@@ -6,6 +6,7 @@ project:
     #- pronostico.qmd
     - asesorias.qmd
     - plantillas.qmd
+    - soluciones.qmd
     - faq.qmd
     - about.qmd
   resources:
@@ -27,7 +28,9 @@ website:
       #   text: Curso Python
       # - href: r-course.qmd
       #   text: Curso R
-
+      - text: Soluciones (IA & Analítica)
+        href: soluciones.qmd
+        
       # Servicios
       - text: Asesorías & Freelance - Dashboards
         href: asesorias.qmd
@@ -42,8 +45,7 @@ website:
       #  icon: graph-up
 
       # ✅ NUEVO: Hub de soluciones avanzadas
-      - text: Soluciones (IA & Analítica)
-        href: soluciones.qmd
+      
 
       # Menú secundario
       - text: Más

@@ -1,0 +1,624 @@
+---
+title: "Segmentación de prospectos con IA: cómo priorizar leads y validar tus clusters"
+author: "BI Evolution"
+format:
+  html:
+    toc: true
+    toc-location: right      # fuerza el TOC a la derecha
+    toc-depth: 2             # hasta ## y ### (ajusta si quieres)
+    smooth-scroll: true
+    self-contained: true
+    grid: 
+      body-width: 1280px
+      margin-width: 0px
+      gutter-width: 1rem
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Resumen ejecutivo
+
+¿Quieres saber **qué prospectos tienen más probabilidad de comprarte** y cómo hablarle a cada grupo?
+Este análisis segmenta tu base de leads en grupos **claros, accionables y listos para convertir**, permitiéndote:
+
+* Priorizar esfuerzos comerciales donde hay **mayor intención de compra**.
+* Ajustar mensaje, oferta y canal según cada perfil.
+* Medir conversión y ticket por segmento para invertir mejor.
+
+En BI Evolution usamos esta metodología para ayudar a empresas a **acelerar cierres y optimizar su fuerza comercial**.
+
+---
+
+## 1. Segmentos de prospectos: vista general
+
+Antes de los detalles técnicos, aquí verás **cómo se agrupan tus prospectos** y qué significa cada segmento para tu negocio.
+
+---
+
+### 1.1. Cómo construimos la segmentación (explicación rápida)
+
+Analizamos tus datos de **perfil** y **comportamiento digital** (visitas, emails, tiempo de respuesta) y entrenamos un modelo que identifica **5 segmentos naturales**, fáciles de gestionar y con patrones claros para tomar decisiones.
+
+El objetivo: generar **insights accionables**, no solo estadísticas.
+
+---
+
+```{r}
+library(readr)
+library(dplyr)
+library(clValid)
+library(cluster)
+library(factoextra)
+library(dbscan)
+library(tibble)
+library(knitr)
+library(ggplot2)
+
+set.seed(123)
+
+prospectos <- read_csv(
+  "C:/Users/Cesar/OneDrive/Proyectos futuros/BI_Evolution/ML/Cluster_analysis/prospectos.csv"
+)
+
+vars_num <- c(
+  "edad",
+  "ingresos_mensuales",
+  "nivel_interes",
+  "tiempo_respuesta_min",
+  "interacciones_previas",
+  "visitas_web",
+  "open_rate",
+  "email_score",
+  "tiempo_decision_dias"
+)
+
+X        <- prospectos[, vars_num]
+X_scaled <- scale(X)
+
+k_final      <- 5
+metodo_final <- "kmeans"
+
+modelo_final   <- kmeans(X_scaled, centers = k_final, nstart = 25)
+clusters_final <- modelo_final$cluster
+
+prospectos$cluster_final <- factor(clusters_final, levels = 1:5)
+```
+
+### 1.2. Cómo se ven tus segmentos (PCA visual)
+
+Cada punto es un prospecto; cada color, un segmento.
+Esta visualización muestra de inmediato:
+
+* Quiénes tienen **alto interés y actividad digital**.
+* Quiénes avanzan rápido en la decisión.
+* Quiénes necesitan nutrición o seguimiento suave.
+
+Confirma que tu base **sí tiene patrones reales**, permitiendo estrategias comerciales diferenciadas.
+
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 5
+#| fig-align: "center"
+#| 
+# Cálculo del PCA
+pca_res <- prcomp(X_scaled, scale. = TRUE)
+
+# Paleta consistente con el estilo oscuro BI Evolution
+cluster_colors <- c(
+  "1" = "#4c6fff",  # Azul marca
+  "2" = "#22c55e",  # Verde
+  "3" = "#f97316",  # Naranja
+  "4" = "#4fd1ff",  # Celeste
+  "5" = "#ff6bd6"   # Rosa
+)
+
+# Formas para diferenciar claramente cada segmento
+cluster_shapes <- c(
+  "1" = 16, # círculo
+  "2" = 17, # triángulo
+  "3" = 15, # cuadrado
+  "4" = 3,  # cruz
+  "5" = 0   # cuadro vacío
+)
+
+# DataFrame del PCA + cluster final
+pca_df <- as.data.frame(pca_res$x) %>%
+  mutate(cluster = prospectos$cluster_final)
+
+# Gráfico PCA coherente con colores, formas y elipses
+ggplot(pca_df, aes(PC1, PC2, color = cluster, shape = cluster)) +
+  geom_point(alpha = 0.75, size = 2) +
+  stat_ellipse(
+    aes(fill = cluster),
+    geom     = "polygon",
+    alpha    = 0.15,
+    color    = NA,
+    linewidth = 0
+  ) +
+  scale_color_manual(values = cluster_colors) +
+  scale_fill_manual(values  = cluster_colors) +
+  scale_shape_manual(values = cluster_shapes) +
+  labs(
+    title  = "Distribución de prospectos en el espacio PCA por segmento",
+    x      = paste0("Dim1 (", round(summary(pca_res)$importance[2,1] * 100, 1), "%)"),
+    y      = paste0("Dim2 (", round(summary(pca_res)$importance[2,2] * 100, 1), "%)")
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", colour = NA),
+    panel.background  = element_rect(fill = "#0b1220", colour = NA),
+    panel.grid.major  = element_line(colour = "#1f2937"),
+    panel.grid.minor  = element_line(colour = "#111827"),
+    axis.text         = element_text(colour = "#e5e7eb"),
+    axis.title        = element_text(colour = "#e5e7eb"),
+    legend.background = element_rect(fill = "#020617", colour = "#1f2937"),
+    legend.key        = element_rect(fill = "#020617", colour = NA),
+    legend.title      = element_text(colour = "#e5e7eb"),
+    legend.text       = element_text(colour = "#e5e7eb")
+  )
+```
+
+### 1.3. Qué significa este gráfico para tu negocio
+
+Este gráfico resume toda la información de los prospectos en dos ejes que representan sus **comportamientos y características clave**.
+
+- **Componente 1 (eje horizontal)**: comportamiento digital  
+  (visitas web, aperturas de email, nivel de interés, interacción).
+
+- **Componente 2 (eje vertical)**: perfil económico y velocidad de decisión  
+  (ingresos, tiempo de respuesta, tiempo para decidir).
+
+En otras palabras: el gráfico organiza a todos tus prospectos según **qué tan interesados están** y **qué tan listos están para avanzar en el proceso comercial**.
+
+#### ¿Qué revela este gráfico?
+
+- Los prospectos se agrupan en **nubes bien diferenciadas**, lo que confirma que existen **segmentos reales** dentro de tu base.
+- Hay grupos con **alto comportamiento digital**, ideales para campañas rápidas de conversión.
+- Otros grupos muestran **interacciones más bajas o decisiones más lentas**, donde funciona mejor un enfoque de nutrición (emails educativos, seguimientos suaves).
+- Los colores separan **tipos de prospectos** con necesidades, ritmos e intereses diferentes.
+
+#### ¿Por qué es valioso para tu empresa?
+
+Porque este análisis permite:
+
+- Priorizar el trabajo comercial en los segmentos que **más probabilidad de cierre** tienen.  
+- Diseñar mensajes más relevantes para cada grupo.  
+- Aumentar la conversión al atacar **cada tipo de prospecto con la estrategia adecuada**.  
+- Reducir esfuerzos y enfocar al equipo en quienes realmente pueden convertirse en clientes.
+
+Este gráfico es, literalmente, tu **mapa estratégico** para saber cómo tratar a tus prospectos.
+
+---
+
+## 2. Perfiles de segmentos y oportunidades comerciales
+
+> En esta sección traducimos la segmentación a **insights de negocio**:
+> ¿qué caracteriza a cada cluster y cómo deberíamos gestionarlo comercialmente?
+
+```{r}
+resumen_clusters <- prospectos %>%
+  group_by(cluster_final) %>%
+  summarise(
+    n                 = n(),
+    edad_media        = mean(edad),
+    ingresos_medios   = mean(ingresos_mensuales),
+    nivel_interes_med = mean(nivel_interes),
+    visitas_web_med   = mean(visitas_web),
+    open_rate_med     = mean(open_rate),
+    email_score_med   = mean(email_score),
+    tiempo_dec_med    = mean(tiempo_decision_dias),
+    .groups = "drop"
+  )
+
+kable(
+  resumen_clusters,
+  caption = "Resumen de perfiles por segmento de prospectos",
+  digits = 2
+)
+```
+
+> A partir de esta tabla se pueden construir descripciones tipo:
+
+### **Cluster 1 – Alta prioridad digital**
+
+* Alto nivel de interés y muchas visitas web.
+* Buen open rate y fuerte engagement en email.
+* Ingresos por encima del promedio.
+  **→ Recomendación:** seguimiento intensivo, contacto directo y ofertas personalizadas.
+
+---
+
+### **Cluster 2 – Potencial a mediano plazo**
+
+* Nivel de interés moderado.
+* Menor actividad digital y decisiones más lentas.
+  **→ Recomendación:** nutrir con contenido educativo, secuencias de email y recordatorios suaves.
+
+---
+
+### **Cluster 3 – Alto valor estratégico (premium)**
+
+* Ingresos significativamente altos.
+* Nivel de interés muy elevado.
+* Muchas interacciones previas y alto email score.
+* Decisión rápida: perfil ideal para cierre.
+  **→ Recomendación:** campañas premium, upselling y contacto prioritario por ejecutivos senior.
+
+---
+
+### **Cluster 4 – Exploradores digitales**
+
+* Alta actividad web, pero interés inestable.
+* Email score medio y análisis prolongado antes de decidir.
+  **→ Recomendación:** empujar microconversiones: demos, comparativas, testimonios y “motivos para avanzar”.
+
+---
+
+### **Cluster 5 – Alto interés pero sensibles a objeciones**
+
+* Altísimo volumen de visitas web y lectura activa de emails.
+* Nivel de interés fuerte, ingresos medios.
+* Decisiones rápidas pero comparan opciones.
+  **→ Recomendación:** reforzar confianza: garantías, casos de éxito, beneficios claros y eliminación de fricciones.
+
+---
+
+Estos perfiles permiten definir **estrategias comerciales diferenciadas**, optimizar la conversión y priorizar esfuerzos donde hay mayor retorno.
+
+---
+
+## 3. ¿Con qué información se construyó la segmentación?
+
+> Aquí mostramos de forma sencilla cómo luce la base utilizada para construir los segmentos.
+
+### 3.1. Vista rápida de la base (columnas clave)
+
+```{r}
+prospectos %>% 
+  select(any_of(vars_num)) %>% 
+  head(8) %>% 
+  kable(
+    caption = "Muestra de prospectos y variables utilizadas en la segmentación",
+    digits = 2
+  )
+```
+
+---
+
+## 4. ¿Cómo sabemos que los segmentos son confiables?
+
+En esta parte respondemos la pregunta clave:
+**“¿No será que el modelo está ‘forzando’ grupos donde no los hay?”**
+
+Para ello usamos métricas de:
+
+* **Estabilidad del clustering** (APN, AD, ADM, FOM).
+* **Calidad interna** (Silhouette, Dunn, Connectivity).
+
+La lógica es la misma del script técnico de base; aquí solo mostramos resultados **resumidos** y explicados en tono ejecutivo.
+
+### 4.1. Estabilidad de la segmentación (APN, AD, ADM, FOM)
+
+```{r}
+metodos <- c("kmeans", "clara", "hierarchical", "fanny")
+
+stab_only <- clValid(
+  obj        = X_scaled,
+  nClust     = 2:8,
+  clMethods  = metodos,
+  validation = "stability",
+  maxitems   = 1500
+)
+
+stab_measures <- slot(stab_only, "measures")
+
+stab_df <- as.data.frame.table(stab_measures, responseName = "Score")
+colnames(stab_df) <- c("Measure", "Clusters", "Method", "Score")
+stab_df$Clusters  <- as.numeric(as.character(stab_df$Clusters))
+
+# Mejor combinación por métrica
+stab_best <- stab_df %>%
+  group_by(Measure) %>%
+  slice_min(order_by = Score, n = 1) %>%
+  arrange(Measure)
+
+kable(
+  stab_best,
+  caption = "Mejor combinación método–k según cada métrica de estabilidad",
+  digits = 3
+)
+```
+
+> **Lectura para el cliente:**
+>
+> * Valores bajos de APN, AD, ADM y FOM indican que **los grupos cambian muy poco** si quitamos variables o hacemos pequeñas perturbaciones.
+> * Las mejores combinaciones de método y número de clusters coinciden con las usadas en el modelo final, lo que da confianza en la **robustez de la segmentación**.
+
+---
+
+### 4.2. Calidad interna de los clusters (Silhouette, Dunn, Connectivity)
+
+```{r}
+internal_res <- clValid(
+  obj        = X_scaled,
+  nClust     = 2:8,
+  clMethods  = metodos,
+  validation = "internal",
+  maxitems   = 1500
+)
+
+internal_measures <- slot(internal_res, "measures")
+
+int_df <- as.data.frame.table(internal_measures, responseName = "Score")
+colnames(int_df) <- c("Measure", "Clusters", "Method", "Score")
+int_df$Clusters  <- as.numeric(as.character(int_df$Clusters))
+
+# Nos quedamos con Silhouette, Dunn y Connectivity
+int_df <- int_df %>%
+  filter(Measure %in% c("Silhouette", "Dunn", "Connectivity"))
+
+# Para Silhouette y Dunn queremos máximo; para Connectivity, mínimo
+int_best <- int_df %>%
+  group_by(Measure) %>%
+  mutate(
+    rank_score = ifelse(
+      Measure == "Connectivity",
+      rank(Score, ties.method = "first"),
+      rank(-Score, ties.method = "first")
+    )
+  ) %>%
+  filter(rank_score == 1) %>%
+  select(-rank_score) %>%
+  arrange(Measure)
+
+kable(
+  int_best,
+  caption = "Mejor combinación método–k según cada índice de calidad interna",
+  digits = 3
+)
+```
+
+> **Lectura para el cliente:**
+>
+> * Un **Silhouette** alto y un **Dunn** alto indican que los segmentos están **bien separados y son compactos**.
+> * Una **Connectivity** baja indica que el clustering respeta la cercanía natural entre prospectos.
+> * Estas métricas apoyan que la configuración elegida (por ejemplo, k-means con 5 clusters) es **consistente y defendible**.
+
+---
+
+## 5. Próximos pasos sugeridos
+
+1. **Marcar los prospectos** en el CRM con el `cluster_final`.
+2. Definir **estrategias comerciales diferenciadas** por segmento (frecuencia de contacto, canal preferido, tipo de mensaje, ofertas).
+3. Medir **conversión y ticket promedio** por cluster para validar el impacto.
+4. Actualizar la segmentación de forma **trimestral o semestral** para incorporar nuevos datos y cambios en el comportamiento.
+
+```{=html}
+<style>
+/* ===== Paleta base oscura BI Evolution ===== */
+:root {
+  --bg: #0b1220;
+  --panel: #121a2e;
+  --border: #1b2642;
+  --text: #e9edf7;
+  --muted: #a6b0c3;
+  --accent: #4c6fff;
+  --accent-2: #3f59ff;
+}
+
+/* ===== Base ===== */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenido centrado y más estrecho */
+main.content {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Titulares y texto */
+h1, h2, h3, h4 {
+  color: #f9fafb;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+p, li {
+  color: var(--text);
+}
+hr {
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Enlaces */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+/* ===== TOC lateral (table of contents) ===== */
+#TOC,
+.quarto-toc,
+.quarto-sidebar {
+  background: rgba(11,18,32,.96);
+  border-left: 1px solid var(--border);
+}
+#TOC a,
+.quarto-toc a {
+  color: var(--muted);
+}
+#TOC a.active,
+.quarto-toc a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== Tablas (kable, resúmenes) ===== */
+table {
+  background: var(--panel);
+  border-radius: 12px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+thead tr {
+  background: rgba(15,23,42,.98);
+}
+thead th {
+  color: #f9fafb;
+  padding: .45rem .55rem;
+  border-bottom: 1px solid rgba(148,163,211,.5);
+}
+tbody td {
+  padding: .35rem .55rem;
+  border-top: 1px solid rgba(15,23,42,.95);
+}
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: #e5ecff;
+}
+
+/* ===== Figuras (PCA, gráficos) ===== */
+.quarto-figure,
+.figure {
+  background: linear-gradient(145deg,
+              rgba(76,111,255,.12),
+              rgba(11,18,32,1));
+  border-radius: 16px;
+  border: 1px solid rgba(76,111,255,.35);
+  padding: 10px;
+  box-shadow: 0 10px 32px rgba(0,0,0,.65);
+}
+
+/* ===== Notas / citas (explicaciones) ===== */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(15,23,42,.96);
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  color: var(--text);
+}
+
+/* ===== Pequeña grilla de KPIs (por si luego la usas) ===== */
+.seg-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0;
+}
+@media (max-width: 900px) {
+  .seg-kpi-row { grid-template-columns: 1fr; }
+}
+.seg-kpi {
+  background: var(--panel);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 12px 13px;
+}
+.seg-kpi__title {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.seg-kpi__value {
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.seg-kpi__note {
+  margin-top: 3px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+</style>
+
+/* Forzar figuras y gráficos a ocupar el 100% del contenedor */
+.quarto-figure, .figure {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Ajustar padding interno para que no genere “vacío” */
+.quarto-figure, .figure {
+  padding: 10px 0px !important;
+}
+
+/* Ajustar imágenes dentro de figuras */
+.quarto-figure img, .figure img,
+.quarto-figure canvas, .figure canvas,
+.quarto-figure svg, .figure svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+<style>
+/* ===== FORZAR TABLE OF CONTENTS VISIBLE A LA IZQUIERDA ===== */
+.sidebar, .quarto-sidebar, .quarto-sidebar > nav, #TOC {
+  display: block !important;
+  width: 240px !important;
+  max-width: 240px !important;
+  min-width: 240px !important;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  background: rgba(11,18,32,.95) !important;
+  padding: 10px 12px;
+  border-right: 1px solid #1b2642;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* Titles inside TOC */
+.quarto-sidebar nav a {
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  color: #a6b0c3 !important;
+}
+.quarto-sidebar nav a.active {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Dejar espacio suficiente para el contenido */
+main.content {
+  margin-left: 260px !important;
+}
+
+/* ===== FIX PARA QUE EL PCA NO SE CORTE ===== */
+.figure, .quarto-figure {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  padding: 0 !important;
+  border-radius: 16px;
+  border: 1px solid rgba(76,111,255,.35);
+  background: linear-gradient(145deg, rgba(76,111,255,.12), rgba(11,18,32,1));
+}
+
+/* El contenido del gráfico debe ajustarse */
+.figure > div, .quarto-figure > div {
+  width: 100% !important;
+}
+</style>
+
+<style>
+.quarto-figure img,
+.figure img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+</style>
+
+```

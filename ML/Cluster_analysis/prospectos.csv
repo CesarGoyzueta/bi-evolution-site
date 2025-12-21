@@ -1,0 +1,1001 @@
+id_prospecto,edad,genero,ingresos_mensuales,canal_origen,interes_producto,nivel_interes,tiempo_respuesta_min,interacciones_previas,visitas_web,open_rate,email_score,tiempo_decision_dias,estado_embudo
+1,34,F,2841,Instagram,Servicio C,3,60,0,3,0.580574178348751,76,13,Interesado
+2,39,M,3291,Instagram,Servicio A,4,11,1,7,0.5137993839789771,79,1,Interesado
+3,42,F,2180,Instagram,Servicio C,2,66,0,2,0.23013064469661612,46,28,Contacto Nuevo
+4,46,F,4521,Google Ads,Servicio A,3,32,4,5,0.560976522929295,72,32,Interesado
+5,44,M,5796,Referido,Servicio A,4,10,5,9,0.8656736951510462,91,3,Oportunidad
+6,39,M,7483,Referido,Servicio A,4,9,6,8,0.8909877439179793,90,1,Oportunidad
+7,47,F,7732,Referido,Servicio A,4,12,6,7,0.904275790923626,92,2,Oportunidad
+8,23,F,2250,Instagram,Servicio A,3,4,3,8,0.8492769386866681,89,5,Interesado
+9,44,M,3317,Google Ads,Servicio A,4,39,5,6,0.6296574767951272,76,34,Interesado
+10,24,M,2912,Facebook,Servicio C,1,73,0,2,0.2718097479135204,43,37,Contacto Nuevo
+11,39,M,4931,Referido,Servicio Premium,4,11,5,6,0.9009119182702463,93,3,Oportunidad
+12,26,M,2938,Google Ads,Servicio B,3,10,3,11,0.7102794562547693,82,2,Interesado
+13,44,M,1763,Instagram,Servicio C,1,67,0,2,0.40945643382081137,61,38,Contacto Nuevo
+14,32,F,2853,Facebook,Servicio B,2,55,0,3,0.6850445920441639,78,13,Contacto Nuevo
+15,39,F,7618,Referido,Servicio Premium,4,11,5,9,0.9793380169440365,99,3,Oportunidad
+16,52,F,6609,Referido,Servicio Premium,5,5,6,8,0.8791772743387659,97,1,Oportunidad
+17,34,M,1828,Instagram,Servicio B,2,63,2,3,0.48690941812813293,63,10,Contacto Nuevo
+18,29,F,3169,Google Ads,Servicio A,3,22,2,4,0.6970425309046906,71,29,Interesado
+19,25,F,2774,Facebook,Servicio B,3,35,0,6,0.38831410101905883,59,8,Interesado
+20,27,M,1723,Instagram,Servicio A,2,32,1,5,0.652572508107572,55,13,Interesado
+21,46,F,5139,Google Ads,Servicio A,3,30,2,4,0.7174026656727344,79,18,Interesado
+22,40,F,6554,Referido,Servicio Premium,4,12,3,8,0.964279292429657,99,2,Oportunidad
+23,30,M,3193,Facebook,Servicio C,3,65,1,7,0.5276137068162926,61,9,Interesado
+24,32,F,3190,Facebook,Servicio A,2,69,2,4,0.5719019960848639,78,10,Interesado
+25,25,M,1913,Facebook,Servicio B,2,61,1,6,0.5714176625968819,59,13,Interesado
+26,39,F,1683,Instagram,Servicio C,2,86,0,2,0.3770430221613204,61,36,Contacto Nuevo
+27,44,F,7252,Referido,Servicio A,5,10,5,7,0.9632997847998089,93,3,Oportunidad
+28,30,F,5428,Google Ads,Servicio B,3,25,2,5,0.6243667058477449,88,25,Interesado
+29,53,M,4453,Google Ads,Servicio B,3,18,2,6,0.6402774048659351,76,29,Interesado
+30,45,F,6323,Referido,Servicio A,4,6,4,8,0.8855237385097672,90,2,Oportunidad
+31,39,F,3988,Google Ads,Servicio A,3,30,2,6,0.7429040944540417,88,19,Interesado
+32,37,M,7828,Referido,Servicio A,5,8,5,7,0.8777036115232608,90,1,Oportunidad
+33,46,F,5794,Referido,Servicio A,5,13,6,9,0.8741183170414057,90,1,Oportunidad
+34,42,F,2590,Instagram,Servicio B,4,6,3,8,0.7788792397524096,81,5,Interesado
+35,24,F,3581,Instagram,Servicio A,4,9,1,11,0.73994785053014,73,1,Interesado
+36,25,F,2216,Instagram,Servicio C,1,81,0,2,0.28148136598801876,41,27,Contacto Nuevo
+37,30,F,3240,Facebook,Servicio A,3,59,1,5,0.5932436601442899,55,19,Interesado
+38,43,F,5278,Referido,Servicio A,4,10,3,6,0.8633630125840466,95,2,Oportunidad
+39,47,M,3713,Google Ads,Servicio B,4,32,5,4,0.6535423286769423,70,23,Interesado
+40,32,F,3452,Facebook,Servicio B,3,68,1,4,0.591312739198043,72,9,Interesado
+41,46,M,6395,Referido,Servicio Premium,4,5,5,7,0.9273209628590017,98,3,Oportunidad
+42,28,F,2215,Instagram,Servicio B,3,49,1,5,0.5195394566509142,65,11,Interesado
+43,38,F,7885,Referido,Servicio A,5,5,5,6,0.8713199325286346,91,2,Oportunidad
+44,33,M,3547,Instagram,Servicio A,3,5,2,8,0.841552839536696,73,5,Interesado
+45,27,M,3154,Facebook,Servicio C,3,47,1,4,0.5786420567330655,59,15,Contacto Nuevo
+46,54,M,5971,Google Ads,Servicio B,3,17,2,4,0.6336799577335306,84,15,Interesado
+47,26,F,3340,Instagram,Servicio A,2,53,0,6,0.6073726045330134,74,19,Interesado
+48,45,M,5994,Google Ads,Servicio B,3,18,3,4,0.629103033969803,73,16,Interesado
+49,42,F,5979,Google Ads,Servicio B,3,24,4,6,0.606770905721729,81,17,Interesado
+50,47,F,6568,Referido,Servicio Premium,4,5,4,9,0.9026903238011467,96,2,Oportunidad
+51,33,F,2333,Google Ads,Servicio A,3,7,2,10,0.6530078860858892,91,4,Interesado
+52,48,M,1213,Instagram,Servicio C,1,84,0,2,0.34823771285873184,45,36,Contacto Nuevo
+53,23,M,3252,Instagram,Servicio A,3,10,1,8,0.8092983843812633,91,6,Interesado
+54,37,F,3628,Google Ads,Servicio B,4,11,1,10,0.5870499954056705,80,4,Interesado
+55,28,M,3575,Google Ads,Servicio B,4,39,4,4,0.6213464106080003,81,19,Interesado
+56,38,M,3655,Google Ads,Servicio B,4,8,3,10,0.5119657180787054,83,2,Interesado
+57,43,M,5816,Referido,Servicio A,5,3,5,8,0.9087858736768466,94,3,Oportunidad
+58,39,M,5508,Referido,Servicio Premium,5,14,4,9,0.9782619159846501,97,3,Oportunidad
+59,45,F,4716,Referido,Servicio A,4,11,5,8,0.8830491953866741,91,3,Oportunidad
+60,31,F,3375,Facebook,Servicio B,2,45,1,4,0.6065146214194697,62,9,Contacto Nuevo
+61,20,M,3299,Facebook,Servicio B,2,51,2,4,0.5815713226299013,77,17,Contacto Nuevo
+62,29,F,1613,Instagram,Servicio A,3,37,2,3,0.36063547089389286,62,16,Interesado
+63,23,M,2224,Facebook,Servicio C,1,75,0,2,0.29846610141353963,44,28,Contacto Nuevo
+64,21,F,2203,Instagram,Servicio C,2,62,0,3,0.6547637076180406,63,12,Contacto Nuevo
+65,28,M,2847,Instagram,Servicio A,3,33,1,5,0.6327460796794404,72,16,Contacto Nuevo
+66,46,M,4354,Google Ads,Servicio A,4,36,4,4,0.6156762455770163,70,26,Interesado
+67,41,M,5416,Referido,Servicio Premium,5,11,3,6,0.9209392955044116,92,2,Oportunidad
+68,45,M,2066,Instagram,Servicio C,2,73,0,2,0.3898360819807165,48,22,Contacto Nuevo
+69,42,F,5973,Referido,Servicio A,5,7,3,7,0.8641593844400751,94,2,Oportunidad
+70,37,M,2974,Google Ads,Servicio B,3,13,3,11,0.7614065006475379,81,3,Interesado
+71,30,M,1220,Facebook,Servicio C,1,82,0,2,0.3618686785386508,54,23,Contacto Nuevo
+72,45,M,4823,Referido,Servicio Premium,4,8,5,7,0.8716231090066084,93,1,Oportunidad
+73,54,F,6192,Referido,Servicio Premium,5,5,6,9,0.8616514240901425,91,2,Oportunidad
+74,36,M,1843,Instagram,Servicio C,1,89,0,1,0.23080566354304152,51,29,Contacto Nuevo
+75,26,M,1358,Facebook,Servicio C,1,83,0,1,0.3418280549072259,49,23,Contacto Nuevo
+76,39,F,2998,Instagram,Servicio C,1,71,0,2,0.3316247985384453,54,32,Contacto Nuevo
+77,42,F,2341,Facebook,Servicio C,2,87,0,1,0.3984359625951291,54,29,Contacto Nuevo
+78,44,F,6699,Referido,Servicio A,4,12,5,6,0.8892678652385233,97,3,Oportunidad
+79,23,F,2690,Instagram,Servicio A,3,48,1,3,0.49838068451965567,59,8,Contacto Nuevo
+80,46,F,5172,Referido,Servicio Premium,4,3,4,9,0.8905953321863435,92,3,Oportunidad
+81,32,F,2968,Google Ads,Servicio A,3,11,2,6,0.8457249320752105,72,5,Interesado
+82,45,M,4577,Google Ads,Servicio B,3,21,2,4,0.5531642183531166,83,33,Interesado
+83,23,F,2625,Instagram,Servicio C,2,65,0,3,0.5585127548661348,63,15,Contacto Nuevo
+84,40,M,7546,Referido,Servicio A,4,3,6,7,0.937048340097415,94,2,Oportunidad
+85,27,F,1566,Instagram,Servicio A,3,32,1,4,0.6979487764274086,56,13,Contacto Nuevo
+86,22,F,2994,Instagram,Servicio B,3,65,0,7,0.5722360159568616,69,16,Contacto Nuevo
+87,35,F,1645,Instagram,Servicio C,1,82,0,2,0.20030916993985237,55,31,Contacto Nuevo
+88,35,F,5562,Google Ads,Servicio B,4,27,4,6,0.5804832026660836,74,34,Interesado
+89,29,F,2363,Instagram,Servicio A,4,7,2,11,0.5311935512406059,76,1,Interesado
+90,40,F,1959,Instagram,Servicio B,2,43,0,4,0.46958607566392224,63,12,Interesado
+91,43,M,6366,Referido,Servicio Premium,5,9,4,9,0.9635337660241002,95,3,Oportunidad
+92,41,M,1342,Instagram,Servicio C,2,64,0,2,0.25212762858933396,54,36,Contacto Nuevo
+93,29,F,1793,Facebook,Servicio C,1,89,0,2,0.33312029813985655,53,25,Contacto Nuevo
+94,30,F,3947,Google Ads,Servicio B,3,29,2,6,0.5847049029973017,71,17,Interesado
+95,37,F,2991,Instagram,Servicio C,1,61,0,1,0.31983861003446296,40,23,Contacto Nuevo
+96,33,M,2633,Instagram,Servicio B,3,32,2,3,0.6388202685954488,67,12,Interesado
+97,35,M,3963,Google Ads,Servicio A,3,18,2,4,0.7372898347767322,89,32,Interesado
+98,25,F,3384,Facebook,Servicio B,3,52,2,5,0.5475543817376088,56,17,Contacto Nuevo
+99,36,F,5189,Referido,Servicio Premium,4,10,5,6,0.9059438330761598,98,3,Oportunidad
+100,43,F,4689,Referido,Servicio A,4,9,6,9,0.8580979337569081,93,3,Oportunidad
+101,42,M,6648,Referido,Servicio Premium,5,6,3,9,0.9352440774330153,95,3,Oportunidad
+102,45,M,4508,Google Ads,Servicio B,3,17,4,6,0.6328259505057854,83,21,Interesado
+103,24,M,2097,Facebook,Servicio B,2,31,1,5,0.49650321756837734,60,12,Interesado
+104,50,F,4911,Google Ads,Servicio A,3,15,2,4,0.7168606731909535,82,32,Interesado
+105,26,M,2671,Google Ads,Servicio A,3,3,3,10,0.7955249789588656,92,5,Interesado
+106,23,F,3087,Instagram,Servicio B,3,64,0,7,0.4880666974995123,60,17,Contacto Nuevo
+107,29,M,2124,Facebook,Servicio A,3,38,0,3,0.6331092115727148,70,8,Interesado
+108,37,F,1431,Facebook,Servicio C,2,70,0,1,0.3648384805514457,61,27,Contacto Nuevo
+109,36,M,3436,Instagram,Servicio C,3,48,0,6,0.529277672284436,59,15,Contacto Nuevo
+110,42,M,4586,Referido,Servicio Premium,4,5,6,8,0.8515741017805354,94,1,Oportunidad
+111,27,F,3450,Instagram,Servicio C,3,44,2,5,0.41481844875361373,65,17,Contacto Nuevo
+112,39,F,6537,Referido,Servicio A,5,12,4,8,0.8606823167719355,90,3,Oportunidad
+113,29,F,2359,Instagram,Servicio A,4,4,3,6,0.5893947196398268,73,6,Interesado
+114,28,M,1416,Instagram,Servicio C,1,89,0,1,0.44212219439859596,60,23,Contacto Nuevo
+115,39,M,4511,Google Ads,Servicio B,4,27,2,6,0.6541536283668425,71,25,Interesado
+116,31,M,2272,Google Ads,Servicio B,3,11,1,8,0.6925321791603546,94,2,Interesado
+117,41,F,1613,Instagram,Servicio C,1,71,0,2,0.32401195966997165,56,22,Contacto Nuevo
+118,41,M,5279,Referido,Servicio Premium,4,4,3,6,0.8787382382889847,97,2,Oportunidad
+119,29,F,2646,Instagram,Servicio B,4,13,2,11,0.8446344088335779,91,4,Interesado
+120,40,F,3769,Google Ads,Servicio A,3,29,5,6,0.7430259484253994,84,33,Interesado
+121,42,F,2267,Facebook,Servicio C,2,70,0,1,0.34758692261469326,63,22,Contacto Nuevo
+122,43,M,2022,Instagram,Servicio B,3,14,3,6,0.7663925379651053,84,2,Interesado
+123,35,F,1628,Instagram,Servicio A,2,30,2,4,0.580146109472308,79,17,Contacto Nuevo
+124,48,M,6254,Referido,Servicio Premium,5,11,6,6,0.9200304367545951,93,2,Oportunidad
+125,29,F,1813,Instagram,Servicio A,3,43,0,4,0.6155367365388517,74,18,Interesado
+126,38,M,2514,Instagram,Servicio C,2,33,2,7,0.5751778129691245,64,15,Interesado
+127,22,F,2965,Facebook,Servicio C,2,67,0,1,0.20080456590106968,45,33,Contacto Nuevo
+128,25,F,3080,Instagram,Servicio B,3,9,3,9,0.6785383993745888,72,5,Interesado
+129,50,F,5578,Referido,Servicio A,5,10,4,9,0.9379408318394271,91,3,Oportunidad
+130,46,M,4901,Google Ads,Servicio A,4,38,2,5,0.746393838089229,73,33,Interesado
+131,35,M,2239,Instagram,Servicio C,2,62,1,6,0.3718897794140789,69,18,Contacto Nuevo
+132,41,M,1660,Facebook,Servicio B,3,49,2,5,0.5900689448674523,69,19,Contacto Nuevo
+133,41,M,5101,Referido,Servicio A,4,11,6,6,0.9773540729544048,92,1,Oportunidad
+134,30,M,3385,Instagram,Servicio B,2,35,0,5,0.4545539507560705,75,10,Interesado
+135,24,F,2921,Instagram,Servicio A,3,7,1,10,0.6603654103582624,74,4,Interesado
+136,25,F,2783,Instagram,Servicio C,2,64,0,3,0.3524602213347667,63,13,Interesado
+137,39,F,4619,Google Ads,Servicio B,3,18,2,5,0.6065491379157524,79,21,Interesado
+138,22,M,2443,Instagram,Servicio C,2,69,0,2,0.2928017734724996,49,32,Contacto Nuevo
+139,25,F,2340,Facebook,Servicio C,3,47,1,5,0.3987358798911583,58,9,Contacto Nuevo
+140,28,F,2638,Instagram,Servicio B,4,10,3,9,0.5447958729867552,85,5,Interesado
+141,31,F,2491,Google Ads,Servicio B,4,11,1,7,0.842842794133615,74,3,Interesado
+142,42,F,3456,Instagram,Servicio A,2,54,0,6,0.47232723023038653,63,8,Interesado
+143,40,F,2394,Instagram,Servicio A,2,51,2,3,0.5331868189810283,56,19,Interesado
+144,30,M,1922,Instagram,Servicio A,2,63,1,4,0.5196437004955164,75,12,Interesado
+145,41,F,2580,Instagram,Servicio B,3,45,2,7,0.6122492994435217,66,15,Contacto Nuevo
+146,42,F,6479,Referido,Servicio Premium,5,5,6,8,0.9522161659199243,96,1,Oportunidad
+147,47,F,5430,Google Ads,Servicio B,4,34,3,6,0.5909762548301425,84,34,Interesado
+148,41,M,5727,Google Ads,Servicio B,4,31,4,5,0.5630409182520985,72,22,Interesado
+149,46,M,6077,Referido,Servicio A,4,8,5,9,0.9087205865001188,91,3,Oportunidad
+150,38,M,1806,Facebook,Servicio B,3,53,0,6,0.44675459170418863,62,14,Contacto Nuevo
+151,36,M,3967,Google Ads,Servicio B,4,12,2,9,0.5581120096956684,85,3,Interesado
+152,32,M,1782,Instagram,Servicio C,3,67,0,6,0.4207054839408715,62,12,Interesado
+153,50,M,5112,Referido,Servicio A,5,8,4,7,0.9613936116897622,98,3,Oportunidad
+154,33,M,2539,Facebook,Servicio C,2,50,1,7,0.4630539194351748,60,17,Contacto Nuevo
+155,44,F,3818,Instagram,Servicio A,3,3,1,9,0.8115903185562308,74,3,Interesado
+156,28,F,3009,Instagram,Servicio B,2,40,1,6,0.5107428190106248,75,15,Interesado
+157,49,M,3587,Google Ads,Servicio B,4,30,2,5,0.5701274957047067,72,34,Interesado
+158,21,M,1506,Facebook,Servicio C,2,85,0,1,0.36278689622041854,55,36,Contacto Nuevo
+159,24,F,3174,Instagram,Servicio C,2,64,0,6,0.6087531573076705,56,9,Contacto Nuevo
+160,27,F,1355,Facebook,Servicio C,1,65,0,1,0.3638206024229146,40,27,Contacto Nuevo
+161,42,M,2139,Facebook,Servicio C,3,54,2,7,0.36161627409684916,75,12,Interesado
+162,47,F,5019,Google Ads,Servicio B,3,21,2,6,0.5618187780156507,84,32,Interesado
+163,46,M,3645,Google Ads,Servicio A,3,37,4,6,0.6279518774852985,83,20,Interesado
+164,41,F,3500,Google Ads,Servicio B,4,17,4,5,0.7104708658318528,89,31,Interesado
+165,42,F,4769,Referido,Servicio A,5,9,4,9,0.9419994824229804,92,3,Oportunidad
+166,29,M,2936,Instagram,Servicio C,2,72,0,1,0.3553361243133824,48,38,Contacto Nuevo
+167,34,F,1897,Instagram,Servicio B,2,65,0,3,0.35434141269706015,78,11,Contacto Nuevo
+168,48,M,5320,Referido,Servicio Premium,4,13,4,7,0.9278450785298539,93,2,Oportunidad
+169,43,M,6121,Referido,Servicio Premium,5,9,6,6,0.9589597838617502,92,3,Oportunidad
+170,41,F,4492,Google Ads,Servicio A,3,19,5,4,0.6697957016354421,70,23,Interesado
+171,36,F,4058,Google Ads,Servicio A,4,38,5,4,0.5550283916554546,84,22,Interesado
+172,46,F,6721,Referido,Servicio Premium,4,11,5,7,0.8714272077950791,95,1,Oportunidad
+173,46,F,4811,Google Ads,Servicio A,3,33,5,6,0.6524727555091582,73,26,Interesado
+174,32,M,2353,Instagram,Servicio B,3,63,2,3,0.5271931208233209,77,13,Interesado
+175,49,M,4936,Google Ads,Servicio A,4,20,3,6,0.5780048195106636,79,15,Interesado
+176,47,M,5366,Referido,Servicio A,5,5,6,6,0.9116574946560638,90,1,Oportunidad
+177,33,M,4325,Google Ads,Servicio A,4,22,4,4,0.6177721298677503,86,24,Interesado
+178,30,F,1881,Facebook,Servicio A,3,66,0,3,0.6363723340618865,75,10,Contacto Nuevo
+179,28,M,3064,Instagram,Servicio A,4,13,2,8,0.6577089566440969,83,5,Interesado
+180,35,F,4518,Referido,Servicio A,5,10,3,6,0.8835625230448519,90,1,Oportunidad
+181,26,F,2773,Facebook,Servicio A,2,52,1,7,0.6403556449028376,71,11,Interesado
+182,52,F,5847,Referido,Servicio A,4,6,4,6,0.8657332500630751,97,1,Oportunidad
+183,22,F,3401,Instagram,Servicio A,3,9,2,10,0.7375344848353976,71,3,Interesado
+184,32,M,3289,Google Ads,Servicio B,3,8,1,6,0.5540125478490778,72,4,Interesado
+185,25,M,2128,Instagram,Servicio A,3,32,1,4,0.3540973137558164,66,10,Contacto Nuevo
+186,28,M,4998,Google Ads,Servicio B,3,35,3,4,0.5932102730023374,75,25,Interesado
+187,37,F,1810,Facebook,Servicio C,1,68,0,1,0.4154356237295739,51,21,Contacto Nuevo
+188,30,M,4179,Google Ads,Servicio B,3,23,4,6,0.6137733636642277,85,18,Interesado
+189,28,F,3678,Google Ads,Servicio B,4,19,4,4,0.7280194070367617,70,29,Interesado
+190,39,M,3192,Instagram,Servicio B,3,64,2,5,0.4933701132133312,71,8,Interesado
+191,39,F,5429,Referido,Servicio A,5,10,6,7,0.9090202107554949,93,1,Oportunidad
+192,34,F,2836,Google Ads,Servicio B,4,13,3,8,0.547526166472378,83,6,Interesado
+193,32,F,3257,Instagram,Servicio B,4,13,1,10,0.6012356701904291,74,2,Interesado
+194,32,F,3123,Google Ads,Servicio A,3,37,3,5,0.7153414719482976,86,27,Interesado
+195,34,F,3023,Facebook,Servicio A,3,51,0,7,0.5172574568077848,67,9,Contacto Nuevo
+196,41,M,2902,Facebook,Servicio C,2,63,0,5,0.4120098238451529,75,19,Contacto Nuevo
+197,31,M,1558,Instagram,Servicio C,1,60,0,2,0.3457461065411506,42,32,Contacto Nuevo
+198,36,F,2138,Google Ads,Servicio A,3,3,3,9,0.6051712849601514,91,1,Interesado
+199,40,M,2998,Instagram,Servicio B,4,7,1,10,0.6900586043851821,88,3,Interesado
+200,40,F,1466,Instagram,Servicio C,1,74,0,2,0.20949539082246338,61,30,Contacto Nuevo
+201,34,F,3976,Google Ads,Servicio B,4,23,3,5,0.7388084187650796,86,33,Interesado
+202,53,F,7875,Referido,Servicio A,5,6,6,7,0.9265350978770716,99,2,Oportunidad
+203,45,M,5739,Referido,Servicio Premium,4,13,5,9,0.9140023124001536,91,1,Oportunidad
+204,40,M,2973,Instagram,Servicio B,4,5,3,9,0.7823062698141969,72,1,Interesado
+205,35,F,5988,Google Ads,Servicio A,3,31,2,6,0.6123798160008561,72,19,Interesado
+206,47,M,6224,Referido,Servicio Premium,4,4,6,7,0.9394038655159729,92,2,Oportunidad
+207,44,F,6867,Referido,Servicio A,4,14,4,6,0.8862387834138918,97,2,Oportunidad
+208,52,F,3018,Google Ads,Servicio B,4,31,5,6,0.5504635095809628,72,15,Interesado
+209,38,M,6072,Referido,Servicio Premium,4,7,3,9,0.9718218336996433,98,3,Oportunidad
+210,35,F,5046,Referido,Servicio A,4,10,5,6,0.9440094332404019,93,2,Oportunidad
+211,33,M,3909,Google Ads,Servicio B,3,27,5,5,0.5512177496479679,88,20,Interesado
+212,43,F,5983,Google Ads,Servicio A,3,16,3,5,0.5600452022927948,71,27,Interesado
+213,51,M,4950,Google Ads,Servicio B,4,21,4,6,0.7358456107263708,76,21,Interesado
+214,20,M,2756,Instagram,Servicio A,2,50,2,7,0.4956424998248823,79,13,Contacto Nuevo
+215,36,M,2246,Instagram,Servicio C,2,69,0,2,0.4053579979106483,61,39,Contacto Nuevo
+216,39,F,3405,Instagram,Servicio B,3,53,2,6,0.40000658646879406,77,15,Interesado
+217,31,M,3450,Instagram,Servicio B,3,63,2,5,0.4450414665939348,71,16,Contacto Nuevo
+218,36,F,2377,Instagram,Servicio C,2,81,0,2,0.42393168148154325,63,37,Contacto Nuevo
+219,35,M,5437,Google Ads,Servicio A,4,39,5,4,0.7361774744121616,70,25,Interesado
+220,38,M,2897,Instagram,Servicio C,2,63,0,2,0.4229680362026837,52,38,Contacto Nuevo
+221,44,F,5671,Google Ads,Servicio B,4,33,2,4,0.6874038533006486,70,24,Interesado
+222,42,M,3234,Google Ads,Servicio A,3,15,5,6,0.7401545415462676,84,23,Interesado
+223,54,M,6246,Referido,Servicio A,4,12,3,6,0.9148142039357422,96,1,Oportunidad
+224,22,M,3019,Instagram,Servicio B,2,36,0,7,0.4957765511663576,67,11,Contacto Nuevo
+225,21,F,2148,Facebook,Servicio B,2,51,0,6,0.5872346201085155,67,9,Contacto Nuevo
+226,43,F,2786,Instagram,Servicio B,2,57,1,6,0.36826952016574005,62,13,Interesado
+227,22,F,3556,Google Ads,Servicio A,3,11,1,11,0.7737053672265386,90,4,Interesado
+228,34,M,3109,Instagram,Servicio A,2,67,1,3,0.39352893965017854,64,10,Contacto Nuevo
+229,24,M,2613,Instagram,Servicio B,4,6,1,8,0.8071764568777735,75,1,Interesado
+230,47,M,5831,Google Ads,Servicio A,3,22,5,5,0.7214259119712565,79,29,Interesado
+231,49,M,2897,Facebook,Servicio C,2,66,0,2,0.2830248413482841,64,20,Contacto Nuevo
+232,50,F,5566,Google Ads,Servicio B,3,26,5,6,0.6826014692283552,82,21,Interesado
+233,31,M,3306,Google Ads,Servicio A,4,25,5,4,0.671229312986696,77,27,Interesado
+234,41,M,2143,Instagram,Servicio C,2,58,1,4,0.5194269743985706,69,19,Contacto Nuevo
+235,46,F,5015,Referido,Servicio A,5,11,5,6,0.9189958561872886,93,2,Oportunidad
+236,30,M,1739,Instagram,Servicio C,1,76,0,1,0.38140680006860395,46,29,Contacto Nuevo
+237,44,F,2548,Instagram,Servicio C,2,48,2,7,0.6338933194767148,62,11,Contacto Nuevo
+238,45,M,5572,Referido,Servicio Premium,5,8,6,7,0.9110984748605317,98,2,Oportunidad
+239,45,F,4776,Google Ads,Servicio B,3,34,5,4,0.6395346850820837,70,32,Interesado
+240,40,M,6562,Referido,Servicio A,4,12,3,7,0.8599110983365633,95,2,Oportunidad
+241,43,F,2209,Google Ads,Servicio B,4,5,2,11,0.6559395735596618,81,5,Interesado
+242,32,F,3184,Instagram,Servicio B,3,4,3,9,0.7306898175643343,78,4,Interesado
+243,24,F,2559,Google Ads,Servicio B,3,12,2,6,0.5766911178144785,74,1,Interesado
+244,37,M,1810,Instagram,Servicio B,3,55,1,6,0.6402870694354794,56,8,Contacto Nuevo
+245,45,M,7395,Referido,Servicio A,5,9,6,6,0.9610488478243129,93,3,Oportunidad
+246,22,M,3062,Instagram,Servicio A,4,10,2,11,0.7993224447564296,81,1,Interesado
+247,24,F,3071,Facebook,Servicio B,2,50,1,6,0.4122608434171582,77,15,Interesado
+248,43,M,3178,Instagram,Servicio A,3,14,1,10,0.541475918259353,78,6,Interesado
+249,44,M,2545,Instagram,Servicio A,4,11,1,6,0.7224052759808329,89,5,Interesado
+250,24,M,3648,Instagram,Servicio A,4,3,2,10,0.5878504841418051,89,5,Interesado
+251,37,F,2460,Instagram,Servicio A,3,55,0,6,0.3856312890323379,64,18,Contacto Nuevo
+252,28,M,3424,Instagram,Servicio A,2,51,1,7,0.42871157588556935,58,12,Interesado
+253,32,F,2946,Instagram,Servicio A,4,12,3,8,0.5503350226101849,76,2,Interesado
+254,27,M,1904,Instagram,Servicio C,3,49,2,4,0.42163803817004936,62,16,Interesado
+255,53,F,5114,Referido,Servicio A,5,11,5,9,0.8883814343236535,92,1,Oportunidad
+256,28,M,4390,Google Ads,Servicio B,3,22,4,4,0.6953498448336394,79,18,Interesado
+257,24,F,3976,Instagram,Servicio A,3,10,3,10,0.5131498816396176,90,6,Interesado
+258,36,M,3699,Google Ads,Servicio B,4,19,2,5,0.5901120502145967,76,20,Interesado
+259,48,M,3211,Google Ads,Servicio A,4,33,3,6,0.5882237418992006,81,20,Interesado
+260,53,M,4919,Referido,Servicio Premium,4,7,3,8,0.9292520315153973,94,1,Oportunidad
+261,43,M,3205,Google Ads,Servicio A,4,30,4,6,0.7113387039389478,76,30,Interesado
+262,43,M,2309,Instagram,Servicio B,3,13,3,7,0.7482622899654133,71,6,Interesado
+263,43,M,4509,Referido,Servicio A,4,3,6,9,0.888552788586771,98,3,Oportunidad
+264,48,M,5800,Google Ads,Servicio A,3,39,4,4,0.7365849725139344,71,22,Interesado
+265,36,F,3446,Instagram,Servicio B,3,9,2,10,0.8015918163255709,86,2,Interesado
+266,46,M,1676,Facebook,Servicio C,1,65,0,2,0.36628654855960135,60,22,Contacto Nuevo
+267,44,M,3560,Google Ads,Servicio B,4,29,2,6,0.6598619542960208,86,17,Interesado
+268,45,M,2323,Instagram,Servicio C,2,63,0,2,0.20401546624525155,50,39,Contacto Nuevo
+269,22,F,1577,Instagram,Servicio A,3,63,0,6,0.5456432219349209,73,13,Contacto Nuevo
+270,20,M,2691,Facebook,Servicio A,2,34,2,7,0.6865296686440796,57,10,Interesado
+271,35,M,2778,Instagram,Servicio C,1,79,0,1,0.2774469648022748,62,21,Contacto Nuevo
+272,43,F,2082,Facebook,Servicio C,1,67,0,1,0.2782157902137825,62,22,Contacto Nuevo
+273,39,F,3014,Instagram,Servicio A,4,6,1,6,0.506928480421539,90,3,Interesado
+274,26,M,2139,Instagram,Servicio B,3,7,1,9,0.6415845849508544,91,3,Interesado
+275,28,F,3049,Google Ads,Servicio B,3,33,3,4,0.564422218585887,84,21,Interesado
+276,31,M,4164,Google Ads,Servicio B,4,21,4,6,0.5897984277918874,88,34,Interesado
+277,48,F,1537,Facebook,Servicio C,2,68,0,1,0.20287016493734447,49,36,Contacto Nuevo
+278,29,F,4348,Google Ads,Servicio B,4,23,2,5,0.6909108856054891,78,31,Interesado
+279,46,M,2427,Facebook,Servicio C,1,62,0,2,0.3291974847820396,42,35,Contacto Nuevo
+280,21,F,1785,Instagram,Servicio C,2,85,0,1,0.34883991531465103,54,25,Contacto Nuevo
+281,41,M,2552,Google Ads,Servicio B,4,5,3,7,0.5935907097501394,71,6,Interesado
+282,22,F,3242,Facebook,Servicio B,2,62,1,3,0.5340146768456971,56,11,Contacto Nuevo
+283,38,F,1765,Facebook,Servicio C,2,51,2,7,0.4209214219473701,76,11,Interesado
+284,47,F,5972,Referido,Servicio Premium,4,6,5,6,0.9204587097356696,92,1,Oportunidad
+285,37,F,5093,Google Ads,Servicio B,4,20,5,5,0.5703786201745874,87,32,Interesado
+286,37,F,5864,Referido,Servicio Premium,4,14,5,8,0.9562428004776867,98,3,Oportunidad
+287,38,F,2359,Facebook,Servicio C,2,49,0,3,0.636429348268468,69,11,Contacto Nuevo
+288,28,M,4389,Google Ads,Servicio A,3,30,3,6,0.6417881033193641,72,15,Interesado
+289,30,F,1837,Instagram,Servicio C,3,47,1,5,0.5227253472540428,67,15,Interesado
+290,30,F,3869,Google Ads,Servicio A,3,38,4,5,0.6082991481847446,83,24,Interesado
+291,51,M,7056,Referido,Servicio A,4,11,5,6,0.9624751351617155,90,2,Oportunidad
+292,39,M,6373,Referido,Servicio A,4,7,4,6,0.9635839796236892,95,2,Oportunidad
+293,27,F,2849,Instagram,Servicio C,1,64,0,1,0.21600158665215524,41,30,Contacto Nuevo
+294,44,M,2271,Instagram,Servicio C,2,53,2,3,0.6175542548264265,68,13,Interesado
+295,35,F,7609,Referido,Servicio Premium,5,7,3,7,0.9725290699776151,91,3,Oportunidad
+296,30,M,5350,Google Ads,Servicio B,3,17,5,4,0.5515928809490903,81,24,Interesado
+297,42,M,1476,Facebook,Servicio C,1,85,0,2,0.4181589506367088,52,33,Contacto Nuevo
+298,42,F,2912,Instagram,Servicio B,3,68,0,3,0.3858987869042564,63,13,Contacto Nuevo
+299,40,M,3661,Google Ads,Servicio A,4,19,3,6,0.7175816749703607,85,17,Interesado
+300,43,M,7810,Referido,Servicio Premium,4,6,5,9,0.8652816690195285,90,3,Oportunidad
+301,42,M,4949,Referido,Servicio Premium,5,14,4,7,0.8709771641371998,90,2,Oportunidad
+302,44,F,5282,Google Ads,Servicio B,4,33,3,5,0.6208542654434431,88,18,Interesado
+303,29,M,4257,Google Ads,Servicio B,3,28,4,6,0.5987458965048684,88,29,Interesado
+304,51,F,5410,Google Ads,Servicio A,3,29,2,5,0.7242936842753067,72,24,Interesado
+305,27,M,2201,Facebook,Servicio C,1,77,0,2,0.3029895237585255,61,20,Contacto Nuevo
+306,23,M,3967,Instagram,Servicio A,4,3,1,10,0.6180223014480132,93,2,Interesado
+307,44,M,4292,Google Ads,Servicio A,4,31,4,6,0.7045973442611173,76,15,Interesado
+308,36,F,2028,Facebook,Servicio A,2,32,2,7,0.5699492598151055,70,16,Interesado
+309,47,M,1831,Instagram,Servicio C,1,88,0,1,0.41854267053925653,48,38,Contacto Nuevo
+310,31,M,2129,Facebook,Servicio C,3,58,2,5,0.6492409068465159,67,10,Contacto Nuevo
+311,40,F,2041,Facebook,Servicio B,2,31,1,6,0.41360315262985475,62,11,Contacto Nuevo
+312,54,M,7620,Referido,Servicio Premium,5,4,3,6,0.9785983080145075,93,1,Oportunidad
+313,44,M,6870,Referido,Servicio Premium,4,8,4,9,0.9290931616644023,96,2,Oportunidad
+314,25,M,3595,Google Ads,Servicio A,4,13,3,11,0.5761835898531876,86,1,Interesado
+315,47,M,2347,Instagram,Servicio C,1,83,0,1,0.21216441591542834,43,27,Contacto Nuevo
+316,36,F,5361,Google Ads,Servicio A,4,27,3,6,0.6854946829646946,89,31,Interesado
+317,22,M,2734,Instagram,Servicio A,2,36,0,6,0.48676430331537296,71,14,Contacto Nuevo
+318,37,M,5357,Referido,Servicio A,5,7,3,7,0.9485747479672877,99,1,Oportunidad
+319,47,M,4553,Referido,Servicio A,5,10,5,6,0.8813950816390683,91,2,Oportunidad
+320,31,F,1799,Facebook,Servicio C,3,46,1,4,0.39677770349368124,73,17,Contacto Nuevo
+321,45,F,5783,Google Ads,Servicio A,4,20,2,6,0.6773523434088654,72,15,Interesado
+322,49,M,1355,Facebook,Servicio C,2,73,0,1,0.3636772688390748,46,29,Contacto Nuevo
+323,34,M,3974,Google Ads,Servicio A,4,37,4,5,0.7073416681414618,74,34,Interesado
+324,31,M,3063,Instagram,Servicio A,2,51,1,7,0.6577150204104366,57,12,Interesado
+325,35,F,3711,Google Ads,Servicio A,4,13,3,10,0.6527468595553576,82,6,Interesado
+326,37,F,2487,Facebook,Servicio C,1,81,0,1,0.21681397849184197,55,39,Contacto Nuevo
+327,39,M,3956,Google Ads,Servicio A,3,24,4,4,0.643165150644625,84,30,Interesado
+328,40,M,5850,Google Ads,Servicio B,3,35,4,5,0.6632361382450142,85,17,Interesado
+329,41,F,2938,Instagram,Servicio B,2,61,2,5,0.35187115629902754,57,12,Contacto Nuevo
+330,29,M,2036,Instagram,Servicio A,2,48,2,4,0.5975889500115247,65,16,Interesado
+331,35,M,2354,Instagram,Servicio C,3,63,2,6,0.5346871131775932,59,10,Contacto Nuevo
+332,31,F,2981,Facebook,Servicio C,2,79,0,2,0.34828955475986706,50,30,Contacto Nuevo
+333,52,M,6090,Referido,Servicio A,5,10,5,8,0.8717564141907815,94,3,Oportunidad
+334,43,M,7404,Referido,Servicio Premium,5,12,4,8,0.9472132654687184,96,1,Oportunidad
+335,49,F,4905,Referido,Servicio A,5,3,3,7,0.872064695715,93,2,Oportunidad
+336,50,M,4874,Referido,Servicio Premium,4,14,6,7,0.9391410705813736,95,3,Oportunidad
+337,34,M,3857,Instagram,Servicio A,4,4,2,7,0.7591976531408284,81,3,Interesado
+338,41,F,2231,Facebook,Servicio C,2,85,0,2,0.4289180580654125,59,39,Contacto Nuevo
+339,42,F,2441,Instagram,Servicio C,2,45,0,5,0.6601327023596228,70,18,Contacto Nuevo
+340,43,M,4678,Referido,Servicio A,4,12,3,8,0.9283951421569268,98,3,Oportunidad
+341,40,F,1865,Instagram,Servicio C,2,41,0,3,0.6483915974360897,73,18,Interesado
+342,37,M,1863,Instagram,Servicio B,2,49,1,4,0.37618742181824055,69,12,Interesado
+343,37,M,6540,Referido,Servicio A,5,10,6,9,0.8702242867930092,97,1,Oportunidad
+344,43,F,2149,Facebook,Servicio A,3,42,0,4,0.6331582741020867,72,13,Contacto Nuevo
+345,43,M,2899,Facebook,Servicio B,3,60,2,5,0.5471929275693489,59,13,Interesado
+346,35,F,5285,Google Ads,Servicio B,3,26,5,5,0.7250811250243668,70,24,Interesado
+347,52,M,5153,Google Ads,Servicio A,4,16,2,5,0.6950012152598237,85,32,Interesado
+348,53,F,5435,Referido,Servicio Premium,4,12,5,8,0.9199429516973073,96,1,Oportunidad
+349,36,F,1892,Instagram,Servicio B,2,50,1,7,0.6095745081426147,66,19,Interesado
+350,46,F,4350,Google Ads,Servicio A,3,30,3,6,0.6897061250418275,77,27,Interesado
+351,40,M,5032,Google Ads,Servicio A,4,33,2,4,0.6525794111037619,83,18,Interesado
+352,28,F,3816,Instagram,Servicio B,3,8,3,11,0.7991462075326191,90,6,Interesado
+353,30,F,4666,Google Ads,Servicio A,4,16,5,5,0.6707701965080556,75,22,Interesado
+354,42,F,6732,Referido,Servicio A,5,5,4,8,0.9662180766561049,90,3,Oportunidad
+355,39,F,4807,Referido,Servicio Premium,4,11,5,7,0.9176096279444496,93,3,Oportunidad
+356,49,F,3524,Google Ads,Servicio A,3,24,3,4,0.6754657870181356,82,31,Interesado
+357,38,M,5410,Referido,Servicio Premium,4,10,4,9,0.9696961545445426,96,2,Oportunidad
+358,35,F,3314,Google Ads,Servicio B,3,27,4,4,0.6432598825879637,85,16,Interesado
+359,43,F,3534,Instagram,Servicio B,3,4,1,11,0.7896435682959164,82,3,Interesado
+360,48,F,5708,Google Ads,Servicio B,3,31,5,6,0.67302582810824,78,34,Interesado
+361,29,F,1978,Facebook,Servicio C,3,59,0,3,0.5033625146369205,76,8,Interesado
+362,30,M,4121,Google Ads,Servicio B,3,29,5,4,0.7046762095564499,77,22,Interesado
+363,31,M,1606,Instagram,Servicio B,3,40,2,5,0.5780304891651123,55,17,Contacto Nuevo
+364,48,M,3423,Google Ads,Servicio A,4,20,3,5,0.6136099145101838,82,33,Interesado
+365,43,F,3256,Instagram,Servicio A,3,13,1,10,0.8365223136009392,77,3,Interesado
+366,26,F,1772,Instagram,Servicio C,3,67,1,7,0.6596992911936015,58,13,Interesado
+367,38,M,3699,Google Ads,Servicio A,4,12,1,6,0.6214100917275349,83,3,Interesado
+368,24,F,3895,Google Ads,Servicio A,4,3,2,7,0.8470936256803581,70,4,Interesado
+369,42,F,6917,Referido,Servicio A,5,14,5,6,0.8811986173030945,97,3,Oportunidad
+370,48,M,5036,Referido,Servicio Premium,5,5,4,9,0.9112248328165153,99,1,Oportunidad
+371,54,F,7931,Referido,Servicio A,4,5,6,6,0.8649236005426664,90,3,Oportunidad
+372,37,F,4604,Referido,Servicio Premium,5,12,5,7,0.9612972248717866,91,3,Oportunidad
+373,38,M,6211,Referido,Servicio Premium,5,3,4,6,0.9448625478446648,92,2,Oportunidad
+374,48,M,3851,Google Ads,Servicio A,4,36,2,5,0.6471634857825264,89,20,Interesado
+375,49,F,4749,Referido,Servicio A,5,11,3,9,0.8651557996922405,94,2,Oportunidad
+376,36,M,2635,Instagram,Servicio C,2,33,2,4,0.38704863255726807,57,13,Interesado
+377,42,F,2775,Instagram,Servicio C,2,84,0,2,0.2027027709087991,62,30,Contacto Nuevo
+378,39,F,7808,Referido,Servicio Premium,4,7,6,8,0.9774738695178941,94,1,Oportunidad
+379,46,F,2737,Facebook,Servicio C,2,87,0,1,0.36467940968175555,51,31,Contacto Nuevo
+380,26,F,2216,Facebook,Servicio C,3,57,1,3,0.36112246952506355,75,15,Contacto Nuevo
+381,36,M,7090,Referido,Servicio A,4,14,3,8,0.8783737834501848,94,3,Oportunidad
+382,28,M,3760,Google Ads,Servicio A,4,36,3,4,0.6990358990739229,75,17,Interesado
+383,40,F,5055,Google Ads,Servicio B,3,31,2,5,0.5918118747413692,86,20,Interesado
+384,38,F,2589,Instagram,Servicio B,3,10,1,11,0.7666592641518554,82,1,Interesado
+385,40,F,1874,Instagram,Servicio C,2,64,0,2,0.21914206460838476,62,21,Contacto Nuevo
+386,45,M,2228,Instagram,Servicio C,2,65,0,2,0.3635400385715246,57,37,Contacto Nuevo
+387,23,M,2772,Instagram,Servicio B,2,36,2,5,0.6207502356057522,69,19,Contacto Nuevo
+388,51,M,6438,Referido,Servicio A,5,5,6,7,0.9583737213617723,97,1,Oportunidad
+389,48,M,2550,Facebook,Servicio C,2,60,0,1,0.2887244208716385,52,25,Contacto Nuevo
+390,45,F,1597,Facebook,Servicio C,2,74,0,1,0.2720013364810103,47,35,Contacto Nuevo
+391,37,F,3411,Instagram,Servicio B,4,4,3,8,0.5809832227318968,93,3,Interesado
+392,28,M,3080,Instagram,Servicio C,3,68,1,7,0.5704372290521477,57,17,Interesado
+393,37,F,2720,Facebook,Servicio A,2,63,2,7,0.5803192443514272,60,15,Interesado
+394,48,F,1819,Instagram,Servicio C,1,82,0,2,0.26279231688710036,57,34,Contacto Nuevo
+395,27,F,2107,Facebook,Servicio A,3,49,1,5,0.5457918990045749,64,18,Contacto Nuevo
+396,38,F,3411,Instagram,Servicio B,3,11,3,10,0.800017079970856,93,6,Interesado
+397,24,F,3216,Google Ads,Servicio B,4,9,3,10,0.846616306327777,72,1,Interesado
+398,31,M,2793,Facebook,Servicio B,2,38,2,4,0.5679636911339443,69,12,Contacto Nuevo
+399,39,F,2950,Instagram,Servicio C,1,87,0,2,0.24273410060521208,55,34,Contacto Nuevo
+400,44,F,1917,Instagram,Servicio C,1,73,0,2,0.28513620886997426,48,33,Contacto Nuevo
+401,37,F,6595,Referido,Servicio A,5,5,5,8,0.9579196277897293,95,1,Oportunidad
+402,28,M,3744,Google Ads,Servicio B,4,4,1,7,0.8244207212158878,80,1,Interesado
+403,46,F,3482,Google Ads,Servicio A,3,30,3,4,0.7074743916298546,84,29,Interesado
+404,35,F,1275,Instagram,Servicio C,1,63,0,1,0.20156436775661757,54,27,Contacto Nuevo
+405,26,M,3402,Facebook,Servicio B,2,69,0,5,0.6319770818771696,71,15,Interesado
+406,42,F,3860,Google Ads,Servicio B,4,14,2,10,0.7192599568869245,74,6,Interesado
+407,42,F,3305,Instagram,Servicio C,2,66,0,5,0.5195369149602972,69,11,Contacto Nuevo
+408,47,F,7592,Referido,Servicio A,4,13,5,9,0.9211639292493643,98,2,Oportunidad
+409,25,F,2917,Google Ads,Servicio B,4,7,2,9,0.7046935210911087,88,2,Interesado
+410,47,M,5329,Referido,Servicio A,4,6,4,9,0.9664396927546601,93,1,Oportunidad
+411,26,M,3438,Instagram,Servicio B,3,44,0,6,0.5855822458189259,58,9,Interesado
+412,26,F,3878,Google Ads,Servicio A,3,8,2,9,0.5947253796936179,71,5,Interesado
+413,31,M,2617,Instagram,Servicio A,4,5,2,11,0.6231317522436234,72,1,Interesado
+414,48,M,5462,Google Ads,Servicio A,3,35,5,5,0.6368722996282435,79,16,Interesado
+415,29,F,4887,Google Ads,Servicio B,4,28,4,4,0.6359245727793689,70,25,Interesado
+416,42,M,1503,Facebook,Servicio B,2,41,2,3,0.6614696817270018,55,19,Contacto Nuevo
+417,29,M,2909,Instagram,Servicio C,3,40,1,5,0.6873381063074657,57,19,Contacto Nuevo
+418,29,M,2380,Instagram,Servicio B,2,45,1,6,0.3504711948347973,74,13,Interesado
+419,52,F,3777,Google Ads,Servicio B,4,22,2,4,0.6822281356857394,79,29,Interesado
+420,24,F,2943,Facebook,Servicio C,2,84,0,2,0.37534582138992256,48,35,Contacto Nuevo
+421,21,F,2697,Facebook,Servicio C,2,71,0,2,0.2315966056014168,48,29,Contacto Nuevo
+422,44,F,2911,Instagram,Servicio C,1,87,0,2,0.30659958920040564,43,21,Contacto Nuevo
+423,48,F,7856,Referido,Servicio Premium,5,7,6,9,0.923309543678231,97,1,Oportunidad
+424,29,F,2345,Facebook,Servicio B,3,43,1,4,0.49230668807581524,78,13,Interesado
+425,47,F,7593,Referido,Servicio A,4,6,6,6,0.8900252296621124,93,2,Oportunidad
+426,33,M,3662,Google Ads,Servicio B,3,30,4,4,0.6823669170227996,77,33,Interesado
+427,33,M,3241,Instagram,Servicio A,2,52,1,7,0.4699558238997675,69,19,Contacto Nuevo
+428,30,F,2494,Google Ads,Servicio B,3,13,3,8,0.604574004868988,80,1,Interesado
+429,40,M,2878,Facebook,Servicio C,3,52,0,5,0.6382622472793662,59,16,Contacto Nuevo
+430,40,M,7980,Referido,Servicio Premium,5,4,3,6,0.9005344252239511,98,3,Oportunidad
+431,35,F,7487,Referido,Servicio Premium,5,13,5,8,0.9769832684675862,95,2,Oportunidad
+432,35,M,2755,Instagram,Servicio C,1,60,0,1,0.28173525608416883,54,20,Contacto Nuevo
+433,44,F,3851,Google Ads,Servicio B,4,30,4,4,0.6764792512931017,72,19,Interesado
+434,46,F,6759,Referido,Servicio Premium,5,11,5,9,0.9053719021007021,92,2,Oportunidad
+435,47,M,5152,Referido,Servicio Premium,5,11,4,9,0.9075943818238905,94,1,Oportunidad
+436,41,M,1410,Instagram,Servicio C,2,67,0,2,0.3308908948824639,58,30,Contacto Nuevo
+437,47,F,4636,Referido,Servicio A,5,5,6,8,0.9768114936808228,96,2,Oportunidad
+438,30,F,2265,Facebook,Servicio C,1,65,0,2,0.3245324858870106,45,33,Contacto Nuevo
+439,39,F,2592,Instagram,Servicio C,2,60,0,1,0.4024811050757249,59,34,Contacto Nuevo
+440,41,M,6906,Referido,Servicio Premium,5,11,6,7,0.9501581387396186,92,1,Oportunidad
+441,39,F,5099,Referido,Servicio A,4,11,3,7,0.8893922759076639,93,2,Oportunidad
+442,25,M,3503,Instagram,Servicio A,4,12,3,9,0.8271554704209053,92,5,Interesado
+443,42,F,3063,Facebook,Servicio C,2,55,0,7,0.46875684355834857,58,10,Interesado
+444,36,M,2219,Instagram,Servicio B,3,58,0,3,0.4951889794324732,64,18,Contacto Nuevo
+445,40,F,2469,Instagram,Servicio C,2,65,0,2,0.40343083593055684,49,26,Contacto Nuevo
+446,43,M,3745,Instagram,Servicio A,4,12,1,10,0.5389230615683765,89,1,Interesado
+447,22,F,2948,Google Ads,Servicio B,4,3,3,11,0.5204978568495868,70,6,Interesado
+448,37,M,1388,Facebook,Servicio C,2,88,0,2,0.40075297038158014,57,39,Contacto Nuevo
+449,30,M,3067,Instagram,Servicio A,3,57,0,5,0.40300593267737506,58,12,Contacto Nuevo
+450,41,F,5441,Referido,Servicio A,5,9,3,9,0.8761002267183682,95,3,Oportunidad
+451,21,F,1467,Instagram,Servicio C,2,77,0,2,0.2692673124283499,46,20,Contacto Nuevo
+452,53,F,5646,Google Ads,Servicio B,3,20,3,5,0.6439037330691267,87,19,Interesado
+453,44,F,1532,Instagram,Servicio A,3,59,2,3,0.6558562344323564,66,14,Contacto Nuevo
+454,22,M,3725,Instagram,Servicio A,4,6,3,10,0.5407606256685994,87,3,Interesado
+455,41,M,6271,Referido,Servicio A,4,12,3,9,0.8562871524363415,99,3,Oportunidad
+456,23,M,2221,Instagram,Servicio A,3,58,1,4,0.6390763079925057,60,17,Contacto Nuevo
+457,50,M,6202,Referido,Servicio A,5,14,5,8,0.9121836126171723,99,1,Oportunidad
+458,41,F,2976,Facebook,Servicio A,3,61,2,4,0.5400493464118442,69,14,Contacto Nuevo
+459,49,M,5862,Referido,Servicio A,5,5,4,9,0.9017131473207828,92,3,Oportunidad
+460,42,F,6669,Referido,Servicio A,4,6,5,6,0.8533552210722136,97,3,Oportunidad
+461,50,M,7766,Referido,Servicio A,4,14,4,6,0.8647602835024173,96,3,Oportunidad
+462,34,F,3225,Google Ads,Servicio A,4,38,2,4,0.6402386382901447,79,25,Interesado
+463,35,F,2935,Instagram,Servicio C,1,84,0,2,0.24247176830476433,56,33,Contacto Nuevo
+464,43,F,5984,Google Ads,Servicio B,3,37,4,5,0.686862849785069,80,32,Interesado
+465,34,M,3869,Google Ads,Servicio B,3,14,3,6,0.5193955609547856,93,3,Interesado
+466,34,M,1731,Instagram,Servicio A,3,63,2,4,0.5597759037647579,70,15,Interesado
+467,26,F,1928,Facebook,Servicio A,2,49,1,4,0.62912991585377,56,17,Contacto Nuevo
+468,34,F,2174,Instagram,Servicio B,3,4,3,6,0.726610279260941,88,3,Interesado
+469,26,M,2037,Instagram,Servicio B,3,53,0,3,0.49338550425238165,77,13,Contacto Nuevo
+470,43,M,3873,Google Ads,Servicio A,4,14,3,6,0.7914141206641458,89,5,Interesado
+471,51,M,6957,Referido,Servicio Premium,5,5,6,9,0.9378489680763791,96,2,Oportunidad
+472,43,F,2539,Google Ads,Servicio A,4,10,3,11,0.8078605238491167,77,5,Interesado
+473,43,M,6169,Referido,Servicio Premium,4,9,5,8,0.9043906393391833,91,3,Oportunidad
+474,36,M,3940,Instagram,Servicio A,3,13,1,9,0.5735375175193231,88,3,Interesado
+475,37,M,4073,Google Ads,Servicio B,4,20,4,4,0.698947345565842,77,30,Interesado
+476,34,M,3200,Instagram,Servicio B,3,8,1,9,0.709754750452236,78,2,Interesado
+477,52,M,6681,Referido,Servicio Premium,4,8,4,6,0.891429648518768,91,3,Oportunidad
+478,50,M,4378,Google Ads,Servicio A,4,33,3,4,0.6223294189682089,82,17,Interesado
+479,22,F,2152,Instagram,Servicio A,4,13,2,6,0.6106271893451424,88,3,Interesado
+480,52,F,4522,Google Ads,Servicio A,3,24,4,4,0.6037595230060396,81,22,Interesado
+481,50,F,3344,Google Ads,Servicio A,3,20,2,5,0.5634753743043852,78,30,Interesado
+482,38,M,5334,Google Ads,Servicio B,4,39,5,5,0.6066568806985155,89,23,Interesado
+483,34,F,1690,Instagram,Servicio A,2,38,1,6,0.44309919258243025,69,10,Contacto Nuevo
+484,47,M,5294,Google Ads,Servicio A,4,29,3,6,0.6858133208991275,82,18,Interesado
+485,37,M,4118,Google Ads,Servicio A,4,17,5,6,0.5962161705748993,78,25,Interesado
+486,24,M,3532,Google Ads,Servicio A,4,10,1,9,0.6247999640827867,93,1,Interesado
+487,54,M,7701,Referido,Servicio A,5,14,5,8,0.9769529330319775,96,1,Oportunidad
+488,42,M,2729,Instagram,Servicio C,2,60,0,4,0.46499535246002943,77,8,Contacto Nuevo
+489,23,M,3036,Google Ads,Servicio A,4,12,3,11,0.6284364924525202,72,2,Interesado
+490,32,F,2851,Google Ads,Servicio A,3,8,3,9,0.5942065498470702,84,6,Interesado
+491,35,F,1715,Facebook,Servicio C,2,64,2,3,0.5802006515465836,58,14,Interesado
+492,46,M,4167,Google Ads,Servicio A,4,22,4,5,0.6133885243534563,89,33,Interesado
+493,29,M,3226,Facebook,Servicio A,2,56,1,4,0.4457944601874298,60,15,Interesado
+494,40,M,7697,Referido,Servicio Premium,4,3,4,9,0.8800663906810742,92,2,Oportunidad
+495,21,F,2398,Facebook,Servicio B,2,43,2,4,0.3794893820962899,76,15,Contacto Nuevo
+496,27,M,3311,Instagram,Servicio B,2,36,0,7,0.5967643172237574,62,15,Interesado
+497,31,M,3378,Google Ads,Servicio A,4,27,5,6,0.6934929981223824,85,20,Interesado
+498,41,F,7658,Referido,Servicio Premium,4,13,4,6,0.9326861545040864,93,1,Oportunidad
+499,30,M,2382,Instagram,Servicio A,4,7,3,9,0.8268530799961871,72,4,Interesado
+500,35,M,3391,Instagram,Servicio A,3,3,3,7,0.6427223120421569,83,2,Interesado
+501,42,M,4605,Google Ads,Servicio A,3,32,5,6,0.6041118512975983,72,29,Interesado
+502,40,M,3983,Google Ads,Servicio B,4,34,2,4,0.7451557637097865,84,26,Interesado
+503,33,M,2872,Instagram,Servicio B,3,36,0,7,0.4955514687927816,68,15,Contacto Nuevo
+504,41,F,2432,Facebook,Servicio C,2,84,0,2,0.33251561376293315,59,22,Contacto Nuevo
+505,32,F,5353,Google Ads,Servicio B,4,31,4,4,0.6053739938984025,71,18,Interesado
+506,41,F,5361,Referido,Servicio A,4,9,3,6,0.8837484268821022,92,1,Oportunidad
+507,26,F,3736,Instagram,Servicio B,3,4,1,8,0.8202505382116345,91,6,Interesado
+508,21,M,1356,Instagram,Servicio C,1,73,0,1,0.38100729719323034,40,20,Contacto Nuevo
+509,22,F,3155,Google Ads,Servicio A,4,13,3,8,0.7174657184544975,79,1,Interesado
+510,42,F,2923,Instagram,Servicio C,2,75,0,2,0.21345763122711478,49,36,Contacto Nuevo
+511,40,F,4041,Google Ads,Servicio B,3,31,2,6,0.6851173547134878,79,31,Interesado
+512,34,F,2418,Instagram,Servicio C,3,63,1,6,0.696094189456282,78,9,Interesado
+513,28,F,2581,Google Ads,Servicio B,3,6,2,6,0.8001357127131733,80,5,Interesado
+514,42,F,3869,Instagram,Servicio A,3,14,2,8,0.5426578256234843,75,4,Interesado
+515,40,F,7636,Referido,Servicio A,4,3,6,9,0.8588642605695102,92,2,Oportunidad
+516,37,F,6833,Referido,Servicio Premium,5,13,6,7,0.9140844063152618,98,2,Oportunidad
+517,21,M,3066,Instagram,Servicio B,2,46,1,3,0.6455102024533338,78,13,Contacto Nuevo
+518,43,M,1768,Instagram,Servicio C,2,62,0,2,0.24753219157967643,59,25,Contacto Nuevo
+519,26,M,2178,Instagram,Servicio A,3,7,3,10,0.6689979460435367,85,4,Interesado
+520,35,F,5085,Referido,Servicio A,4,3,3,8,0.9654648754559695,94,3,Oportunidad
+521,39,M,5861,Google Ads,Servicio A,4,28,3,6,0.6684442798662881,71,24,Interesado
+522,37,M,2604,Facebook,Servicio B,3,61,0,6,0.5821768869051385,69,12,Interesado
+523,27,M,3937,Google Ads,Servicio A,3,9,3,7,0.5734641703551807,84,4,Interesado
+524,46,F,2320,Facebook,Servicio C,2,72,0,1,0.298054448358385,64,24,Contacto Nuevo
+525,48,F,2790,Instagram,Servicio C,1,75,0,1,0.3550603385672281,55,33,Contacto Nuevo
+526,22,M,2078,Facebook,Servicio A,3,62,0,3,0.6711765472665516,57,17,Interesado
+527,37,M,3426,Facebook,Servicio A,2,43,1,4,0.4019773735752883,56,11,Contacto Nuevo
+528,36,M,1573,Facebook,Servicio C,2,41,0,5,0.5994329666452906,68,18,Interesado
+529,36,M,7863,Referido,Servicio A,4,11,5,9,0.853295318554312,99,1,Oportunidad
+530,32,F,2536,Instagram,Servicio B,3,7,2,6,0.5282032843002797,77,6,Interesado
+531,43,M,1856,Instagram,Servicio C,1,84,0,2,0.29931786821011497,63,28,Contacto Nuevo
+532,25,M,3296,Instagram,Servicio B,4,10,2,8,0.584076801622935,87,5,Interesado
+533,31,M,2912,Google Ads,Servicio B,4,6,1,10,0.614743369597512,78,6,Interesado
+534,44,M,3734,Google Ads,Servicio B,4,34,5,6,0.7261790321089505,78,27,Interesado
+535,34,M,2187,Facebook,Servicio C,1,78,0,2,0.4298020077634313,64,33,Contacto Nuevo
+536,38,F,3503,Instagram,Servicio A,4,3,2,8,0.6991344191486477,70,4,Interesado
+537,36,F,2030,Facebook,Servicio C,1,76,0,1,0.4082343480796653,47,39,Contacto Nuevo
+538,23,M,3153,Facebook,Servicio B,3,65,0,3,0.3679422107115993,64,13,Interesado
+539,35,F,2723,Facebook,Servicio C,3,35,2,3,0.4266941226347803,68,14,Contacto Nuevo
+540,47,F,6098,Referido,Servicio Premium,5,6,3,7,0.9744275282301735,90,2,Oportunidad
+541,33,M,2780,Google Ads,Servicio B,4,4,2,10,0.5720930125569366,73,2,Interesado
+542,37,M,5134,Google Ads,Servicio A,3,37,2,5,0.577673640177638,71,34,Interesado
+543,39,M,2057,Facebook,Servicio C,3,69,1,6,0.4964018888827201,73,9,Interesado
+544,41,F,4996,Google Ads,Servicio B,4,36,3,6,0.6728266352375036,88,22,Interesado
+545,34,F,4797,Google Ads,Servicio B,3,35,4,4,0.7053596874417262,74,25,Interesado
+546,34,F,2910,Instagram,Servicio A,2,66,0,5,0.4187704384346739,71,17,Contacto Nuevo
+547,42,M,5388,Referido,Servicio Premium,5,10,4,9,0.9460366562500709,96,2,Oportunidad
+548,50,F,5825,Google Ads,Servicio B,4,26,4,5,0.6564445749712388,79,31,Interesado
+549,44,M,3882,Google Ads,Servicio A,4,21,5,5,0.5832510660699401,79,18,Interesado
+550,37,M,1218,Instagram,Servicio C,2,76,0,2,0.3479292422231001,47,38,Contacto Nuevo
+551,38,M,5942,Google Ads,Servicio B,3,16,5,5,0.6168885054236208,73,24,Interesado
+552,42,F,3135,Google Ads,Servicio B,3,12,1,11,0.7996003762126034,87,5,Interesado
+553,49,M,5283,Google Ads,Servicio B,4,21,5,6,0.6504743639944192,70,20,Interesado
+554,33,F,4579,Google Ads,Servicio B,4,24,4,5,0.5524006054545365,86,33,Interesado
+555,39,F,2919,Instagram,Servicio B,4,10,1,11,0.714965185511654,76,1,Interesado
+556,37,F,2231,Facebook,Servicio B,2,39,1,3,0.6190614959768794,64,17,Contacto Nuevo
+557,45,M,5237,Referido,Servicio Premium,5,10,4,8,0.865336422871648,96,1,Oportunidad
+558,36,F,7234,Referido,Servicio Premium,4,4,6,8,0.9619038617990143,95,2,Oportunidad
+559,33,F,1287,Instagram,Servicio C,1,89,0,2,0.25783941056485227,62,39,Contacto Nuevo
+560,44,M,3193,Google Ads,Servicio B,4,18,2,6,0.6069200764609363,73,24,Interesado
+561,38,F,1940,Instagram,Servicio C,1,85,0,1,0.2663021342492073,55,20,Contacto Nuevo
+562,31,F,2045,Facebook,Servicio A,3,47,0,7,0.4076097457948511,76,10,Contacto Nuevo
+563,37,F,7163,Referido,Servicio Premium,5,12,5,9,0.967810357526568,91,1,Oportunidad
+564,39,F,7519,Referido,Servicio A,4,7,5,7,0.960623746922884,96,2,Oportunidad
+565,28,F,2282,Facebook,Servicio A,2,40,1,6,0.568226858936568,75,9,Contacto Nuevo
+566,37,F,5686,Google Ads,Servicio A,4,17,4,6,0.5868089544100428,75,15,Interesado
+567,23,M,3143,Instagram,Servicio A,2,52,0,7,0.513994948106897,67,8,Contacto Nuevo
+568,26,F,1960,Facebook,Servicio C,3,59,0,6,0.6435131106368868,75,17,Contacto Nuevo
+569,33,F,3625,Instagram,Servicio B,4,3,1,9,0.6410609589489578,89,6,Interesado
+570,43,M,1696,Instagram,Servicio B,3,42,2,4,0.5208411402018072,68,18,Interesado
+571,33,F,4204,Google Ads,Servicio A,3,38,2,4,0.7358806967698308,79,25,Interesado
+572,44,M,1877,Facebook,Servicio C,1,88,0,1,0.26056428939619186,49,31,Contacto Nuevo
+573,41,F,2362,Instagram,Servicio A,2,41,1,6,0.5701055139458614,63,12,Interesado
+574,38,M,4533,Google Ads,Servicio A,3,37,3,4,0.6686112379934716,78,27,Interesado
+575,39,M,3051,Google Ads,Servicio B,4,6,1,7,0.6660080327039506,76,2,Interesado
+576,38,F,2250,Instagram,Servicio B,3,12,2,7,0.7092328046905298,75,6,Interesado
+577,38,M,6606,Referido,Servicio Premium,5,9,5,7,0.9714171366387875,97,3,Oportunidad
+578,36,M,3390,Google Ads,Servicio B,3,13,2,6,0.7510416565530147,85,1,Interesado
+579,34,M,2410,Facebook,Servicio B,3,59,2,3,0.37912807317282526,79,9,Contacto Nuevo
+580,36,F,2834,Facebook,Servicio C,3,60,1,7,0.3717717820339918,77,19,Interesado
+581,24,M,3498,Facebook,Servicio B,2,42,2,7,0.4174367387703451,58,11,Interesado
+582,41,M,2364,Google Ads,Servicio A,3,14,1,9,0.6315483628136928,71,5,Interesado
+583,42,F,2491,Instagram,Servicio A,2,68,0,4,0.5111243805971893,60,18,Interesado
+584,38,M,1891,Facebook,Servicio A,2,43,0,7,0.3777246025029298,71,12,Interesado
+585,52,F,5526,Google Ads,Servicio B,3,22,3,6,0.5554213304672466,73,32,Interesado
+586,20,M,3369,Instagram,Servicio A,3,58,2,3,0.6953406640659584,66,17,Contacto Nuevo
+587,40,M,5396,Referido,Servicio Premium,5,13,3,9,0.9704979830789623,97,2,Oportunidad
+588,54,F,7033,Referido,Servicio A,4,14,3,9,0.9113923048628706,95,1,Oportunidad
+589,53,F,5716,Referido,Servicio Premium,4,12,3,8,0.8607343805445861,92,1,Oportunidad
+590,47,F,6602,Referido,Servicio A,5,14,3,7,0.8894185718997526,96,3,Oportunidad
+591,40,M,4872,Referido,Servicio Premium,4,9,3,6,0.931278096254087,92,3,Oportunidad
+592,51,M,3702,Google Ads,Servicio B,4,34,2,4,0.5548082474732876,71,18,Interesado
+593,53,M,7384,Referido,Servicio Premium,5,7,4,8,0.8807729897598331,96,1,Oportunidad
+594,23,F,3444,Facebook,Servicio B,3,33,0,3,0.4450824669772794,78,12,Interesado
+595,31,M,2722,Google Ads,Servicio B,3,10,3,8,0.5047815899147133,70,4,Interesado
+596,28,M,3447,Instagram,Servicio A,2,51,2,5,0.4682935426644426,74,8,Contacto Nuevo
+597,44,M,5688,Google Ads,Servicio B,3,21,5,5,0.6391035628986322,83,32,Interesado
+598,41,M,5488,Referido,Servicio A,5,10,4,8,0.9433418431565102,96,2,Oportunidad
+599,40,M,7058,Referido,Servicio Premium,4,11,4,9,0.9756754495795641,92,2,Oportunidad
+600,39,F,6705,Referido,Servicio A,4,6,6,6,0.9655715847144247,91,3,Oportunidad
+601,48,F,7730,Referido,Servicio Premium,5,6,3,7,0.8638335291773698,97,1,Oportunidad
+602,20,M,3220,Facebook,Servicio B,2,67,2,4,0.6227778096172919,69,19,Interesado
+603,51,F,6874,Referido,Servicio A,4,5,6,8,0.8615151841527637,96,2,Oportunidad
+604,40,F,4544,Referido,Servicio A,4,4,6,8,0.8539459947192906,91,1,Oportunidad
+605,52,F,6486,Referido,Servicio Premium,5,8,4,8,0.8594465263855503,90,3,Oportunidad
+606,32,F,3357,Instagram,Servicio B,2,53,0,6,0.42473999907161947,59,17,Contacto Nuevo
+607,32,M,1776,Instagram,Servicio B,3,53,2,5,0.6300481539632266,79,12,Interesado
+608,35,F,2302,Facebook,Servicio A,3,42,1,7,0.47588644642807365,71,11,Interesado
+609,44,M,4872,Google Ads,Servicio A,4,39,2,5,0.6158758538604152,80,29,Interesado
+610,38,M,3834,Google Ads,Servicio A,4,26,5,4,0.6885840458449577,76,27,Interesado
+611,43,M,7240,Referido,Servicio Premium,5,10,4,6,0.9015826123038959,95,1,Oportunidad
+612,22,M,1716,Instagram,Servicio C,1,89,0,1,0.2435391730988491,49,29,Contacto Nuevo
+613,47,F,5590,Google Ads,Servicio A,3,21,2,5,0.7359299215402657,89,16,Interesado
+614,52,F,6943,Referido,Servicio Premium,4,3,3,8,0.8712619932889243,96,3,Oportunidad
+615,35,F,3189,Google Ads,Servicio B,4,6,1,9,0.5135649274439639,77,5,Interesado
+616,38,F,3312,Google Ads,Servicio B,3,7,3,7,0.7236370576906496,90,5,Interesado
+617,53,M,5331,Referido,Servicio A,4,12,5,9,0.9798764347534739,96,1,Oportunidad
+618,35,F,2881,Facebook,Servicio B,3,31,1,7,0.5135413486026259,59,14,Interesado
+619,40,M,2524,Instagram,Servicio C,2,88,0,1,0.2789358506210093,52,26,Contacto Nuevo
+620,29,M,1764,Facebook,Servicio C,2,64,0,1,0.4052856061800868,60,34,Contacto Nuevo
+621,50,M,7718,Referido,Servicio Premium,5,8,3,7,0.8943250565735885,93,2,Oportunidad
+622,22,F,1563,Facebook,Servicio C,2,67,1,5,0.6038642367575573,75,14,Contacto Nuevo
+623,25,F,1565,Facebook,Servicio C,2,47,2,3,0.5299794539430921,57,19,Contacto Nuevo
+624,20,M,2566,Instagram,Servicio C,2,31,1,6,0.5574436233250072,64,12,Contacto Nuevo
+625,29,F,4211,Google Ads,Servicio B,3,24,3,5,0.7362957985193361,84,20,Interesado
+626,35,M,1886,Instagram,Servicio A,3,55,0,7,0.5817812554153575,60,19,Interesado
+627,27,M,3289,Facebook,Servicio C,3,30,0,5,0.6543935596980718,67,15,Interesado
+628,42,M,1348,Instagram,Servicio C,2,86,0,2,0.32526005924615087,45,33,Contacto Nuevo
+629,45,F,7323,Referido,Servicio Premium,4,9,6,7,0.8632442393381423,92,2,Oportunidad
+630,40,F,1747,Instagram,Servicio B,3,60,1,3,0.5344675547723973,63,17,Interesado
+631,48,F,2815,Instagram,Servicio C,2,72,0,2,0.3002869923729494,46,28,Contacto Nuevo
+632,29,M,2847,Google Ads,Servicio B,4,8,3,11,0.8494115647998348,94,1,Interesado
+633,52,M,3602,Google Ads,Servicio B,3,33,2,6,0.717679927618438,77,19,Interesado
+634,37,M,4065,Google Ads,Servicio B,3,28,3,4,0.701847795931399,70,24,Interesado
+635,44,F,5164,Referido,Servicio A,4,5,4,6,0.8919022271810252,94,2,Oportunidad
+636,37,M,2525,Instagram,Servicio B,2,49,2,6,0.5741565458976384,71,18,Contacto Nuevo
+637,48,F,3748,Google Ads,Servicio B,3,29,4,5,0.704914416634873,81,27,Interesado
+638,32,M,2035,Facebook,Servicio B,2,53,2,3,0.438682789590267,69,16,Interesado
+639,30,M,3370,Instagram,Servicio C,3,34,2,7,0.6944313123882799,72,9,Contacto Nuevo
+640,28,F,1677,Facebook,Servicio C,2,68,2,6,0.4429899477031922,55,12,Interesado
+641,49,F,5500,Referido,Servicio Premium,4,6,6,7,0.9389167668889684,90,3,Oportunidad
+642,35,F,2833,Instagram,Servicio A,2,54,1,5,0.6284524316901552,73,13,Interesado
+643,30,M,2895,Facebook,Servicio A,3,65,0,4,0.4739225968242829,63,9,Interesado
+644,21,M,3135,Instagram,Servicio C,2,68,0,4,0.5094483736965381,70,19,Contacto Nuevo
+645,53,M,7026,Referido,Servicio A,4,7,4,9,0.8508892972592872,90,3,Oportunidad
+646,28,F,2494,Instagram,Servicio B,4,5,1,8,0.7999839288634705,87,4,Interesado
+647,39,M,4414,Google Ads,Servicio B,3,26,4,4,0.702425924090065,79,24,Interesado
+648,38,M,4092,Google Ads,Servicio A,4,23,2,4,0.6448152528215716,87,23,Interesado
+649,49,M,2252,Facebook,Servicio C,2,73,0,1,0.264288087777274,63,29,Contacto Nuevo
+650,34,M,1759,Instagram,Servicio B,2,68,2,5,0.49181899990136535,64,13,Contacto Nuevo
+651,44,F,7501,Referido,Servicio Premium,5,12,6,6,0.9547144859841917,93,3,Oportunidad
+652,41,M,4115,Google Ads,Servicio B,3,22,5,5,0.7090220565053449,74,27,Interesado
+653,36,F,4055,Google Ads,Servicio A,4,17,3,5,0.604343519779636,72,23,Interesado
+654,45,F,1261,Facebook,Servicio C,2,63,0,1,0.3772410667809444,46,31,Contacto Nuevo
+655,22,M,1970,Facebook,Servicio B,2,60,2,4,0.4352978741665199,67,12,Interesado
+656,44,F,5853,Referido,Servicio A,5,13,5,6,0.9478701717618799,96,3,Oportunidad
+657,25,F,3090,Facebook,Servicio A,2,55,0,7,0.4706694184149559,71,17,Interesado
+658,36,F,1949,Facebook,Servicio C,3,55,1,7,0.5693696817960276,74,19,Interesado
+659,48,M,5013,Google Ads,Servicio B,3,22,3,4,0.7418168484564807,88,34,Interesado
+660,35,M,4298,Google Ads,Servicio A,3,29,5,6,0.5517238005183561,77,33,Interesado
+661,37,F,1912,Facebook,Servicio A,2,48,0,5,0.4442164088156568,70,14,Contacto Nuevo
+662,33,F,3668,Google Ads,Servicio B,3,7,1,7,0.7091713539541151,84,5,Interesado
+663,28,M,5838,Google Ads,Servicio A,3,32,3,4,0.6753605260129688,85,27,Interesado
+664,26,M,3189,Instagram,Servicio A,2,67,1,3,0.6541356867573136,72,13,Interesado
+665,52,M,5948,Referido,Servicio A,5,12,3,8,0.8783042368438573,99,2,Oportunidad
+666,48,F,7817,Referido,Servicio A,5,9,6,8,0.9328211655511129,92,3,Oportunidad
+667,35,M,2627,Instagram,Servicio A,2,50,0,4,0.6222947400498278,63,11,Interesado
+668,47,F,5574,Referido,Servicio A,5,5,4,8,0.8609476914530227,97,3,Oportunidad
+669,40,M,5203,Referido,Servicio Premium,4,5,4,8,0.8898375037515316,94,3,Oportunidad
+670,30,M,2105,Instagram,Servicio A,2,56,2,7,0.6623641828832041,67,16,Interesado
+671,39,M,7491,Referido,Servicio A,4,8,6,8,0.9390142713045306,92,2,Oportunidad
+672,36,F,2350,Google Ads,Servicio A,3,12,1,8,0.6184774077989155,92,2,Interesado
+673,40,M,6406,Referido,Servicio A,5,5,4,7,0.9464629187443688,90,1,Oportunidad
+674,30,F,5905,Google Ads,Servicio B,3,20,4,4,0.7121870385345221,79,20,Interesado
+675,42,F,2055,Instagram,Servicio A,2,69,1,6,0.42546341783506564,61,19,Interesado
+676,35,F,2214,Google Ads,Servicio A,3,7,3,10,0.5174510512397075,86,2,Interesado
+677,35,M,7745,Referido,Servicio Premium,4,14,6,8,0.9153419150307629,98,2,Oportunidad
+678,27,M,2038,Facebook,Servicio B,2,66,0,4,0.354648421210503,67,12,Contacto Nuevo
+679,41,M,3340,Google Ads,Servicio B,4,11,2,6,0.7678020974514423,75,1,Interesado
+680,24,M,3536,Instagram,Servicio A,3,5,1,6,0.8368183201184224,81,6,Interesado
+681,24,F,2428,Facebook,Servicio C,1,81,0,1,0.35557574476850656,59,24,Contacto Nuevo
+682,43,F,3281,Facebook,Servicio B,3,45,1,6,0.4962944299274197,67,17,Contacto Nuevo
+683,48,F,7539,Referido,Servicio A,5,14,3,9,0.943599584341568,91,1,Oportunidad
+684,54,F,4009,Google Ads,Servicio A,4,31,4,4,0.5971365069151771,78,24,Interesado
+685,39,M,2145,Instagram,Servicio B,4,7,3,8,0.5563011027197843,87,5,Interesado
+686,50,M,5829,Google Ads,Servicio A,3,15,2,4,0.7372326083101993,80,31,Interesado
+687,53,F,3604,Google Ads,Servicio B,4,33,2,6,0.618193312692497,87,28,Interesado
+688,20,M,3011,Instagram,Servicio A,2,61,0,3,0.6712204283730538,60,10,Interesado
+689,24,F,1795,Facebook,Servicio C,2,69,0,2,0.39329192293673976,50,35,Contacto Nuevo
+690,51,F,5530,Referido,Servicio A,4,12,6,9,0.8606613963570644,92,1,Oportunidad
+691,40,F,3462,Instagram,Servicio A,3,35,2,6,0.6058536221988191,63,19,Contacto Nuevo
+692,25,M,3489,Facebook,Servicio A,2,30,0,7,0.6096983868941603,69,17,Contacto Nuevo
+693,41,F,5861,Google Ads,Servicio A,4,38,4,6,0.6063594700792985,86,28,Interesado
+694,27,F,2267,Instagram,Servicio A,2,56,0,5,0.6731501073548775,72,9,Contacto Nuevo
+695,43,F,6774,Referido,Servicio A,5,6,4,7,0.9186488505211703,94,3,Oportunidad
+696,38,M,3432,Google Ads,Servicio B,3,18,3,6,0.5730311574805741,84,25,Interesado
+697,24,M,1962,Facebook,Servicio B,2,55,1,6,0.38581626283692205,58,13,Interesado
+698,33,M,3058,Google Ads,Servicio B,3,25,5,5,0.5716800745433246,80,19,Interesado
+699,52,M,7569,Referido,Servicio A,5,8,4,8,0.9791651624664984,92,1,Oportunidad
+700,26,F,2451,Instagram,Servicio C,2,54,0,4,0.6031656063978871,73,13,Contacto Nuevo
+701,47,F,3817,Google Ads,Servicio A,3,19,5,5,0.6400128340831517,88,17,Interesado
+702,39,M,6181,Referido,Servicio Premium,5,5,3,9,0.8980208513791648,91,2,Oportunidad
+703,41,F,1566,Instagram,Servicio A,3,31,2,7,0.42354122157907503,61,19,Interesado
+704,46,F,5476,Referido,Servicio A,5,8,5,9,0.8676314600809507,91,1,Oportunidad
+705,40,F,5570,Referido,Servicio Premium,4,8,4,9,0.8816475401795034,98,3,Oportunidad
+706,29,F,2710,Instagram,Servicio A,4,13,2,7,0.5316466422270812,79,4,Interesado
+707,37,F,1965,Instagram,Servicio B,3,37,2,6,0.6204940291992762,71,9,Interesado
+708,27,M,1262,Facebook,Servicio C,2,84,0,1,0.39961337626279764,47,26,Contacto Nuevo
+709,26,F,3034,Instagram,Servicio A,3,67,1,4,0.4742259203388056,79,14,Interesado
+710,32,M,3875,Google Ads,Servicio A,3,24,3,6,0.6788426031979236,80,22,Interesado
+711,22,M,1974,Facebook,Servicio C,1,66,0,2,0.255267888203498,58,28,Contacto Nuevo
+712,43,M,3209,Google Ads,Servicio A,4,27,3,4,0.6940222667029892,81,33,Interesado
+713,26,M,1834,Instagram,Servicio C,3,39,2,6,0.5424569224046736,75,18,Contacto Nuevo
+714,33,M,2251,Instagram,Servicio C,3,51,2,7,0.6911660284676684,65,9,Interesado
+715,41,F,3142,Facebook,Servicio A,2,59,1,3,0.5825483253074373,55,17,Interesado
+716,33,M,2711,Instagram,Servicio B,4,3,3,11,0.5682299691395559,77,5,Interesado
+717,38,F,1354,Facebook,Servicio C,1,79,0,1,0.3111102394178747,44,36,Contacto Nuevo
+718,29,M,2297,Google Ads,Servicio A,4,9,3,7,0.833095842236688,90,6,Interesado
+719,54,F,5804,Referido,Servicio Premium,5,9,4,9,0.8983245080001399,95,3,Oportunidad
+720,35,F,2006,Facebook,Servicio C,1,76,0,2,0.295590832765407,61,24,Contacto Nuevo
+721,29,F,3887,Instagram,Servicio B,3,3,1,11,0.7347545639049102,85,5,Interesado
+722,43,M,6991,Referido,Servicio Premium,4,7,4,6,0.8609682165370056,95,3,Oportunidad
+723,47,M,5799,Referido,Servicio Premium,4,10,4,6,0.9735968127176473,92,3,Oportunidad
+724,31,F,2120,Facebook,Servicio C,1,84,0,1,0.2965920342842018,43,26,Contacto Nuevo
+725,48,F,3823,Google Ads,Servicio B,3,38,3,4,0.6072559724223883,72,27,Interesado
+726,39,M,2458,Facebook,Servicio C,2,79,0,2,0.41705076894474474,50,20,Contacto Nuevo
+727,41,F,7578,Referido,Servicio A,4,9,5,7,0.9080818779460674,99,1,Oportunidad
+728,28,F,2204,Facebook,Servicio C,1,82,0,2,0.41212055248343493,51,36,Contacto Nuevo
+729,21,M,1914,Facebook,Servicio B,3,56,2,3,0.6405710095210166,66,12,Contacto Nuevo
+730,42,F,7841,Referido,Servicio Premium,4,9,3,6,0.9575893339753899,99,3,Oportunidad
+731,39,M,5167,Referido,Servicio Premium,4,5,5,8,0.9097499177252805,95,3,Oportunidad
+732,49,M,2902,Facebook,Servicio C,1,77,0,2,0.22203556084769804,56,39,Contacto Nuevo
+733,54,M,5029,Google Ads,Servicio A,4,26,5,5,0.6496378598347958,85,22,Interesado
+734,50,F,4385,Google Ads,Servicio A,3,32,5,4,0.6820671661028255,77,20,Interesado
+735,25,M,2360,Facebook,Servicio B,2,41,2,3,0.39396546460468257,61,17,Interesado
+736,33,F,3880,Instagram,Servicio B,3,8,2,9,0.6628471359465732,72,2,Interesado
+737,25,F,1681,Facebook,Servicio B,2,47,0,4,0.4133060835488677,65,17,Interesado
+738,44,F,2724,Instagram,Servicio C,2,86,0,2,0.33817597251138504,48,35,Contacto Nuevo
+739,41,F,3313,Instagram,Servicio C,3,43,2,7,0.53871782794456,65,13,Interesado
+740,20,M,3158,Instagram,Servicio B,3,36,1,3,0.3614998442091387,77,15,Contacto Nuevo
+741,41,M,2200,Facebook,Servicio C,3,49,1,3,0.4428299828759361,66,8,Contacto Nuevo
+742,29,M,2351,Instagram,Servicio B,2,56,2,5,0.6813095004724186,77,17,Contacto Nuevo
+743,25,F,2602,Facebook,Servicio C,2,74,0,2,0.3884420505112631,56,27,Contacto Nuevo
+744,35,F,5251,Google Ads,Servicio A,4,33,4,5,0.621957882676386,88,29,Interesado
+745,25,F,2723,Instagram,Servicio B,3,68,0,3,0.5613274650501413,64,14,Interesado
+746,44,M,2048,Google Ads,Servicio A,3,6,3,6,0.5508287569703372,79,1,Interesado
+747,26,M,2466,Instagram,Servicio C,2,41,2,6,0.6200156707008622,79,14,Contacto Nuevo
+748,37,M,3343,Google Ads,Servicio B,3,26,3,6,0.5681753076739298,82,16,Interesado
+749,28,M,3336,Instagram,Servicio B,3,6,3,10,0.7773889186674678,85,5,Interesado
+750,32,M,5987,Google Ads,Servicio B,3,21,3,4,0.7216738813439317,78,25,Interesado
+751,40,M,6106,Referido,Servicio Premium,4,5,4,8,0.9654753855464958,96,2,Oportunidad
+752,40,F,3721,Google Ads,Servicio A,3,7,1,9,0.6816575927524945,78,1,Interesado
+753,28,M,3192,Google Ads,Servicio A,4,32,3,6,0.6168209304173127,82,19,Interesado
+754,39,M,2575,Facebook,Servicio B,2,43,2,5,0.5438894824573961,68,11,Contacto Nuevo
+755,51,F,6032,Referido,Servicio Premium,5,9,4,6,0.8746912596099466,95,1,Oportunidad
+756,32,F,2708,Facebook,Servicio C,1,85,0,1,0.337441137816505,40,33,Contacto Nuevo
+757,51,F,5896,Google Ads,Servicio A,4,30,3,4,0.6240982874119029,72,33,Interesado
+758,28,F,4102,Google Ads,Servicio B,4,24,3,5,0.6320607443745324,82,15,Interesado
+759,26,F,2588,Instagram,Servicio A,4,10,3,8,0.799039829663988,72,6,Interesado
+760,31,F,2907,Facebook,Servicio C,1,76,0,2,0.33337005218619575,64,39,Contacto Nuevo
+761,45,M,6156,Referido,Servicio A,5,12,5,9,0.9197916890453404,97,3,Oportunidad
+762,42,M,1654,Instagram,Servicio A,2,66,1,3,0.3856465427998339,76,16,Interesado
+763,44,M,2602,Instagram,Servicio C,3,67,0,5,0.5392894723900389,68,11,Interesado
+764,31,F,1978,Instagram,Servicio C,2,77,0,1,0.3095279127583238,43,39,Contacto Nuevo
+765,35,M,7717,Referido,Servicio Premium,5,10,6,6,0.9678926550541787,96,1,Oportunidad
+766,36,F,5747,Google Ads,Servicio B,4,29,4,6,0.6489194105527518,72,25,Interesado
+767,34,M,1827,Instagram,Servicio C,2,65,0,1,0.4230594788845266,57,26,Contacto Nuevo
+768,36,F,2593,Google Ads,Servicio A,4,4,2,8,0.5879172016115635,75,6,Interesado
+769,29,M,2918,Facebook,Servicio B,3,30,2,4,0.4858204659913349,77,12,Interesado
+770,23,M,1595,Instagram,Servicio C,2,77,0,1,0.23257949702282274,40,33,Contacto Nuevo
+771,38,M,4523,Referido,Servicio A,4,9,3,9,0.9323918270171474,97,2,Oportunidad
+772,45,F,2559,Instagram,Servicio C,2,60,0,1,0.388086425632989,42,30,Contacto Nuevo
+773,39,M,6089,Referido,Servicio Premium,5,14,3,8,0.877012760411618,99,3,Oportunidad
+774,29,F,2215,Facebook,Servicio B,3,61,1,4,0.5816511092752519,78,17,Interesado
+775,21,M,1869,Instagram,Servicio C,1,66,0,2,0.2568019194580011,61,21,Contacto Nuevo
+776,48,M,6164,Referido,Servicio Premium,5,7,5,9,0.8795518692391036,93,1,Oportunidad
+777,28,F,1649,Instagram,Servicio B,2,68,0,5,0.5968747295679413,69,14,Interesado
+778,24,F,2096,Facebook,Servicio C,1,66,0,1,0.38643343342033976,56,27,Contacto Nuevo
+779,48,M,1872,Instagram,Servicio C,2,74,0,2,0.20102655072436212,50,29,Contacto Nuevo
+780,51,F,4667,Google Ads,Servicio A,4,27,2,4,0.5507660581000645,71,30,Interesado
+781,28,F,4490,Google Ads,Servicio A,4,17,2,6,0.6454219635387852,70,24,Interesado
+782,48,M,3699,Google Ads,Servicio A,3,17,2,4,0.6074805067690965,78,21,Interesado
+783,43,M,1735,Facebook,Servicio C,2,35,2,4,0.6997225546302043,71,8,Contacto Nuevo
+784,25,M,2810,Instagram,Servicio A,3,58,1,6,0.4313013789337584,69,15,Interesado
+785,38,F,5551,Referido,Servicio A,5,8,6,9,0.9548811585258208,95,2,Oportunidad
+786,26,M,2638,Google Ads,Servicio B,4,9,2,6,0.6686650584884921,70,4,Interesado
+787,47,F,5152,Google Ads,Servicio B,4,28,5,4,0.6601090601239992,79,34,Interesado
+788,20,M,3036,Facebook,Servicio C,2,57,2,7,0.3843155883388289,71,9,Contacto Nuevo
+789,33,M,3319,Instagram,Servicio C,2,60,0,3,0.4992114028967454,75,18,Interesado
+790,26,F,3565,Instagram,Servicio A,3,6,1,7,0.5458083984937516,73,4,Interesado
+791,37,M,5481,Referido,Servicio Premium,5,12,4,8,0.9501297395344835,95,2,Oportunidad
+792,45,F,3349,Google Ads,Servicio B,4,24,5,4,0.6310002197175097,85,32,Interesado
+793,40,M,5100,Google Ads,Servicio B,4,24,3,4,0.5813058426831483,84,20,Interesado
+794,54,M,5676,Google Ads,Servicio A,4,34,2,5,0.5833900358068939,79,16,Interesado
+795,43,F,5638,Referido,Servicio Premium,5,9,6,6,0.9278714357477638,93,2,Oportunidad
+796,36,F,3382,Instagram,Servicio A,3,5,1,11,0.6144523689736358,80,6,Interesado
+797,29,M,3151,Instagram,Servicio B,4,8,1,8,0.785097824239726,79,1,Interesado
+798,31,M,4070,Google Ads,Servicio A,3,16,3,4,0.741595870649778,72,23,Interesado
+799,40,M,5132,Google Ads,Servicio B,4,16,5,6,0.6369356296632941,71,20,Interesado
+800,43,F,2377,Google Ads,Servicio A,3,3,1,7,0.6125902290454582,72,6,Interesado
+801,29,M,2042,Instagram,Servicio C,2,71,0,1,0.41049588201455656,42,21,Contacto Nuevo
+802,45,M,6486,Referido,Servicio Premium,5,6,5,7,0.9139259325924686,95,3,Oportunidad
+803,53,F,3185,Google Ads,Servicio B,4,39,4,4,0.5899143231791878,77,17,Interesado
+804,30,F,3853,Google Ads,Servicio A,4,31,3,6,0.6254357583568487,81,19,Interesado
+805,30,F,1790,Facebook,Servicio C,3,40,2,6,0.565371744220001,69,19,Interesado
+806,35,M,1412,Instagram,Servicio C,2,87,0,2,0.337357153072129,48,23,Contacto Nuevo
+807,33,M,2076,Google Ads,Servicio B,4,8,2,10,0.6790567137262922,88,3,Interesado
+808,38,M,3100,Google Ads,Servicio B,3,4,2,11,0.6085119084043575,78,1,Interesado
+809,33,M,2891,Instagram,Servicio C,3,62,0,7,0.5988130156611895,69,9,Contacto Nuevo
+810,45,F,5526,Referido,Servicio Premium,5,6,6,7,0.9202995320690706,94,1,Oportunidad
+811,32,M,3330,Google Ads,Servicio A,4,13,3,7,0.6043526246967945,92,6,Interesado
+812,49,M,2029,Facebook,Servicio C,1,74,0,2,0.21890759095863738,45,33,Contacto Nuevo
+813,46,M,6704,Referido,Servicio Premium,5,11,6,7,0.8672209640223211,92,2,Oportunidad
+814,43,F,2032,Google Ads,Servicio A,4,11,2,6,0.6061228678158862,92,5,Interesado
+815,29,F,2245,Google Ads,Servicio A,4,3,2,8,0.5291826688190658,83,4,Interesado
+816,45,M,3337,Google Ads,Servicio A,4,31,4,6,0.5972685486656419,80,31,Interesado
+817,32,M,5130,Google Ads,Servicio A,4,29,4,6,0.550048200937027,81,34,Interesado
+818,24,M,1828,Instagram,Servicio A,2,55,1,5,0.6529757627304562,63,19,Contacto Nuevo
+819,53,F,7623,Referido,Servicio Premium,5,6,3,7,0.9747469791892004,98,1,Oportunidad
+820,27,M,2120,Facebook,Servicio C,3,33,0,6,0.35329694959035585,63,17,Interesado
+821,39,F,2200,Facebook,Servicio C,2,70,0,2,0.42924027827562217,51,35,Contacto Nuevo
+822,39,M,7084,Referido,Servicio A,4,11,5,9,0.8523384571044104,91,2,Oportunidad
+823,44,M,2127,Instagram,Servicio A,3,30,0,3,0.5066494826777902,59,12,Contacto Nuevo
+824,22,M,2802,Facebook,Servicio B,3,45,0,4,0.43643789436347186,55,17,Interesado
+825,52,F,4230,Google Ads,Servicio B,3,26,5,5,0.6767593951985458,84,29,Interesado
+826,40,F,3441,Google Ads,Servicio A,4,5,3,6,0.5046933088552431,92,4,Interesado
+827,33,M,1872,Instagram,Servicio A,2,33,2,3,0.5448482397934988,71,14,Contacto Nuevo
+828,39,M,2280,Instagram,Servicio B,3,48,0,5,0.5665048021752404,69,17,Contacto Nuevo
+829,46,F,1784,Instagram,Servicio C,2,87,0,1,0.2317756534426851,51,29,Contacto Nuevo
+830,24,F,2488,Instagram,Servicio C,3,68,0,6,0.42048968597786057,66,14,Interesado
+831,41,F,2858,Facebook,Servicio C,3,39,1,7,0.4955697790041283,59,14,Contacto Nuevo
+832,37,M,2986,Facebook,Servicio A,3,41,2,3,0.35377943733632916,77,15,Interesado
+833,53,F,6765,Referido,Servicio A,4,8,3,6,0.8921858643919631,91,3,Oportunidad
+834,52,F,6107,Referido,Servicio A,5,9,5,9,0.8506602456868445,98,1,Oportunidad
+835,28,M,3362,Facebook,Servicio A,3,32,2,3,0.5150821139748061,74,9,Interesado
+836,44,M,3306,Instagram,Servicio B,3,50,0,6,0.5794702942400111,75,13,Interesado
+837,36,F,2658,Instagram,Servicio B,3,8,1,10,0.7579722311754613,75,2,Interesado
+838,37,F,3160,Facebook,Servicio C,2,61,2,7,0.6509117319897734,60,19,Interesado
+839,51,M,3012,Google Ads,Servicio A,4,33,4,4,0.6999451493567087,88,27,Interesado
+840,41,F,3081,Google Ads,Servicio B,4,24,2,4,0.7462895190858259,82,18,Interesado
+841,44,M,5490,Referido,Servicio Premium,4,4,3,6,0.9152516255015118,99,3,Oportunidad
+842,54,M,4717,Google Ads,Servicio A,3,30,4,6,0.6583520639882031,78,19,Interesado
+843,53,M,6043,Referido,Servicio A,5,5,6,8,0.867617193562898,99,2,Oportunidad
+844,35,M,3192,Instagram,Servicio B,3,9,3,8,0.634107563995694,76,2,Interesado
+845,50,M,4795,Referido,Servicio A,5,11,6,8,0.923547149851649,98,1,Oportunidad
+846,39,M,2486,Facebook,Servicio A,2,42,2,6,0.45579684517375696,76,19,Interesado
+847,43,F,6148,Referido,Servicio A,5,4,5,9,0.8595085262321769,96,2,Oportunidad
+848,30,M,2542,Google Ads,Servicio B,3,5,2,11,0.731665551765175,84,2,Interesado
+849,51,F,5879,Google Ads,Servicio B,3,18,3,6,0.715091665159257,76,29,Interesado
+850,53,M,4911,Google Ads,Servicio B,3,39,2,6,0.6030570178172105,80,24,Interesado
+851,51,F,6091,Referido,Servicio Premium,5,7,3,6,0.8833180087979983,95,1,Oportunidad
+852,41,F,1404,Instagram,Servicio C,2,81,0,1,0.24787240372702987,57,39,Contacto Nuevo
+853,33,F,2954,Instagram,Servicio A,3,65,1,4,0.5005615679555095,72,8,Interesado
+854,42,F,3420,Instagram,Servicio A,3,3,2,6,0.5187517958625928,70,5,Interesado
+855,28,F,2068,Facebook,Servicio A,2,30,0,3,0.3724884530341138,55,17,Interesado
+856,37,M,6182,Referido,Servicio A,4,4,4,6,0.8667747331556253,93,1,Oportunidad
+857,51,M,5343,Referido,Servicio A,5,4,5,8,0.888684193137306,93,1,Oportunidad
+858,37,M,1545,Instagram,Servicio C,2,45,2,6,0.37324187371117407,76,9,Contacto Nuevo
+859,51,F,3712,Google Ads,Servicio B,4,31,3,4,0.6305342416507996,84,33,Interesado
+860,44,M,5197,Referido,Servicio Premium,4,14,4,8,0.8779816966651239,98,3,Oportunidad
+861,32,M,2404,Facebook,Servicio C,2,80,0,2,0.39589597368572094,43,39,Contacto Nuevo
+862,42,M,3194,Facebook,Servicio B,3,46,0,5,0.4437210101114411,63,13,Interesado
+863,48,M,3879,Google Ads,Servicio A,3,19,3,4,0.5527034543399441,85,30,Interesado
+864,40,F,3412,Instagram,Servicio C,3,46,0,4,0.4189871135882782,78,19,Contacto Nuevo
+865,31,F,2950,Facebook,Servicio B,2,69,1,7,0.522636622559095,67,18,Contacto Nuevo
+866,43,F,5426,Google Ads,Servicio B,4,26,5,6,0.634507876044771,82,31,Interesado
+867,41,F,6742,Referido,Servicio A,5,5,5,6,0.9389039763512298,95,2,Oportunidad
+868,52,M,7146,Referido,Servicio A,5,4,5,8,0.8623160589213147,90,2,Oportunidad
+869,28,F,3822,Instagram,Servicio B,4,14,1,8,0.7844144236808601,86,3,Interesado
+870,27,M,3840,Instagram,Servicio B,3,14,3,11,0.6415818335603822,74,3,Interesado
+871,23,M,2687,Facebook,Servicio B,3,46,2,4,0.5018223960425038,67,19,Contacto Nuevo
+872,40,M,3056,Instagram,Servicio B,2,32,0,3,0.38006863587098716,64,15,Contacto Nuevo
+873,32,F,4529,Google Ads,Servicio B,3,34,4,4,0.6235417016255087,86,26,Interesado
+874,22,F,3210,Instagram,Servicio C,3,30,2,7,0.5010810749503242,66,8,Contacto Nuevo
+875,37,M,7014,Referido,Servicio Premium,4,3,6,6,0.9685368071727766,99,1,Oportunidad
+876,48,F,6254,Referido,Servicio Premium,5,5,5,6,0.9488788555807081,93,1,Oportunidad
+877,24,M,2958,Facebook,Servicio C,2,68,0,2,0.2669683957043602,63,30,Contacto Nuevo
+878,36,M,5030,Google Ads,Servicio A,4,17,2,4,0.6140973795311095,83,31,Interesado
+879,48,M,7438,Referido,Servicio A,5,3,3,7,0.9587606273477955,96,3,Oportunidad
+880,25,M,2940,Facebook,Servicio A,2,35,2,3,0.5538991182251839,55,11,Interesado
+881,43,F,3076,Facebook,Servicio A,2,63,0,6,0.3783708473571611,67,8,Interesado
+882,28,F,4604,Google Ads,Servicio B,3,21,5,6,0.6294582585891811,87,21,Interesado
+883,35,M,5636,Referido,Servicio A,4,10,5,9,0.9158255719265056,94,1,Oportunidad
+884,39,F,6005,Referido,Servicio A,5,3,6,8,0.8925024730331104,99,1,Oportunidad
+885,20,F,1727,Facebook,Servicio C,1,82,0,2,0.22821453617819057,62,37,Contacto Nuevo
+886,54,F,4511,Referido,Servicio Premium,5,11,5,9,0.898019744185736,98,2,Oportunidad
+887,46,F,4495,Google Ads,Servicio B,4,17,3,4,0.6048083179408552,78,27,Interesado
+888,21,M,3147,Facebook,Servicio A,2,54,2,5,0.5096555593919379,75,14,Interesado
+889,54,F,5309,Referido,Servicio Premium,4,11,3,6,0.8579581655586643,93,2,Oportunidad
+890,28,F,3256,Instagram,Servicio A,3,54,1,6,0.6403753318735249,57,14,Contacto Nuevo
+891,37,F,1639,Instagram,Servicio C,2,67,0,1,0.3576471743271359,52,20,Contacto Nuevo
+892,34,F,2853,Google Ads,Servicio B,4,10,2,8,0.7207978635257891,76,1,Interesado
+893,42,M,2491,Facebook,Servicio C,2,67,0,2,0.26869945269197515,61,21,Contacto Nuevo
+894,38,F,2479,Instagram,Servicio B,2,39,1,6,0.5532788904487165,65,18,Interesado
+895,28,F,5708,Google Ads,Servicio B,3,23,2,6,0.6569109089512079,82,22,Interesado
+896,35,F,3160,Facebook,Servicio A,2,41,1,3,0.64399937813538,70,9,Contacto Nuevo
+897,37,M,1838,Instagram,Servicio A,3,32,1,3,0.6071976821748604,77,15,Contacto Nuevo
+898,39,F,2884,Instagram,Servicio A,3,4,1,6,0.7966741153282393,85,6,Interesado
+899,43,M,5246,Referido,Servicio Premium,4,11,6,7,0.9114743118873708,93,1,Oportunidad
+900,50,F,5156,Referido,Servicio Premium,5,13,3,6,0.9619343419963913,94,1,Oportunidad
+901,22,M,1532,Facebook,Servicio B,3,38,0,4,0.6654121681260744,61,18,Interesado
+902,47,M,7627,Referido,Servicio A,5,5,3,7,0.9647616209514446,96,2,Oportunidad
+903,52,M,5456,Referido,Servicio Premium,4,8,4,6,0.976665429348124,98,2,Oportunidad
+904,50,F,3316,Google Ads,Servicio B,4,31,4,5,0.5900308422498735,78,34,Interesado
+905,21,F,3411,Instagram,Servicio A,2,51,2,7,0.6341681902359666,55,8,Interesado
+906,25,M,3996,Instagram,Servicio A,3,13,2,10,0.6046544378632711,78,6,Interesado
+907,44,M,2431,Facebook,Servicio C,2,69,0,2,0.303790896651026,52,32,Contacto Nuevo
+908,32,M,2121,Instagram,Servicio C,3,65,1,4,0.612260374299852,59,8,Contacto Nuevo
+909,27,M,2078,Facebook,Servicio C,2,69,2,7,0.5247350176336711,72,18,Contacto Nuevo
+910,36,F,1985,Instagram,Servicio A,2,39,0,5,0.6588645682300973,65,8,Contacto Nuevo
+911,38,M,4388,Google Ads,Servicio B,4,18,2,4,0.749336655586936,74,28,Interesado
+912,42,F,1603,Instagram,Servicio C,3,48,2,6,0.5178317329889738,63,12,Contacto Nuevo
+913,41,M,4339,Google Ads,Servicio B,4,24,5,6,0.7408263283142145,75,16,Interesado
+914,32,M,3368,Facebook,Servicio B,3,48,0,7,0.6749175202019676,60,14,Contacto Nuevo
+915,44,M,4458,Google Ads,Servicio A,4,22,3,6,0.5501579022186438,71,30,Interesado
+916,25,M,2992,Instagram,Servicio C,2,57,1,6,0.4073761023336209,78,10,Interesado
+917,37,M,2973,Facebook,Servicio A,3,30,0,6,0.5908411807222226,63,19,Interesado
+918,22,F,3340,Google Ads,Servicio B,3,4,2,7,0.568754460327975,84,5,Interesado
+919,42,M,1387,Facebook,Servicio C,1,66,0,1,0.3319585093903185,61,38,Contacto Nuevo
+920,47,M,4586,Referido,Servicio A,5,8,3,6,0.8921769697225586,99,3,Oportunidad
+921,44,F,2466,Instagram,Servicio A,4,5,1,10,0.8264243718938946,75,4,Interesado
+922,44,F,2327,Facebook,Servicio C,3,52,2,7,0.3585368475885338,55,18,Contacto Nuevo
+923,22,F,3257,Instagram,Servicio A,4,11,3,9,0.8278987005318553,92,1,Interesado
+924,31,M,2989,Facebook,Servicio C,2,83,0,1,0.4465874807360405,52,34,Contacto Nuevo
+925,31,M,3392,Facebook,Servicio B,3,56,2,4,0.4280815064558745,71,10,Interesado
+926,52,M,4716,Referido,Servicio A,4,7,5,9,0.9311684507300693,96,1,Oportunidad
+927,30,M,2714,Instagram,Servicio B,2,63,2,4,0.5448563077157262,57,19,Contacto Nuevo
+928,38,M,4859,Google Ads,Servicio A,4,34,3,6,0.5912405431803558,75,29,Interesado
+929,28,M,5788,Google Ads,Servicio B,4,31,3,5,0.6322297864680277,72,27,Interesado
+930,22,M,2397,Instagram,Servicio C,2,45,1,7,0.35477394604255835,64,16,Contacto Nuevo
+931,49,F,5819,Referido,Servicio Premium,4,7,4,7,0.9033679619656856,97,1,Oportunidad
+932,30,M,1702,Instagram,Servicio C,1,75,0,2,0.20230022440634488,51,25,Contacto Nuevo
+933,33,F,2881,Google Ads,Servicio B,3,11,3,7,0.7937227835638105,80,1,Interesado
+934,35,M,3912,Google Ads,Servicio B,3,28,2,5,0.6371468713686615,73,34,Interesado
+935,40,F,5549,Referido,Servicio Premium,5,3,6,9,0.9233453229338369,95,3,Oportunidad
+936,35,M,2118,Instagram,Servicio C,2,56,2,5,0.5045369036326139,76,10,Interesado
+937,41,M,7417,Referido,Servicio Premium,5,7,6,8,0.9250126522197726,92,3,Oportunidad
+938,44,M,2332,Instagram,Servicio B,3,5,1,6,0.7838805361700905,84,3,Interesado
+939,40,M,4694,Referido,Servicio Premium,4,9,3,6,0.8818239834902244,99,3,Oportunidad
+940,40,M,5396,Google Ads,Servicio B,4,15,4,6,0.585690134819675,89,33,Interesado
+941,36,F,2590,Facebook,Servicio B,2,69,0,6,0.6376305107389701,59,14,Contacto Nuevo
+942,51,M,3901,Google Ads,Servicio A,3,33,4,4,0.6670521751019693,75,29,Interesado
+943,43,F,5198,Google Ads,Servicio B,4,36,2,4,0.582784052409389,86,26,Interesado
+944,32,F,1371,Instagram,Servicio C,2,82,0,1,0.26971798156524124,43,38,Contacto Nuevo
+945,26,F,2986,Facebook,Servicio B,2,67,2,4,0.6579753472734307,61,18,Interesado
+946,41,F,6256,Referido,Servicio A,5,9,6,9,0.9277797898404825,94,3,Oportunidad
+947,53,F,5816,Referido,Servicio Premium,5,5,3,7,0.8524605932664903,99,3,Oportunidad
+948,28,M,2560,Instagram,Servicio A,3,11,2,10,0.7482132463280416,74,5,Interesado
+949,24,M,2410,Google Ads,Servicio B,4,12,1,10,0.6586416203840508,91,5,Interesado
+950,36,F,3660,Google Ads,Servicio B,3,16,3,4,0.7422236536043281,72,30,Interesado
+951,46,F,3854,Google Ads,Servicio A,4,34,2,5,0.610699246357803,80,31,Interesado
+952,53,F,4272,Google Ads,Servicio A,4,34,5,4,0.5684691677890865,71,28,Interesado
+953,38,M,7287,Referido,Servicio Premium,5,8,6,8,0.8890635386222431,95,3,Oportunidad
+954,43,F,2491,Instagram,Servicio B,4,9,3,9,0.7062047320878259,78,4,Interesado
+955,38,F,1661,Facebook,Servicio A,2,37,2,5,0.4737171162949325,72,10,Interesado
+956,44,M,1972,Facebook,Servicio A,3,32,1,4,0.5367174665672024,61,8,Contacto Nuevo
+957,53,F,3025,Google Ads,Servicio A,3,15,3,4,0.6915045637956085,72,15,Interesado
+958,42,F,7438,Referido,Servicio A,4,5,3,6,0.9748346266039687,90,3,Oportunidad
+959,40,F,5719,Referido,Servicio Premium,4,8,6,8,0.9321307296748582,93,2,Oportunidad
+960,34,M,2244,Facebook,Servicio C,2,68,0,2,0.3202814229542114,56,35,Contacto Nuevo
+961,51,F,5261,Referido,Servicio Premium,5,13,4,6,0.9452540440037298,96,1,Oportunidad
+962,49,F,3846,Google Ads,Servicio B,3,24,2,4,0.6127564286611458,86,23,Interesado
+963,37,F,2468,Instagram,Servicio C,2,60,1,4,0.430395810376747,76,13,Contacto Nuevo
+964,35,F,3289,Facebook,Servicio B,3,40,0,5,0.3790635652335652,55,11,Contacto Nuevo
+965,31,F,2868,Instagram,Servicio C,3,57,2,4,0.41949000060387054,58,9,Interesado
+966,40,F,3049,Instagram,Servicio B,2,46,1,6,0.4481621284716283,61,16,Interesado
+967,38,F,1608,Instagram,Servicio C,2,82,0,1,0.3697895864358892,46,28,Contacto Nuevo
+968,23,M,3482,Instagram,Servicio B,2,55,0,7,0.3613131428641316,56,16,Interesado
+969,29,F,4540,Google Ads,Servicio B,3,34,5,5,0.5627071444847838,73,23,Interesado
+970,41,M,1637,Instagram,Servicio B,2,39,1,3,0.5980382934791668,60,18,Interesado
+971,54,M,4390,Google Ads,Servicio A,3,33,3,4,0.5893517555343312,85,33,Interesado
+972,41,M,3865,Google Ads,Servicio B,4,13,2,8,0.8369746827932563,71,1,Interesado
+973,36,M,2816,Facebook,Servicio C,2,66,0,2,0.21306716689039915,58,22,Contacto Nuevo
+974,20,F,3063,Instagram,Servicio B,3,48,2,6,0.6684043932769689,55,15,Contacto Nuevo
+975,53,M,4840,Referido,Servicio A,4,9,6,6,0.8502355644030027,94,2,Oportunidad
+976,43,F,2940,Instagram,Servicio C,2,39,2,6,0.3973140689600005,72,12,Interesado
+977,53,M,5933,Google Ads,Servicio B,4,38,2,4,0.6877999969977137,85,25,Interesado
+978,40,M,6070,Referido,Servicio Premium,5,7,3,7,0.9363296357559784,90,1,Oportunidad
+979,44,F,3394,Instagram,Servicio C,3,45,0,7,0.545233544007402,71,11,Interesado
+980,43,M,3750,Google Ads,Servicio B,3,24,2,5,0.7108609425911033,71,21,Interesado
+981,32,M,1770,Facebook,Servicio B,2,54,1,5,0.3940308177211179,76,18,Interesado
+982,39,M,2055,Facebook,Servicio C,1,84,0,1,0.3476065257769728,60,24,Contacto Nuevo
+983,38,F,7333,Referido,Servicio Premium,4,4,4,9,0.8531754947822823,95,3,Oportunidad
+984,39,M,7864,Referido,Servicio Premium,4,5,5,8,0.953714308387119,91,2,Oportunidad
+985,39,F,2159,Instagram,Servicio C,2,67,0,1,0.44525737227876905,64,27,Contacto Nuevo
+986,40,F,2137,Facebook,Servicio C,3,41,2,6,0.4619578518337171,64,14,Interesado
+987,47,M,4256,Google Ads,Servicio A,4,36,3,5,0.6489508480871408,79,23,Interesado
+988,23,F,1829,Facebook,Servicio C,2,38,0,3,0.41275368234101695,78,16,Contacto Nuevo
+989,35,M,3266,Instagram,Servicio B,2,40,0,6,0.6661553945860657,64,19,Contacto Nuevo
+990,40,F,2755,Instagram,Servicio C,2,87,0,2,0.2473402189479657,51,22,Contacto Nuevo
+991,48,F,2789,Instagram,Servicio C,2,68,0,1,0.39706880204270745,48,34,Contacto Nuevo
+992,32,F,3661,Google Ads,Servicio B,3,33,5,6,0.7087264828511162,79,32,Interesado
+993,32,F,1645,Facebook,Servicio B,3,52,2,3,0.6113601577293559,66,18,Interesado
+994,34,M,3381,Google Ads,Servicio B,4,23,3,4,0.5630001577897777,88,30,Interesado
+995,43,F,3440,Instagram,Servicio C,2,35,0,7,0.5011317852750692,72,11,Interesado
+996,45,M,6405,Referido,Servicio Premium,4,12,5,9,0.9220835848617521,96,2,Oportunidad
+997,42,M,3054,Google Ads,Servicio A,4,14,3,7,0.7263173967801444,83,3,Interesado
+998,54,M,4755,Referido,Servicio Premium,5,8,5,8,0.9659798791930949,95,3,Oportunidad
+999,37,F,2591,Google Ads,Servicio A,3,6,2,9,0.6565663493331657,86,6,Interesado
+1000,26,F,2958,Facebook,Servicio A,3,60,1,3,0.610240494373053,57,9,Interesado

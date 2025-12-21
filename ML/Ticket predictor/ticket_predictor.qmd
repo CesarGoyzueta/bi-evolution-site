@@ -1,0 +1,628 @@
+---
+title: "Ticket Predictor con IA: prioriza clientes por monto esperado"
+author: "BI Evolution"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    smooth-scroll: true
+    self-contained: true
+    grid: 
+      body-width: 1280px
+      margin-width: 0px
+      gutter-width: 1rem
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Resumen ejecutivo
+
+Este análisis construye un **Ticket Predictor**:\
+un modelo de IA que estima el **monto de la próxima compra** de cada cliente.
+
+Con este modelo se puede:
+
+-   Estimar cuánto podría gastar cada cliente en su siguiente visita.
+-   Ordenar la base según **ticket esperado**.
+-   Comparar el **ROI** de:
+    1.  Llamar a 500 clientes **al azar**.
+    2.  Llamar a 500 clientes con **mayor ticket esperado** según el modelo.
+
+El objetivo es mostrar, en términos económicos, cómo un modelo de IA permite usar la **misma capacidad comercial** (500 llamadas),\
+pero generando **más ventas en soles**.
+
+------------------------------------------------------------------------
+
+## 1. Datos simulados de clientes
+
+A continuación se simulan **5,000 clientes** con variables típicas de negocio:
+
+-   `segmento_cliente` (Alta frecuencia / Media / Ocasional)\
+-   `frecuencia_anual` (número de compras en el año)\
+-   `ticket_promedio_historico` (S/.)\
+-   `dias_ultima_compra`\
+-   `canal_favorito` (Tienda / Online / WhatsApp)\
+-   `uso_cupones` (Sí / No)\
+-   `nivel_satisfaccion` (1 a 5)\
+-   `descuento_promedio` (%)\
+-   `num_categorias` (diversidad de productos)\
+-   `ticket_real_proxima_compra` (variable objetivo a predecir)
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+
+suppressWarnings({
+  suppressMessages({
+    library(dplyr)
+    library(ggplot2)
+    library(caret)
+    library(randomForest)
+    library(xgboost)
+    library(e1071)
+    library(tidyr)
+    library(tibble)
+    library(knitr)
+  })
+})
+
+set.seed(123)
+
+n_clientes <- 5000
+
+segmento_cliente <- sample(
+  c("Alta frecuencia", "Media", "Ocasional"),
+  size = n_clientes,
+  replace = TRUE,
+  prob = c(0.25, 0.45, 0.30)
+)
+
+# === Frecuencia anual (usando lambda vectorizado, sin case_when) ===
+lambda_freq <- ifelse(
+  segmento_cliente == "Alta frecuencia", 10,
+  ifelse(segmento_cliente == "Media", 5, 2)
+)
+
+frecuencia_anual <- rpois(n_clientes, lambda = lambda_freq)
+frecuencia_anual <- pmax(frecuencia_anual, 1)
+
+# === Ticket promedio histórico (media y sd vectorizadas) ===
+mu_ticket <- ifelse(
+  segmento_cliente == "Alta frecuencia", 180,
+  ifelse(segmento_cliente == "Media", 130, 90)
+)
+
+sd_ticket <- ifelse(
+  segmento_cliente == "Alta frecuencia", 40,
+  ifelse(segmento_cliente == "Media", 35, 30)
+)
+
+ticket_promedio_historico <- rnorm(n_clientes, mean = mu_ticket, sd = sd_ticket)
+ticket_promedio_historico <- pmax(ticket_promedio_historico, 30)
+
+# === Resto de variables ===
+dias_ultima_compra <- round(runif(n_clientes, min = 5, max = 365))
+
+canal_favorito <- sample(
+  c("Tienda", "Online", "WhatsApp"),
+  size = n_clientes,
+  replace = TRUE,
+  prob = c(0.45, 0.30, 0.25)
+)
+
+uso_cupones <- rbinom(n_clientes, size = 1, prob = 0.35)
+
+nivel_satisfaccion <- sample(
+  1:5, size = n_clientes, replace = TRUE,
+  prob = c(0.05, 0.10, 0.25, 0.30, 0.30)
+)
+
+descuento_promedio <- ifelse(
+  uso_cupones == 1,
+  runif(n_clientes, min = 5, max = 20),
+  runif(n_clientes, min = 0, max = 10)
+)
+
+num_categorias <- pmax(
+  1,
+  round(rnorm(
+    n_clientes,
+    mean = 3 + uso_cupones + (nivel_satisfaccion > 3),
+    sd = 1
+  ))
+)
+
+# ---- Generación del ticket real de la próxima compra ----
+seg_ajuste <- ifelse(segmento_cliente == "Alta frecuencia", 25,
+                     ifelse(segmento_cliente == "Media", 10, 0))
+
+lp <- 0.65 * ticket_promedio_historico +
+      8    * frecuencia_anual -
+      0.18 * dias_ultima_compra +
+      15   * nivel_satisfaccion -
+      2.5  * descuento_promedio +
+      5    * num_categorias +
+      seg_ajuste
+
+ruido <- rnorm(n_clientes, mean = 0, sd = 60)
+
+ticket_real_proxima_compra <- lp + ruido
+ticket_real_proxima_compra <- pmax(ticket_real_proxima_compra, 30)
+
+clientes_df <- tibble(
+  id_cliente                = 1:n_clientes,
+  segmento_cliente,
+  frecuencia_anual,
+  ticket_promedio_historico = round(ticket_promedio_historico, 1),
+  dias_ultima_compra,
+  canal_favorito,
+  uso_cupones,
+  nivel_satisfaccion,
+  descuento_promedio        = round(descuento_promedio, 1),
+  num_categorias,
+  ticket_real_proxima_compra = round(ticket_real_proxima_compra, 1)
+)
+
+head(clientes_df) %>%
+  kable(
+    caption = "Muestra de clientes y su ticket real de próxima compra (simulado)",
+    digits = 1
+  )
+
+```
+
+------------------------------------------------------------------------
+
+## 2. Entrenamiento del modelo de Ticket Predictor
+
+Se usa un enfoque de regresión para predecir `ticket_real_proxima_compra` a partir de las demás variables.
+
+Se evalúan varios modelos:
+
+-   Regresión lineal
+-   Random Forest
+-   XGBoost
+
+Y se selecciona el de **mejor desempeño (menor RMSE)** según validación cruzada.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+set.seed(123)
+
+clientes_df_model <- clientes_df %>%
+  mutate(
+    segmento_cliente = factor(segmento_cliente),
+    canal_favorito   = factor(canal_favorito),
+    uso_cupones      = factor(uso_cupones)
+  )
+
+idx_train <- createDataPartition(
+  clientes_df_model$ticket_real_proxima_compra,
+  p = 0.7,
+  list = FALSE
+)
+
+train_data <- clientes_df_model[idx_train, ]
+test_data  <- clientes_df_model[-idx_train, ]
+
+ctrl <- trainControl(
+  method  = "cv",
+  number  = 5,
+  savePredictions = "final"
+)
+
+set.seed(123)
+modelo_lm <- train(
+  ticket_real_proxima_compra ~ . - id_cliente,
+  data      = train_data,
+  method    = "lm",
+  trControl = ctrl,
+  metric    = "RMSE"
+)
+
+set.seed(123)
+modelo_rf <- train(
+  ticket_real_proxima_compra ~ . - id_cliente,
+  data      = train_data,
+  method    = "rf",
+  trControl = ctrl,
+  metric    = "RMSE"
+)
+
+set.seed(123)
+modelo_xgb <- train(
+  ticket_real_proxima_compra ~ . - id_cliente,
+  data      = train_data,
+  method    = "xgbTree",
+  trControl = ctrl,
+  metric    = "RMSE"
+)
+
+res <- resamples(list(
+  `Regresión lineal` = modelo_lm,
+  `Random Forest`    = modelo_rf,
+  `XGBoost`          = modelo_xgb
+))
+
+resumen_modelos <- summary(res)$statistics$RMSE %>%
+  as.data.frame() %>%
+  rownames_to_column("Modelo") %>%
+  arrange(Mean)
+
+kable(
+  resumen_modelos %>%
+    transmute(
+      Modelo,
+      `RMSE mínimo (CV)` = round(`Min.`, 1),
+      `RMSE medio (CV)`  = round(Mean, 1),
+      `RMSE máximo (CV)` = round(`Max.`, 1)
+    ),
+  caption = "Comparación de modelos de Ticket Predictor (métrica RMSE)",
+  digits = 1
+)
+
+best_name <- resumen_modelos$Modelo[1]
+modelos <- list(
+  `Regresión lineal` = modelo_lm,
+  `Random Forest`    = modelo_rf,
+  `XGBoost`          = modelo_xgb
+)
+best_model <- modelos[[best_name]]
+```
+
+> **Lectura rápida:** El modelo seleccionado es **`r best_name`**, por ser el que logra **menor error (RMSE medio)** al predecir el ticket de la próxima compra.
+
+------------------------------------------------------------------------
+
+## 3. Desempeño del modelo en el set de prueba
+
+Se evalúa el modelo sobre datos **no vistos en entrenamiento**.
+
+```{r}
+pred_ticket <- predict(best_model, newdata = test_data)
+
+ticket_real <- test_data$ticket_real_proxima_compra
+
+rmse_test <- RMSE(pred_ticket, ticket_real)
+mae_test  <- MAE(pred_ticket, ticket_real)
+r2_test   <- cor(pred_ticket, ticket_real)^2
+
+test_results <- tibble(
+  ticket_real      = ticket_real,
+  ticket_predicho  = pred_ticket
+)
+
+
+metricas_df <- tibble(
+  Métrica = c("RMSE (set de prueba)", "MAE (set de prueba)", "R² (set de prueba)"),
+  Valor   = c(rmse_test, mae_test, r2_test)
+)
+
+kable(
+  metricas_df,
+  caption = "Métricas de desempeño del Ticket Predictor en el set de prueba",
+  digits = 3
+)
+```
+
+### 3.1. Relación entre ticket real y ticket predicho
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+ggplot(test_results, aes(x = ticket_real, y = ticket_predicho)) +
+  geom_point(alpha = 0.6, shape = 16, size = 1.8, color = "#f9fafb") +  # puntos blancos
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "#9ca3af") +
+  labs(
+    title    = "Ticket real vs. ticket predicho",
+    subtitle = "Cada punto representa un cliente en el set de prueba",
+    x        = "Ticket real próxima compra (S/.)",
+    y        = "Ticket predicho por el modelo (S/.)"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", color = NA),
+    panel.background  = element_rect(fill = "#0b1220", color = NA),
+    panel.grid.major  = element_line(color = "#1f2937"),
+    panel.grid.minor  = element_blank(),
+    axis.text         = element_text(color = "#e5e7eb"),
+    axis.title        = element_text(color = "#e5e7eb"),
+    plot.title        = element_text(color = "#ffffff", face = "bold"),
+    plot.subtitle     = element_text(color = "#a6b0c3")
+  )
+
+
+```
+
+------------------------------------------------------------------------
+
+## 4. ROI: 500 llamadas al azar vs. 500 llamadas guiadas por IA
+
+Se comparan dos estrategias con la **misma capacidad comercial (500 llamadas)**:
+
+-   **Sin modelo:** 500 llamadas al azar → el ROI depende del ticket real de esos 500.
+-   **Con modelo IA:** 500 llamadas a quienes el modelo estima con **mayor ticket esperado**.
+
+### Supuestos de negocio
+* Solo se contabiliza la **venta de la próxima compra** (sin CLV todavía).
+* Cada llamada tiene un **costo operativo** (tiempo, canal, etc.): **S/ 4 por llamada**.
+* El ROI total del escenario se calcula como la suma del margen generado por cada cliente contactado:
+
+$$
+\text{ROI} = \sum_{i \in \text{contactados}} \big( \text{ticket\_real}_i - \text{costo\_llamada} \big)
+$$
+
+donde:
+
+- $\text{ticket\_real}_i$ es el monto efectivamente comprado por el cliente $i$.
+- $\text{costo\_llamada}$ es el costo fijo de contactar a cada cliente (S/. 4 en este ejemplo).
+
+El modelo **no llama más**, sino que **prioriza mejor**: usa las mismas 500 llamadas para contactar a los clientes que generan más ingresos.
+
+```{r}
+set.seed(123)
+
+capacidad_llamadas <- 500
+capacidad_llamadas <- min(capacidad_llamadas, nrow(test_data))
+
+costo_llamada <- 4
+
+# ----- Escenario 1: SIN MODELO (500 llamadas al azar) -----
+idx_base <- sample(seq_len(nrow(test_data)), size = capacidad_llamadas)
+
+roi_base <- sum(ticket_real[idx_base] - costo_llamada)
+
+# ----- Escenario 2: CON MODELO (500 mayores tickets esperados) -----
+idx_modelo <- order(pred_ticket, decreasing = TRUE)[1:capacidad_llamadas]
+
+roi_modelo <- sum(ticket_real[idx_modelo] - costo_llamada)
+
+resumen_roi <- tibble(
+  Escenario = c(
+    "Sin modelo (500 llamadas al azar)",
+    "Con modelo IA (500 mayores tickets esperados)"
+  ),
+  `ROI estimado (S/.)` = round(c(roi_base, roi_modelo), 0)
+)
+
+mejora_abs <- roi_modelo - roi_base
+mejora_pct <- (roi_modelo - roi_base) / roi_base * 100
+
+kable(
+  resumen_roi,
+  caption = "Comparación de ROI: estrategia al azar vs. estrategia guiada por IA",
+  digits = 0
+)
+```
+
+> **Lectura rápida:** Con los mismos 500 contactos:
+>
+> -   Sin modelo se obtiene un ROI estimado de **S/. `r format(roi_base, big.mark = ",")`**.
+> -   Con el Ticket Predictor, el ROI sube a **S/. `r format(roi_modelo, big.mark = ",")`**.
+> -   Esto representa una mejora aproximada de **`r round(mejora_pct, 1)`%** en la campaña, solo por **elegir mejor a quién llamar**.
+
+### 4.1. Comparativa visual del ROI
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+library(dplyr)
+library(ggplot2)
+
+df_roi_plot <- resumen_roi %>%
+mutate(
+Escenario_corto = factor(
+c("Sin modelo", "Con modelo IA"),
+levels = c("Sin modelo", "Con modelo IA")
+),
+roi_num = as.numeric(`ROI estimado (S/.)`)
+)
+
+ggplot(df_roi_plot, aes(Escenario_corto, roi_num, fill = Escenario_corto)) +
+geom_col(width = 0.55, alpha = 0.9) +
+geom_text(
+aes(label = paste0("S/. ", format(roi_num, big.mark = ","))),
+vjust = -0.4,
+color = "#e9edf7",
+size  = 4.1
+) +
+scale_fill_manual(values = c(
+"Sin modelo"   = "#3b4a6b",
+"Con modelo IA" = "#4c6fff"
+)) +
+labs(
+title    = "ROI usando la misma capacidad comercial",
+subtitle = "500 llamadas al azar vs. 500 llamadas según ticket esperado por IA",
+x        = "",
+y        = "ROI estimado (S/.)"
+) +
+coord_cartesian(clip = "off", ylim = c(0, max(df_roi_plot$roi_num) * 1.15)) +
+theme_minimal(base_size = 12) +
+theme(
+plot.background   = element_rect(fill = "#0b1220", color = NA),
+panel.background  = element_rect(fill = "#0b1220", color = NA),
+panel.grid.major  = element_line(color = "#1f2937"),
+panel.grid.minor  = element_blank(),
+axis.text         = element_text(color = "#e5e7eb"),
+axis.title        = element_text(color = "#e5e7eb"),
+plot.title        = element_text(color = "#ffffff", face = "bold"),
+plot.subtitle     = element_text(color = "#a6b0c3"),
+legend.position   = "none"
+)
+
+```
+
+### 4.2. ¿Cómo se eligen los 500 clientes priorizados?
+
+En la estrategia **Con modelo IA**, la selección de clientes sigue una lógica muy clara:
+
+1.  El modelo predice el **ticket esperado de la próxima compra** para cada cliente (`pred_ticket`).
+2.  Se ordena a todos los clientes **de mayor a menor** según ese ticket esperado.
+3.  Se eligen los **500 primeros** de ese ranking, es decir, los 500 clientes con **mayor valor esperado en soles**.
+
+Esto permite usar la misma capacidad comercial (500 llamadas), pero dirigiéndola hacia quienes tienen **más potencial de venta**.
+
+#### Código real que genera este ranking:
+
+```{r}
+# Ranking de clientes según ticket esperado (mayor → menor)
+idx_modelo <- order(pred_ticket, decreasing = TRUE)[1:capacidad_llamadas]
+```
+
+```{r}
+# Mostrar los 10 clientes priorizados con mayor ticket esperado
+clientes_priorizados <- test_data[idx_modelo, ] %>%
+  mutate(ticket_predicho = pred_ticket[idx_modelo]) %>%
+  arrange(desc(ticket_predicho)) %>%
+  head(10)
+
+kable(
+  clientes_priorizados,
+  caption = "Top 10 clientes priorizados por mayor ticket esperado (según IA)",
+  digits = 2
+)
+
+```
+
+## 5. Cómo se usa esto en negocio
+
+En términos simples:
+
+1.  A cada cliente se le asigna un **ticket esperado** para su próxima compra.
+
+2.  Se ordena la base de mayor a menor ticket esperado.
+
+3.  El equipo comercial:
+
+    -   Llama primero a los clientes con **mayor valor esperado**.
+    -   Deja al resto para **campañas masivas** o de bajo esfuerzo.
+
+------------------------------------------------------------------------
+
+<style>
+/* ===== Paleta base oscura BI Evolution ===== */
+:root {
+  --bg: #0b1220;
+  --panel: #121a2e;
+  --border: #1b2642;
+  --text: #e9edf7;
+  --muted: #a6b0c3;
+  --accent: #4c6fff;
+  --accent-2: #3f59ff;
+}
+
+/* ===== Base ===== */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenido centrado y más estrecho */
+main.content {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Titulares y texto */
+h1, h2, h3, h4 {
+  color: #f9fafb;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+p, li {
+  color: var(--text);
+}
+hr {
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Enlaces */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+/* ===== TOC lateral ===== */
+#TOC,
+.quarto-toc,
+.quarto-sidebar {
+  background: rgba(11,18,32,.96);
+  border-left: 1px solid var(--border);
+}
+#TOC a,
+.quarto-toc a {
+  color: var(--muted);
+}
+#TOC a.active,
+.quarto-toc a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== Tablas ===== */
+table {
+  background: var(--panel);
+  border-radius: 12px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+thead tr {
+  background: rgba(15,23,42,.98);
+}
+thead th {
+  color: #f9fafb;
+  padding: .45rem .55rem;
+  border-bottom: 1px solid rgba(148,163,211,.5);
+}
+tbody td {
+  padding: .35rem .55rem;
+  border-top: 1px solid rgba(15,23,42,.95);
+}
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: #e5ecff;
+}
+
+/* ===== Figuras / Gráficos ===== */
+.quarto-figure,
+.figure {
+  background: linear-gradient(145deg,
+              rgba(76,111,255,.12),
+              rgba(11,18,32,1));
+  border-radius: 16px;
+  border: 1px solid rgba(76,111,255,.35);
+  padding: 10px;
+  box-shadow: 0 10px 32px rgba(0,0,0,.65);
+}
+
+/* ===== Notas / citas ===== */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(15,23,42,.96);
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  color: var(--text);
+}
+</style>

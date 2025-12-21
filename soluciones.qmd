@@ -1,51 +1,386 @@
 ---
 title: "Soluciones (IA & Analítica)"
 page-layout: full
+toc: true
+toc-location: right
 ---
 
 ```{=html}
 <p align="center">
   <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
 </p>
-````
 
-# 🤖 Framework de IA para acelerar las ventas
+<section class="hero-shell">
 
-Convierte tus datos en resultados reales *(sin complicarte)*.
-**Prospección → Conversión → Priorización → Crecimiento**
-```{=html}
-<div align="center" style="margin-top:20px">
-  <a class="btn btn-primary"
-     href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos).">
-     📌 Quiero un diagnóstico
-  </a>
-  <a class="btn btn-whatsapp"
-     href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos).">
-     WhatsApp
-  </a>
-</div>
+  <section class="hero-1col">
 
-<!-- <div class="stat-pills">
-  <span class="pill pill--ok"><strong>{{< meta metrics.global.recommend_pct >}}%</strong> recomiendan</span>
-  <span class="pill pill--score"><strong>{{< meta metrics.global.sat_general >}}</strong> / 5 satisfacción</span>
-</div>
- -->
-<!-- <div class="enroll-cta" style="justify-content:center;margin:.5rem 0 1.25rem;gap:.6rem;flex-wrap:wrap">
-  <a class="btn btn-outline-secondary" href="asesorias.html">🤝 Asesorías</a>
-  <a class="btn btn-outline-secondary" href="plantillas.html">🧩 Plantillas</a>
-  <a class="btn btn-outline-secondary" href="powerbi.html">📚 Curso Power BI</a>
-</div> -->
-````
+    <div class="hero-tag">SOLUCIONES IA &amp; ANALÍTICA</div>
+
+    <h1 class="hero-title">Framework de IA para acelerar ventas</h1>
+
+    <p class="hero-sub">
+      Convierte tus datos en resultados reales (sin complicarte).<br>
+      <strong>Prospección → Conversión → Priorización → Crecimiento</strong>
+    </p>
+
+    <!-- Chips (mejor que bullets en hero centrado) -->
+    <div class="hero-chips" aria-label="Beneficios principales">
+      <span class="chip">📌 Prioriza leads (Lead Scoring)</span>
+      <span class="chip">🧠 Segmenta clientes (Clustering)</span>
+      <span class="chip">📈 Proyecta valor (CLV + RFM)</span>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary"
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos).">
+        📌 Quiero un diagnóstico
+      </a>
+
+      <a class="btn btn-whatsapp"
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos).">
+        WhatsApp
+      </a>
+    </div>
+
+  </section>
+
+</section>
+
+<style>
+/* contenedor centrado "pro" */
+.hero-shell{
+  max-width: 1180px;
+  margin: 1.2rem auto 1rem;
+  padding: 0 14px;
+}
+
+/* hero centrado */
+.hero-1col{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: .25rem 0 .3rem;
+}
+
+.hero-tag{
+  display:inline-block;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  opacity:.78;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  padding:.35rem .7rem;
+  border-radius: 999px;
+  margin-bottom: .8rem;
+  text-transform: uppercase;
+}
+
+.hero-title{
+  margin:0 0 .55rem 0;
+  font-size: clamp(2.05rem, 2.6vw, 2.75rem);
+  letter-spacing:-0.02em;
+}
+
+.hero-sub{
+  margin:0 0 .85rem 0;
+  opacity:.9;
+  line-height: 1.45;
+  max-width: 62ch;
+}
+
+/* chips */
+.hero-chips{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin: .15rem 0 1rem;
+}
+
+.chip{
+  font-size:.92rem;
+  padding:.40rem .75rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.95;
+  white-space: nowrap;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.chip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.065);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* CTA centrado */
+.hero-cta{
+  display:flex;
+  gap:.7rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top: .2rem;
+}
+</style>
+
+
+  <!-- TICKER (alineado al mismo ancho que el hero) -->
+  <div class="logo-ticker" aria-label="Tecnologías y enfoques">
+    <div class="ticker-fade left"></div>
+    <div class="ticker-fade right"></div>
+
+    <div class="ticker-track">
+      <div class="ticker-row" aria-hidden="true">
+        <span class="tk">Power BI</span>
+        <span class="tk">Python</span>
+        <span class="tk">SQL</span>
+        <span class="tk">Azure</span>
+        <span class="tk">Databricks</span>
+        <span class="tk">MLflow</span>
+        <span class="tk">RFM</span>
+        <span class="tk">Lead Scoring</span>
+        <span class="tk">Clustering</span>
+        <span class="tk">CLV</span>
+
+        <!-- duplicado para loop perfecto -->
+        <span class="tk">Power BI</span>
+        <span class="tk">Python</span>
+        <span class="tk">SQL</span>
+        <span class="tk">Azure</span>
+        <span class="tk">Databricks</span>
+        <span class="tk">MLflow</span>
+        <span class="tk">RFM</span>
+        <span class="tk">Lead Scoring</span>
+        <span class="tk">Clustering</span>
+        <span class="tk">CLV</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+/* =========================
+   0) Ancho “pro” y centrado (para TODO el contenido)
+   ========================= */
+:root{
+  --content-max: 1180px;
+  --toc-w: 290px;
+}
+
+/* Fuerza el contenido principal a un ancho consistente y centrado */
+#quarto-document-content, 
+main.content, 
+.page-columns .content{
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   1) TOC a la derecha sin tapar contenido
+   ========================= */
+@media (min-width: 1100px){
+  /* Reservamos espacio real para el TOC */
+  #quarto-document-content,
+  main.content,
+  .page-columns .content{
+    padding-right: calc(var(--toc-w) + 22px) !important;
+  }
+
+  /* Estilo + sticky del TOC (y lo “encerramos” visualmente) */
+  #TOC, nav#TOC, .sidebar nav#TOC{
+    position: sticky !important;
+    top: 92px;
+    width: var(--toc-w);
+    max-width: var(--toc-w);
+    z-index: 2;
+    padding: .75rem .8rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(10,14,25,.55);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* En pantallas donde se estorba, mejor ocultarlo */
+@media (max-width: 1099px){
+  #TOC, nav#TOC, .sidebar nav#TOC{ display:none !important; }
+  #quarto-document-content, main.content, .page-columns .content{
+    padding-right: 0 !important;
+  }
+}
+
+/* =========================
+   2) Contenedor del hero
+   ========================= */
+.hero-shell{
+  max-width: var(--content-max);
+  margin: 1.2rem auto 1rem;
+  padding: 0 14px;
+}
+
+/* =========================
+   3) Hero 2 columnas
+   ========================= */
+.hero-2col{
+  display:grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap: 22px;
+  align-items:center;
+}
+
+.hero-tag{
+  display:inline-block;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  opacity:.78;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  padding:.35rem .7rem;
+  border-radius: 999px;
+  margin-bottom: .75rem;
+  text-transform: uppercase;
+}
+
+.hero-title{
+  margin:0 0 .45rem 0;
+  font-size: clamp(2.0rem, 2.4vw, 2.55rem);
+  letter-spacing:-0.02em;
+}
+
+.hero-sub{
+  margin:0 0 .85rem 0;
+  opacity:.9;
+  line-height: 1.45;
+  max-width: 60ch;
+}
+
+.hero-bullets{
+  margin:0 0 1rem 0;
+  padding-left: 1.05rem;
+  opacity:.92;
+}
+.hero-bullets li{ margin:.35rem 0; }
+
+.hero-cta{
+  display:flex;
+  gap:.7rem;
+  flex-wrap:wrap;
+  margin-top:.3rem;
+}
+
+/* Mockup */
+.hero-mock{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+  padding: .6rem;
+}
+.hero-mock img{
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display:block;
+  opacity: .98;
+}
+
+/* Responsive */
+@media (max-width: 950px){
+  .hero-2col{ grid-template-columns: 1fr; }
+}
+
+/* =========================
+   4) Ticker tipo Databricks (alineado + hover)
+   ========================= */
+.logo-ticker{
+  position:relative;
+  margin: 1.05rem auto 0;   /* <- centrado */
+  padding: .55rem 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+/* Pista */
+.ticker-track{
+  overflow:hidden;
+  width: 100%;
+}
+
+/* La fila arranca “dentro” del contenedor, no corrida a la derecha */
+.ticker-row{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  width: max-content;
+  padding-left: 0;
+  will-change: transform;
+  animation: tickerMove 28s linear infinite;
+}
+
+/* Pastillas */
+.tk{
+  font-size: .92rem;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  white-space: nowrap;
+  opacity: .92;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease, opacity .16s ease;
+}
+
+/* Hover (resalta al pasar mouse) */
+.tk:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 10px 22px rgba(0,0,0,.26);
+}
+
+@keyframes tickerMove{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+/* “Fade” laterales */
+.ticker-fade{
+  position:absolute; top:0; bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index:2;
+}
+.ticker-fade.left{
+  left:0;
+  background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0));
+}
+.ticker-fade.right{
+  right:0;
+  background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0));
+}
+
+/* Respeta accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .ticker-row{ animation:none; }
+}
+</style>
+```
+
 ---
 
 ## 🧭 Los 5 pasos del framework
 ```{=html}
 <div class="course-card">
   <p style="margin:0;opacity:.92">
-    Este framework está pensado para equipos comerciales y marketing que quieren <strong>priorizar mejor</strong>,
-    <strong>contactar con foco</strong> y <strong>optimizar resultados</strong> usando analítica aplicada.
+    Este framework está diseñado para equipos comerciales y marketing que necesitan <strong>enfocar esfuerzos</strong>,
+    <strong>priorizar oportunidades</strong> y <strong>mejorar resultados</strong> con decisiones basadas en datos (sin tecnicismos).
     <br>
-    Puedes iniciar por un paso (rápido) o implementar el ciclo completo (máximo impacto).
+    Puedes empezar por un paso (rápido) o implementar el ciclo completo (máximo impacto).
   </p>
 </div>
 
@@ -53,14 +388,14 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
 
   <div class="course-card">
     <h3 style="margin-top:0">🔎 Paso 1 — Segmenta mejor <span style="opacity:.75;font-weight:400">(Clustering)</span></h3>
-    <p>Encuentra perfiles de prospectos/clientes y define a quién apuntar primero.</p>
+    <p>Identifica qué tipo de clientes generan más valor y enfoca tus esfuerzos donde realmente importa.</p>
     <ul>
-      <li>Segmentos accionables</li>
-      <li>Validación visual (PCA/UMAP)</li>
-      <li>Recomendaciones por segmento</li>
+      <li>Grupos de clientes claros (para campañas y ventas)</li>
+      <li>Visual simple para entenderlos (sin complejidad)</li>
+      <li>Acciones recomendadas por segmento</li>
     </ul>
     <div class="enroll-cta">
-      <a class="btn btn-primary" href="Cluster_analysis/">Ver reporte</a>
+      <a class="btn btn-primary" href="ML/Cluster_analysis/Cluster_analysis_marketing.html">Ver reporte</a>
       <a class="btn btn-outline-secondary"
          href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%201%20(Segmentaci%C3%B3n%20-%20Clustering)%20para%20mi%20negocio.%20%C2%BFQu%C3%A9%20data%20necesitas%3F"
          target="_blank" rel="noopener">Evaluar por WhatsApp</a>
@@ -69,14 +404,14 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
 
   <div class="course-card">
     <h3 style="margin-top:0">⚡ Paso 2 — Vende más rápido <span style="opacity:.75;font-weight:400">(Lead Scoring)</span></h3>
-    <p>Predice quién está listo para comprar hoy y prioriza el contacto comercial.</p>
+    <p>Detecta quién está más cerca de comprar y prioriza el contacto del equipo comercial.</p>
     <ul>
-      <li>Score por lead</li>
-      <li>Drivers/explicación del score</li>
-      <li>Listas de acción por prioridad</li>
+      <li>Ranking de leads (a quién llamar primero)</li>
+      <li>Qué factores influyen en la decisión (claridad)</li>
+      <li>Lista de acción diaria por prioridad</li>
     </ul>
     <div class="enroll-cta">
-      <a class="btn btn-primary" href="Lead_scoring/">Ver reporte</a>
+      <a class="btn btn-primary" href="ML/Lead_scoring/lead_scoring.html">Ver reporte</a>
       <a class="btn btn-outline-secondary"
          href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%202%20(Lead%20Scoring)%20para%20mi%20negocio."
          target="_blank" rel="noopener">Evaluar por WhatsApp</a>
@@ -85,14 +420,14 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
 
   <div class="course-card">
     <h3 style="margin-top:0">🧷 Paso 3 — Asegura ventas futuras <span style="opacity:.75;font-weight:400">(Propensity to Return)</span></h3>
-    <p>Anticipa a quién recontactar para retención, reactivación o churn.</p>
+    <p>Identifica a tiempo quién puede irse y a quién conviene reactivar para sostener ingresos futuros.</p>
     <ul>
-      <li>Probabilidad de retorno</li>
-      <li>Alertas / listas de seguimiento</li>
-      <li>Estrategias por riesgo</li>
+      <li>Señales de fuga o retorno (tempranas)</li>
+      <li>Alertas automáticas para seguimiento</li>
+      <li>Plan de acción por nivel de riesgo</li>
     </ul>
     <div class="enroll-cta">
-      <a class="btn btn-primary" href="Propensity_return/">Ver reporte</a>
+      <a class="btn btn-primary" href="ML/Propensity_return/propensity_return.html">Ver reporte</a>
       <a class="btn btn-outline-secondary"
          href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%203%20(Propensity%20to%20Return)%20para%20mi%20negocio."
          target="_blank" rel="noopener">Evaluar por WhatsApp</a>
@@ -101,14 +436,14 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
 
   <div class="course-card">
     <h3 style="margin-top:0">💰 Paso 4 — Aumenta el ticket <span style="opacity:.75;font-weight:400">(Ticket Predictor)</span></h3>
-    <p>Enfoca esfuerzos en quienes realmente gastarán más (upsell/cross-sell).</p>
+    <p>Encuentra oportunidades de upsell/cross-sell y enfoca el esfuerzo en clientes de mayor potencial.</p>
     <ul>
-      <li>Predicción de ticket o rango</li>
-      <li>Acciones para elevar margen</li>
-      <li>Priorización por potencial</li>
+      <li>Estimación de ticket o rango esperado</li>
+      <li>Recomendaciones para elevar margen</li>
+      <li>Priorización por potencial de compra</li>
     </ul>
     <div class="enroll-cta">
-      <a class="btn btn-primary" href="Ticket_predictor/">Ver reporte</a>
+      <a class="btn btn-primary" href="ML/Ticket_predictor/ticket_predictor.html">Ver reporte</a>
       <a class="btn btn-outline-secondary"
          href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%204%20(Ticket%20Predictor)%20para%20mi%20negocio."
          target="_blank" rel="noopener">Evaluar por WhatsApp</a>
@@ -119,27 +454,28 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
 
 <div class="course-card" style="margin-top:16px">
   <h3 style="margin-top:0">📈 Paso 5 — Proyecta tu crecimiento <span style="opacity:.75;font-weight:400">(CLV + RFM)</span></h3>
-  <p>Estima cuánto valdrá cada cliente en 12 meses y prioriza inversión comercial/marketing.</p>
+  <p>Proyecta el valor futuro de cada cliente y define dónde invertir para crecer (ventas y marketing).</p>
   <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start">
     <ul style="margin:0">
-      <li>CLV por cliente/segmento</li>
-      <li>RFM para campañas y frecuencia</li>
-      <li>Priorización por valor futuro</li>
+      <li>Valor futuro por cliente/segmento (CLV)</li>
+      <li>Frecuencia y oportunidad de recompra (RFM)</li>
+      <li>Priorización por retorno esperado</li>
     </ul>
     <ul style="margin:0">
-      <li>Escenarios de crecimiento</li>
-      <li>Mapas de oportunidad</li>
+      <li>Escenarios de crecimiento (conservador/optimista)</li>
+      <li>Mapas de oportunidad para campañas</li>
       <li>Recomendaciones accionables</li>
     </ul>
   </div>
   <div class="enroll-cta" style="margin-top:10px">
-    <a class="btn btn-primary" href="CLV/">Ver reporte</a>
+    <a class="btn btn-primary" href="ML/CLV/CLV.html">Ver reporte</a>
     <a class="btn btn-outline-secondary"
        href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%205%20(CLV%20%2B%20RFM)%20para%20mi%20negocio."
        target="_blank" rel="noopener">Evaluar por WhatsApp</a>
   </div>
 </div>
-````
+```
+
 ---
 
 ## 📦 ¿Qué datos necesitas?
@@ -156,6 +492,7 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
   </p>
 </div>
 ```
+
 ---
 
 ## 🔁 Cómo trabajamos
@@ -173,7 +510,7 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
   </div>
 
   <div class="course-card">
-    <h4 style="margin-top:0">3) Construcción</h4>
+    <h4 style="margin-top:0">3)&nbsp;Construcción</h4>
     <p style="opacity:.9;margin:0">Modelos, validaciones, explicabilidad y métricas.</p>
   </div>
 
@@ -189,12 +526,13 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
      href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20agendar%20una%20llamada%20corta%20para%20evaluar%20el%20Framework%20de%20IA%20(5%20pasos).">
     📞 Agendar evaluación
   </a>
-  <a class="btn btn-outline-secondary" href="asesorias.html">Ver Asesorías</a>
+  <a class="btn btn-outline-secondary" href="asesorias.html">Ver Asesorías dashboards</a>
 </div>
 ```
+
 ---
 
-# 📥 ¿Quieres material gratuito?
+<!-- # 📥 ¿Quieres material gratuito?
 ```{=html}
 <div align="center" style="margin-top:10px">
   <a class="btn btn-primary" href="https://sendfox.com/cesargoyzuetameneses">
@@ -202,3 +540,4 @@ Convierte tus datos en resultados reales *(sin complicarte)*.
   </a>
 </div>
 ```
+ -->

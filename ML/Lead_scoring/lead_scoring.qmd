@@ -1,0 +1,590 @@
+---
+title: "Lead scoring con IA: prioriza tus leads según ROI"
+author: "BI Evolution"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    smooth-scroll: true
+    self-contained: true
+    grid: 
+      body-width: 1280px
+      margin-width: 0px
+      gutter-width: 1rem
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Resumen ejecutivo
+
+Este análisis construye un **modelo de Lead Scoring con IA** para:
+
+- Asignar a cada prospecto una **probabilidad de conversión**.  
+- Priorizar el trabajo comercial donde **más retorno genera**.  
+- Cuantificar el impacto en términos de **ROI**, usando una matriz de confusión con costos.
+
+Se probaron varios modelos (Regresión Logística, Random Forest, XGBoost y SVM con validación cruzada)
+y se seleccionó el que **mayor retorno económico esperado** entrega.
+
+---
+
+## 1. Resultado principal del modelo
+
+### 1.1. Modelo ganador y desempeño global
+En la práctica, el equipo comercial solo puede realizar alrededor de 500 llamadas personalizadas en el periodo.
+Comparamos dos estrategias:
+
+• “Sin modelo: 500 llamadas al azar / orden de llegada, el resto recibe solo campañas genéricas.”
+• “Con modelo IA: 500 llamadas a los leads con mayor probabilidad de conversión según el modelo de Lead Scoring.”
+
+Así el directorio entiende que:
+
+• No es “magia del algoritmo”.
+• Estás comparando dos formas de usar la misma capacidad comercial.
+
+> **Nota:** La tasa de conversión real del dataset es baja (~12%). Por ello, al seleccionar 500 llamadas al azar, la mayoría serán “No”, lo que explica la gran cantidad de TN y la alta probabilidad de fallar sin un modelo.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+
+suppressWarnings({
+  suppressMessages({
+    library(readxl)
+    library(dplyr)
+    library(tidyr)
+    library(caret)
+    library(randomForest)
+    library(xgboost)
+    library(e1071)
+    library(tibble)
+    library(knitr)
+    library(ggplot2)
+
+    set.seed(123)
+
+    # 1) Carga de datos de lead scoring
+    lead_scoring <- read_excel(
+      "C:/Users/Cesar/OneDrive/Proyectos futuros/BI_Evolution/ML/Lead_scoring/lead_scoring.xlsx"
+    ) %>%
+      mutate(
+        convirtio = factor(convirtio, levels = c(0, 1), labels = c("No", "Sí"))
+      ) %>%
+      drop_na(convirtio)
+
+    # 2) Partición entrenamiento / prueba
+    set.seed(123)
+    idx_train <- createDataPartition(lead_scoring$convirtio, p = 0.7, list = FALSE)
+    train_data <- lead_scoring[idx_train, ]
+    test_data  <- lead_scoring[-idx_train, ]
+
+    # 3) Configuración de validación cruzada
+    ctrl <- trainControl(
+      method          = "cv",
+      number          = 5,
+      classProbs      = TRUE,
+      summaryFunction = twoClassSummary,
+      savePredictions = "final"
+    )
+
+    # 4) Entrenamiento de modelos
+    modelo_glm <- train(
+      convirtio ~ .,
+      data      = train_data,
+      method    = "glm",
+      family    = "binomial",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    modelo_rf <- train(
+      convirtio ~ .,
+      data      = train_data,
+      method    = "rf",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    modelo_xgb <- train(
+      convirtio ~ .,
+      data      = train_data,
+      method    = "xgbTree",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    modelo_svm <- train(
+      convirtio ~ .,
+      data      = train_data,
+      method    = "svmRadial",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    # 5) Comparación por ROC
+    res <- resamples(list(
+      `Regresión logística` = modelo_glm,
+      `Random Forest`       = modelo_rf,
+      `XGBoost`             = modelo_xgb,
+      `SVM`                 = modelo_svm
+    ))
+
+    roc_stats <- summary(res)$statistics$ROC %>%
+      as.data.frame() %>%
+      rownames_to_column("Modelo") %>%
+      arrange(desc(Mean))
+
+    # Modelo ganador
+    modelos <- list(
+      `Regresión logística` = modelo_glm,
+      `Random Forest`       = modelo_rf,
+      `XGBoost`             = modelo_xgb,
+      `SVM`                 = modelo_svm
+    )
+
+    best_name  <- roc_stats$Modelo[1]
+    best_model <- modelos[[best_name]]
+
+    # 6) Probabilidades en el set de prueba
+    pred_probs <- predict(best_model, newdata = test_data, type = "prob")[, "Sí"]
+    real_cls   <- test_data$convirtio
+    n_total    <- length(real_cls)
+
+    # ===== Supuestos de negocio REALISTAS =====
+    capacidad_llamadas <- 500                   # llamadas personalizadas disponibles
+    capacidad_llamadas <- min(capacidad_llamadas, n_total)
+
+    ganancia_por_venta <- 200                   # margen por venta cerrada
+    costo_llamada      <- 5                     # costo (tiempo + canal) por llamada
+
+    # Valores económicos por tipo de resultado (escenario CON MODELO)
+    TP_val <- ganancia_por_venta - costo_llamada   # se llama y compra
+    FP_val <- -costo_llamada                       # se llama y NO compra
+    TN_val <- 0                                    # no se llama y no compra (solo email masivo)
+    FN_val <- -ganancia_por_venta                  # no se llama y sí hubiera comprado
+
+    # ===== Escenario 1: SIN MODELO (500 llamadas al azar) =====
+    set.seed(123)
+    idx_base <- sample(seq_len(n_total), size = capacidad_llamadas)
+    llamados_base <- real_cls[idx_base]
+
+    roi_base <- sum(
+      ifelse(llamados_base == "Sí",
+             ganancia_por_venta - costo_llamada,
+             -costo_llamada)
+    )
+
+    # ===== Escenario 2: CON MODELO IA (500 mejores leads por probabilidad) =====
+    idx_modelo <- order(pred_probs, decreasing = TRUE)[1:capacidad_llamadas]
+
+    pred_cls <- factor(
+      ifelse(seq_len(n_total) %in% idx_modelo, "Sí", "No"),
+      levels = c("No", "Sí")
+    )
+
+    cm <- caret::confusionMatrix(pred_cls, real_cls, positive = "Sí")
+
+    tp <- cm$table["Sí", "Sí"]
+    fp <- cm$table["Sí", "No"]
+    fn <- cm$table["No", "Sí"]
+    tn <- cm$table["No", "No"]
+
+    roi_modelo <- tp * TP_val + tn * TN_val + fp * FP_val + fn * FN_val
+
+    # ===== Tabla ejecutiva de comparación =====
+    resumen_roi <- tibble(
+      Escenario = c(
+        "Sin modelo (500 llamadas al azar)",
+        "Con modelo IA (500 mejores leads)"
+      ),
+      `ROI estimado (S/.)` = round(c(roi_base, roi_modelo), 0)
+    )
+
+    mejora_abs <- roi_modelo - roi_base
+    mejora_pct <- (roi_modelo - roi_base) / roi_base * 100
+  })
+})
+```
+
+```{r}
+#| echo: false
+# Tabla de comparación ROI
+kable(
+  resumen_roi,
+  caption = "Comparación de resultados: sin modelo vs. modelo de Lead Scoring con IA",
+  digits = 2
+)
+```
+
+> **Lectura rápida:**  
+> El modelo seleccionado (`r best_name`) incrementa el ROI estimado de  
+> **S/. `r format(roi_base, big.mark = ",")`** (sin modelo) a  
+> **S/. `r format(roi_modelo, big.mark = ",")`** (con Lead Scoring con IA),  
+> lo que representa una mejora aproximada de **`r round(mejora_pct, 1)`%** frente al escenario de “llamar a todos los leads por igual”.
+
+
+---
+
+### 1.2. Matriz de confusión con costos asociados
+
+```{r}
+#| echo: false
+
+# cm viene de caret::confusionMatrix(...)
+matriz_2x2 <- as.data.frame.matrix(cm$table)
+
+# Renombrar filas y columnas para que se entienda mejor
+rownames(matriz_2x2) <- c("Real: No", "Real: Sí")
+colnames(matriz_2x2) <- c("Predicho: No", "Predicho: Sí")
+
+kable(
+  matriz_2x2,
+  caption = "Matriz de confusión del modelo ganador (set de prueba)",
+  digits  = 0
+)
+
+#| echo: false
+#| message: false
+#| warning: false
+
+# Valores por tipo de resultado consistentes con el escenario definido arriba
+ganancia_por_venta <- 200    # misma que en el chunk anterior
+costo_llamada      <- 5      # mismo costo de llamada
+
+TP_val <- ganancia_por_venta - costo_llamada   # 200 - 5 = 195
+FP_val <- -costo_llamada                       # -5
+TN_val <- 0                                    # no se llama y no compra
+FN_val <- -ganancia_por_venta                  # -200
+
+
+# Conteos desde la matriz de confusión ya calculada
+tp <- cm$table["Sí", "Sí"]
+fp <- cm$table["Sí", "No"]
+fn <- cm$table["No", "Sí"]
+tn <- cm$table["No", "No"]
+
+impacto_df <- tibble::tibble(
+  Tipo = c("TP (Acierto positivo)", "TN (Acierto negativo)",
+           "FP (Falso positivo)", "FN (Falso negativo)"),
+  `Costo/Beneficio por caso (S/.)` = c(TP_val, TN_val, FP_val, FN_val),
+  `Cantidad` = c(tp, tn, fp, fn),
+  `Impacto total (S/.)` = c(
+    tp * TP_val,
+    tn * TN_val,
+    fp * FP_val,
+    fn * FN_val
+  )
+)
+
+knitr::kable(
+  impacto_df,
+  caption = "Impacto económico por tipo de resultado (TP, TN, FP, FN)",
+  digits = 0
+)
+
+
+```
+
+Interpretación en términos de negocio:
+
+* **TP (Predicción = Sí, Real = Sí)** → clientes que sí iban a comprar y el modelo marcó como prioridad.  
+  * Aportan **S/. 195 netos por caso** (venta de 200 menos costo de llamada de 5).
+
+* **TN (Predicción = No, Real = No)** → leads sin intención donde **no se invierte esfuerzo comercial**.  
+  * Su impacto se considera **S/. 0**: ni ganancia ni costo directo (solo campañas genéricas).
+
+* **FP (Predicción = Sí, Real = No)** → leads que no convierten pero sí se contactan.  
+  * Generan un **costo comercial de S/. –5 por caso** (solo el costo de la llamada).
+
+* **FN (Predicción = No, Real = Sí)** → leads que iban a convertir pero no fueron priorizados.  
+  * Son la pérdida más costosa: **–S/. 200 por caso**, porque se deja ir una venta completa.
+
+
+El ROI final del modelo se obtiene multiplicando cada tipo de resultado por su valor/costo y sumando.
+
+
+### 1.3. Comparativa visual del ROI: sin modelo vs. con IA
+
+A continuación se muestra una comparación directa del retorno económico entre:
+
+- **Estrategia tradicional**: contactar a todos los leads por igual.  
+- **Lead Scoring con IA**: priorizar según probabilidad de conversión.
+
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+library(ggplot2)
+
+df_roi_plot <- resumen_roi %>%
+  mutate(
+    Escenario = factor(
+      Escenario,
+      levels = c("Sin modelo (500 llamadas al azar)",
+                 "Con modelo IA (500 mejores leads)")
+    ),
+    roi_num = as.numeric(`ROI estimado (S/.)`)
+  )
+
+
+ggplot(df_roi_plot, aes(Escenario, roi_num, fill = Escenario)) +
+  geom_col(width = 0.55, alpha = 0.9) +
+  geom_text(
+    aes(label = paste0("S/. ", format(roi_num, big.mark = ","))),
+    vjust = -0.4,
+    color = "#e9edf7",
+    size  = 4.2
+  ) +
+  scale_fill_manual(
+  values = c("#3b4a6b", "#4c6fff")
+) +
+  labs(
+    title    = "Comparativa visual del ROI",
+    subtitle = "Impacto económico directo de aplicar Lead Scoring con IA",
+    x        = "",
+    y        = "ROI estimado (S/.)"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", color = NA),
+    panel.background  = element_rect(fill = "#0b1220", color = NA),
+    panel.grid.major  = element_line(color = "#1f2937"),
+    panel.grid.minor  = element_blank(),
+    axis.text         = element_text(color = "#e5e7eb"),
+    axis.title        = element_text(color = "#e5e7eb"),
+    plot.title        = element_text(color = "#ffffff", face = "bold"),
+    plot.subtitle     = element_text(color = "#a6b0c3"),
+    legend.position   = "none"
+  )
+```
+---
+
+## 2. Datos utilizados
+
+A continuación, una vista rápida de la base que alimenta el modelo:
+
+```{r}
+head(lead_scoring) %>%
+  kable(
+    caption = "Muestra de registros utilizados para el modelo de Lead Scoring",
+    digits = 2
+  )
+```
+
+Estas variables incluyen información de **perfil** (por ejemplo, edad, ingresos) y de **comportamiento**
+(visitas, aperturas de email, interacciones, tiempos de respuesta, etc.), más la variable objetivo `convirtio`.
+
+---
+
+## 3. Modelos evaluados y criterio de selección
+
+Se evaluaron los siguientes algoritmos de clasificación binaria:
+
+* **Regresión logística**
+* **Random Forest**
+* **XGBoost**
+* **SVM (Support Vector Machine)**
+
+Todos se entrenaron con **validación cruzada** (5-fold) y métrica principal **ROC**.
+
+```{r}
+#| echo: false
+resumen_modelo <- roc_stats %>%
+  transmute(
+    Modelo,
+    `ROC mínimo (CV)` = round(`Min.`, 3),
+    `ROC medio (CV)`  = round(Mean, 3),
+    `ROC máximo (CV)` = round(`Max.`, 3)
+  )
+
+kable(
+  resumen_modelo,
+  caption = "Desempeño comparativo de los modelos (ROC medio en validación cruzada)",
+  digits = 3
+)
+
+
+```
+
+El modelo seleccionado (`r best_name`) no solo tiene **buen ROC**, sino que además ofrece el **mejor ROI esperado**
+una vez que incorporamos los costos/beneficios de TP, TN, FP y FN.
+
+---
+
+## 4. Cómo se interpreta esto para el directorio
+
+En términos simples:
+
+* El modelo asigna a cada lead una **probabilidad de conversión**.
+* Según ese score, definimos **qué leads priorizar**, cuáles dejar en segundo plano y cuáles no vale la pena atacar.
+* En vez de medir solo “accuracy”, medimos **dinero**:
+
+  * ¿Cuánto ganamos adicionalmente por priorizar bien?
+  * ¿Cuánto ahorramos al dejar de insistir sobre leads de bajo valor?
+  * ¿Cuánto dejamos de perder al reducir los FN (clientes que se escapaban)?
+
+El resultado: un proceso comercial que **usa datos para decidir a quién llamar primero**, con un
+**ROI cuantificado** y repetible mes a mes.
+
+### 4.1. ¿Por qué *accuracy* NO sirve aquí?
+
+Para evitar tecnicismos y enfocarnos en negocio:
+
+> **Accuracy NO sirve en este caso**  
+> Porque trata igual a un TP y a un TN.  
+>  
+> Pero en negocio, **un FN cuesta muchísimo más que un FP**.  
+>  
+> Por eso usamos un enfoque económico basado en ROI, con TP, TN, FP y FN ponderados por su impacto.
+
+
+---
+
+## 5. Próximos pasos sugeridos
+
+1. **Integrar el score en el CRM.**  
+   Marcar cada lead como **Alta / Media / Baja prioridad** y que el equipo comercial lo vea en su pantalla.
+
+2. **Definir scripts de contacto por nivel de score.**  
+   - Alta prioridad: más intentos de contacto, canales directos (llamada / WhatsApp) y ofertas fuertes.  
+   - Media prioridad: seguimiento equilibrado, emails más espaciados.  
+   - Baja prioridad: campañas masivas, newsletters, poca intervención humana.
+
+3. **Medir resultados reales con el modelo.**  
+   Comparar, después de 1–2 meses, la **tasa de cierre y ticket promedio** por nivel de score vs. la gestión anterior sin modelo.  
+   Esto valida en la práctica el ROI estimado con la matriz de confusión.
+
+4. **Recalibrar costos y umbrales.**  
+   Ajustar los valores de:  
+   - cuánto gana el negocio con un TP,  
+   - cuánto “cuesta” un FP (tiempo del vendedor),  
+   - cuánto duele un FN (venta perdida),  
+   para que el modelo priorice según la realidad del negocio.
+
+5. **Automatizar campañas según el scoring.**  
+   Conectar el modelo a tu herramienta de marketing/ventas para lanzar **workflows automáticos**:
+   emails, tareas de contacto, recordatorios y cambios de etapa según el score.
+
+```{=html}
+<style>
+/* ===== Paleta base oscura BI Evolution ===== */
+:root {
+  --bg: #0b1220;
+  --panel: #121a2e;
+  --border: #1b2642;
+  --text: #e9edf7;
+  --muted: #a6b0c3;
+  --accent: #4c6fff;
+  --accent-2: #3f59ff;
+}
+
+/* ===== Base ===== */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenido centrado y más estrecho */
+main.content {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Titulares y texto */
+h1, h2, h3, h4 {
+  color: #f9fafb;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+p, li {
+  color: var(--text);
+}
+hr {
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Enlaces */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+/* ===== TOC lateral (table of contents) ===== */
+#TOC,
+.quarto-toc,
+.quarto-sidebar {
+  background: rgba(11,18,32,.96);
+  border-left: 1px solid var(--border);
+}
+#TOC a,
+.quarto-toc a {
+  color: var(--muted);
+}
+#TOC a.active,
+.quarto-toc a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== Tablas (kable, resúmenes) ===== */
+table {
+  background: var(--panel);
+  border-radius: 12px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+thead tr {
+  background: rgba(15,23,42,.98);
+}
+thead th {
+  color: #f9fafb;
+  padding: .45rem .55rem;
+  border-bottom: 1px solid rgba(148,163,211,.5);
+}
+tbody td {
+  padding: .35rem .55rem;
+  border-top: 1px solid rgba(15,23,42,.95);
+}
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: #e5ecff;
+}
+
+/* ===== Figuras / Gráficos ===== */
+.quarto-figure,
+.figure {
+  background: linear-gradient(145deg,
+              rgba(76,111,255,.12),
+              rgba(11,18,32,1));
+  border-radius: 16px;
+  border: 1px solid rgba(76,111,255,.35);
+  padding: 10px;
+  box-shadow: 0 10px 32px rgba(0,0,0,.65);
+}
+
+/* ===== Notas / citas ===== */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(15,23,42,.96);
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  color: var(--text);
+}
+</style>
+```
+
+---

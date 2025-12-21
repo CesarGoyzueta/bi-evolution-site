@@ -1115,8 +1115,7 @@ a:focus, .btn:focus, .btn:focus-visible {
 
 
 
-<!-- Pégalo al final de asesorias.qmd dentro de un bloque <style> 
-     o en styles.scss si prefieres global -->
+
 <style>
 /* Más brillo a los outline de esta sección */
 .plans .btn-outline-primary{
@@ -1230,4 +1229,343 @@ a:focus, .btn:focus, .btn:focus-visible {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Layout más “landing pro” ====== */
+.page-layout-full .content,
+.page-layout-full main.content {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Hero */
+.hero-logo { opacity: .95; }
+
+.hero-wrap{
+  text-align: center;
+  padding: 34px 0 18px;
+}
+
+.hero-eyebrow{
+  display:inline-block;
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .75;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  margin-bottom: 12px;
+}
+
+.hero-title{
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 10px;
+  font-weight: 800;
+}
+
+.hero-subtitle{
+  max-width: 780px;
+  margin: 0 auto;
+  opacity: .88;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* CTA Row */
+.hero-cta{
+  display:flex;
+  justify-content:center;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Pills */
+.stat-pills{
+  display:flex;
+  justify-content:center;
+  gap:.6rem;
+  flex-wrap:wrap;
+  margin: 14px 0 6px;
+}
+
+/* ====== Cards ====== */
+.course-card{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 16px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  backdrop-filter: blur(6px);
+}
+
+.course-card h3{
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.course-card p{ margin: 0 0 10px; opacity:.9; }
+.course-card ul{
+  margin: 10px 0 0 18px;
+  opacity: .9;
+}
+.course-card li{ margin: 6px 0; }
+
+/* Grid más consistente */
+.grid{
+  margin-top: 14px;
+}
+.grid > .course-card{
+  min-height: 245px;
+}
+
+/* CTA dentro de cards */
+.enroll-cta{
+  display:flex;
+  gap:.55rem;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+
+/* Botones más “clean” */
+.btn{
+  border-radius: 999px !important;
+  padding: .55rem .95rem !important;
+  font-weight: 650;
+}
+
+.btn-outline-secondary{
+  border-color: rgba(255,255,255,.22) !important;
+}
+
+/* Secciones: aire */
+h2{
+  margin-top: 34px;
+  padding-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 840px){
+  .grid{
+    grid-template-columns: 1fr !important;
+  }
+  .grid > .course-card{
+    min-height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Soluciones (IA & Analítica) — ajuste pro/compacto
+   ========================= */
+
+/* 1) Controla el ancho máximo del contenido (clave para que se vea premium) */
+.page-layout-full .content,
+.page-layout-full main.content,
+.page-layout-full .quarto-container {
+  max-width: 1120px;       /* prueba 1080–1200 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* En pantallas MUY anchas, no lo dejes crecer demasiado */
+@media (min-width: 1600px) {
+  .page-layout-full .content,
+  .page-layout-full main.content,
+  .page-layout-full .quarto-container {
+    max-width: 1180px;
+  }
+}
+
+/* 2) Tipografía: baja tamaños y mejora legibilidad */
+body {
+  font-size: 16px;        /* si lo ves grande, baja a 15px */
+  line-height: 1.55;
+}
+
+h1, .quarto-title-block .title {
+  font-size: clamp(2.0rem, 2.6vw, 2.6rem); /* antes probablemente se veía enorme */
+  letter-spacing: -0.02em;
+  margin-bottom: .35rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: 1.6rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+/* 3) Hero: reduce “aire” vertical para que se vea más compacto */
+.quarto-title-block {
+  padding-top: 1.2rem !important;
+  padding-bottom: .6rem !important;
+}
+
+/* 4) Logo: un poquito más chico para que no domine */
+.hero-logo {
+  width: 150px !important; /* antes 180 */
+  height: auto;
+  opacity: .95;
+}
+
+/* 5) Pills y botones: más compactos (menos “juguete”, más pro) */
+.stat-pills {
+  gap: .5rem;
+  margin-top: .75rem;
+}
+
+.stat-pills .pill {
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .85rem;
+}
+
+.btn {
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+/* 6) Cards: reduce padding, sombras suaves, borde limpio */
+.course-card {
+  padding: 1rem 1.05rem;     /* antes se siente “gordo” */
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
+
+.course-card p {
+  margin-bottom: .6rem;
+  opacity: .92;
+}
+
+/* 7) Grid: evita cards demasiado anchas, mejor balance */
+.grid {
+  gap: 14px !important;
+}
+
+/* En pantallas medianas, 2 columnas; en pequeñas, 1 */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 8) Ícono gigante: bájalo para que no robe protagonismo */
+.solutions-hero-icon,
+.hero-icon,
+img[alt="icon"], 
+img.hero-icon {
+  max-width: 86px;
+  height: auto;
+  opacity: .95;
+}
+
+/* 9) TOC (En esta página): hazlo más discreto */
+#TOC, .toc {
+  font-size: .92rem;
+}
+#TOC a, .toc a {
+  opacity: .9;
+}
+#TOC a:hover, .toc a:hover {
+  opacity: 1;
+}
+
+/* 10) Separadores/HR: más sutil */
+hr {
+  opacity: .18;
+  margin: 1.25rem 0;
+}
+
+/* 11) Ajusta el bloque principal para que no “flote” demasiado arriba */
+main.content {
+  padding-top: .5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HERO 1 columna centrada */
+.hero-1col{
+  display:flex;
+  flex-direction:column;
+  align-items:center;     /* centra horizontalmente */
+  text-align:center;      /* centra el texto */
+  gap: .25rem;
+  padding: .25rem 0 .2rem;
+}
+
+/* opcional: que el subtítulo no quede larguísimo */
+.hero-1col .hero-sub{
+  max-width: 62ch;
+}
+
+/* bullets centrados pero con buena lectura */
+.hero-1col .hero-bullets{
+  display:inline-block;   /* permite centrar el bloque */
+  text-align:left;        /* bullets alineados bonito */
+  margin: .4rem auto .7rem;
+}
+
+/* botones centrados */
+.hero-1col .hero-cta{
+  justify-content:center;
 }

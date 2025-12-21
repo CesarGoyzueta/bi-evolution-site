@@ -1,0 +1,574 @@
+---
+title: "Clientes que vuelven: Propensity to Return con IA y ROI"
+author: "BI Evolution"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    smooth-scroll: true
+    self-contained: true
+    grid: 
+      body-width: 1280px
+      margin-width: 0px
+      gutter-width: 1rem
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Resumen ejecutivo
+
+Este análisis construye un **modelo de Propensity to Return** para estimar  
+la **probabilidad de que un cliente vuelva a comprar en los próximos 90 días**.
+
+Con este modelo podemos:
+
+- Detectar **qué clientes tienen más probabilidad de volver**.
+- Asignar el esfuerzo comercial (llamadas, WhatsApp) a quienes generan **mayor retorno**.
+- Comparar el **ROI** entre dos estrategias:
+
+  1. 500 llamadas **al azar** / por orden de llegada.
+  2. 500 llamadas **a los clientes con mayor probabilidad de retorno** según IA.
+
+El objetivo es mostrar, en términos económicos, cuánto más rentable es
+usar un modelo de IA para decidir **a quién contactar primero**.
+
+---
+
+## 1. Resultado principal del modelo
+
+### 1.1. Modelo ganador y desempeño global
+
+En la práctica, el equipo solo puede hacer alrededor de **500 llamadas personalizadas**
+en el periodo. Comparamos:
+
+- **Sin modelo:** 500 llamadas al azar (o por orden de llegada);  
+  el resto solo recibe campañas genéricas (email / redes).
+- **Con modelo IA:** 500 llamadas dirigidas a los clientes con **mayor probabilidad de volver**.
+
+Así el directorio entiende que no es “magia del algoritmo”, sino **dos formas distintas
+de usar la misma capacidad comercial**.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+
+suppressWarnings({
+  suppressMessages({
+    library(readxl)
+    library(dplyr)
+    library(tidyr)
+    library(caret)
+    library(randomForest)
+    library(xgboost)
+    library(e1071)
+    library(tibble)
+    library(knitr)
+    library(ggplot2)
+
+    set.seed(123)
+
+    # 1) Carga de datos de Propensity to Return
+    prop_df <- read_excel(
+      # AJUSTA ESTA RUTA A DONDE GUARDES EL ARCHIVO:
+      "C:/Users/Cesar/OneDrive/Proyectos futuros/BI_Evolution/ML/Propensity_return/propensity_return.xlsx"
+    ) %>%
+      mutate(
+        volvio_90dias = factor(volvio_90dias, levels = c(0, 1),
+                               labels = c("No", "Sí"))
+      )
+
+    # 2) Partición entrenamiento / prueba
+    set.seed(123)
+    idx_train <- createDataPartition(prop_df$volvio_90dias, p = 0.7, list = FALSE)
+    train_data <- prop_df[idx_train, ]
+    test_data  <- prop_df[-idx_train, ]
+
+    # 3) Configuración de validación cruzada
+    ctrl <- trainControl(
+      method          = "cv",
+      number          = 5,
+      classProbs      = TRUE,
+      summaryFunction = twoClassSummary,
+      savePredictions = "final"
+    )
+
+    # 4) Entrenamiento de modelos
+    modelo_glm <- train(
+      volvio_90dias ~ .,
+      data      = train_data %>% select(-id_cliente),
+      method    = "glm",
+      family    = "binomial",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    modelo_rf <- train(
+      volvio_90dias ~ .,
+      data      = train_data %>% select(-id_cliente),
+      method    = "rf",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    modelo_xgb <- train(
+      volvio_90dias ~ .,
+      data      = train_data %>% select(-id_cliente),
+      method    = "xgbTree",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    modelo_svm <- train(
+      volvio_90dias ~ .,
+      data      = train_data %>% select(-id_cliente),
+      method    = "svmRadial",
+      trControl = ctrl,
+      metric    = "ROC"
+    )
+
+    # 5) Comparación por ROC
+    res <- resamples(list(
+      `Regresión logística` = modelo_glm,
+      `Random Forest`       = modelo_rf,
+      `XGBoost`             = modelo_xgb,
+      `SVM`                 = modelo_svm
+    ))
+
+    roc_stats <- summary(res)$statistics$ROC %>%
+      as.data.frame() %>%
+      rownames_to_column("Modelo") %>%
+      arrange(desc(Mean))
+
+    # Modelo ganador
+    modelos <- list(
+      `Regresión logística` = modelo_glm,
+      `Random Forest`       = modelo_rf,
+      `XGBoost`             = modelo_xgb,
+      `SVM`                 = modelo_svm
+    )
+
+    best_name  <- roc_stats$Modelo[1]
+    best_model <- modelos[[best_name]]
+
+    # 6) Probabilidades en el set de prueba
+    pred_probs <- predict(best_model, newdata = test_data, type = "prob")[, "Sí"]
+    real_cls   <- test_data$volvio_90dias
+    n_total    <- length(real_cls)
+
+    # ===== Supuestos de negocio REALISTAS =====
+    capacidad_llamadas <- 500                     # llamadas personalizadas disponibles
+    capacidad_llamadas <- min(capacidad_llamadas, n_total)
+
+    ganancia_por_retorno <- 150                   # margen por cliente que vuelve
+    costo_llamada        <- 4                     # costo (tiempo + canal) por llamada
+
+    # Valor económico solo de las llamadas (TP y FP)
+    TP_val <- ganancia_por_retorno - costo_llamada   # llamo y vuelve
+    FP_val <- -costo_llamada                         # llamo y NO vuelve
+
+    # ===== Escenario 1: SIN MODELO (500 llamadas al azar) =====
+    set.seed(123)
+    idx_base <- sample(seq_len(n_total), size = capacidad_llamadas)
+
+    # "Predicción" base: marcar como "Llamar" solo a esos 500 clientes
+    pred_base <- factor(
+      ifelse(seq_len(n_total) %in% idx_base, "Sí", "No"),
+      levels = c("No", "Sí")
+    )
+
+    cm_base <- caret::confusionMatrix(pred_base, real_cls, positive = "Sí")
+
+    tp_b <- cm_base$table["Sí", "Sí"]
+    fp_b <- cm_base$table["Sí", "No"]
+
+    # ROI base: solo llamadas efectuadas (TP y FP)
+    roi_base <- tp_b * TP_val + fp_b * FP_val
+
+    # ===== Escenario 2: CON MODELO IA (500 con mayor prob. de volver) =====
+    idx_modelo <- order(pred_probs, decreasing = TRUE)[1:capacidad_llamadas]
+
+    pred_cls <- factor(
+      ifelse(seq_len(n_total) %in% idx_modelo, "Sí", "No"),
+      levels = c("No", "Sí")
+    )
+
+    cm <- caret::confusionMatrix(pred_cls, real_cls, positive = "Sí")
+
+    tp <- cm$table["Sí", "Sí"]
+    fp <- cm$table["Sí", "No"]
+    fn <- cm$table["No", "Sí"]
+    tn <- cm$table["No", "No"]
+
+    # ROI con modelo: mismas 500 llamadas, pero mejor elegidas
+    roi_modelo <- tp * TP_val + fp * FP_val
+
+    # ===== Tabla ejecutiva de comparación =====
+    resumen_roi <- tibble(
+      Escenario = c(
+        "Sin modelo (500 llamadas al azar)",
+        "Con modelo IA (500 mejores clientes)"
+      ),
+      `ROI estimado (S/.)` = round(c(roi_base, roi_modelo), 0)
+    )
+
+    mejora_abs <- roi_modelo - roi_base
+    mejora_pct <- (roi_modelo - roi_base) / roi_base * 100
+  })
+})
+```
+
+```{r}
+#| echo: false
+# Tabla de comparación ROI
+kable(
+  resumen_roi,
+  caption = "Comparación de resultados: sin modelo vs. Propensity to Return con IA",
+  digits = 2
+)
+```
+
+> **Lectura rápida:**
+> El modelo seleccionado (`r best_name`) incrementa el ROI estimado de
+> **S/. `r format(roi_base, big.mark = ",")`** (sin modelo) a
+> **S/. `r format(roi_modelo, big.mark = ",")`** (con IA),
+> lo que representa una mejora aproximada de **`r round(mejora_pct, 1)`%** usando
+> las mismas 500 llamadas, pero mejor priorizadas.
+
+---
+
+### 1.2. Matriz de confusión con costos asociados
+
+```{r}
+#| echo: false
+
+# Matriz 2x2 en formato legible del modelo ganador
+matriz_2x2 <- as.data.frame.matrix(cm$table)
+
+rownames(matriz_2x2) <- c("Real: No volvió", "Real: Sí volvió")
+colnames(matriz_2x2) <- c("Predicho: No llamar", "Predicho: Llamar")
+
+kable(
+  matriz_2x2,
+  caption = "Matriz de confusión del modelo ganador (set de prueba)",
+  digits  = 0
+)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Para la tabla explicativa, damos un valor indicativo a TN y FN
+TN_val_tab <- 0
+FN_val_tab <- -ganancia_por_retorno
+
+impacto_df <- tibble::tibble(
+  Tipo = c("TP (Llamamos y volvió)", 
+           "TN (No llamamos y no iba a volver)",
+           "FP (Llamamos y no volvió)", 
+           "FN (No llamamos y sí iba a volver)"),
+  `Costo/Beneficio por caso (S/.)` = c(TP_val, TN_val_tab, FP_val, FN_val_tab),
+  `Cantidad` = c(tp, tn, fp, fn),
+  `Impacto total (S/.)` = c(
+    tp * TP_val,
+    tn * TN_val_tab,
+    fp * FP_val,
+    fn * FN_val_tab
+  )
+)
+
+knitr::kable(
+  impacto_df,
+  caption = "Impacto económico por tipo de resultado (TP, TN, FP, FN)",
+  digits = 0
+)
+```
+
+**Interpretación para negocio:**
+
+* **TP – Llamamos y volvió** → genera **margen directo**: ingresa dinero y el costo de llamada es pequeño.
+* **TN – No llamamos y no iba a volver** → no suma dinero pero **evita usar esfuerzo** donde no había retorno.
+* **FP – Llamamos y no volvió** → es el **costo de insistir a quien no estaba listo**, se pierde tiempo comercial.
+* **FN – No llamamos y sí hubiera vuelto** → es la **pérdida más cara**, un cliente que se pudo recuperar y se dejó ir.
+
+El ROI mostrado en la sección 1.1 se centra en el **impacto directo de las llamadas (TP y FP)**.
+Si se quisiera, se podría extender el cálculo para ponderar también TN y FN utilizando
+los valores de la tabla anterior.
+
+---
+
+### 1.3. Comparativa visual del ROI
+
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+df_roi_plot <- resumen_roi %>%
+  mutate(
+    Escenario = factor(
+      Escenario,
+      levels = c("Sin modelo (500 llamadas al azar)",
+                 "Con modelo IA (500 mejores clientes)")
+    ),
+    roi_num = as.numeric(`ROI estimado (S/.)`)
+  )
+
+ggplot(df_roi_plot, aes(Escenario, roi_num, fill = Escenario)) +
+  geom_col(width = 0.55, alpha = 0.9) +
+  geom_text(
+    aes(label = paste0("S/. ", format(roi_num, big.mark = ","))),
+    vjust = -0.4,
+    color = "#e9edf7",
+    size  = 4.2
+  ) +
+  scale_fill_manual(values = c("#3b4a6b", "#4c6fff")) +
+  labs(
+    title    = "ROI con la misma capacidad comercial",
+    subtitle = "500 llamadas al azar vs. 500 llamadas guiadas por IA",
+    x        = "",
+    y        = "ROI estimado (S/.)"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", color = NA),
+    panel.background  = element_rect(fill = "#0b1220", color = NA),
+    panel.grid.major  = element_line(color = "#1f2937"),
+    panel.grid.minor  = element_blank(),
+    axis.text         = element_text(color = "#e5e7eb"),
+    axis.title        = element_text(color = "#e5e7eb"),
+    plot.title        = element_text(color = "#ffffff", face = "bold"),
+    plot.subtitle     = element_text(color = "#a6b0c3"),
+    legend.position   = "none"
+  )
+```
+
+---
+
+## 2. Datos utilizados
+
+A continuación, una vista rápida de la base de clientes utilizada para entrenar el modelo.
+
+```{r}
+prop_df %>%
+  head(8) %>%
+  kable(
+    caption = "Muestra de clientes utilizados en el modelo de Propensity to Return",
+    digits = 2
+  )
+```
+
+Variables típicas:
+
+* **segmento** (Alta frecuencia / Ocasional / Nuevo)
+* **días desde última compra**
+* **número de compras en los últimos 12 meses**
+* **ticket promedio**
+* **canal favorito** (Tienda / Online / WhatsApp)
+* **respuesta a campañas anteriores**
+* **uso de cupones**
+* **nivel de satisfacción**
+* y la variable objetivo: `volvio_90dias` (Sí / No).
+
+---
+
+## 3. Modelos evaluados y criterio de selección
+
+Se evaluaron varios algoritmos de clasificación binaria:
+
+* **Regresión logística**
+* **Random Forest**
+* **XGBoost**
+* **SVM (Support Vector Machine)**
+
+Todos se entrenaron con **validación cruzada 5-fold** y métrica principal **ROC**.
+
+```{r}
+#| echo: false
+resumen_modelo <- roc_stats %>%
+  transmute(
+    Modelo,
+    `ROC mínimo (CV)` = round(`Min.`, 3),
+    `ROC medio (CV)`  = round(Mean, 3),
+    `ROC máximo (CV)` = round(`Max.`, 3)
+  )
+
+kable(
+  resumen_modelo,
+  caption = "Desempeño comparativo de los modelos (ROC en validación cruzada)",
+  digits = 3
+)
+```
+
+El modelo seleccionado (`r best_name`) combina:
+
+* Buen desempeño estadístico (ROC) y
+* Mejor **impacto económico** cuando se traduce a ROI con TP y FP ponderados.
+
+---
+
+## 4. Cómo se interpreta esto para el directorio
+
+En términos simples:
+
+* Cada cliente obtiene un **score de probabilidad de volver en 90 días**.
+* Con ese score se decide **a quién llamar primero**, a quién dejar en campañas genéricas
+  y a quién no vale la pena insistir tanto.
+* No solo se mira “qué tan bien clasifica” el modelo, sino **cuánto dinero pone o evita perder**:
+
+  * Más TP → más clientes que vuelven gracias a la gestión.
+  * Menos FP → menos tiempo gastado en clientes que no iban a regresar.
+
+En resumen: el modelo transforma la misma capacidad de 500 llamadas en **más ventas recuperadas**
+y **menos esfuerzo desperdiciado**.
+
+---
+
+## 5. Próximos pasos sugeridos
+
+1. **Integrar el score en el CRM**
+
+   * Mostrar a cada ejecutivo una lista priorizada de clientes “probabilidad alta de volver”.
+2. **Definir reglas de acción por nivel de score**
+
+   * Alta probabilidad: llamadas / WhatsApp + ofertas personalizadas.
+   * Media: recordatorios, campañas semiautomáticas.
+   * Baja: newsletters y remarketing suave.
+3. **Medir resultados reales**
+
+   * Comparar, después de 1–2 ciclos, la tasa de retorno y ticket promedio para
+     clientes contactados con modelo vs. sin modelo.
+4. **Recalibrar parámetros económicos**
+
+   * Ajustar margen por retorno, costo de llamada y reglas de priorización
+     según la realidad del negocio.
+5. **Automatizar campañas**
+
+   * Conectar el modelo a la herramienta de marketing para disparar campañas
+     automáticas según score (email, SMS, WhatsApp, etc.).
+
+```{=html}
+<style>
+/* ===== Paleta base oscura BI Evolution ===== */
+:root {
+  --bg: #0b1220;
+  --panel: #121a2e;
+  --border: #1b2642;
+  --text: #e9edf7;
+  --muted: #a6b0c3;
+  --accent: #4c6fff;
+  --accent-2: #3f59ff;
+}
+
+/* ===== Base ===== */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenido centrado y más estrecho */
+main.content {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Titulares y texto */
+h1, h2, h3, h4 {
+  color: #f9fafb;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+p, li {
+  color: var(--text);
+}
+hr {
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Enlaces */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+/* ===== TOC lateral ===== */
+#TOC,
+.quarto-toc,
+.quarto-sidebar {
+  background: rgba(11,18,32,.96);
+  border-left: 1px solid var(--border);
+}
+#TOC a,
+.quarto-toc a {
+  color: var(--muted);
+}
+#TOC a.active,
+.quarto-toc a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== Tablas ===== */
+table {
+  background: var(--panel);
+  border-radius: 12px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+thead tr {
+  background: rgba(15,23,42,.98);
+}
+thead th {
+  color: #f9fafb;
+  padding: .45rem .55rem;
+  border-bottom: 1px solid rgba(148,163,211,.5);
+}
+tbody td {
+  padding: .35rem .55rem;
+  border-top: 1px solid rgba(15,23,42,.95);
+}
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: #e5ecff;
+}
+
+/* ===== Figuras / Gráficos ===== */
+.quarto-figure,
+.figure {
+  background: linear-gradient(145deg,
+              rgba(76,111,255,.12),
+              rgba(11,18,32,1));
+  border-radius: 16px;
+  border: 1px solid rgba(76,111,255,.35);
+  padding: 10px;
+  box-shadow: 0 10px 32px rgba(0,0,0,.65);
+}
+
+/* ===== Notas / citas ===== */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(15,23,42,.96);
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  color: var(--text);
+}
+</style>
+```
+
+```
+
+

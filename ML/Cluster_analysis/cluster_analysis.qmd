@@ -1,0 +1,390 @@
+---
+title: "Segmentación de prospectos y validación de clusters"
+author: "BI Evolution"
+format:
+  html:
+    theme: darkly          # base dark
+    toc: true
+    toc-title: "Contenido"
+    smooth-scroll: true
+    self-contained: true
+    page-layout: full
+    grid:
+      body-width: 1100px
+      margin-width: 0px
+      gutter-width: 1rem
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: visual
+---
+
+## 1. Preparación del entorno
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+# Instalar paquetes SOLO la primera vez, después puedes comentarlo
+# install.packages(c("readr", "dplyr", "clValid", "cluster", "factoextra", "dbscan", "tibble"))
+
+library(readr)
+library(dplyr)
+library(clValid)
+library(cluster)
+library(factoextra)
+library(dbscan)
+library(tibble)
+
+set.seed(123)
+```
+
+## 2. Carga del dataset de prospectos
+
+Se asume que el archivo `prospectos.csv` está en el mismo directorio que este Quarto.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+prospectos <- read_csv("C:/Users/Cesar/OneDrive/Proyectos futuros/BI_Evolution/ML/Cluster_analysis/prospectos.csv")
+
+glimpse(prospectos)
+```
+
+## 3. Selección de variables numéricas y estandarización
+
+Seleccionamos solo variables numéricas para el clustering.
+(Se pueden ajustar según tu criterio de negocio.)
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+vars_num <- c(
+  "edad",
+  "ingresos_mensuales",
+  "nivel_interes",
+  "tiempo_respuesta_min",
+  "interacciones_previas",
+  "visitas_web",
+  "open_rate",
+  "email_score",
+  "tiempo_decision_dias"
+)
+
+X <- prospectos[, vars_num]
+
+# Escalado (muy importante para clustering basado en distancia)
+X_scaled <- scale(X)
+
+summary(X_scaled)
+```
+
+
+## 4. Validación de estabilidad con `clValid` (APN, AD, ADM, FOM)
+
+En esta sección vamos a calcular medidas de **estabilidad del clustering**, evaluando qué tanto cambian los resultados cuando se elimina una variable del conjunto de datos.
+
+Las métricas consideradas son:
+
+* **APN (Average Proportion of Non-overlap)**  
+  Mide qué proporción de observaciones cambian de cluster cuando se elimina una variable.  
+  **APN bajo → clustering estable**.
+
+* **AD (Average Distance)**  
+  Mide cuánto cambian las distancias internas dentro de los clusters al remover una variable.  
+  **AD bajo → clusters robustos y compactos**.
+
+* **ADM (Average Distance between Means)**  
+  Mide cuánto se mueven los centros de los clusters al quitar una variable.  
+  **ADM bajo → clusters con estructura estable**.
+
+* **FOM (Figure of Merit)**  
+  Mide la variabilidad interna de la variable eliminada usando el clustering basado en las demás.  
+  **FOM bajo → clusters más coherentes**.
+
+Se evaluarán los métodos:
+
+* `kmeans`
+* `clara`
+* `hierarchical`
+* `fanny`
+
+para números de clusters `k` entre 2 y 8.
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+metodos <- c("kmeans", "clara", "hierarchical", "fanny")
+
+stab_only <- clValid(
+  obj        = X_scaled,
+  nClust     = 2:8,
+  clMethods  = metodos,
+  validation = "stability",
+  maxitems   = 1500
+)
+
+# Resumen general de estabilidad (APN, AD, ADM, FOM)
+summary(stab_only)
+```
+
+
+### 4.1. Tabla de métricas de estabilidad (APN, AD, ADM, FOM)
+A continuación extraemos las métricas en un `data.frame` para analizarlas y ordenarlas por los valores más bajos (más estables).
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+# Extraer las métricas de estabilidad
+
+stab_measures <- slot(stab_only, "measures")
+
+# Pasar el array [método, métrica, k] a data.frame largo
+stab_df <- as.data.frame.table(stab_measures, responseName = "Score")
+
+# Renombrar columnas para que sean más claras
+colnames(stab_df) <- c("Measure", "Clusters", "Method", "Score")
+
+# Aseguramos que 'Clusters' sea numérico
+stab_df$Clusters <- as.numeric(as.character(stab_df$Clusters))
+
+
+```
+
+```{r}
+# Ejemplo: ver las 10 combinaciones más estables según FOM
+stab_df %>%
+  filter(Measure == "FOM") %>% #APN,AD,ADM
+  arrange(Score) %>%
+  head(10)
+
+```
+
+---
+
+## 📊 Sección 5 – Solo *internal validity* (silhouette, Dunn, etc.)
+
+Aquí analizas **qué tan buenos** son los clusters desde el punto de vista interno (sin quitar variables), usando índices clásicos de calidad de clustering.
+
+
+## 5. Validación interna con `clValid` (índices de calidad)
+
+En esta sección evaluamos la **calidad interna** de los clusters usando índices clásicos:
+
+* **Silhouette width - Tiene más peso dentro de las métricas**  
+  Mide qué tan similar es cada observación a su propio cluster en comparación con otros clusters.  
+  Toma valores entre -1 y 1.  
+  **Valores cercanos a 1 → clusters bien separados y compactos.**
+
+* **Índice de Dunn**  
+  Relaciona la distancia mínima entre clusters con el diámetro máximo dentro de los clusters.Su valor es mayor a 0
+  **Dunn alto → clusters bien separados y poco dispersos.**
+
+* **Connectivity**  
+  Mide la medida en que observaciones cercanas en el espacio de características terminan en clusters distintos. Su valor es mayor a 0
+  **Connectivity baja → clustering más “natural” según la proximidad de los puntos.**
+
+(Otros índices pueden aparecer en la salida de `clValid`, pero aquí nos centraremos en estos como referencia principal.)
+
+
+```{r}
+internal_res <- clValid(
+  obj        = X_scaled,
+  nClust     = 2:8,
+  clMethods  = metodos,
+  validation = "internal",
+  maxitems   = 1500
+)
+
+summary(internal_res)
+```
+
+
+### 5.1. Selección del mejor método y k según índices internos
+
+`clValid` también resume cuál combinación de método y número de clusters optimiza cada índice.
+
+
+```{r}
+# Mejores combinaciones según cada índice interno
+summary(internal_res)
+
+```
+
+Y puedes cruzar con estabilidad:
+
+```{r}
+# Mejores combinaciones según estabilidad
+summary(stab_only)
+```
+
+> **Nota:** Estas salidas te dan una idea de qué método y k suelen ser mejores.
+
+## 6. k óptimo para k-means: elbow, silhouette y gap statistic
+
+Aquí enfocamos solo en k-means para ilustrar los métodos clásicos de selección de k.
+
+### 6.1. Método del codo (WSS)
+
+```{r}
+fviz_nbclust(X_scaled, kmeans, method = "wss") +
+  ggtitle("Método del codo (WSS) - kmeans")
+```
+
+### 6.2. Silhouette medio
+
+```{r}
+fviz_nbclust(X_scaled, kmeans, method = "silhouette") +
+  ggtitle("Silhouette medio - kmeans")
+```
+
+### 6.3. Gap statistic
+
+```{r}
+set.seed(123)
+gap_km <- clusGap(X_scaled, FUN = kmeans, K.max = 10, B = 50)
+
+fviz_gap_stat(gap_km) +
+  ggtitle("Gap statistic - kmeans")
+```
+
+## 7. DBSCAN (extra, sin APN/AD/ADM/FOM)
+
+DBSCAN no se presta igual a APN/AD/ADM/FOM porque no usa un k fijo.
+Igual podemos explorarlo con silhouette y visualización.
+
+```{r}
+# Distancia kNN para sugerir eps
+kNNdistplot(X_scaled, k = 10)
+abline(h = 1.5, col = "red", lty = 2)  # Ajustar a ojo según el gráfico
+```
+
+```{r}
+# Ajustar DBSCAN (ajusta eps según el gráfico anterior)
+db_res <- dbscan(X_scaled, eps = 1.5, minPts = 10)
+
+table(db_res$cluster)
+```
+
+```{r}
+# Silhouette solo para clusters > 0 (ruido = 0)
+clusters_db <- db_res$cluster
+valid_idx   <- clusters_db > 0
+
+if (length(unique(clusters_db[valid_idx])) > 1) {
+  sil_db <- silhouette(clusters_db[valid_idx], dist(X_scaled[valid_idx, ]))
+  summary(sil_db)
+  plot(sil_db, border = NA, main = "Silhouette DBSCAN")
+} else {
+  cat("DBSCAN no generó suficientes clusters válidos para calcular silhouette.\n")
+}
+```
+
+## 8. Entrenamiento final con el método y k elegidos
+
+En esta sección tú eliges, a partir de las métricas anteriores, el **método + k** que te parezca mejor.
+
+Para el ejemplo, supongamos que elegimos:
+
+* Método: **kmeans**
+* Número de clusters: **k = 4**
+
+> Cambia estos valores según lo que veas en las métricas.
+
+```{r}
+k_final   <- 5
+metodo_final <- "kmeans"  # "kmeans", "clara" o "hierarchical"
+```
+
+### 8.1. Ajuste según el método elegido
+
+```{r}
+if (metodo_final == "kmeans") {
+  set.seed(123)
+  modelo_final <- kmeans(X_scaled, centers = k_final, nstart = 25)
+  clusters_final <- modelo_final$cluster
+  
+} else if (metodo_final == "clara") {
+  set.seed(123)
+  modelo_final <- clara(X_scaled, k = k_final)
+  clusters_final <- modelo_final$clustering
+  
+} else if (metodo_final == "hierarchical") {
+  d  <- dist(X_scaled)
+  hc <- hclust(d, method = "ward.D2")
+  clusters_final <- cutree(hc, k = k_final)
+  
+} else {
+  stop("Método no soportado en este script.")
+}
+
+prospectos$cluster_final <- factor(clusters_final)
+table(prospectos$cluster_final)
+```
+
+### 8.2. Resumen de perfiles por cluster
+
+```{r}
+resumen_clusters <- prospectos %>%
+  group_by(cluster_final) %>%
+  summarise(
+    n                 = n(),
+    edad_media        = mean(edad),
+    ingresos_medios   = mean(ingresos_mensuales),
+    nivel_interes_med = mean(nivel_interes),
+    visitas_web_med   = mean(visitas_web),
+    open_rate_med     = mean(open_rate),
+    email_score_med   = mean(email_score),
+    tiempo_dec_med    = mean(tiempo_decision_dias)
+  )
+
+resumen_clusters
+```
+
+## 9. Visualización final con PCA
+
+Hacemos un PCA sobre las variables escaladas y coloreamos por `cluster_final`.
+
+```{r}
+pca_res <- prcomp(X_scaled, scale. = TRUE)
+
+fviz_pca_ind(
+  pca_res,
+  geom.ind  = "point",
+  col.ind   = prospectos$cluster_final,
+  addEllipses = TRUE,
+  legend.title = "Cluster",
+  title = "PCA de prospectos coloreado por cluster final"
+)
+```
+
+---
+
+<!-- ## 10. Notas para llevar este resultado a Streamlit -->
+
+<!-- * Desde este análisis en R puedes decidir: -->
+
+<!--   * Qué método usar (p.ej. kmeans) -->
+<!--   * Con qué k (p.ej. 4) -->
+<!-- * Luego puedes replicar **la misma lógica** en Python: -->
+
+<!--   * Escalar con `StandardScaler` -->
+<!--   * Entrenar `KMeans(n_clusters = k)` -->
+<!--   * Guardar `scaler` + modelo con `joblib` -->
+<!--   * Cargar ambos en una app **Streamlit** para: -->
+
+<!--     * Visualizar resumen de clusters -->
+<!--     * Asignar cluster a nuevos prospectos -->
+<!--     * Mostrar un PCA (hecho en Python) simil al de aquí -->
+
+<!-- Este Quarto te sirve como **pieza “científica/técnica”** de soporte para tu portafolio, -->
+<!-- mientras que Streamlit será la **pieza “producto/cliente”** que vas a mostrar. -->
+
+

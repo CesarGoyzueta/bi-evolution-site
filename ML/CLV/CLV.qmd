@@ -1,0 +1,835 @@
+---
+title: "CLV simplificado con IA: prioriza clientes por valor futuro"
+author: "BI Evolution"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    smooth-scroll: true
+    self-contained: true
+    grid: 
+      body-width: 1280px
+      margin-width: 0px
+      gutter-width: 1rem
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+## Resumen ejecutivo
+
+Este análisis construye un **CLV simplificado con IA**:
+
+$$
+\text{CLV\_esperado} \approx \underbrace{P(\text{volver en 90 días})}_{\text{Propensity to Return}} \times \underbrace{\text{Ticket esperado}}_{\text{Ticket Predictor}} \times \underbrace{4}_{\text{horizonte 12 meses}}
+$$
+
+Con este enfoque:
+
+* Estimamos cuánto podría valer cada cliente en **12 meses**.
+
+* Ordenamos la base según **CLV esperado**.
+
+* Comparamos el **ROI** de dos estrategias con la misma capacidad comercial:
+  1. 500 llamadas **al azar**.
+  2. 500 llamadas a los clientes con **mayor CLV esperado** según IA.
+
+El objetivo es mostrar, en lenguaje de negocio, cómo pasar de modelos sueltos (Propensity to Return, Ticket Predictor) a un **indicador integrado de valor futuro**.
+
+---
+
+## 1. Datos simulados de clientes
+
+Se simulan **5,000 clientes** con variables típicas:
+
+- `segmento_cliente` (Alta frecuencia / Media / Ocasional)  
+- `frecuencia_anual` (número de compras en el año)  
+- `ticket_promedio_historico` (S/.)  
+- `dias_ultima_compra`  
+- `canal_favorito` (Tienda / Online / WhatsApp)  
+- `uso_cupones` (Sí / No)  
+- `nivel_satisfaccion` (1 a 5)  
+- `descuento_promedio` (%)  
+- `num_categorias` (diversidad de productos)  
+- `volvio_90dias` (Sí / No) – objetivo de Propensity to Return  
+- `ticket_real_proxima_compra` (S/.) – objetivo del Ticket Predictor
+
+```{r}
+#| include: false
+suppressWarnings({
+  suppressMessages({
+    library(dplyr)
+    library(ggplot2)
+    library(caret)
+    library(randomForest)
+    library(xgboost)
+    library(e1071)
+    library(tibble)
+    library(knitr)
+    library(scales)   # <- NUEVO (para formatos tipo S/ 1,000)
+  })
+})
+
+set.seed(123)
+
+n_clientes <- 5000
+
+segmento_cliente <- sample(
+  c("Alta frecuencia", "Media", "Ocasional"),
+  size = n_clientes,
+  replace = TRUE,
+  prob = c(0.25, 0.45, 0.30)
+)
+
+# Frecuencia anual según segmento (lambda vectorizada)
+lambda_freq <- ifelse(
+  segmento_cliente == "Alta frecuencia", 10,
+  ifelse(segmento_cliente == "Media", 5, 2)
+)
+
+frecuencia_anual <- rpois(n_clientes, lambda = lambda_freq)
+frecuencia_anual <- pmax(frecuencia_anual, 1)
+
+# Ticket promedio histórico
+mu_ticket <- ifelse(
+  segmento_cliente == "Alta frecuencia", 180,
+  ifelse(segmento_cliente == "Media", 130, 90)
+)
+
+sd_ticket <- ifelse(
+  segmento_cliente == "Alta frecuencia", 40,
+  ifelse(segmento_cliente == "Media", 35, 30)
+)
+
+ticket_promedio_historico <- rnorm(n_clientes, mean = mu_ticket, sd = sd_ticket)
+ticket_promedio_historico <- pmax(ticket_promedio_historico, 30)
+
+# Otras variables
+dias_ultima_compra <- round(runif(n_clientes, min = 5, max = 365))
+
+canal_favorito <- sample(
+  c("Tienda", "Online", "WhatsApp"),
+  size = n_clientes,
+  replace = TRUE,
+  prob = c(0.45, 0.30, 0.25)
+)
+
+uso_cupones <- rbinom(n_clientes, size = 1, prob = 0.35)
+
+nivel_satisfaccion <- sample(
+  1:5, size = n_clientes, replace = TRUE,
+  prob = c(0.05, 0.10, 0.25, 0.30, 0.30)
+)
+
+descuento_promedio <- ifelse(
+  uso_cupones == 1,
+  runif(n_clientes, min = 5, max = 20),
+  runif(n_clientes, min = 0, max = 10)
+)
+
+num_categorias <- pmax(
+  1,
+  round(rnorm(
+    n_clientes,
+    mean = 3 + uso_cupones + (nivel_satisfaccion > 3),
+    sd = 1
+  ))
+)
+
+# ---------- Generación de la probabilidad de volver en 90 días ----------
+# Logit de probabilidad usando drivers razonables de negocio
+logit_p <- -1.8 +
+  0.9  * (segmento_cliente == "Alta frecuencia") +
+  0.4  * (segmento_cliente == "Media") +
+  -0.004 * dias_ultima_compra +
+  0.55 * (nivel_satisfaccion - 3) +
+  0.35 * uso_cupones +
+  0.08 * (frecuencia_anual - 4)
+
+p_volver <- 1 / (1 + exp(-logit_p))
+p_volver <- pmin(pmax(p_volver, 0.02), 0.80)
+
+volvio_90dias <- rbinom(n_clientes, size = 1, prob = p_volver)
+
+# ---------- Ticket real de la próxima compra ----------
+seg_ajuste <- ifelse(segmento_cliente == "Alta frecuencia", 25,
+                     ifelse(segmento_cliente == "Media", 10, 0))
+
+lp_ticket <- 0.65 * ticket_promedio_historico +
+             7.5  * frecuencia_anual -
+             0.16 * dias_ultima_compra +
+             14   * nivel_satisfaccion -
+             2.3  * descuento_promedio +
+             4.5  * num_categorias +
+             seg_ajuste
+
+ruido_ticket <- rnorm(n_clientes, mean = 0, sd = 60)
+
+ticket_real_proxima_compra <- lp_ticket + ruido_ticket
+ticket_real_proxima_compra <- pmax(ticket_real_proxima_compra, 30)
+
+clientes_df <- tibble(
+  id_cliente                = 1:n_clientes,
+  segmento_cliente,
+  frecuencia_anual,
+  ticket_promedio_historico = round(ticket_promedio_historico, 1),
+  dias_ultima_compra,
+  canal_favorito,
+  uso_cupones,
+  nivel_satisfaccion,
+  descuento_promedio        = round(descuento_promedio, 1),
+  num_categorias,
+  volvio_90dias             = factor(volvio_90dias, levels = c(0, 1),
+                                     labels = c("No", "Sí")),
+  ticket_real_proxima_compra = round(ticket_real_proxima_compra, 1)
+)
+
+
+# ---- Cálculo de scores RFM (Recency, Frequency, Monetary) ----
+# R_score: menor días desde última compra => score más alto
+# F_score: más compras al año => score más alto
+# M_score: ticket histórico más alto => score más alto
+
+clientes_df <- clientes_df %>%
+  mutate(
+    R_score = ntile(-dias_ultima_compra, 5),          # 1 (bajo) a 5 (alto)
+    F_score = ntile(frecuencia_anual, 5),
+    M_score = ntile(ticket_promedio_historico, 5),
+    rfm_score = R_score + F_score + M_score          # 3 a 15
+  )
+
+```
+
+```{r}
+head(clientes_df) %>%
+  kable(
+    caption = "Muestra de clientes y sus variables de comportamiento (simulado)",
+    digits = 1
+  )
+```
+
+---
+
+## 2. Dos modelos base: Propensity to Return y Ticket Predictor
+
+Aquí replicamos la lógica de tus proyectos anteriores, pero en un solo flujo:
+
+1. **Propensity to Return** → clasificador (probabilidad de volver en 90 días).
+2. **Ticket Predictor** → regresor (monto de la próxima compra).
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+set.seed(123)
+
+clientes_df_model <- clientes_df %>%
+  mutate(
+    segmento_cliente = factor(segmento_cliente),
+    canal_favorito   = factor(canal_favorito),
+    uso_cupones      = factor(uso_cupones)
+  )
+
+# Partición entrenamiento / prueba (según volvio_90dias)
+idx_train <- createDataPartition(clientes_df_model$volvio_90dias, p = 0.7, list = FALSE)
+
+train_data <- clientes_df_model[idx_train, ]
+test_data  <- clientes_df_model[-idx_train, ]
+
+# ---------- 2.1. Modelo de Propensity to Return (clasificación) ----------
+ctrl_cls <- trainControl(
+  method          = "cv",
+  number          = 5,
+  classProbs      = TRUE,
+  summaryFunction = twoClassSummary,
+  savePredictions = "final"
+)
+
+set.seed(123)
+modelo_glm_cls <- train(
+  volvio_90dias ~ . - id_cliente - ticket_real_proxima_compra,
+  data      = train_data,
+  method    = "glm",
+  family    = "binomial",
+  trControl = ctrl_cls,
+  metric    = "ROC"
+)
+
+set.seed(123)
+modelo_rf_cls <- train(
+  volvio_90dias ~ . - id_cliente - ticket_real_proxima_compra,
+  data      = train_data,
+  method    = "rf",
+  trControl = ctrl_cls,
+  metric    = "ROC"
+)
+
+set.seed(123)
+modelo_xgb_cls <- train(
+  volvio_90dias ~ . - id_cliente - ticket_real_proxima_compra,
+  data      = train_data,
+  method    = "xgbTree",
+  trControl = ctrl_cls,
+  metric    = "ROC"
+)
+
+res_cls <- resamples(list(
+  `Regresión logística` = modelo_glm_cls,
+  `Random Forest`       = modelo_rf_cls,
+  `XGBoost`             = modelo_xgb_cls
+))
+
+roc_stats_cls <- summary(res_cls)$statistics$ROC %>%
+  as.data.frame() %>%
+  rownames_to_column("Modelo") %>%
+  arrange(desc(Mean))
+
+kable(
+  roc_stats_cls %>%
+    transmute(
+      Modelo,
+      `ROC mínimo (CV)` = round(`Min.`, 3),
+      `ROC medio (CV)`  = round(Mean, 3),
+      `ROC máximo (CV)` = round(`Max.`, 3)
+    ),
+  caption = "Modelos de Propensity to Return (métrica ROC en validación cruzada)",
+  digits = 3
+)
+
+best_name_cls <- roc_stats_cls$Modelo[1]
+modelos_cls <- list(
+  `Regresión logística` = modelo_glm_cls,
+  `Random Forest`       = modelo_rf_cls,
+  `XGBoost`             = modelo_xgb_cls
+)
+best_model_cls <- modelos_cls[[best_name_cls]]
+
+# ---------- 2.2. Ticket Predictor (regresión) ----------
+ctrl_reg <- trainControl(
+  method  = "cv",
+  number  = 5,
+  savePredictions = "final"
+)
+
+set.seed(123)
+modelo_lm_reg <- train(
+  ticket_real_proxima_compra ~ . - id_cliente - volvio_90dias,
+  data      = train_data,
+  method    = "lm",
+  trControl = ctrl_reg,
+  metric    = "RMSE"
+)
+
+set.seed(123)
+modelo_rf_reg <- train(
+  ticket_real_proxima_compra ~ . - id_cliente - volvio_90dias,
+  data      = train_data,
+  method    = "rf",
+  trControl = ctrl_reg,
+  metric    = "RMSE"
+)
+
+set.seed(123)
+modelo_xgb_reg <- train(
+  ticket_real_proxima_compra ~ . - id_cliente - volvio_90dias,
+  data      = train_data,
+  method    = "xgbTree",
+  trControl = ctrl_reg,
+  metric    = "RMSE"
+)
+
+res_reg <- resamples(list(
+  `Regresión lineal` = modelo_lm_reg,
+  `Random Forest`    = modelo_rf_reg,
+  `XGBoost`          = modelo_xgb_reg
+))
+
+rmse_stats_reg <- summary(res_reg)$statistics$RMSE %>%
+  as.data.frame() %>%
+  rownames_to_column("Modelo") %>%
+  arrange(Mean)
+
+kable(
+  rmse_stats_reg %>%
+    transmute(
+      Modelo,
+      `RMSE mínimo (CV)` = round(`Min.`, 1),
+      `RMSE medio (CV)`  = round(Mean, 1),
+      `RMSE máximo (CV)` = round(`Max.`, 1)
+    ),
+  caption = "Modelos de Ticket Predictor (métrica RMSE en validación cruzada)",
+  digits = 1
+)
+
+best_name_reg <- rmse_stats_reg$Modelo[1]
+modelos_reg <- list(
+  `Regresión lineal` = modelo_lm_reg,
+  `Random Forest`    = modelo_rf_reg,
+  `XGBoost`          = modelo_xgb_reg
+)
+best_model_reg <- modelos_reg[[best_name_reg]]
+```
+
+> **Lectura rápida:**
+>
+> * Para **Propensity to Return**, el modelo seleccionado es `r best_name_cls`.
+> * Para **Ticket Predictor**, el modelo seleccionado es `r best_name_reg`.
+
+---
+
+## 3. CLV simplificado a 12 meses
+
+En el set de prueba, combinamos ambos modelos:
+
+1. Probabilidad de volver en 90 días: $\hat{p}_i$.
+2. Ticket esperado de próxima compra: $\hat{T}_i$.
+
+Asumimos un horizonte simplificado de **12 meses ≈ 4 ciclos de 90 días**:
+
+$$
+\text{CLV\_esperado}_i = \hat{p}_i \times \hat{T}_i \times 4
+$$
+
+
+```{r}
+# Predicciones en set de prueba
+pred_prob <- predict(best_model_cls, newdata = test_data, type = "prob")[, "Sí"]
+pred_ticket <- predict(best_model_reg, newdata = test_data)
+
+horizonte_periodos <- 4
+
+clv_esperado <- pred_prob * pred_ticket * horizonte_periodos
+
+# Valor "real" de retorno a 12 meses (para el experimento de ROI)
+# Supuesto simplificado: si vuelve en 90 días, vale 4 veces su ticket real
+real_retorno_12m <- ifelse(
+  test_data$volvio_90dias == "Sí",
+  test_data$ticket_real_proxima_compra * horizonte_periodos,
+  0
+)
+
+test_results <- tibble(
+  id_cliente        = test_data$id_cliente,
+  segmento_cliente  = test_data$segmento_cliente,
+  volvio_90dias     = test_data$volvio_90dias,
+  ticket_real       = test_data$ticket_real_proxima_compra,
+  prob_volver_hat   = pred_prob,
+  ticket_hat        = pred_ticket,
+  clv_esperado      = clv_esperado,
+  real_retorno_12m  = real_retorno_12m,
+  R_score           = test_data$R_score,
+  F_score           = test_data$F_score,
+  M_score           = test_data$M_score,
+  rfm_score         = test_data$rfm_score
+)
+
+```
+
+### 3.1. Distribución del CLV esperado por segmento
+
+```{r}
+#| fig-width: 10
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+ggplot(test_results, aes(x = segmento_cliente, y = clv_esperado)) +
+  geom_boxplot(alpha = 0.85) +
+  scale_y_continuous(
+    labels = scales::label_number(prefix = "S/ ", big.mark = ",")
+  ) +
+  labs(
+    title    = "CLV esperado a 12 meses por segmento",
+    subtitle = "Modelo simplificado: probabilidad de volver × ticket esperado × 4",
+    x        = "Segmento de cliente",
+    y        = "CLV esperado (S/.)"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", color = NA),
+    panel.background  = element_rect(fill = "#0b1220", color = NA),
+    panel.grid.major  = element_line(color = "#1f2937"),
+    panel.grid.minor  = element_blank(),
+    axis.text         = element_text(color = "#e5e7eb"),
+    axis.title        = element_text(color = "#e5e7eb"),
+    plot.title        = element_text(color = "#ffffff", face = "bold"),
+    plot.subtitle     = element_text(color = "#a6b0c3")
+  )
+
+```
+
+
+### 3.2. Efecto de RFM sobre el CLV esperado
+
+Aquí usamos el score RFM (suma de R, F y M) para ver cómo se concentra el valor:
+
+- **R_score** alto → clientes recientes.
+- **F_score** alto → clientes que compran seguido.
+- **M_score** alto → clientes de ticket alto.
+- **rfm_score** = R_score + F_score + M_score (de 3 a 15).
+
+Agrupamos el RFM en tres niveles para lectura de negocio.
+
+```{r}
+# Resumen de CLV por nivel de RFM
+rfm_resumen <- test_results %>%
+  mutate(
+    rfm_nivel = case_when(
+      rfm_score >= 12 ~ "Alto (12–15)",
+      rfm_score >= 8  ~ "Medio (8–11)",
+      TRUE            ~ "Bajo (3–7)"
+    )
+  ) %>%
+  group_by(rfm_nivel) %>%
+  summarise(
+    `Clientes`            = n(),
+    `CLV promedio (S/.)`  = mean(clv_esperado)
+  ) %>%
+  arrange(desc(rfm_nivel))
+
+kable(
+  rfm_resumen,
+  caption = "Relación entre score RFM y CLV esperado a 12 meses",
+  digits = 1
+)
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+ggplot(
+  test_results %>%
+    mutate(
+      rfm_nivel = case_when(
+        rfm_score >= 12 ~ "Alto (12–15)",
+        rfm_score >= 8  ~ "Medio (8–11)",
+        TRUE            ~ "Bajo (3–7)"
+      )
+    ),
+  aes(x = rfm_nivel, y = clv_esperado)
+) +
+  geom_boxplot(alpha = 0.85) +
+  scale_y_continuous(labels = scales::label_number(prefix = "S/ ", big.mark = ",")) +
+  labs(
+    title    = "CLV esperado según nivel RFM",
+    subtitle = "Clientes con mayor score RFM concentran más valor futuro a 12 meses",
+    x        = "Nivel RFM",
+    y        = "CLV esperado (S/.)"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", color = NA),
+    panel.background  = element_rect(fill = "#0b1220", color = NA),
+    panel.grid.major  = element_line(color = "#1f2937"),
+    panel.grid.minor  = element_blank(),
+    axis.text         = element_text(color = "#e5e7eb"),
+    axis.title        = element_text(color = "#e5e7eb"),
+    plot.title        = element_text(color = "#ffffff", face = "bold"),
+    plot.subtitle     = element_text(color = "#a6b0c3")
+  )
+```
+---
+
+## 4. ROI: 500 llamadas al azar vs. 500 llamadas por CLV
+
+Se comparan dos estrategias con la **misma capacidad comercial**:
+
+* **Sin modelo:** 500 llamadas al azar.
+* **Con IA (CLV):** 500 llamadas a los clientes con **mayor CLV esperado**.
+
+### 4.1. Supuestos de negocio y fórmula de ROI
+
+Supuestos:
+
+* Solo se contabiliza la **venta a 12 meses** (usando el CLV real simulado).
+* Cada llamada tiene un **costo operativo** (tiempo, canal, etc.) de S/ 4.
+* El ROI del escenario se calcula como la suma del margen de cada llamada:
+
+$$
+\text{ROI} = \sum_{i \in \text{llamados}} \big( \text{retorno\_real\_12m}_i - \text{costo\_llamada} \big)
+$$
+
+donde:
+
+* $\text{retorno\_real\_12m}_i$ es el valor real simulado a 12 meses del cliente $i$.
+* $\text{costo\_llamada}$ es el costo fijo de contactar a cada cliente (S/. 4 en este ejemplo).
+
+```{r}
+set.seed(123)
+
+capacidad_llamadas <- 500
+capacidad_llamadas <- min(capacidad_llamadas, nrow(test_results))
+
+costo_llamada <- 4
+
+# ----- Escenario 1: SIN MODELO (500 llamadas al azar) -----
+idx_base <- sample(seq_len(nrow(test_results)), size = capacidad_llamadas)
+
+roi_base <- sum(test_results$real_retorno_12m[idx_base] - costo_llamada)
+
+# ----- Escenario 2: CON IA (500 mayores CLV esperados) -----
+idx_modelo <- order(test_results$clv_esperado, decreasing = TRUE)[1:capacidad_llamadas]
+
+roi_modelo <- sum(test_results$real_retorno_12m[idx_modelo] - costo_llamada)
+
+resumen_roi <- tibble(
+  Escenario = c(
+    "Sin modelo (500 llamadas al azar)",
+    "Con modelo IA (500 mayores CLV esperados)"
+  ),
+  `ROI estimado (S/.)` = round(c(roi_base, roi_modelo), 0)
+)
+
+mejora_abs <- roi_modelo - roi_base
+mejora_pct <- (roi_modelo - roi_base) / abs(roi_base) * 100
+
+kable(
+  resumen_roi,
+  caption = "Comparación de ROI: al azar vs. priorizar por CLV esperado",
+  digits = 0
+)
+```
+
+> **Lectura rápida:**
+>
+> * Sin modelo, el ROI estimado es de **S/. `r format(roi_base, big.mark = ",")`**.
+> * Priorizando por **CLV esperado**, el ROI sube a **S/. `r format(roi_modelo, big.mark = ",")`**.
+> * Esto representa una mejora de aproximadamente **`r round(mejora_abs, 0)` soles**
+>   (≈ **`r round(mejora_pct, 1)`%** respecto al escenario al azar).
+
+### 4.2. ¿Cómo se eligen los 500 clientes priorizados?
+
+En la estrategia **Con modelo IA (CLV)**, la lógica es:
+
+1. Para cada cliente del set de prueba se calcula su **CLV_esperado**:
+
+$$
+\text{CLV\_esperado}_i = \hat{p}_i \times \hat{T}_i \times 4
+$$
+
+donde:
+
+* $\hat{p}_i$ = probabilidad estimada de volver en 90 días.
+* $\hat{T}_i$ = ticket esperado de próxima compra.
+* 4 = número de ciclos de 90 días en 12 meses.
+
+2. Se ordenan todos los clientes de **mayor a menor CLV esperado**.
+
+3. Se seleccionan los **500 primeros** de ese ranking.
+
+En código, el ranking se genera así:
+
+```{r}
+# Índices de los 500 clientes con mayor CLV esperado
+idx_modelo <- order(test_results$clv_esperado, decreasing = TRUE)[1:capacidad_llamadas]
+```
+
+Y podemos mostrar los **Top 10 clientes priorizados**:
+
+```{r}
+# Top 10 clientes priorizados por CLV esperado
+clientes_priorizados <- test_results[idx_modelo, ] %>%
+  arrange(desc(clv_esperado)) %>%
+  dplyr::slice(1:10)
+
+kable(
+  clientes_priorizados,
+  caption = "Top 10 clientes priorizados por mayor CLV esperado (según IA)",
+  digits = 2
+)
+```
+
+### 4.3. Comparativa visual del ROI
+
+```{r}
+#| fig-width: 10
+#| fig-height: 4
+#| fig-align: "center"
+#| out-width: "100%"
+
+df_roi_plot <- resumen_roi %>%
+  mutate(
+    Escenario_corto = factor(
+      c("Sin modelo", "Con modelo IA (CLV)"),
+      levels = c("Sin modelo", "Con modelo IA (CLV)")
+    ),
+    roi_num = as.numeric(`ROI estimado (S/.)`)
+  )
+
+ggplot(df_roi_plot, aes(Escenario_corto, roi_num, fill = Escenario_corto)) +
+  geom_col(width = 0.55, alpha = 0.9) +
+  geom_text(
+    aes(label = paste0("S/. ", format(roi_num, big.mark = ","))),
+    vjust = -0.4,
+    color = "#e9edf7",
+    size  = 4.1
+  ) +
+  scale_fill_manual(values = c(
+    "Sin modelo"          = "#3b4a6b",
+    "Con modelo IA (CLV)" = "#4c6fff"
+  )) +
+  labs(
+    title    = "ROI usando la misma capacidad comercial",
+    subtitle = "500 llamadas al azar vs. 500 llamadas priorizadas por CLV esperado",
+    x        = "",
+    y        = "ROI estimado (S/.)"
+  ) +
+  coord_cartesian(clip = "off", ylim = c(0, max(df_roi_plot$roi_num) * 1.15)) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.background   = element_rect(fill = "#0b1220", color = NA),
+    panel.background  = element_rect(fill = "#0b1220", color = NA),
+    panel.grid.major  = element_line(color = "#1f2937"),
+    panel.grid.minor  = element_blank(),
+    axis.text         = element_text(color = "#e5e7eb"),
+    axis.title        = element_text(color = "#e5e7eb"),
+    plot.title        = element_text(color = "#ffffff", face = "bold"),
+    plot.subtitle     = element_text(color = "#a6b0c3"),
+    legend.position   = "none"
+  )
+```
+
+---
+
+<!-- ## 5. Cómo encaja este CLV simplificado con tus otros proyectos -->
+
+<!-- En lenguaje de flujo comercial: -->
+
+<!-- 1. **Clustering de prospectos** -->
+<!--    → Agrupa clientes potenciales según perfil y comportamiento. -->
+
+<!-- 2. **Lead Scoring (Propensity to Buy)** -->
+<!--    → Entre todos los leads, ¿quiénes tienen mayor probabilidad de comprar por primera vez? -->
+
+<!-- 3. **Propensity to Return** -->
+<!--    → Entre tus clientes actuales, ¿quiénes tienen más probabilidad de volver? -->
+
+<!-- 4. **Ticket Predictor** -->
+<!--    → De los que vuelven, ¿cuánto podrían gastar en la próxima compra? -->
+
+<!-- 5. **CLV simplificado (este proyecto)** -->
+<!--    → Combina probabilidad × ticket para estimar **valor futuro a 12 meses** -->
+<!--    y decide a quién vale más la pena dedicarle esfuerzo humano. -->
+
+---
+
+```{=html}
+<style>
+/* ===== Paleta base oscura BI Evolution ===== */
+:root {
+  --bg: #0b1220;
+  --panel: #121a2e;
+  --border: #1b2642;
+  --text: #e9edf7;
+  --muted: #a6b0c3;
+  --accent: #4c6fff;
+  --accent-2: #3f59ff;
+}
+
+/* ===== Base ===== */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenido centrado y más estrecho */
+main.content {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Titulares y texto */
+h1, h2, h3, h4 {
+  color: #f9fafb;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+p, li {
+  color: var(--text);
+}
+hr {
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Enlaces */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+/* ===== TOC lateral ===== */
+#TOC,
+.quarto-toc,
+.quarto-sidebar {
+  background: rgba(11,18,32,.96);
+  border-left: 1px solid var(--border);
+}
+#TOC a,
+.quarto-toc a {
+  color: var(--muted);
+}
+#TOC a.active,
+.quarto-toc a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== Tablas ===== */
+table {
+  background: var(--panel);
+  border-radius: 12px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+thead tr {
+  background: rgba(15,23,42,.98);
+}
+thead th {
+  color: #f9fafb;
+  padding: .45rem .55rem;
+  border-bottom: 1px solid rgba(148,163,211,.5);
+}
+tbody td {
+  padding: .35rem .55rem;
+  border-top: 1px solid rgba(15,23,42,.95);
+}
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.02);
+}
+caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: #e5ecff;
+}
+
+/* ===== Figuras / Gráficos ===== */
+.quarto-figure,
+.figure {
+  background: linear-gradient(145deg,
+              rgba(76,111,255,.12),
+              rgba(11,18,32,1));
+  border-radius: 16px;
+  border: 1px solid rgba(76,111,255,.35);
+  padding: 10px;
+  box-shadow: 0 10px 32px rgba(0,0,0,.65);
+}
+
+/* ===== Notas / citas ===== */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(15,23,42,.96);
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  color: var(--text);
+}
+</style>
+```
+
