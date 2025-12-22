@@ -1,174 +1,217 @@
 ---
 title: "Asesorías & Freelance — Dashboards"
 page-layout: full
-toc: true
+toc: false
 ---
 
 ```{=html}
-<style>
-/* ====== estética general ====== */
-.hero { margin:.25rem 0 1.25rem; }
-.hero-eyebrow{opacity:.9; font-size:.95rem}
-.hero h1{font-weight:800; letter-spacing:.2px; line-height:1.1; margin:.25rem 0 .5rem}
-.hero p.lead{opacity:.95; max-width:62rem}
+<p align="center">
+  <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
+</p>
 
-/* chips + botones */
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 0}
-.chip{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .6rem;border-radius:999px;font-size:.9rem;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08)}
-.icon{font-size:1rem;opacity:.95}
-.cta-row{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0 1.25rem}
-.btn-xl{padding:.9rem 1.25rem;font-size:1.05rem;border-radius:.9rem}
-
-/* tarjetas de planes */
-.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin: .75rem 0 1.25rem}
-.card{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);border-radius:1rem;padding:1.1rem}
-.card h3{margin:.25rem 0 .35rem}
-.price{font-weight:700;font-size:1.1rem;opacity:.95;margin:.25rem 0 .5rem}
-.badge{font-size:.8rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.15rem .5rem;display:inline-flex;gap:.4rem;align-items:center}
-
-/* lista con checks */
-.list-check{padding-left:0;list-style:none}
-.list-check li{margin:.35rem 0}
-.list-check li::before{content:"✓";margin-right:.5rem;opacity:.9}
-
-/* embed responsive Power BI */
-.viz{position:relative;width:100%;aspect-ratio:16/9;background:#0b132b;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset}
-.viz iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-
-/* grids simples */
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
-
-/* detalles/faq más visibles en dark */
-details.callout details, details.callout summary{color:inherit}
-
-/* responsive */
-@media (max-width: 900px){
-  .plans{grid-template-columns:1fr}
-  .grid-2{grid-template-columns:1fr}
-}
-</style>
-```
-
-
-```{=html}
-<div class="hero">
-  <div class="hero-eyebrow chip"><span class="icon">🧭</span> Servicios profesionales</div>
-  <p class="lead">
-    Diseño e implementación de tableros en <strong>Power BI</strong> y flujos de datos reproducibles. 
-    Cotización rápida por <strong>WhatsApp</strong>. Si solo quieres el <em>reporte tal cual</em> (implementación del flujo) el costo es menor.
-  </p>
-
-  <div class="chips">
-    <span class="chip"><span class="icon">⚡</span> Entregas ágiles</span>
-    <span class="chip"><span class="icon">🔁</span> Flujos reproducibles</span>
-    <span class="chip"><span class="icon">🔒</span> Buenas prácticas de datos</span>
-    <span class="chip"><span class="icon">📊</span> Visuales claros y accionables</span>
-  </div>
-
-  <div class="cta-row">
-    <a class="btn btn-primary btn-xl" 
-       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance." 
-       target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
-      💬 Cotizar por WhatsApp
+<!-- ===== Topbar in-page (centrado) ===== -->
+<nav class="be-topnav" aria-label="Navegación de la página">
+  <div class="be-topnav__inner">
+    <a class="brand" href="index.html" aria-label="Ir al inicio de BI Evolution">
+      <span class="dot"></span>
+      <span>BI Evolution</span>
     </a>
+
+    <div class="links" role="navigation" aria-label="Secciones">
+      <a href="#inicio">Inicio</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <a class="btn btn-whatsapp btn-nav"
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+       target="_blank" rel="noopener">WhatsApp</a>
   </div>
-</div>
+</nav>
+
+<!-- ===== HERO (visible + con contraste) ===== -->
+<header id="inicio" class="hero be-shell be-reveal">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow chip"><span class="icon">🧭</span> Servicios profesionales</div>
+
+    <h1 class="hero-title">Dashboards en Power BI para decisiones rápidas</h1>
+
+    <p class="lead">
+      Diseño e implementación de tableros en <strong>Power BI</strong> y flujos de datos reproducibles.
+      Cotización rápida por <strong>WhatsApp</strong>. Si solo quieres el <em>reporte tal cual</em> (implementación del flujo),
+      el costo es menor.
+    </p>
+
+    <div class="chips" aria-label="Beneficios">
+      <span class="chip"><span class="icon">⚡</span> Entregas ágiles</span>
+      <span class="chip"><span class="icon">🔁</span> Flujos reproducibles</span>
+      <span class="chip"><span class="icon">🔒</span> Buenas prácticas</span>
+      <span class="chip"><span class="icon">📊</span> Visuales accionables</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary btn-xl"
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+         target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
+        💬 Cotizar por WhatsApp
+      </a>
+
+      <a class="btn btn-outline-secondary btn-xl"
+         href="#paquetes" aria-label="Ver paquetes">
+        Ver paquetes
+      </a>
+    </div>
+
+    <!-- ===== TICKER / CARRUSEL (igual enfoque que IA) ===== -->
+    <div class="logo-ticker" aria-label="Capacidades y enfoque">
+      <div class="ticker-fade left"></div>
+      <div class="ticker-fade right"></div>
+
+      <div class="ticker-track">
+        <div class="ticker-row" aria-hidden="true">
+          <span class="tk">Power BI</span>
+          <span class="tk">DAX</span>
+          <span class="tk">Power Query</span>
+          <span class="tk">Modelado</span>
+          <span class="tk">Star Schema</span>
+          <span class="tk">KPIs</span>
+          <span class="tk">RLS</span>
+          <span class="tk">Dataflows</span>
+          <span class="tk">Performance</span>
+          <span class="tk">Storytelling</span>
+          <span class="tk">UX</span>
+
+          <!-- duplicado para loop perfecto -->
+          <span class="tk">Power BI</span>
+          <span class="tk">DAX</span>
+          <span class="tk">Power Query</span>
+          <span class="tk">Modelado</span>
+          <span class="tk">Star Schema</span>
+          <span class="tk">KPIs</span>
+          <span class="tk">RLS</span>
+          <span class="tk">Dataflows</span>
+          <span class="tk">Performance</span>
+          <span class="tk">Storytelling</span>
+          <span class="tk">UX</span>
+        </div>
+      </div>
+    </div>
+    <!-- ===== /TICKER ===== -->
+
+  </div>
+</header>
 ```
 
+## Paquetes y modalidades {#paquetes}
 
-
-
-## Paquetes y modalidades
 ```{=html}
-<div class="plans">
-  <div class="card">
-    <div class="badge"><span class="icon">🧩</span> Implementación</div>
-    <h3>Reporte tal cual (flujo existente)</h3>
-    <div class="price">Precio menor · según alcance</div>
-    <ul class="list-check">
-      <li>Implemento el flujo y tablero actual (sin cambios de alcance).</li>
-      <li>Conexión a tus datos y publicación.</li>
-      <li>Checklist de uso y breve handover.</li>
-    </ul>
-    <div class="cta-row">
-      <a class="btn btn-outline-primary btn-xl" 
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20b%C3%A1sico." target="_blank" rel="noopener">Solicitar</a>
+<div class="be-shell be-reveal">
+  <div class="plans">
+    <div class="card">
+      <div class="badge"><span class="icon">🧩</span> Implementación</div>
+      <h3>Reporte tal cual (flujo existente)</h3>
+      <div class="price">Precio menor · según alcance</div>
+      <ul class="list-check">
+        <li>Implemento el flujo y tablero actual (sin cambios de alcance).</li>
+        <li>Conexión a tus datos y publicación.</li>
+        <li>Checklist de uso y breve handover.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-outline-primary btn-xl"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20b%C3%A1sico."
+           target="_blank" rel="noopener">Solicitar</a>
+      </div>
+    </div>
+
+    <div class="card highlight">
+      <div class="badge"><span class="icon">🛠️</span> Personalizado</div>
+      <h3>Diseño + Modelado + Publicación</h3>
+      <div class="price">A medida · según requerimientos</div>
+      <ul class="list-check">
+        <li>Relevamiento de KPIs, UX/UI y storytelling.</li>
+        <li>Modelado de datos y DAX (buenas prácticas).</li>
+        <li>Publicación en Power BI Service + RLS (si aplica).</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-xl"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20personalizado."
+           target="_blank" rel="noopener">Cotizar ahora</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge"><span class="icon">🤝</span> Soporte</div>
+      <h3>Mantenimiento mensual (opcional)</h3>
+      <div class="price">Plan mensual</div>
+      <ul class="list-check">
+        <li>Monitoreo básico y actualizaciones menores.</li>
+        <li>Pequeñas mejoras y soporte funcional.</li>
+        <li>Horas de consulta prioritaria.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-outline-primary btn-xl"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20sobre%20mantenimiento%20mensual%20de%20un%20dashboard."
+           target="_blank" rel="noopener">Más info</a>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="badge"><span class="icon">🛠️</span> Personalizado</div>
-    <h3>Diseño + Modelado + Publicación</h3>
-    <div class="price">A medida · según requerimientos</div>
-    <ul class="list-check">
-      <li>Relevamiento de KPIs, UX/UI y storytelling.</li>
-      <li>Modelado de datos y DAX (buenas prácticas).</li>
-      <li>Publicación en Power BI Service + RLS (si aplica).</li>
-    </ul>
-    <div class="cta-row">
-      <a class="btn btn-primary btn-xl" 
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20personalizado." target="_blank" rel="noopener">Cotizar ahora</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="badge"><span class="icon">🤝</span> Soporte</div>
-    <h3>Mantenimiento mensual (opcional)</h3>
-    <div class="price">Plan mensual</div>
-    <ul class="list-check">
-      <li>Monitoreo básico y actualizaciones menores.</li>
-      <li>Pequeñas mejoras y soporte funcional.</li>
-      <li>Horas de consulta prioritaria.</li>
-    </ul>
-    <div class="cta-row">
-      <a class="btn btn-outline-primary btn-xl" 
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20sobre%20mantenimiento%20mensual%20de%20un%20dashboard." target="_blank" rel="noopener">Más info</a>
-    </div>
-  </div>
+  <p class="tip">
+    💡 <strong>Tip:</strong> si aún no tienes claro el alcance, empezamos con un discovery de 30–45 min (sin costo)
+    para alinear expectativas y estimar esfuerzo.
+  </p>
 </div>
 ```
-> 💡 **Tip:** si aún no tienes claro el alcance, empezamos con un discovery de 30–45 min (sin costo) para alinear expectativas y estimar esfuerzo.
 
-
-
-## Portafolio / Ejemplos  {#portafolio}
+## Portafolio / Ejemplos {#portafolio}
 
 ### 📘 Registro Contable, Facebook & Instagram y Google Analytics (Power BI)
+
 ```{=html}
-<div class="viz">
-  <iframe title="registro_contable" 
-          src="https://app.powerbi.com/view?r=eyJrIjoiZDBiYjMxNzgtNWFiYy00YzI2LWIzY2QtZWY2NDhjNmQ5NjcxIiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9" 
-          allowfullscreen="true"></iframe>
-</div>
-```
-
-
-
-## ¿Cómo trabajamos?
-```{=html}
-<div class="grid-2">
-  <div class="card">
-    <h3>1) Descubrimiento</h3>
-    <p>Entendemos objetivos, KPIs, fuentes y usuarios. Alineamos alcance y prioridades.</p>
-  </div>
-  <div class="card">
-    <h3>2) Propuesta & timeline</h3>
-    <p>Definimos entregables, esfuerzo, hitos y plan de publicación.</p>
-  </div>
-  <div class="card">
-    <h3>3) Implementación</h3>
-    <p>Modelado de datos, DAX/medidas, visuales y validaciones con usuarios clave.</p>
-  </div>
-  <div class="card">
-    <h3>4) Publicación & handover</h3>
-    <p>Despliegue en Power BI Service, RLS (si aplica) y transferencia de conocimiento.</p>
+<div class="be-shell be-reveal">
+  <div class="viz">
+    <iframe title="registro_contable"
+            src="https://app.powerbi.com/view?r=eyJrIjoiZDBiYjMxNzgtNWFiYy00YzI2LWIzY2QtZWY2NDhjNmQ5NjcxIiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
+            allowfullscreen="true"></iframe>
   </div>
 </div>
 ```
 
+## ¿Cómo trabajamos? {#como-trabajamos}
 
-## Preguntas frecuentes
+```{=html}
+<div class="be-shell be-reveal">
+  <div class="grid-2">
+    <div class="card">
+      <h3>1) Descubrimiento</h3>
+      <p>Entendemos objetivos, KPIs, fuentes y usuarios. Alineamos alcance y prioridades.</p>
+    </div>
+    <div class="card">
+      <h3>2) Propuesta & timeline</h3>
+      <p>Definimos entregables, esfuerzo, hitos y plan de publicación.</p>
+    </div>
+    <div class="card">
+      <h3>3) Implementación</h3>
+      <p>Modelado de datos, DAX/medidas, visuales y validaciones con usuarios clave.</p>
+    </div>
+    <div class="card">
+      <h3>4) Publicación & handover</h3>
+      <p>Despliegue en Power BI Service, RLS (si aplica) y transferencia de conocimiento.</p>
+    </div>
+  </div>
+</div>
+```
+
+## Preguntas frecuentes {#faq}
 
 ::: {.callout-tip title="¿Puedo pedir solo la implementación del flujo tal cual?"}
 Sí. Si ya tienes el tablero definido y solo necesitas conectarlo a tus datos y dejarlo funcionando, el costo es menor.
@@ -184,12 +227,279 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
 
 ---
 
-## Contáctame
+## Contáctame {#contacto}
+
 ```{=html}
-<div class="cta-row">
-  <a class="btn btn-primary btn-xl" 
-     href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance." 
-     target="_blank" rel="noopener">💬 Cotizar por WhatsApp</a>
-  
+<div class="be-shell be-reveal">
+  <div class="cta-row">
+    <a class="btn btn-primary btn-xl"
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+       target="_blank" rel="noopener">💬 Cotizar por WhatsApp</a>
+  </div>
 </div>
+
+<style>
+/* ========= Base (si tu tema ya es oscuro, esto solo mejora contraste) ========= */
+.be-shell{ max-width: 1180px; margin-left:auto; margin-right:auto; padding: 0 14px; }
+
+/* ========= Topbar ========= */
+.be-topnav{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: .55rem 0;
+  background: rgba(10,14,25,.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.be-topnav__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 14px;
+}
+.be-topnav .brand{
+  display:flex; align-items:center; gap:.55rem;
+  color: rgba(255,255,255,.92);
+  text-decoration:none;
+  font-weight: 650;
+  margin-right: 6px;
+}
+.be-topnav .brand .dot{
+  width: 8px; height: 8px; border-radius: 999px;
+  background: rgba(64,214,255,.9);
+  box-shadow: 0 0 0 6px rgba(64,214,255,.10);
+}
+.be-topnav .links{
+  display:flex;
+  gap: 12px;
+  padding: .28rem .38rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+.be-topnav .links a{
+  color: rgba(255,255,255,.85);
+  text-decoration:none;
+  font-size: .92rem;
+  padding: .32rem .58rem;
+  border-radius: 999px;
+  transition: background .16s ease, color .16s ease, transform .16s ease;
+}
+.be-topnav .links a:hover{
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.95);
+  transform: translateY(-1px);
+}
+.btn-nav{ margin-left: 8px; }
+
+/* Responsive: evita que se “rompa” */
+@media (max-width: 900px){
+  .be-topnav__inner{ justify-content:space-between; }
+  .be-topnav .links{ display:none; }
+}
+
+/* ========= HERO (VISIBLE) ========= */
+.hero{
+  position: relative;
+  margin: 1.1rem auto 1.2rem;
+  padding: 1.15rem 0 1.0rem;
+  border-radius: 22px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+}
+.hero-content{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.hero-title{
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: .45rem 0 .65rem;
+  font-size: clamp(2.05rem, 2.8vw, 3.0rem);
+  color: rgba(255,255,255,.96);
+}
+.hero-eyebrow{ opacity:.92; font-size:.95rem; }
+
+.lead{
+  margin: 0 auto;
+  max-width: 70ch;
+  opacity: .92;
+  line-height: 1.55;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.90);
+}
+
+/* blobs fondo (más variedad, pero suave) */
+.hero-bg{ position:absolute; inset:-40px; z-index:0; pointer-events:none; filter: blur(30px); opacity:.55; }
+.hero-bg .blob{ position:absolute; width:420px; height:420px; border-radius:999px; background: radial-gradient(circle, rgba(64,214,255,.35), transparent 60%); }
+.hero-bg .b1{ top:-110px; left:-120px; }
+.hero-bg .b2{ top:10px; right:-140px; background: radial-gradient(circle, rgba(110,231,183,.28), transparent 60%); }
+.hero-bg .b3{ bottom:-160px; left:35%; background: radial-gradient(circle, rgba(167,139,250,.22), transparent 60%); }
+
+/* chips + botones */
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:.9rem 0 0;justify-content:center}
+.chip{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.38rem .68rem;border-radius:999px;font-size:.92rem;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  color: rgba(255,255,255,.90);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.chip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.20);
+  box-shadow: 0 14px 28px rgba(0,0,0,.22);
+}
+.icon{font-size:1rem;opacity:.95}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.05rem 0 .2rem;justify-content:center}
+.btn-xl{padding:.88rem 1.25rem;font-size:1.02rem;border-radius:.95rem}
+
+/* ========= TICKER (CARRUSEL) ========= */
+.logo-ticker{
+  position:relative;
+  margin: 1.05rem auto 0;
+  padding: .55rem 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+  max-width: 980px;
+}
+.ticker-track{ overflow:hidden; width:100%; }
+.ticker-row{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  width: max-content;
+  padding-left: 0;
+  will-change: transform;
+  animation: tickerMove 28s linear infinite;
+}
+.tk{
+  font-size: .92rem;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  white-space: nowrap;
+  opacity: .92;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease, opacity .16s ease;
+}
+.tk:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 10px 22px rgba(0,0,0,.26);
+}
+@keyframes tickerMove{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+.ticker-fade{
+  position:absolute; top:0; bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index:2;
+}
+.ticker-fade.left{
+  left:0;
+  background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0));
+}
+.ticker-fade.right{
+  right:0;
+  background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0));
+}
+@media (prefers-reduced-motion: reduce){
+  .ticker-row{ animation:none; }
+}
+
+/* tarjetas de plans */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin: .9rem 0 1.15rem}
+.card{
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.03);
+  border-radius:1.05rem;padding:1.15rem;
+  color: rgba(255,255,255,.92);
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 18px 40px rgba(0,0,0,.26);
+}
+.card.highlight{
+  border-color: rgba(64,214,255,.26);
+  box-shadow: 0 0 0 1px rgba(64,214,255,.14) inset;
+}
+.card h3{margin:.25rem 0 .35rem}
+.price{font-weight:750;font-size:1.06rem;opacity:.98;margin:.25rem 0 .55rem}
+.badge{
+  font-size:.8rem;border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;padding:.18rem .55rem;display:inline-flex;gap:.4rem;align-items:center;
+  background: rgba(255,255,255,.03);
+}
+
+/* lista con checks */
+.list-check{padding-left:0;list-style:none;margin:.55rem 0 .15rem}
+.list-check li{margin:.38rem 0;opacity:.95}
+.list-check li::before{content:"✓";margin-right:.55rem;opacity:.9}
+
+/* embed responsive Power BI */
+.viz{position:relative;width:100%;aspect-ratio:16/9;background:#0b132b;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.10) inset}
+.viz iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* grids */
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.tip{ margin: 0; opacity:.9; }
+
+@media (max-width: 900px){
+  .plans{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .logo-ticker{ max-width: 100%; }
+}
+
+/* reveal on scroll */
+.be-reveal{ opacity:1; transform:none; }
+.be-reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .be-reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.be-reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.12});
+  els.forEach(el=>io.observe(el));
+
+  // Scroll suave para anclas (evita que la topbar tape el título)
+  document.querySelectorAll('.be-topnav a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (ev)=>{
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if(!el) return;
+      ev.preventDefault();
+      const y = el.getBoundingClientRect().top + window.scrollY - 86;
+      window.scrollTo({top:y, behavior:'smooth'});
+      history.replaceState(null, '', id);
+    });
+  });
+})();
+</script>
 ```
