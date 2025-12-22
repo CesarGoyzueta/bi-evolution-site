@@ -1,66 +1,130 @@
 ---
 title: "¡Bienvenido o bienvenida!"
 page-layout: full
+toc: false
 ---
 
-
 ```{=html}
-<p align="center">
+<!-- =========================
+     NAV STICKY (NO TAPA)
+     ========================= -->
+<header class="be-topnav" role="banner">
+  <div class="be-topnav__inner be-shell">
+    <a class="be-brand" href="index.html" aria-label="BI Evolution - Inicio">
+      <span class="be-brand__dot" aria-hidden="true"></span>
+      <strong>BI Evolution</strong>
+    </a>
+
+    <nav class="be-menu" aria-label="Navegación principal">
+      <a href="#vision">Visión</a>
+      <a href="#empieza">Empieza aquí</a>
+      <a href="#soluciones-ia">Soluciones (IA & Analítica)</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="btn btn-primary be-topnav__cta" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<p align="center" style="margin-top:10px">
   <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
 </p>
 
-```
-# 🚀 Impulsa tu carrera con BI Evolution
+<!-- ====== HERO (más limpio, sin recuadro; estilo similar a tu página de Soluciones) ====== -->
+<section class="be-hero be-shell be-anchor-offset" id="inicio">
+  <!-- Fondo vivo sutil -->
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
 
-Cursos claros, prácticos y enfocados en tu éxito.  
-Domina las herramientas que necesitas y avanza en tu carrera profesional.
+  <div class="be-hero__content be-reveal">
+    <div class="be-hero__badge">BI EVOLUTION</div>
+
+    <h1 class="be-hero__title">🚀 Impulsa tu carrera con BI Evolution</h1>
+
+    <p class="be-hero__subtitle">
+      Cursos claros, prácticos y enfocados en tu éxito.<br>
+      Domina las herramientas que necesitas y avanza en tu carrera profesional.
+    </p>
+
+    <div class="be-hero__cta" style="margin-top:18px">
+      <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">📬 Quiero más info</a>
+      <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">WhatsApp</a>
+    </div>
+
+    <!-- Ticker de herramientas (opcional pero pro) -->
+    <div class="be-ticker" aria-label="Herramientas y enfoques">
+      <div class="be-ticker__fade left"></div>
+      <div class="be-ticker__fade right"></div>
+      <div class="be-ticker__track">
+        <div class="be-ticker__row" aria-hidden="true">
+          <span class="tk">Power BI</span>
+          <span class="tk">SQL</span>
+          <span class="tk">Python</span>
+          <span class="tk">DAX</span>
+          <span class="tk">Databricks</span>
+          <span class="tk">PySpark</span>
+          <span class="tk">Azure</span>
+          <span class="tk">MLflow</span>
+          <span class="tk">Quarto</span>
+          <span class="tk">Shiny</span>
+
+          <!-- duplicado para loop perfecto -->
+          <span class="tk">Power BI</span>
+          <span class="tk">SQL</span>
+          <span class="tk">Python</span>
+          <span class="tk">DAX</span>
+          <span class="tk">Databricks</span>
+          <span class="tk">PySpark</span>
+          <span class="tk">Azure</span>
+          <span class="tk">MLflow</span>
+          <span class="tk">Quarto</span>
+          <span class="tk">Shiny</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+```
 
 ```{=html}
-<div align="center" style="margin-top:20px">
-  <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">📬 Quiero más info</a>
-  <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">WhatsApp</a>
-</div>
-
-```
-
-```{=html}
-<div class="stat-pills">
+<div class="stat-pills be-shell be-reveal">
   <!-- <span class="pill pill--count"><strong>{{< meta metrics.global.total_students >}}</strong> inscritos totales</span> -->
-  <span class="pill pill--ok"><strong>{{< meta metrics.global.recommend_pct >}}%</strong> recomiendan</span>    
-  <span class="pill pill--score"><strong>{{< meta metrics.global.sat_general >}}</strong> / 5 satisfacción</span>
+  <span class="pill pill--ok"><strong class="be-count" data-target="{{< meta metrics.global.recommend_pct >}}">0</strong>% recomiendan</span>
+  <span class="pill pill--score"><strong class="be-count" data-target="{{< meta metrics.global.sat_general >}}" data-decimals="1">0</strong> / 5 satisfacción</span>
 </div>
-
 ```
 
 ```{=html}
 <!-- Mini-CTA centrado para atajos rápidos -->
-<div class="enroll-cta" style="justify-content:center;margin:.5rem 0 1.25rem;gap:.6rem;flex-wrap:wrap">
+<div class="enroll-cta be-shell be-reveal" style="justify-content:center;margin:.65rem 0 1.25rem;gap:.6rem;flex-wrap:wrap">
   <a class="btn btn-outline-secondary" href="powerbi.html">📚 Curso Power BI</a>
   <a class="btn btn-primary" href="plantillas.html">🧩 Plantillas</a>
   <a class="btn btn-outline-secondary" href="asesorias.html">🤝 Asesorías</a>
-  
 </div>
 ```
 
-
-# 🌟 Nuestra Visión
+# 🌟 Nuestra Visión {#vision}
 
 En **BI Evolution** entendemos los retos de aprender BI y Data Science.  
 Creamos cursos **claros, prácticos y enfocados en tu éxito**, para que domines las herramientas que necesitas y avances en tu carrera profesional.
 
 Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu camino y te dé confianza para enfrentar nuevos desafíos.
 
-
-
-
-## Empieza aquí
+## Empieza aquí {#empieza}
 
 ```{=html}
 <!-- Dos caminos principales: Plantillas vs Asesorías -->
-<div class="grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch">
+<div class="grid be-shell be-reveal be-anchor-offset" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch">
 
   <!-- Plantillas -->
-  <div class="course-card">
+  <div class="course-card be-card">
     <h3 style="margin-top:0">🧩 Plantillas listas para usar</h3>
     <p>Arranca rápido con <strong>tableros y flujos listos</strong> (Control de gastos, API Meta + Python, GA4 en Power BI). Incluye datos de ejemplo, guía y soporte de instalación.</p>
     <ul>
@@ -75,7 +139,7 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
   </div>
 
   <!-- Asesorías -->
-  <div class="course-card">
+  <div class="course-card be-card">
     <h3 style="margin-top:0">🤝 Asesorías & Freelance</h3>
     <p>Diseño e implementación de tableros en <strong>Power BI</strong> y <strong>flujos reproducibles</strong> de datos. Entregables claros, buenas prácticas y publicación en Service (si aplica).</p>
     <ul>
@@ -90,13 +154,71 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
   </div>
 
 </div>
+```
 
+## Soluciones (IA & Analítica) {#soluciones-ia}
+
+```{=html}
+<!-- Sección nueva pedida: Soluciones (IA & Analítica) -->
+<section class="be-shell be-reveal be-anchor-offset" style="margin-top:14px">
+  <div class="be-section-head">
+    <h2 style="margin:0">⚙️ Soluciones (IA & Analítica)</h2>
+    <p style="margin:.35rem 0 0;opacity:.9">
+      Para empresas y equipos: automatización, analítica avanzada y asistentes con IA para acelerar resultados.
+    </p>
+  </div>
+
+  <div class="grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px">
+    <div class="course-card be-card">
+      <h3 style="margin-top:0">🤖 Automatización con IA</h3>
+      <p>Reduce trabajo manual (reportes, validaciones, extracción, clasificación) con flujos seguros y medibles.</p>
+      <ul>
+        <li>Automatización de reportes y procesos</li>
+        <li>Extracción de info (PDF/Docs/Emails)</li>
+        <li>Alertas y priorización inteligente</li>
+      </ul>
+      <div class="enroll-cta">
+        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20conocer%20sobre%20automatizaci%C3%B3n%20con%20IA." target="_blank" rel="noopener">Quiero una propuesta</a>
+        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+      </div>
+    </div>
+
+    <div class="course-card be-card">
+      <h3 style="margin-top:0">🧠 Analítica avanzada</h3>
+      <p>Modelos predictivos, segmentación y optimización para decisiones con impacto (ventas, riesgo, operaciones).</p>
+      <ul>
+        <li>Scoring / clasificación</li>
+        <li>Segmentación y clustering</li>
+        <li>Optimización y experimentación</li>
+      </ul>
+      <div class="enroll-cta">
+        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20una%20soluci%C3%B3n%20de%20anal%C3%ADtica%20avanzada." target="_blank" rel="noopener">Cotizar</a>
+        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+      </div>
+    </div>
+
+    <div class="course-card be-card">
+      <h3 style="margin-top:0">💬 Asistentes & Chatbots</h3>
+      <p>Asistentes con LLM + RAG para soporte, ventas y consulta interna, conectados a tus documentos y datos.</p>
+      <ul>
+        <li>RAG con documentos</li>
+        <li>Integración con APIs / BI</li>
+        <li>Evaluación y seguridad</li>
+      </ul>
+      <div class="enroll-cta">
+        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20asistente%20con%20IA%20para%20mi%20equipo." target="_blank" rel="noopener">Hablemos</a>
+        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+      </div>
+    </div>
+  </div>
+</section>
 ```
 
 ## ¿Prefieres aprender tú?
+
 ```{=html}
 <!-- Tarjeta única para el curso -->
-<div class="course-card">
+<div class="course-card be-shell be-card be-reveal be-anchor-offset">
   <h3 style="margin-top:0">📚 Curso Power BI</h3>
   <p>Aprende BI con un enfoque práctico: <strong>modelado, dashboard y storytelling</strong>. Ejemplos reales, soporte y materiales descargables.</p>
   <ul>
@@ -109,99 +231,18 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
     <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20del%20curso%20de%20Power%20BI." target="_blank" rel="noopener">Quiero más info</a>
   </div>
 </div>
-
 ```
 
-<!-- ## 📊 Confían en BI Evolution - Cursos -->
-<!-- ```{=html} -->
-<!-- <!-- Banda completa con total de alumnos --> 
-<!-- <div class="kpi-total"> -->
-<!--   <div class="kpi-total__num kpi-num" data-target="{{< meta metrics.global.total_students >}}">0</div> -->
-<!--   <div class="kpi-total__label">Alumnos inscritos en total (histórico)</div> -->
-<!-- </div> -->
-
-<!-- <!-- Resultados de encuestas --> 
-<!-- <div class="kpi-grid kpi-grid--results"> -->
-<!--   <div class="kpi"> -->
-<!--     <div class="kpi-num" data-target="{{< meta metrics.global.sat_general >}}">0</div> -->
-<!--     <div class="kpi-label">Satisfacción general / 5</div> -->
-<!--   </div> -->
-<!--   <div class="kpi"> -->
-<!--     <div class="kpi-num" data-target="{{< meta metrics.global.clarity_teacher >}}">0</div> -->
-<!--     <div class="kpi-label">Claridad del docente / 5</div> -->
-<!--   </div> -->
-<!--   <div class="kpi kpi--recommend"> -->
-<!--     <div class="kpi-row"> -->
-<!--       <div class="kpi-num kpi-num-main" data-target="{{< meta metrics.global.recommend_pct >}}">0</div> -->
-<!--       <div class="kpi-subnum"> -->
-<!--         <span class="kpi-num kpi-num-sub" data-target="{{< meta metrics.global.recommend_score10 >}}">0</span> -->
-<!--         <span class="kpi-subunit">/10</span> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--     <div class="kpi-label">Recomendarían el curso</div> -->
-<!--   </div> -->
-<!-- </div> -->
-
-<!-- <div class="kpi-caption"> -->
-<!--   *Métricas de satisfacción basadas en <strong>{{< meta metrics.global.survey_count >}}</strong> encuestas respondidas del curso Power BI. -->
-<!-- </div> -->
-
-<!-- <script> -->
-<!-- document.addEventListener('DOMContentLoaded', () => { -->
-<!--   const els = document.querySelectorAll('.kpi-num'); -->
-<!--   els.forEach(el => { -->
-<!--     const target = parseFloat(el.getAttribute('data-target')); -->
-<!--     const isFloat = !Number.isInteger(target); -->
-<!--     let current = 0, steps = 40, inc = target / steps; -->
-<!--     const it = setInterval(() => { -->
-<!--       current += inc; -->
-<!--       if (current >= target) { current = target; clearInterval(it); } -->
-<!--       el.textContent = isFloat ? current.toFixed(1) : Math.floor(current); -->
-<!--       if (el.textContent.endsWith('.0')) el.textContent = el.textContent.replace('.0',''); -->
-<!--     }, 30); -->
-<!--   }); -->
-<!-- }); -->
-<!-- </script> -->
-<!-- ``` -->
-
-
-<!-- # 🎓 Nuestros Cursos
-
-```{=html}
-<div class="course-grid">
-  <div class="course-card">
-    <h3>Power BI</h3>
-    <p>De cero a dashboard ejecutivo: modelado, storytelling,publicación,etc.</p>
-    <a class="btn btn-primary" href="powerbi.qmd">Ver temario</a>
-  </div>
-   -->
-  
-  <!--
-  <div class="course-card">
-    <h3>Python</h3>
-    <p>Data wrangling con pandas, visualización y automatización de reportes.</p>
-    <a class="btn btn-primary" href="python.qmd">Ver temario</a>
-  </div>
-  <div class="course-card">
-    <h3>R (Quarto)</h3>
-    <p>Análisis reproducible, ggplot2 y reportes dinámicos en Quarto.</p>
-    <a class="btn btn-primary" href="r-course.qmd">Ver temario</a>
-  </div>
-  -->
-<!-- </div>
-``` -->
-
-
-
 ## 👨‍🏫 Sobre mí (Instructor & Consultor) {#sobre-mi}
+
 ```{=html}
-<p style="opacity:.85;margin-top:-6px;margin-bottom:10px">
+<p style="opacity:.85;margin-top:-6px;margin-bottom:10px" class="be-shell be-reveal">
   Ayudo a equipos a crear productos de datos y tableros accionables: Power BI, Python/Databricks y Analytics.
 </p>
 ```
 
 ```{=html}
-<div class="instructor-card">
+<div class="instructor-card be-shell be-reveal be-anchor-offset">
   <img src="assets/cesar.jpg" alt="César Goyzueta" class="instr-photo">
 
   <div class="instr-body">
@@ -244,31 +285,449 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
     </div>
   </div>
 </div>
-
-
 ```
-
 
 ---
 
 # 💬 Lo que dijeron
 
-> “Tuve la oportunidad de llevar un curso de Power BI dictado por César Goyzueta, y fue una experiencia valiosa. César no solo domina la herramienta a profundidad, sino que también tiene la habilidad de explicar conceptos complejos de manera clara y práctica. Gracias a su guía, pude comprender cómo transformar datos en información visual y accionable, aplicable a mi trabajo diario en Recursos Humanos.  
-> Lo recomiendo ampliamente a quienes busquen aprender Power BI de forma estructurada y dinámica.”  
-> — [**Christian Jiménez**](https://www.linkedin.com/in/christian-jim%C3%A9nez-b142b2108/){target="_blank" rel="noopener"}
+```{=html}
+<div class="t-carousel be-shell be-reveal" aria-label="Testimonios">
+  <button class="t-btn" data-dir="-1" aria-label="Anterior">
+    <span aria-hidden="true">‹</span>
+  </button>
 
-> “El curso de Power BI ha superado mis expectativas, tanto por la forma práctica en que se imparten las clases como por el acompañamiento constante del docente durante todo el proceso de aprendizaje. Se nota claramente la experiencia y dominio del tema por parte del docente, lo que hace que cada explicación sea clara y útil. Además, las distintas técnicas y la retroalimentación en cada sesión permiten consolidar mis conocimientos previos de manera progresiva.”  
-> — [**Erika Rubio**](https://www.linkedin.com/in/erikarubiolima/){target="_blank" rel="noopener"}
+  <div class="t-track">
+    <div class="t-slide is-active">
+      <blockquote>
+        <p>
+          “Tuve la oportunidad de llevar un curso de Power BI dictado por César Goyzueta, y fue una experiencia valiosa.
+          César no solo domina la herramienta a profundidad, sino que también tiene la habilidad de explicar conceptos complejos
+          de manera clara y práctica. Gracias a su guía, pude comprender cómo transformar datos en información visual y accionable,
+          aplicable a mi trabajo diario en Recursos Humanos.<br>
+          Lo recomiendo ampliamente a quienes busquen aprender Power BI de forma estructurada y dinámica.”
+        </p>
+        <p>— <a href="https://www.linkedin.com/in/christian-jim%C3%A9nez-b142b2108/" target="_blank" rel="noopener"><strong>Christian Jiménez</strong></a></p>
+      </blockquote>
+    </div>
 
+    <div class="t-slide">
+      <blockquote>
+        <p>
+          “El curso de Power BI ha superado mis expectativas, tanto por la forma práctica en que se imparten las clases como por
+          el acompañamiento constante del docente durante todo el proceso de aprendizaje. Se nota claramente la experiencia y dominio
+          del tema por parte del docente, lo que hace que cada explicación sea clara y útil. Además, las distintas técnicas y la
+          retroalimentación en cada sesión permiten consolidar mis conocimientos previos de manera progresiva.”
+        </p>
+        <p>— <a href="https://www.linkedin.com/in/erikarubiolima/" target="_blank" rel="noopener"><strong>Erika Rubio</strong></a></p>
+      </blockquote>
+    </div>
+  </div>
+
+  <button class="t-btn" data-dir="1" aria-label="Siguiente">
+    <span aria-hidden="true">›</span>
+  </button>
+</div>
+```
 
 ---
 
-# 📥 ¿Quieres lanzamientos o becas?
+# 📥 ¿Quieres lanzamientos o becas? {#contacto}
 
 Recibe avisos de nuevas cohortes, descuentos y material gratuito.
 
 ```{=html}
-<div align="center" style="margin-top:10px">
+<div align="center" style="margin-top:10px" class="be-shell be-reveal">
   <a class="btn btn-primary" href="https://sendfox.com/cesargoyzuetameneses">ℹ️ Quiero más info</a>
 </div>
+
+<!-- ===== Sticky CTA (solo aparece al hacer scroll) ===== -->
+<div class="sticky-cta" role="region" aria-label="Contacto rápido">
+  <div class="sticky-cta__inner">
+    <span>¿Quieres una recomendación rápida?</span>
+    <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20una%20recomendaci%C3%B3n%20r%C3%A1pida.">WhatsApp</a>
+  </div>
+</div>
+
+<!-- ====== Estilos + Scripts de dinamismo (sin borrar tu contenido) ====== -->
+<style>
+/* ===== Layout general ===== */
+.be-shell{ max-width: 1180px; margin-left:auto; margin-right:auto; padding: 0 14px; }
+
+/* ===== NAV STICKY (NO TAPA EL CONTENIDO) ===== */
+:root{ --be-nav-h: 62px; }
+.be-topnav{
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(10,14,25,.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.be-topnav__inner{
+  height: var(--be-nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+}
+.be-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: rgba(255,255,255,.92);
+  text-decoration:none;
+}
+.be-brand__dot{
+  width:10px;height:10px;border-radius:99px;
+  background: radial-gradient(circle, rgba(209,126,48,1), rgba(59,73,142,1));
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+.be-menu{
+  display:flex;
+  gap: 14px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.be-menu a{
+  color: rgba(255,255,255,.86);
+  text-decoration:none;
+  font-size: .92rem;
+  padding: .35rem .55rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+.be-menu a:hover{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+.be-topnav__cta{ white-space: nowrap; }
+
+/* IMPORTANTE: evita que el menú sticky tape los títulos al navegar por anclas */
+html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
+.be-anchor-offset{ scroll-margin-top: calc(var(--be-nav-h) + 14px); }
+
+@media (max-width: 980px){
+  .be-topnav__cta{ display:none; }
+}
+@media (max-width: 720px){
+  :root{ --be-nav-h: 74px; }
+  .be-topnav__inner{ align-items:flex-start; padding-top: 10px; height: var(--be-nav-h); }
+  .be-menu{ gap:10px; }
+}
+
+/* ===== HERO limpio (sin recuadro) ===== */
+.be-hero{
+  position: relative;
+  padding: 1.05rem 0 .5rem;
+  margin-top: .4rem;
+  margin-bottom: .55rem;
+  overflow: hidden;
+}
+.be-hero__content{
+  position: relative;
+  text-align: center;
+  padding: .2rem 0 0;
+}
+.be-hero__badge{
+  display:inline-block;
+  font-size:.78rem;
+  letter-spacing:.14em;
+  opacity:.78;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.045);
+  padding:.35rem .7rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  margin-bottom: .7rem;
+}
+.be-hero__title{
+  margin:.15rem 0 .5rem 0;
+  font-size: clamp(2.05rem, 2.9vw, 3.05rem);
+  letter-spacing: -0.02em;
+}
+.be-hero__subtitle{
+  margin:0 auto .6rem;
+  max-width: 72ch;
+  opacity: .92;
+  line-height: 1.45;
+}
+.be-hero__cta{ display:flex; gap:.7rem; justify-content:center; flex-wrap:wrap; }
+
+/* ===== Fondo vivo: blobs ===== */
+.hero-bg{ position:absolute; inset:-40px; z-index:0; pointer-events:none; filter: blur(28px); opacity:.50; }
+.hero-bg .blob{ position:absolute; width:380px; height:380px; border-radius:999px; background: radial-gradient(circle, rgba(209,126,48,.55), transparent 60%); }
+.hero-bg .b1{ top:-80px; left:-80px; animation: float1 12s ease-in-out infinite; }
+.hero-bg .b2{ top:20px; right:-120px; background: radial-gradient(circle, rgba(59,73,142,.55), transparent 60%); animation: float2 14s ease-in-out infinite; }
+.hero-bg .b3{ bottom:-140px; left:35%; background: radial-gradient(circle, rgba(255,255,255,.18), transparent 60%); animation: float3 16s ease-in-out infinite; }
+
+@keyframes float1{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(40px,30px)}}
+@keyframes float2{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(-45px,20px)}}
+@keyframes float3{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(0,-45px)}}
+
+.be-hero > *{ position:relative; z-index:1; }
+@media (prefers-reduced-motion: reduce){ .hero-bg .blob{ animation:none; } }
+
+/* ===== Ticker herramientas ===== */
+.be-ticker{
+  position:relative;
+  margin: 1.0rem auto 0;
+  padding: .55rem 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+.be-ticker__track{ overflow:hidden; width:100%; }
+.be-ticker__row{
+  display:flex;
+  align-items:center;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+  animation: tickerMove 26s linear infinite;
+}
+@keyframes tickerMove{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+.be-ticker__fade{
+  position:absolute; top:0; bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index:2;
+}
+.be-ticker__fade.left{ left:0; background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0)); }
+.be-ticker__fade.right{ right:0; background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0)); }
+.tk{
+  font-size: .92rem;
+  padding: .34rem .64rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  white-space: nowrap;
+  opacity: .92;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease, opacity .16s ease;
+}
+.tk:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 10px 22px rgba(0,0,0,.26);
+}
+@media (prefers-reduced-motion: reduce){
+  .be-ticker__row{ animation:none; }
+}
+
+/* ===== Pills + Cards hover ===== */
+.stat-pills{ justify-content:center; }
+.stat-pills .pill{
+  transition: transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
+}
+.stat-pills .pill:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 14px 26px rgba(0,0,0,.22);
+}
+.be-card{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.be-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 18px 44px rgba(0,0,0,.30);
+}
+
+/* ===== Hover "pro" con brillo que sigue al mouse (para course-card) ===== */
+.course-card{
+  position:relative;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.course-card::after{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius: inherit;
+  background: radial-gradient(900px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.10), transparent 40%);
+  opacity:0; pointer-events:none;
+  transition: opacity .18s ease;
+}
+.course-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+.course-card:hover::after{ opacity:1; }
+
+/* ===== Reveal on scroll ===== */
+.be-reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.be-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Testimonios: carrusel ===== */
+.t-carousel{
+  display:grid;
+  grid-template-columns: 48px 1fr 48px;
+  gap: 12px;
+  align-items:center;
+  margin-top: 12px;
+}
+.t-btn{
+  height: 48px;
+  width: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.95);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  font-size: 28px;
+  line-height: 1;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.t-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 16px 30px rgba(0,0,0,.26);
+}
+.t-btn:active{ transform: translateY(0px) scale(.98); }
+.t-track{ position:relative; min-height: 200px; }
+.t-slide{ position:absolute; inset:0; opacity:0; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; }
+.t-slide.is-active{ opacity:1; transform:none; }
+.t-slide blockquote{
+  margin:0;
+  padding: 1.05rem 1.05rem .9rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+.t-slide blockquote p{ margin:0 0 .55rem 0; opacity:.92; }
+.t-slide blockquote p:last-child{ margin:0; opacity:1; }
+@media (max-width: 900px){
+  .t-carousel{ grid-template-columns: 44px 1fr 44px; }
+  .t-btn{ width:44px; height:44px; font-size:26px; border-radius: 12px; }
+  .t-track{ min-height: 260px; }
+}
+
+/* ===== Sticky CTA ===== */
+.sticky-cta{ position:fixed; left:0; right:0; bottom:14px; display:flex; justify-content:center; pointer-events:none; z-index:50; }
+.sticky-cta__inner{
+  pointer-events:auto;
+  display:flex; gap:12px; align-items:center;
+  padding:.65rem .8rem;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(10,14,25,.65);
+  backdrop-filter: blur(10px);
+  transform: translateY(20px);
+  opacity:0;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.sticky-cta.show .sticky-cta__inner{ opacity:1; transform:none; }
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .be-reveal{ opacity: 1; transform: none; transition:none; }
+  .be-card, .stat-pills .pill, .t-btn, .course-card{ transition:none; }
+  .t-slide{ transition:none; }
+}
+</style>
+
+<script>
+(function(){
+  // 1) Reveal on scroll
+  const els = document.querySelectorAll('.be-reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.12});
+  els.forEach(el=>io.observe(el));
+
+  // 2) Count-up (para tus métricas)
+  function animateCount(el){
+    const targetRaw = el.getAttribute('data-target');
+    if(!targetRaw) return;
+
+    const target = parseFloat(targetRaw);
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    if(Number.isNaN(target)) return;
+
+    const duration = 900;
+    const start = performance.now();
+    const from = 0;
+
+    function tick(now){
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = from + (target - from) * eased;
+
+      el.textContent = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const counters = document.querySelectorAll('.be-count');
+  const ioCount = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animateCount(e.target);
+        ioCount.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.6});
+  counters.forEach(c=>ioCount.observe(c));
+
+  // 3) Hover glow que sigue al mouse (course-card)
+  document.addEventListener('mousemove', (e) => {
+    const card = e.target.closest('.course-card');
+    if(!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100).toFixed(2)+'%');
+    card.style.setProperty('--my', ((e.clientY - r.top)/r.height*100).toFixed(2)+'%');
+  });
+
+  // 4) Carrusel testimonios (manual, sin librerías)
+  const root = document.querySelector('.t-carousel');
+  if(root){
+    const slides = [...root.querySelectorAll('.t-slide')];
+    let i = slides.findIndex(s => s.classList.contains('is-active'));
+    if(i<0) i=0;
+
+    const show = (k) => {
+      slides[i].classList.remove('is-active');
+      i = (k + slides.length) % slides.length;
+      slides[i].classList.add('is-active');
+    };
+
+    root.querySelectorAll('.t-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=> show(i + parseInt(btn.dataset.dir,10)));
+    });
+  }
+
+  // 5) Sticky CTA al hacer scroll
+  const sticky = document.querySelector('.sticky-cta');
+  if(sticky){
+    const onScroll = () => sticky.classList.toggle('show', window.scrollY > 380);
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+})();
+</script>
 ```
