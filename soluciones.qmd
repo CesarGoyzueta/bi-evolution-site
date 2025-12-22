@@ -35,75 +35,84 @@ toc: false
   <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
 </p>
 
+<!-- =========================
+ HERO con BORDE + FONDO REDONDEADO (estilo dashboards)
+ ========================= -->
 <section class="hero-shell be-anchor-offset" id="inicio">
+  <div class="be-hero-card be-reveal">
 
-  <section class="hero-1col">
-
-    <div class="hero-tag">SOLUCIONES IA &amp; ANALÍTICA</div>
-
-    <h1 class="hero-title">Framework de IA para acelerar ventas</h1>
-
-    <p class="hero-sub">
-      Convierte tus datos en resultados reales (sin complicarte).<br>
-      <strong>Prospección → Conversión → Priorización → Crecimiento</strong>
-    </p>
-
-    <!-- Chips (mejor que bullets en hero centrado) -->
-    <div class="hero-chips" aria-label="Beneficios principales">
-      <span class="chip">📌 Prioriza leads (Lead Scoring)</span>
-      <span class="chip">🧠 Segmenta clientes (Clustering)</span>
-      <span class="chip">📈 Proyecta valor (CLV + RFM)</span>
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
     </div>
 
-    <div class="hero-cta">
-      <a class="btn btn-primary"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos)."
-         target="_blank" rel="noopener">
-        📌 Quiero un diagnóstico
-      </a>
+    <section class="hero-1col">
+      <div class="hero-tag">SOLUCIONES IA &amp; ANALÍTICA</div>
 
-      <a class="btn btn-whatsapp"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
-         target="_blank" rel="noopener">
-        WhatsApp
-      </a>
-    </div>
+      <h1 class="hero-title">Framework de IA para acelerar ventas</h1>
 
-  </section>
+      <p class="hero-sub">
+        Convierte tus datos en resultados reales (sin complicarte).<br>
+        <strong>Prospección → Conversión → Priorización → Crecimiento</strong>
+      </p>
 
-  <!-- TICKER (alineado al mismo ancho que el hero) -->
-  <div class="logo-ticker" aria-label="Tecnologías y enfoques">
-    <div class="ticker-fade left"></div>
-    <div class="ticker-fade right"></div>
+      <!-- Chips (mejor que bullets en hero centrado) -->
+      <div class="hero-chips" aria-label="Beneficios principales">
+        <span class="chip">📌 Prioriza leads (Lead Scoring)</span>
+        <span class="chip">🧠 Segmenta clientes (Clustering)</span>
+        <span class="chip">📈 Proyecta valor (CLV + RFM)</span>
+      </div>
 
-    <div class="ticker-track">
-      <div class="ticker-row" aria-hidden="true">
-        <span class="tk">Power BI</span>
-        <span class="tk">Python</span>
-        <span class="tk">SQL</span>
-        <span class="tk">Azure</span>
-        <span class="tk">Databricks</span>
-        <span class="tk">MLflow</span>
-        <span class="tk">RFM</span>
-        <span class="tk">Lead Scoring</span>
-        <span class="tk">Clustering</span>
-        <span class="tk">CLV</span>
+      <div class="hero-cta">
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos)."
+           target="_blank" rel="noopener">
+          📌 Quiero un diagnóstico
+        </a>
 
-        <!-- duplicado para loop perfecto -->
-        <span class="tk">Power BI</span>
-        <span class="tk">Python</span>
-        <span class="tk">SQL</span>
-        <span class="tk">Azure</span>
-        <span class="tk">Databricks</span>
-        <span class="tk">MLflow</span>
-        <span class="tk">RFM</span>
-        <span class="tk">Lead Scoring</span>
-        <span class="tk">Clustering</span>
-        <span class="tk">CLV</span>
+        <a class="btn btn-whatsapp"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
+           target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- TICKER (DENTRO del card, como en Asesorías) -->
+    <div class="logo-ticker" aria-label="Tecnologías y enfoques">
+      <div class="ticker-fade left"></div>
+      <div class="ticker-fade right"></div>
+
+      <div class="ticker-track">
+        <div class="ticker-row" aria-hidden="true">
+          <span class="tk">Power BI</span>
+          <span class="tk">Python</span>
+          <span class="tk">SQL</span>
+          <span class="tk">Azure</span>
+          <span class="tk">Databricks</span>
+          <span class="tk">MLflow</span>
+          <span class="tk">RFM</span>
+          <span class="tk">Lead Scoring</span>
+          <span class="tk">Clustering</span>
+          <span class="tk">CLV</span>
+
+          <!-- duplicado para loop perfecto -->
+          <span class="tk">Power BI</span>
+          <span class="tk">Python</span>
+          <span class="tk">SQL</span>
+          <span class="tk">Azure</span>
+          <span class="tk">Databricks</span>
+          <span class="tk">MLflow</span>
+          <span class="tk">RFM</span>
+          <span class="tk">Lead Scoring</span>
+          <span class="tk">Clustering</span>
+          <span class="tk">CLV</span>
+        </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </section>
 
 <style>
@@ -196,18 +205,63 @@ main.content,
   background: rgba(255,255,255,.06);
 }
 @media (max-width: 900px){
-  .be-menu{ display:none; } /* en mobile simplificamos */
+  .be-menu{ display:none; }
 }
 
 /* =========================
-   HERO centrado
+   HERO: CARD redondeado (NUEVO)
    ========================= */
 .hero-shell{
   max-width: var(--content-max);
   margin: 1.2rem auto 1rem;
   padding: 0 14px;
 }
+
+/* “borde de fondo redondeado” */
+.be-hero-card{
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+  padding: 1.1rem 0 .85rem;
+}
+.be-hero-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px circle at 20% 10%, rgba(64,214,255,.14), transparent 55%),
+    radial-gradient(900px circle at 85% 25%, rgba(110,231,183,.10), transparent 55%);
+  opacity:.85;
+  pointer-events:none;
+}
+
+/* Fondo blobs */
+.hero-bg{
+  position:absolute;
+  inset:-40px;
+  z-index:0;
+  pointer-events:none;
+  filter: blur(30px);
+  opacity:.55;
+}
+.hero-bg .blob{
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:999px;
+  background: radial-gradient(circle, rgba(64,214,255,.35), transparent 60%);
+}
+.hero-bg .b1{ top:-110px; left:-120px; }
+.hero-bg .b2{ top:10px; right:-140px; background: radial-gradient(circle, rgba(110,231,183,.28), transparent 60%); }
+.hero-bg .b3{ bottom:-160px; left:35%; background: radial-gradient(circle, rgba(167,139,250,.22), transparent 60%); }
+
+/* Contenido */
 .hero-1col{
+  position: relative;
+  z-index: 1;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -218,8 +272,8 @@ main.content,
   display:inline-block;
   font-size:.78rem;
   letter-spacing:.12em;
-  opacity:.78;
-  border:1px solid rgba(255,255,255,.10);
+  opacity:.82;
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   padding:.35rem .7rem;
   border-radius: 999px;
@@ -230,12 +284,14 @@ main.content,
   margin:0 0 .55rem 0;
   font-size: clamp(2.05rem, 2.6vw, 2.75rem);
   letter-spacing:-0.02em;
+  color: rgba(255,255,255,.96);
 }
 .hero-sub{
   margin:0 0 .85rem 0;
-  opacity:.9;
+  opacity:.92;
   line-height: 1.45;
   max-width: 62ch;
+  color: rgba(255,255,255,.90);
 }
 
 /* chips */
@@ -250,16 +306,18 @@ main.content,
   font-size:.92rem;
   padding:.40rem .75rem;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  opacity:.95;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.90);
+  opacity:.98;
   white-space: nowrap;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 .chip:hover{
   transform: translateY(-1px);
-  background: rgba(255,255,255,.065);
-  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.20);
+  box-shadow: 0 14px 28px rgba(0,0,0,.22);
 }
 
 /* CTA centrado */
@@ -269,6 +327,8 @@ main.content,
   flex-wrap:wrap;
   justify-content:center;
   margin-top: .2rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================
@@ -276,16 +336,14 @@ main.content,
    ========================= */
 .logo-ticker{
   position:relative;
+  z-index: 1;
   margin: 1.05rem auto 0;
   padding: .55rem 0;
   border-top: 1px solid rgba(255,255,255,.08);
   border-bottom: 1px solid rgba(255,255,255,.08);
   overflow:hidden;
 }
-.ticker-track{
-  overflow:hidden;
-  width: 100%;
-}
+.ticker-track{ overflow:hidden; width: 100%; }
 .ticker-row{
   display:flex;
   align-items:center;
@@ -333,9 +391,12 @@ main.content,
 @media (prefers-reduced-motion: reduce){
   .ticker-row{ animation:none; }
 }
+
+/* reveal */
+.be-reveal{ opacity: 1; transform:none; }
+.be-reveal.is-visible{ opacity: 1; transform:none; }
 </style>
 ```
-
 
 ---
 
@@ -442,7 +503,6 @@ main.content,
 </div>
 ```
 
-
 ---
 
 ## 🧩 Plantillas dashboards {#plantillas}
@@ -478,7 +538,6 @@ main.content,
   </p>
 </div>
 ```
-
 
 ---
 
@@ -552,7 +611,6 @@ main.content,
 ```
  -->
 
-
 ---
 
 <!-- ## ➕ Más {#mas}
@@ -563,5 +621,5 @@ main.content,
     Aquí puedo ir agregando guías, casos de estudio, material gratuito, y novedades de lanzamientos.
   </p>
 </div>
-``` -->
-
+```
+ -->

@@ -33,62 +33,66 @@ toc: false
   <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
 </p>
 
-<!-- ====== HERO (más limpio, sin recuadro; estilo similar a tu página de Soluciones) ====== -->
+<!-- ====== HERO (MISMO BORDE/FONDO REDONDEADO estilo "Asesorías") ====== -->
 <section class="be-hero be-shell be-anchor-offset" id="inicio">
-  <!-- Fondo vivo sutil -->
-  <div class="hero-bg" aria-hidden="true">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <span class="blob b3"></span>
-  </div>
 
-  <div class="be-hero__content be-reveal">
-    <div class="be-hero__badge">BI EVOLUTION</div>
-
-    <h1 class="be-hero__title">🚀 Impulsa tu carrera con BI Evolution</h1>
-
-    <p class="be-hero__subtitle">
-      Cursos claros, prácticos y enfocados en tu éxito.<br>
-      Domina las herramientas que necesitas y avanza en tu carrera profesional.
-    </p>
-
-    <div class="be-hero__cta" style="margin-top:18px">
-      <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">📬 Quiero más info</a>
-      <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">WhatsApp</a>
+  <!-- Panel con borde + fondo redondeado -->
+  <div class="be-hero__panel be-reveal">
+    <!-- Fondo vivo sutil -->
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
     </div>
 
-    <!-- Ticker de herramientas (opcional pero pro) -->
-    <div class="be-ticker" aria-label="Herramientas y enfoques">
-      <div class="be-ticker__fade left"></div>
-      <div class="be-ticker__fade right"></div>
-      <div class="be-ticker__track">
-        <div class="be-ticker__row" aria-hidden="true">
-          <span class="tk">Power BI</span>
-          <span class="tk">SQL</span>
-          <span class="tk">Python</span>
-          <span class="tk">DAX</span>
-          <span class="tk">Databricks</span>
-          <span class="tk">PySpark</span>
-          <span class="tk">Azure</span>
-          <span class="tk">MLflow</span>
-          <span class="tk">Quarto</span>
-          <span class="tk">Shiny</span>
+    <div class="be-hero__content">
+      <div class="be-hero__badge">BI EVOLUTION</div>
 
-          <!-- duplicado para loop perfecto -->
-          <span class="tk">Power BI</span>
-          <span class="tk">SQL</span>
-          <span class="tk">Python</span>
-          <span class="tk">DAX</span>
-          <span class="tk">Databricks</span>
-          <span class="tk">PySpark</span>
-          <span class="tk">Azure</span>
-          <span class="tk">MLflow</span>
-          <span class="tk">Quarto</span>
-          <span class="tk">Shiny</span>
+      <h1 class="be-hero__title">🚀 Impulsa tu carrera con BI Evolution</h1>
+
+      <p class="be-hero__subtitle">
+        Cursos claros, prácticos y enfocados en tu éxito.<br>
+        Domina las herramientas que necesitas y avanza en tu carrera profesional.
+      </p>
+
+      <div class="be-hero__cta" style="margin-top:18px">
+        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">📬 Quiero más info</a>
+        <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">WhatsApp</a>
+      </div>
+
+      <!-- Ticker de herramientas (opcional pero pro) -->
+      <div class="be-ticker" aria-label="Herramientas y enfoques">
+        <div class="be-ticker__fade left"></div>
+        <div class="be-ticker__fade right"></div>
+        <div class="be-ticker__track">
+          <div class="be-ticker__row" aria-hidden="true">
+            <span class="tk">Power BI</span>
+            <span class="tk">SQL</span>
+            <span class="tk">Python</span>
+            <span class="tk">DAX</span>
+            <span class="tk">Databricks</span>
+            <span class="tk">PySpark</span>
+            <span class="tk">Azure</span>
+            <span class="tk">MLflow</span>
+            <span class="tk">Quarto</span>
+            <span class="tk">Shiny</span>
+
+            <!-- duplicado para loop perfecto -->
+            <span class="tk">Power BI</span>
+            <span class="tk">SQL</span>
+            <span class="tk">Python</span>
+            <span class="tk">DAX</span>
+            <span class="tk">Databricks</span>
+            <span class="tk">PySpark</span>
+            <span class="tk">Azure</span>
+            <span class="tk">MLflow</span>
+            <span class="tk">Quarto</span>
+            <span class="tk">Shiny</span>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 ```
@@ -418,16 +422,29 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   .be-menu{ gap:10px; }
 }
 
-/* ===== HERO limpio (sin recuadro) ===== */
+/* ===== HERO (ahora con panel redondeado) ===== */
 .be-hero{
   position: relative;
-  padding: 1.05rem 0 .5rem;
+  padding: .8rem 0 .5rem;
   margin-top: .4rem;
   margin-bottom: .55rem;
-  overflow: hidden;
 }
-.be-hero__content{
+
+/* Panel redondeado con borde/fondo (igual enfoque que Asesorías) */
+.be-hero__panel{
   position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+  padding: 1.10rem 1.05rem .95rem;
+}
+
+/* Mantiene el contenido por encima de los blobs */
+.be-hero__panel > *{ position: relative; z-index: 1; }
+
+.be-hero__content{
   text-align: center;
   padding: .2rem 0 0;
 }
@@ -467,7 +484,6 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
 @keyframes float2{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(-45px,20px)}}
 @keyframes float3{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(0,-45px)}}
 
-.be-hero > *{ position:relative; z-index:1; }
 @media (prefers-reduced-motion: reduce){ .hero-bg .blob{ animation:none; } }
 
 /* ===== Ticker herramientas ===== */
