@@ -1,16 +1,41 @@
 ---
 title: "Soluciones (IA & Analítica)"
 page-layout: full
-toc: true
-toc-location: right
+toc: false
 ---
 
 ```{=html}
-<p align="center">
+<!-- =========================
+ NAV STICKY CENTRADO (TIPO HOME)
+ ========================= -->
+<header class="be-topnav" role="banner">
+  <div class="be-topnav__inner be-shell">
+    <a class="be-brand" href="#inicio" aria-label="BI Evolution - Inicio">
+      <span class="be-brand__dot" aria-hidden="true"></span>
+      <strong>BI Evolution</strong>
+    </a>
+
+    <nav class="be-menu" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#inicio" aria-current="page">Soluciones (IA &amp; Analítica)</a>
+      <a href="#asesorias">Asesorías &amp; Freelance</a>
+      <a href="#plantillas">Plantillas</a>
+      <a href="#mas">Más</a>
+    </nav>
+
+    <a class="btn btn-primary be-topnav__cta"
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
+       target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<p align="center" style="margin-top:12px">
   <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
 </p>
 
-<section class="hero-shell">
+<section class="hero-shell be-anchor-offset" id="inicio">
 
   <section class="hero-1col">
 
@@ -32,99 +57,19 @@ toc-location: right
 
     <div class="hero-cta">
       <a class="btn btn-primary"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos).">
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos)."
+         target="_blank" rel="noopener">
         📌 Quiero un diagnóstico
       </a>
 
       <a class="btn btn-whatsapp"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos).">
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
+         target="_blank" rel="noopener">
         WhatsApp
       </a>
     </div>
 
   </section>
-
-</section>
-
-<style>
-/* contenedor centrado "pro" */
-.hero-shell{
-  max-width: 1180px;
-  margin: 1.2rem auto 1rem;
-  padding: 0 14px;
-}
-
-/* hero centrado */
-.hero-1col{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: .25rem 0 .3rem;
-}
-
-.hero-tag{
-  display:inline-block;
-  font-size:.78rem;
-  letter-spacing:.12em;
-  opacity:.78;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  padding:.35rem .7rem;
-  border-radius: 999px;
-  margin-bottom: .8rem;
-  text-transform: uppercase;
-}
-
-.hero-title{
-  margin:0 0 .55rem 0;
-  font-size: clamp(2.05rem, 2.6vw, 2.75rem);
-  letter-spacing:-0.02em;
-}
-
-.hero-sub{
-  margin:0 0 .85rem 0;
-  opacity:.9;
-  line-height: 1.45;
-  max-width: 62ch;
-}
-
-/* chips */
-.hero-chips{
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin: .15rem 0 1rem;
-}
-
-.chip{
-  font-size:.92rem;
-  padding:.40rem .75rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  opacity:.95;
-  white-space: nowrap;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-
-.chip:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.065);
-  border-color: rgba(255,255,255,.18);
-}
-
-/* CTA centrado */
-.hero-cta{
-  display:flex;
-  gap:.7rem;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top: .2rem;
-}
-</style>
-
 
   <!-- TICKER (alineado al mismo ancho que el hero) -->
   <div class="logo-ticker" aria-label="Tecnologías y enfoques">
@@ -163,16 +108,39 @@ toc-location: right
 
 <style>
 /* =========================
-   0) Ancho “pro” y centrado (para TODO el contenido)
+   Fondo diferente (variedad)
+   ========================= */
+body{
+  background:
+    radial-gradient(900px circle at 18% 10%, rgba(36,136,255,.18), transparent 55%),
+    radial-gradient(820px circle at 86% 18%, rgba(0,214,170,.12), transparent 55%),
+    radial-gradient(900px circle at 55% 95%, rgba(163,97,255,.12), transparent 55%),
+    linear-gradient(180deg, rgba(6,10,18,1), rgba(7,12,22,1));
+}
+
+/* =========================
+   0) Ancho “pro” y centrado
    ========================= */
 :root{
   --content-max: 1180px;
-  --toc-w: 290px;
+  --be-nav-h: 64px;
+}
+
+/* Para que los anchors no queden tapados por el navbar */
+html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
+.be-anchor-offset{ scroll-margin-top: calc(var(--be-nav-h) + 14px); }
+
+/* Contenedor centrado */
+.be-shell{
+  max-width: var(--content-max);
+  margin-left:auto;
+  margin-right:auto;
+  padding: 0 14px;
 }
 
 /* Fuerza el contenido principal a un ancho consistente y centrado */
-#quarto-document-content, 
-main.content, 
+#quarto-document-content,
+main.content,
 .page-columns .content{
   max-width: var(--content-max);
   margin-left: auto;
@@ -180,58 +148,72 @@ main.content,
 }
 
 /* =========================
-   1) TOC a la derecha sin tapar contenido
+   NAV centrado (tipo home)
    ========================= */
-@media (min-width: 1100px){
-  /* Reservamos espacio real para el TOC */
-  #quarto-document-content,
-  main.content,
-  .page-columns .content{
-    padding-right: calc(var(--toc-w) + 22px) !important;
-  }
-
-  /* Estilo + sticky del TOC (y lo “encerramos” visualmente) */
-  #TOC, nav#TOC, .sidebar nav#TOC{
-    position: sticky !important;
-    top: 92px;
-    width: var(--toc-w);
-    max-width: var(--toc-w);
-    z-index: 2;
-    padding: .75rem .8rem;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,.10);
-    background: rgba(10,14,25,.55);
-    backdrop-filter: blur(10px);
-  }
+.be-topnav{
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  background: rgba(10,14,25,.62);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.10);
 }
-
-/* En pantallas donde se estorba, mejor ocultarlo */
-@media (max-width: 1099px){
-  #TOC, nav#TOC, .sidebar nav#TOC{ display:none !important; }
-  #quarto-document-content, main.content, .page-columns .content{
-    padding-right: 0 !important;
-  }
+.be-topnav__inner{
+  height: var(--be-nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+}
+.be-brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  color: rgba(255,255,255,.95);
+  text-decoration:none;
+}
+.be-brand__dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: radial-gradient(circle, rgba(0,214,170,1), rgba(36,136,255,1));
+}
+.be-menu{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+.be-menu a{
+  color: rgba(255,255,255,.86);
+  text-decoration:none;
+  font-size: .92rem;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+}
+.be-menu a:hover{
+  background: rgba(255,255,255,.06);
+}
+@media (max-width: 900px){
+  .be-menu{ display:none; } /* en mobile simplificamos */
 }
 
 /* =========================
-   2) Contenedor del hero
+   HERO centrado
    ========================= */
 .hero-shell{
   max-width: var(--content-max);
   margin: 1.2rem auto 1rem;
   padding: 0 14px;
 }
-
-/* =========================
-   3) Hero 2 columnas
-   ========================= */
-.hero-2col{
-  display:grid;
-  grid-template-columns: 1.12fr .88fr;
-  gap: 22px;
+.hero-1col{
+  display:flex;
+  flex-direction:column;
   align-items:center;
+  text-align:center;
+  padding: .25rem 0 .3rem;
 }
-
 .hero-tag{
   display:inline-block;
   font-size:.78rem;
@@ -241,77 +223,69 @@ main.content,
   background: rgba(255,255,255,.04);
   padding:.35rem .7rem;
   border-radius: 999px;
-  margin-bottom: .75rem;
+  margin-bottom: .8rem;
   text-transform: uppercase;
 }
-
 .hero-title{
-  margin:0 0 .45rem 0;
-  font-size: clamp(2.0rem, 2.4vw, 2.55rem);
+  margin:0 0 .55rem 0;
+  font-size: clamp(2.05rem, 2.6vw, 2.75rem);
   letter-spacing:-0.02em;
 }
-
 .hero-sub{
   margin:0 0 .85rem 0;
   opacity:.9;
   line-height: 1.45;
-  max-width: 60ch;
+  max-width: 62ch;
 }
 
-.hero-bullets{
-  margin:0 0 1rem 0;
-  padding-left: 1.05rem;
-  opacity:.92;
+/* chips */
+.hero-chips{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin: .15rem 0 1rem;
 }
-.hero-bullets li{ margin:.35rem 0; }
+.chip{
+  font-size:.92rem;
+  padding:.40rem .75rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.95;
+  white-space: nowrap;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.chip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.065);
+  border-color: rgba(255,255,255,.18);
+}
 
+/* CTA centrado */
 .hero-cta{
   display:flex;
   gap:.7rem;
   flex-wrap:wrap;
-  margin-top:.3rem;
-}
-
-/* Mockup */
-.hero-mock{
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-  padding: .6rem;
-}
-.hero-mock img{
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  display:block;
-  opacity: .98;
-}
-
-/* Responsive */
-@media (max-width: 950px){
-  .hero-2col{ grid-template-columns: 1fr; }
+  justify-content:center;
+  margin-top: .2rem;
 }
 
 /* =========================
-   4) Ticker tipo Databricks (alineado + hover)
+   Ticker tipo Databricks
    ========================= */
 .logo-ticker{
   position:relative;
-  margin: 1.05rem auto 0;   /* <- centrado */
+  margin: 1.05rem auto 0;
   padding: .55rem 0;
   border-top: 1px solid rgba(255,255,255,.08);
   border-bottom: 1px solid rgba(255,255,255,.08);
   overflow:hidden;
 }
-
-/* Pista */
 .ticker-track{
   overflow:hidden;
   width: 100%;
 }
-
-/* La fila arranca “dentro” del contenedor, no corrida a la derecha */
 .ticker-row{
   display:flex;
   align-items:center;
@@ -321,8 +295,6 @@ main.content,
   will-change: transform;
   animation: tickerMove 28s linear infinite;
 }
-
-/* Pastillas */
 .tk{
   font-size: .92rem;
   padding: .35rem .65rem;
@@ -333,8 +305,6 @@ main.content,
   opacity: .92;
   transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease, opacity .16s ease;
 }
-
-/* Hover (resalta al pasar mouse) */
 .tk:hover{
   opacity: 1;
   transform: translateY(-1px);
@@ -342,13 +312,10 @@ main.content,
   border-color: rgba(255,255,255,.22);
   box-shadow: 0 10px 22px rgba(0,0,0,.26);
 }
-
 @keyframes tickerMove{
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
-
-/* “Fade” laterales */
 .ticker-fade{
   position:absolute; top:0; bottom:0;
   width: 80px;
@@ -357,19 +324,18 @@ main.content,
 }
 .ticker-fade.left{
   left:0;
-  background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0));
+  background: linear-gradient(to right, rgba(6,10,18,1), rgba(6,10,18,0));
 }
 .ticker-fade.right{
   right:0;
-  background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0));
+  background: linear-gradient(to left, rgba(6,10,18,1), rgba(6,10,18,0));
 }
-
-/* Respeta accesibilidad */
 @media (prefers-reduced-motion: reduce){
   .ticker-row{ animation:none; }
 }
 </style>
 ```
+
 
 ---
 
@@ -476,6 +442,26 @@ main.content,
 </div>
 ```
 
+
+---
+
+## 🧩 Plantillas dashboards {#plantillas}
+```{=html}
+<div class="course-card" style="margin-top:14px">
+  <h3 style="margin-top:0">Plantillas listas para usar</h3>
+  <p style="opacity:.92;margin:0 0 .55rem 0">
+    Tableros y flujos listos para arrancar rápido (ejemplos: control de gastos, marketing digital, analítica comercial).
+    Incluye guía y soporte de instalación si lo necesitas.
+  </p>
+  <div class="enroll-cta" style="margin-top:10px">
+    <a class="btn btn-primary" href="plantillas.html">Ver página de plantillas</a>
+    <a class="btn btn-outline-secondary"
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20ver%20opciones%20de%20plantillas%20de%20dashboards%20(Plantillas%20BI%20Evolution)."
+       target="_blank" rel="noopener">Pedir recomendación</a>
+  </div>
+</div>
+```
+
 ---
 
 ## 📦 ¿Qué datos necesitas?
@@ -490,6 +476,30 @@ main.content,
   <p style="margin:0;opacity:.9">
     Si tu data está desordenada, podemos hacer un paso previo de <strong>modelado y preparación</strong> para que el framework funcione.
   </p>
+</div>
+```
+
+
+---
+
+## 🤝 Asesorías & Freelance {#asesorias}
+```{=html}
+<div class="course-card" style="margin-top:14px">
+  <h3 style="margin-top:0">Dashboards, automatización y analítica aplicada</h3>
+  <p style="opacity:.92;margin:0 0 .55rem 0">
+    Si necesitas construir o mejorar un tablero en Power BI (modelo, DAX, performance, RLS, publicación en Service),
+    o automatizar la carga de datos, podemos trabajarlo por alcance y entregables claros.
+  </p>
+  <ul style="margin:0 0 .7rem 1.1rem;opacity:.92">
+    <li>Auditoría de dashboard y recomendaciones (quick wins)</li>
+    <li>Modelo estrella + medidas DAX + buenas prácticas</li>
+    <li>Publicación en Service, RLS y handover</li>
+  </ul>
+  <div class="enroll-cta" style="margin-top:10px">
+    <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20una%20asesor%C3%ADa%20o%20servicio%20freelance%20de%20dashboards%20en%20Power%20BI."
+       target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    <a class="btn btn-outline-secondary" href="asesorias.html">Ver página de asesorías</a>
+  </div>
 </div>
 ```
 
@@ -541,3 +551,17 @@ main.content,
 </div>
 ```
  -->
+
+
+---
+
+<!-- ## ➕ Más {#mas}
+```{=html}
+<div class="course-card" style="margin-top:14px">
+  <h3 style="margin-top:0">Recursos y próximos contenidos</h3>
+  <p style="opacity:.92;margin:0">
+    Aquí puedo ir agregando guías, casos de estudio, material gratuito, y novedades de lanzamientos.
+  </p>
+</div>
+``` -->
+
