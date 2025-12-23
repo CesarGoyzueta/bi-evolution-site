@@ -124,96 +124,157 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
 ## Empieza aquí {#empieza}
 
 ```{=html}
-<!-- Dos caminos principales: Plantillas vs Asesorías -->
-<div class="grid be-shell be-reveal be-anchor-offset" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch">
-
-  <!-- Plantillas -->
-  <div class="course-card be-card">
-    <h3 style="margin-top:0">🧩 Plantillas listas para usar</h3>
-    <p>Arranca rápido con <strong>tableros y flujos listos</strong> (Control de gastos, API Meta + Python, GA4 en Power BI). Incluye datos de ejemplo, guía y soporte de instalación.</p>
-    <ul>
-      <li>PBIX + datasets de ejemplo</li>
-      <li>Guía paso a paso (PDF/Video)</li>
-      <li>Soporte para dejarlo funcionando</li>
-    </ul>
-    <div class="enroll-cta">
-      <a class="btn btn-primary" href="plantillas.html">Ver plantillas</a>
-      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20las%20plantillas." target="_blank" rel="noopener">Consultar por WhatsApp</a>
-    </div>
+<!-- =========================
+     EMPieza aquí (MISMO FORMATO que Plantillas: .be-products + .be-product)
+     ========================= -->
+<section class="be-shell be-reveal be-anchor-offset" aria-label="Empieza aquí">
+  <div class="be-section-head">
+    <h2 style="margin:0">Empieza aquí</h2>
+    <p style="margin:.35rem 0 0;opacity:.92">
+      Elige tu camino: <strong>Plantillas</strong> para arrancar rápido o <strong>Asesorías</strong> para construir a medida.
+    </p>
   </div>
 
-  <!-- Asesorías -->
-  <div class="course-card be-card">
-    <h3 style="margin-top:0">🤝 Asesorías & Freelance</h3>
-    <p>Diseño e implementación de tableros en <strong>Power BI</strong> y <strong>flujos reproducibles</strong> de datos. Entregables claros, buenas prácticas y publicación en Service (si aplica).</p>
-    <ul>
-      <li>Revisión de KPIs y alcance</li>
-      <li>Modelo de datos + DAX</li>
-      <li>Publicación, RLS y handover</li>
-    </ul>
-    <div class="enroll-cta">
-      <a class="btn btn-primary" href="asesorias.html">Ver servicios</a>
-      <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance." target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-  </div>
+  <div class="be-products be-products--2" style="margin-top:.9rem">
+    <!-- Plantillas -->
+    <article class="be-product be-glow">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">🧩</div>
+        <div>
+          <div class="be-product__badge">Arranca rápido</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Plantillas listas para usar</h3>
+          <div class="be-product__price">PBIX + guía + soporte</div>
+        </div>
+      </div>
 
-</div>
+      <ul class="be-bullets" aria-label="Incluye">
+        <li>PBIX + datasets de ejemplo.</li>
+        <li>Guía paso a paso (PDF/Video).</li>
+        <li>Soporte para dejarlo funcionando.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="plantillas.html">Ver plantillas</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20las%20plantillas."
+           target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+    </article>
+
+    <!-- Asesorías -->
+    <article class="be-product be-glow">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">🤝</div>
+        <div>
+          <div class="be-product__badge">A medida</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Asesorías & Freelance</h3>
+          <div class="be-product__price">KPIs · Modelado · Publicación</div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Incluye">
+        <li>Revisión de KPIs y alcance.</li>
+        <li>Modelo de datos + DAX (buenas prácticas).</li>
+        <li>Publicación, RLS (si aplica) y handover.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="asesorias.html">Ver servicios</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+           target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      </div>
+    </article>
+  </div>
+</section>
 ```
 
 ## Soluciones (IA & Analítica) {#soluciones-ia}
 
 ```{=html}
-<!-- Sección nueva pedida: Soluciones (IA & Analítica) -->
-<section class="be-shell be-reveal be-anchor-offset" style="margin-top:14px">
+<!-- =========================
+     Soluciones (IA & Analítica) — MISMO FORMATO que "Elige tu plantilla (rápido)"
+     ========================= -->
+<section class="be-shell be-reveal be-anchor-offset" style="margin-top:14px" aria-label="Soluciones IA y Analítica">
   <div class="be-section-head">
     <h2 style="margin:0">⚙️ Soluciones (IA & Analítica)</h2>
-    <p style="margin:.35rem 0 0;opacity:.9">
+    <p style="margin:.35rem 0 0;opacity:.92">
       Para empresas y equipos: automatización, analítica avanzada y asistentes con IA para acelerar resultados.
     </p>
   </div>
 
-  <div class="grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px">
-    <div class="course-card be-card">
-      <h3 style="margin-top:0">🤖 Automatización con IA</h3>
-      <p>Reduce trabajo manual (reportes, validaciones, extracción, clasificación) con flujos seguros y medibles.</p>
-      <ul>
-        <li>Automatización de reportes y procesos</li>
-        <li>Extracción de info (PDF/Docs/Emails)</li>
-        <li>Alertas y priorización inteligente</li>
-      </ul>
-      <div class="enroll-cta">
-        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20conocer%20sobre%20automatizaci%C3%B3n%20con%20IA." target="_blank" rel="noopener">Quiero una propuesta</a>
-        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+  <div class="be-products" style="margin-top:.9rem">
+    <article class="be-product be-glow">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">🤖</div>
+        <div>
+          <div class="be-product__badge">Automatización</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Automatización con IA</h3>
+          <div class="be-product__price">Menos manual · más velocidad</div>
+        </div>
       </div>
-    </div>
 
-    <div class="course-card be-card">
-      <h3 style="margin-top:0">🧠 Analítica avanzada</h3>
-      <p>Modelos predictivos, segmentación y optimización para decisiones con impacto (ventas, riesgo, operaciones).</p>
-      <ul>
-        <li>Scoring / clasificación</li>
-        <li>Segmentación y clustering</li>
-        <li>Optimización y experimentación</li>
+      <ul class="be-bullets" aria-label="Beneficios">
+        <li>Automatización de reportes y procesos.</li>
+        <li>Extracción de info (PDF/Docs/Emails).</li>
+        <li>Alertas y priorización inteligente.</li>
       </ul>
-      <div class="enroll-cta">
-        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20una%20soluci%C3%B3n%20de%20anal%C3%ADtica%20avanzada." target="_blank" rel="noopener">Cotizar</a>
-        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
-      </div>
-    </div>
 
-    <div class="course-card be-card">
-      <h3 style="margin-top:0">💬 Asistentes & Chatbots</h3>
-      <p>Asistentes con LLM + RAG para soporte, ventas y consulta interna, conectados a tus documentos y datos.</p>
-      <ul>
-        <li>RAG con documentos</li>
-        <li>Integración con APIs / BI</li>
-        <li>Evaluación y seguridad</li>
-      </ul>
-      <div class="enroll-cta">
-        <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20asistente%20con%20IA%20para%20mi%20equipo." target="_blank" rel="noopener">Hablemos</a>
+      <div class="be-product__cta">
         <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20conocer%20sobre%20automatizaci%C3%B3n%20con%20IA."
+           target="_blank" rel="noopener">Quiero una propuesta</a>
       </div>
-    </div>
+    </article>
+
+    <article class="be-product be-glow">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">🧠</div>
+        <div>
+          <div class="be-product__badge">Modelos</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Analítica avanzada</h3>
+          <div class="be-product__price">Predicción · Segmentación</div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Beneficios">
+        <li>Scoring / clasificación.</li>
+        <li>Segmentación y clustering.</li>
+        <li>Optimización y experimentación.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20una%20soluci%C3%B3n%20de%20anal%C3%ADtica%20avanzada."
+           target="_blank" rel="noopener">Cotizar</a>
+      </div>
+    </article>
+
+    <article class="be-product be-glow">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">💬</div>
+        <div>
+          <div class="be-product__badge">Asistentes</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Asistentes & Chatbots</h3>
+          <div class="be-product__price">LLM + RAG + Integraciones</div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Beneficios">
+        <li>RAG con documentos.</li>
+        <li>Integración con APIs / BI.</li>
+        <li>Evaluación, seguridad y trazabilidad.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="soluciones.html">Ver detalle</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20asistente%20con%20IA%20para%20mi%20equipo."
+           target="_blank" rel="noopener">Hablemos</a>
+      </div>
+    </article>
   </div>
 </section>
 ```
@@ -221,20 +282,34 @@ Nos mueve la **pasión por aprender y enseñar** de forma que simplifique tu cam
 ## ¿Prefieres aprender tú?
 
 ```{=html}
-<!-- Tarjeta única para el curso -->
-<div class="course-card be-shell be-card be-reveal be-anchor-offset">
-  <h3 style="margin-top:0">📚 Curso Power BI</h3>
-  <p>Aprende BI con un enfoque práctico: <strong>modelado, dashboard y storytelling</strong>. Ejemplos reales, soporte y materiales descargables.</p>
-  <ul>
-    <li>Clases claras y enfocadas</li>
-    <li>Materiales y datasets</li>
-    <li>Proyecto final guiado</li>
-  </ul>
-  <div class="enroll-cta">
-    <a class="btn btn-primary" href="powerbi.html">Ir al curso</a>
-    <a class="btn btn-outline-secondary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20del%20curso%20de%20Power%20BI." target="_blank" rel="noopener">Quiero más info</a>
+<!-- Tarjeta única para el curso (MISMO FORMATO be-product) -->
+<section class="be-shell be-reveal be-anchor-offset" style="margin-top:14px" aria-label="Curso Power BI">
+  <div class="be-products be-products--1">
+    <article class="be-product be-glow">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">📚</div>
+        <div>
+          <div class="be-product__badge">Curso</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Curso Power BI</h3>
+          <div class="be-product__price">Modelado · Dashboard · Storytelling</div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Incluye">
+        <li>Clases claras y enfocadas.</li>
+        <li>Materiales y datasets descargables.</li>
+        <li>Proyecto final guiado.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="powerbi.html">Ir al curso</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20del%20curso%20de%20Power%20BI."
+           target="_blank" rel="noopener">Quiero más info</a>
+      </div>
+    </article>
   </div>
-</div>
+</section>
 ```
 
 ## 👨‍🏫 Sobre mí (Instructor & Consultor) {#sobre-mi}
@@ -356,10 +431,17 @@ Recibe avisos de nuevas cohortes, descuentos y material gratuito.
 <!-- ====== Estilos + Scripts de dinamismo (sin borrar tu contenido) ====== -->
 <style>
 /* ===== Layout general ===== */
-.be-shell{ max-width: 1180px; margin-left:auto; margin-right:auto; padding: 0 14px; }
+:root{
+  --be-nav-h: 62px;
+  --content-max: 1180px;
+
+  /* glow estilo Plantillas */
+  --glow-cyan: rgba(64,214,255,.22);
+  --glow-green: rgba(110,231,183,.18);
+}
+.be-shell{ max-width: var(--content-max); margin-left:auto; margin-right:auto; padding: 0 14px; }
 
 /* ===== NAV STICKY (NO TAPA EL CONTENIDO) ===== */
-:root{ --be-nav-h: 62px; }
 .be-topnav{
   position: sticky;
   top: 0;
@@ -422,15 +504,13 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   .be-menu{ gap:10px; }
 }
 
-/* ===== HERO (ahora con panel redondeado) ===== */
+/* ===== HERO (panel redondeado) ===== */
 .be-hero{
   position: relative;
   padding: .8rem 0 .5rem;
   margin-top: .4rem;
   margin-bottom: .55rem;
 }
-
-/* Panel redondeado con borde/fondo (igual enfoque que Asesorías) */
 .be-hero__panel{
   position: relative;
   border-radius: 22px;
@@ -440,14 +520,9 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   box-shadow: 0 18px 40px rgba(0,0,0,.28);
   padding: 1.10rem 1.05rem .95rem;
 }
-
-/* Mantiene el contenido por encima de los blobs */
 .be-hero__panel > *{ position: relative; z-index: 1; }
+.be-hero__content{ text-align:center; padding:.2rem 0 0; }
 
-.be-hero__content{
-  text-align: center;
-  padding: .2rem 0 0;
-}
 .be-hero__badge{
   display:inline-block;
   font-size:.78rem;
@@ -479,11 +554,9 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
 .hero-bg .b1{ top:-80px; left:-80px; animation: float1 12s ease-in-out infinite; }
 .hero-bg .b2{ top:20px; right:-120px; background: radial-gradient(circle, rgba(59,73,142,.55), transparent 60%); animation: float2 14s ease-in-out infinite; }
 .hero-bg .b3{ bottom:-140px; left:35%; background: radial-gradient(circle, rgba(255,255,255,.18), transparent 60%); animation: float3 16s ease-in-out infinite; }
-
 @keyframes float1{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(40px,30px)}}
 @keyframes float2{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(-45px,20px)}}
 @keyframes float3{ 0%,100%{ transform:translate(0,0) } 50%{ transform:translate(0,-45px)}}
-
 @media (prefers-reduced-motion: reduce){ .hero-bg .blob{ animation:none; } }
 
 /* ===== Ticker herramientas ===== */
@@ -504,10 +577,7 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   will-change: transform;
   animation: tickerMove 26s linear infinite;
 }
-@keyframes tickerMove{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
-}
+@keyframes tickerMove{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
 .be-ticker__fade{
   position:absolute; top:0; bottom:0;
   width: 80px;
@@ -533,51 +603,7 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   border-color: rgba(255,255,255,.22);
   box-shadow: 0 10px 22px rgba(0,0,0,.26);
 }
-@media (prefers-reduced-motion: reduce){
-  .be-ticker__row{ animation:none; }
-}
-
-/* ===== Pills + Cards hover ===== */
-.stat-pills{ justify-content:center; }
-.stat-pills .pill{
-  transition: transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
-}
-.stat-pills .pill:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.18);
-  box-shadow: 0 14px 26px rgba(0,0,0,.22);
-}
-.be-card{
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-}
-.be-card:hover{
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,.18);
-  background: rgba(255,255,255,.05);
-  box-shadow: 0 18px 44px rgba(0,0,0,.30);
-}
-
-/* ===== Hover "pro" con brillo que sigue al mouse (para course-card) ===== */
-.course-card{
-  position:relative;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-}
-.course-card::after{
-  content:"";
-  position:absolute; inset:-1px;
-  border-radius: inherit;
-  background: radial-gradient(900px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.10), transparent 40%);
-  opacity:0; pointer-events:none;
-  transition: opacity .18s ease;
-}
-.course-card:hover{
-  transform: translateY(-3px);
-  border-color: rgba(255,255,255,.18);
-  background: rgba(255,255,255,.05);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-}
-.course-card:hover::after{ opacity:1; }
+@media (prefers-reduced-motion: reduce){ .be-ticker__row{ animation:none; } }
 
 /* ===== Reveal on scroll ===== */
 .be-reveal{
@@ -585,9 +611,93 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   transform: translateY(10px);
   transition: opacity .45s ease, transform .45s ease;
 }
-.be-reveal.is-visible{
-  opacity: 1;
-  transform: translateY(0);
+.be-reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+/* ===== Section head ===== */
+.be-section-head h2{ font-weight: 850; letter-spacing: -0.01em; }
+.be-section-head p{ max-width: 90ch; }
+
+/* ========= Glow dinámico (IGUAL a Plantillas) ========= */
+.be-glow{ position: relative; }
+.be-glow::after{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    900px circle at var(--mx,50%) var(--my,30%),
+    rgba(255,255,255,.11),
+    transparent 40%
+  );
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .18s ease;
+}
+.be-glow:hover::after{ opacity:1; }
+
+/* ========= Cards estilo Plantillas ========= */
+.be-products{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+}
+.be-products--2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.be-products--1{ grid-template-columns: 1fr; }
+
+.be-product{
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  border-radius: 18px;
+  padding: 1.0rem 1.05rem;
+  box-shadow: 0 14px 34px rgba(0,0,0,.20); /* sombra normal (no glow) */
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.be-product:hover{
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.18);
+  /* glow SOLO al hover */
+  box-shadow:
+    0 22px 56px rgba(0,0,0,.30),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 0 10px rgba(64,214,255,.06),
+    0 0 28px var(--glow-cyan),
+    0 0 42px var(--glow-green);
+}
+.be-product:focus-within{
+  transform: translateY(-3px);
+  border-color: rgba(64,214,255,.30);
+  box-shadow:
+    0 22px 56px rgba(0,0,0,.30),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 0 10px rgba(64,214,255,.06),
+    0 0 28px var(--glow-cyan);
+}
+.be-product__top{ display:flex; gap:.75rem; align-items:flex-start; }
+.be-product__icon{
+  width:44px; height:44px; border-radius: 14px;
+  display:grid; place-items:center;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 12px 26px rgba(0,0,0,.20);
+}
+.be-product__badge{
+  display:inline-flex;
+  padding:.22rem .55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  font-size:.78rem;
+  opacity:.92;
+}
+.be-product__title{ font-size: 1.05rem; }
+.be-product__price{ opacity:.92; font-size:.95rem; }
+.be-bullets{ margin:.65rem 0 .2rem; padding-left: 1.05rem; opacity:.92; }
+.be-bullets li{ margin:.34rem 0; }
+.be-product__cta{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem; }
+
+@media (max-width: 980px){
+  .be-products, .be-products--2{ grid-template-columns: 1fr; }
 }
 
 /* ===== Testimonios: carrusel ===== */
@@ -656,8 +766,9 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
 /* Accesibilidad */
 @media (prefers-reduced-motion: reduce){
   .be-reveal{ opacity: 1; transform: none; transition:none; }
-  .be-card, .stat-pills .pill, .t-btn, .course-card{ transition:none; }
+  .be-product, .t-btn{ transition:none; }
   .t-slide{ transition:none; }
+  .be-glow::after{ display:none; }
 }
 </style>
 
@@ -710,14 +821,14 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   }, {threshold: 0.6});
   counters.forEach(c=>ioCount.observe(c));
 
-  // 3) Hover glow que sigue al mouse (course-card)
+  // 3) Glow que sigue al mouse (para .be-glow)
   document.addEventListener('mousemove', (e) => {
-    const card = e.target.closest('.course-card');
-    if(!card) return;
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100).toFixed(2)+'%');
-    card.style.setProperty('--my', ((e.clientY - r.top)/r.height*100).toFixed(2)+'%');
-  });
+    const el = e.target.closest('.be-glow');
+    if(!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100).toFixed(2)+'%');
+    el.style.setProperty('--my', ((e.clientY - r.top)/r.height*100).toFixed(2)+'%');
+  }, {passive:true});
 
   // 4) Carrusel testimonios (manual, sin librerías)
   const root = document.querySelector('.t-carousel');
