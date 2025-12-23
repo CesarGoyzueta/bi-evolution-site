@@ -1,0 +1,499 @@
+---
+title: "Sistema de Inversión Disciplinada (Control de Riesgo)"
+subtitle: "Órdenes claras · Gestión prudente · Decisiones con reglas"
+author: "BI Evolution"
+lang: es
+format:
+  html:
+    theme: cosmo
+    toc: false
+    page-layout: full
+    smooth-scroll: true
+    self-contained: true
+    code-fold: false
+    anchor-sections: true
+    highlight-style: github
+    fig-align: center
+    include-in-header:
+      text: |
+        <style>
+        
+        
+        /* =========================
+           FIX: títulos de callouts visibles
+           (Nota / Importante / Advertencia)
+           ========================= */
+        .callout .callout-header{
+          background: rgba(10,14,25,.88) !important;
+          border-bottom: 1px solid rgba(255,255,255,.10) !important;
+        }
+        .callout .callout-title-container{
+          color: rgba(255,255,255,.96) !important;
+          font-weight: 900 !important;
+        }
+        .callout .callout-icon-container{
+          color: rgba(255,255,255,.92) !important;
+          opacity: .95 !important;
+        }
+        .callout .callout-body{
+          color: rgba(255,255,255,.90) !important;
+        }
+        
+        /* =========================
+             Fondo (estética Soluciones)
+             ========================= */
+          body{
+            background:
+              radial-gradient(900px circle at 18% 10%, rgba(36,136,255,.18), transparent 55%),
+              radial-gradient(820px circle at 86% 18%, rgba(0,214,170,.12), transparent 55%),
+              radial-gradient(900px circle at 55% 95%, rgba(163,97,255,.12), transparent 55%),
+              linear-gradient(180deg, rgba(6,10,18,1), rgba(7,12,22,1));
+            color: rgba(255,255,255,.90);
+          }
+        
+          :root{
+            --content-max: 1180px;
+            --be-nav-h: 64px;
+        
+            --be-text: rgba(255,255,255,.90);
+            --be-text-soft: rgba(255,255,255,.78);
+            --be-border: rgba(255,255,255,.12);
+            --be-border-2: rgba(255,255,255,.18);
+            --be-card: rgba(255,255,255,.03);
+            --be-card-2: rgba(255,255,255,.05);
+        
+            --glow-cyan: rgba(64,214,255,.22);
+            --glow-green: rgba(110,231,183,.18);
+        
+            --ink: #0B1220;
+            --ink-2: rgba(15,23,42,.85);
+          }
+        
+          /* ancho consistente */
+          #quarto-document-content,
+          main.content,
+          .page-columns .content{
+            max-width: var(--content-max);
+            margin-left: auto;
+            margin-right: auto;
+          }
+        
+          /* anchors */
+          html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
+          .be-anchor-offset{ scroll-margin-top: calc(var(--be-nav-h) + 14px); }
+        
+          a{ color: rgba(140,200,255,.95); }
+          a:hover{ color: rgba(180,230,255,1); }
+        
+          h1,h2,h3{ color: rgba(255,255,255,.96); font-weight: 850; letter-spacing:-0.01em; }
+          h2{ margin-top: 1.6rem; }
+          h2::after{
+            content:"";
+            display:block;
+            margin-top:.45rem;
+            height:4px;
+            width:86px;
+            border-radius:999px;
+            background: linear-gradient(135deg, rgba(64,214,255,.55), rgba(167,139,250,.45));
+            opacity:.95;
+          }
+          p, li{ color: var(--be-text); }
+        
+          /* =========================
+             NAV (sticky)
+             ========================= */
+          .be-topnav{
+            position: sticky;
+            top: 0;
+            z-index: 300;
+            background: rgba(10,14,25,.62);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,.10);
+          }
+          .be-shell{
+            max-width: var(--content-max);
+            margin-left:auto;
+            margin-right:auto;
+            padding: 0 14px;
+          }
+          .be-topnav__inner{
+            height: var(--be-nav-h);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap: 14px;
+          }
+          .be-brand{
+            display:flex;
+            align-items:center;
+            gap: 10px;
+            color: rgba(255,255,255,.95);
+            text-decoration:none;
+          }
+          .be-brand__dot{
+            width: 10px; height: 10px; border-radius: 99px;
+            background: radial-gradient(circle, rgba(0,214,170,1), rgba(36,136,255,1));
+          }
+          .be-menu{
+            display:flex;
+            align-items:center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content:center;
+          }
+          .be-menu a{
+            color: rgba(255,255,255,.86);
+            text-decoration:none;
+            font-size: .92rem;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+          }
+          .be-menu a:hover{ background: rgba(255,255,255,.06); }
+          @media (max-width: 900px){ .be-menu{ display:none; } }
+        
+          /* =========================
+             HERO card
+             ========================= */
+          .hero-shell{
+            max-width: var(--content-max);
+            margin: 1.2rem auto 1rem;
+            padding: 0 14px;
+          }
+          .be-hero-card{
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.10);
+            background: rgba(255,255,255,.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,.28);
+            padding: 1.1rem 0 .85rem;
+          }
+          .hero-bg{
+            position:absolute; inset:-40px; z-index:0;
+            pointer-events:none;
+            filter: blur(30px);
+            opacity:.55;
+          }
+          .hero-bg .blob{
+            position:absolute;
+            width:420px; height:420px;
+            border-radius:999px;
+            background: radial-gradient(circle, rgba(64,214,255,.35), transparent 60%);
+          }
+          .hero-bg .b1{ top:-110px; left:-120px; }
+          .hero-bg .b2{ top:10px; right:-140px; background: radial-gradient(circle, rgba(110,231,183,.28), transparent 60%); }
+          .hero-bg .b3{ bottom:-160px; left:35%; background: radial-gradient(circle, rgba(167,139,250,.22), transparent 60%); }
+        
+          .hero-1col{
+            position: relative;
+            z-index: 1;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-align:center;
+            padding: .25rem 0 .3rem;
+          }
+          .hero-tag{
+            display:inline-block;
+            font-size:.78rem;
+            letter-spacing:.12em;
+            opacity:.82;
+            border:1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.04);
+            padding:.35rem .7rem;
+            border-radius: 999px;
+            margin-bottom: .8rem;
+            text-transform: uppercase;
+          }
+          .hero-title{
+            margin:0 0 .55rem 0;
+            font-size: clamp(2.05rem, 2.6vw, 2.75rem);
+            letter-spacing:-0.02em;
+            color: rgba(255,255,255,.96);
+          }
+          .hero-sub{
+            margin:0 0 .85rem 0;
+            opacity:.92;
+            line-height: 1.45;
+            max-width: 70ch;
+            color: rgba(255,255,255,.90);
+          }
+          .hero-chips{
+            display:flex;
+            gap: 10px;
+            flex-wrap:wrap;
+            justify-content:center;
+            margin: .15rem 0 1rem;
+          }
+          .chip{
+            font-size:.92rem;
+            padding:.40rem .75rem;
+            border-radius:999px;
+            border:1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.05);
+            color: rgba(255,255,255,.90);
+            opacity:.98;
+            white-space: nowrap;
+            transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+          }
+          .chip:hover{
+            transform: translateY(-1px);
+            background: rgba(255,255,255,.08);
+            border-color: rgba(255,255,255,.20);
+            box-shadow: 0 14px 28px rgba(0,0,0,.22);
+          }
+          .hero-cta{
+            display:flex;
+            gap:.7rem;
+            flex-wrap:wrap;
+            justify-content:center;
+            margin-top: .2rem;
+            position: relative;
+            z-index: 1;
+          }
+        
+          /* =========================
+             Cards y callouts
+             ========================= */
+          .course-card{
+            border: 1px solid rgba(255,255,255,.10);
+            background: rgba(255,255,255,.02);
+            border-radius: 18px;
+            padding: 1.05rem 1.05rem .95rem;
+            box-shadow: 0 16px 40px rgba(0,0,0,.20);
+          }
+        
+          .callout{
+            border-radius: 18px !important;
+            border: 1px solid var(--be-border) !important;
+            background: rgba(255,255,255,.02) !important;
+            box-shadow: 0 16px 40px rgba(0,0,0,.24) !important;
+            overflow: hidden;
+          }
+        
+          /* =========================
+             BOTONES (simple)
+             ========================= */
+          .btn{
+            border-radius: 999px !important;
+            padding: .55rem .95rem !important;
+            font-weight: 800 !important;
+          }
+          .btn-primary{
+            background: rgba(36,136,255,.88) !important;
+            border-color: rgba(36,136,255,.72) !important;
+          }
+          .btn-primary:hover{
+            background: rgba(36,136,255,1) !important;
+            border-color: rgba(36,136,255,1) !important;
+          }
+          .btn-outline-secondary{
+            border-color: rgba(255,255,255,.22) !important;
+            color: rgba(255,255,255,.92) !important;
+          }
+          .btn-outline-secondary:hover{
+            background: rgba(255,255,255,.08) !important;
+            border-color: rgba(255,255,255,.30) !important;
+          }
+        
+          /* =========================
+             TABLAS: modo CLARO para legibilidad
+             ========================= */
+          table.table{
+            --bs-table-color: #0B1220;
+            --bs-table-bg: rgba(255,255,255,.96);
+            --bs-table-striped-bg: rgba(15,23,42,.04);
+            --bs-table-striped-color: #0B1220;
+            --bs-table-hover-bg: rgba(15,23,42,.06);
+            --bs-table-hover-color: #0B1220;
+            --bs-table-border-color: rgba(15,23,42,.10);
+        
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.10);
+            background: rgba(255,255,255,.96);
+            box-shadow: 0 16px 40px rgba(0,0,0,.22);
+            color: #0B1220 !important;
+          }
+          table.table thead th{
+            background: rgba(17,24,39,.92) !important;
+            color: rgba(255,255,255,.96) !important;
+            border-bottom: 1px solid rgba(255,255,255,.10) !important;
+          }
+          table.table tbody td{
+            color: #0B1220 !important;
+          }
+          </style>
+
+        <script>
+        (function(){
+          // Scroll suave para anclas del topnav
+          document.addEventListener('click', (ev)=>{
+            const a = ev.target.closest('.be-topnav a[href^="#"]');
+            if(!a) return;
+            const id = a.getAttribute('href');
+            const el = document.querySelector(id);
+            if(!el) return;
+            ev.preventDefault();
+            const y = el.getBoundingClientRect().top + window.scrollY - 86;
+            window.scrollTo({top:y, behavior:'smooth'});
+            history.replaceState(null, '', id);
+          });
+        })();
+        </script>
+---
+
+```{=html}
+<!-- =========================
+ NAV STICKY CENTRADO (estilo Soluciones)
+ ========================= -->
+<header class="be-topnav" role="banner">
+  <div class="be-topnav__inner be-shell">
+    <a class="be-brand" href="#inicio" aria-label="BI Evolution - Inicio">
+      <span class="be-brand__dot" aria-hidden="true"></span>
+      <strong>BI Evolution</strong>
+    </a>
+
+    <nav class="be-menu" aria-label="Navegación principal">
+      <a href="#inicio" aria-current="page">Inicio</a>
+      <a href="#beneficios">Qué recibes</a>
+      <a href="#orden">Ejemplo de orden</a>
+      <a href="#perfil">Para quién</a>
+      <a href="#disclaimer">Disclaimer</a>
+    </nav>
+
+    <a class="btn btn-primary be-topnav__cta"
+       href="{{< meta whatsapp >}}?text=Hola%20BI%20Evolution%2C%20quiero%20informaci%C3%B3n%20del%20sistema%20de%20inversi%C3%B3n%20disciplinada%20con%20control%20de%20riesgo."
+       target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<p align="center" style="margin-top:12px">
+  <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
+</p>
+
+<!-- =========================
+ HERO (misma estética)
+ ========================= -->
+<section class="hero-shell be-anchor-offset" id="inicio">
+  <div class="be-hero-card">
+
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+    </div>
+
+    <section class="hero-1col">
+      <div class="hero-tag">SISTEMA CUANTITATIVO · INVERSIÓN DISCIPLINADA</div>
+
+      <h1 class="hero-title">Invierte con reglas, no con impulsos</h1>
+
+      <p class="hero-sub">
+        Un enfoque cuantitativo pensado para el día a día: diversifica, controla el riesgo y define reglas claras para decidir
+        <strong>qué comprar</strong> y <strong>cuándo rebalancear</strong>.
+      </p>
+
+      <div class="hero-chips" aria-label="Componentes clave">
+        <span class="chip">⚖️ Diversificación</span>
+        <span class="chip">🛡️ Control de riesgo</span>
+        <span class="chip">🧾 Reglas claras</span>
+        <span class="chip">🧊 No operar diario</span>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20BI%20Evolution%2C%20quiero%20una%20muestra%20de%20%C3%B3rdenes%20y%20c%C3%B3mo%20funciona%20el%20control%20de%20riesgo."
+           target="_blank" rel="noopener">
+          📌 Quiero una muestra
+        </a>
+
+        <a class="btn btn-outline-secondary"
+           href="#orden">
+          Ver ejemplo
+        </a>
+      </div>
+    </section>
+
+  </div>
+</section>
+```
+
+## 🚀 ¿Qué es este sistema?
+
+Este documento presenta el sistema de inversión cuantitativa de **BI Evolution**, diseñado para personas que desean invertir con reglas claras, control de riesgo y disciplina operativa.
+
+::: callout-note
+**En simple:** te da **órdenes entendibles** y una guía de **cuándo ajustar** el portafolio sin estar pegado al mercado.
+:::
+
+## 🎯 ¿Qué recibes como cliente? {#beneficios}
+
+```{=html}
+<div class="course-card be-shell" style="margin-top:14px">
+  <ul style="margin:0; padding-left: 1.2rem; opacity:.92">
+    <li><strong>Órdenes claras</strong> (acciones enteras) con montos aproximados.</li>
+    <li><strong>Distribución sugerida</strong> del capital y posiciones recomendadas.</li>
+    <li><strong>Control de riesgo</strong>: el sistema define cuánto conviene invertir según el entorno.</li>
+    <li><strong>Rebalanceo periódico</strong> (no señales diarias) para evitar operar por emoción.</li>
+  </ul>
+</div>
+```
+
+## 💰 ¿Por qué a veces no se invierte el 100%?
+
+Porque el sistema prioriza la **protección del capital**.
+
+- Si el riesgo sube, puede mantener una parte en efectivo.
+- Si el entorno mejora, aumenta la inversión.
+
+::: callout-important
+**Esto es intencional:** no estar 100% invertido todo el tiempo puede reducir caídas fuertes y dar flexibilidad.
+:::
+
+## 📊 Ejemplo de una orden típica (capital base: USD 7,000) {#orden}
+
+```{=html}
+<div class="course-card be-shell" style="margin-top:14px">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Activo</th>
+        <th>% del portafolio</th>
+        <th>Monto estimado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>META</strong></td><td>24%</td><td>$660</td><td>1</td></tr>
+      <tr><td><strong>MSTR</strong></td><td>23%</td><td>$650</td><td>4</td></tr>
+      <tr><td><strong>GOOGL</strong></td><td>22%</td><td>$620</td><td>2</td></tr>
+      <tr><td><strong>NVDA</strong></td><td>20%</td><td>$550</td><td>3</td></tr>
+      <tr><td><strong>AAPL</strong></td><td>10%</td><td>$270</td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin:.55rem 0 0; opacity:.9">
+    <strong>Nota:</strong> el monto total invertido puede ser menor al capital disponible si el sistema detecta un entorno de riesgo elevado.
+  </p>
+</div>
+```
+
+## 🧠 ¿Para quién es este sistema? {#perfil}
+
+✔ Personas que valoran reglas claras  
+✔ Inversionistas que no desean operar diariamente  
+✔ Quienes priorizan control de riesgo y consistencia  
+
+🚫 No es para trading diario ni apuestas agresivas.
+
+## ⚖️ Aviso importante {#disclaimer}
+
+::: callout-warning
+- Este documento es informativo y educativo.  
+- No constituye asesoramiento financiero personalizado.  
+- Los mercados implican riesgo y pueden generar pérdidas.  
+- Cada persona debe evaluar si este enfoque se ajusta a su perfil.
+:::

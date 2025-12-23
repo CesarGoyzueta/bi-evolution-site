@@ -7,6 +7,7 @@ project:
     - asesorias.qmd
     - plantillas.qmd
     - soluciones.qmd
+    - inversionistas.qmd   # ✅ NUEVO: landing inversionistas
     - faq.qmd
     - about.qmd
   resources:
@@ -28,9 +29,10 @@ website:
       #   text: Curso Python
       # - href: r-course.qmd
       #   text: Curso R
+
       - text: Soluciones (IA & Analítica)
         href: soluciones.qmd
-        
+
       # Servicios
       - text: Asesorías & Freelance - Dashboards
         href: asesorias.qmd
@@ -39,13 +41,9 @@ website:
       - text: Plantillas dashboards
         href: plantillas.qmd
 
-      # Proyecto / laboratorio (lo tienes comentado)
-      #- text: Proyecto Forecasting
-      #  href: pronostico.qmd
-      #  icon: graph-up
-
-      # ✅ NUEVO: Hub de soluciones avanzadas
-      
+      # ✅ NUEVO: Inversionistas (demo/landing)
+      - text: Inversionistas
+        href: inversionistas.qmd
 
       # Menú secundario
       - text: Más
