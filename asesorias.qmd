@@ -32,8 +32,8 @@ toc: false
   </div>
 </nav>
 
-<!-- ===== HERO (visible + con contraste) ===== -->
-<header id="inicio" class="hero be-shell be-reveal">
+<!-- ===== HERO (panel pro + glow) ===== -->
+<header id="inicio" class="hero be-shell be-anchor-offset be-reveal be-glow" aria-label="Asesorías y freelance">
   <div class="hero-bg" aria-hidden="true">
     <span class="blob b1"></span>
     <span class="blob b2"></span>
@@ -71,7 +71,7 @@ toc: false
       </a>
     </div>
 
-    <!-- ===== TICKER / CARRUSEL (igual enfoque que IA) ===== -->
+    <!-- ===== TICKER / CARRUSEL ===== -->
     <div class="logo-ticker" aria-label="Capacidades y enfoque">
       <div class="ticker-fade left"></div>
       <div class="ticker-fade right"></div>
@@ -114,9 +114,9 @@ toc: false
 ## Paquetes y modalidades {#paquetes}
 
 ```{=html}
-<div class="be-shell be-reveal">
+<div class="be-shell be-reveal be-anchor-offset">
   <div class="plans">
-    <div class="card">
+    <div class="card be-glow">
       <div class="badge"><span class="icon">🧩</span> Implementación</div>
       <h3>Reporte tal cual (flujo existente)</h3>
       <div class="price">Precio menor · según alcance</div>
@@ -132,7 +132,7 @@ toc: false
       </div>
     </div>
 
-    <div class="card highlight">
+    <div class="card highlight be-glow">
       <div class="badge"><span class="icon">🛠️</span> Personalizado</div>
       <h3>Diseño + Modelado + Publicación</h3>
       <div class="price">A medida · según requerimientos</div>
@@ -148,7 +148,7 @@ toc: false
       </div>
     </div>
 
-    <div class="card">
+    <div class="card be-glow">
       <div class="badge"><span class="icon">🤝</span> Soporte</div>
       <h3>Mantenimiento mensual (opcional)</h3>
       <div class="price">Plan mensual</div>
@@ -178,7 +178,7 @@ toc: false
 
 ```{=html}
 <div class="be-shell be-reveal">
-  <div class="viz">
+  <div class="viz be-glow">
     <iframe title="registro_contable"
             src="https://app.powerbi.com/view?r=eyJrIjoiZDBiYjMxNzgtNWFiYy00YzI2LWIzY2QtZWY2NDhjNmQ5NjcxIiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
             allowfullscreen="true"></iframe>
@@ -189,21 +189,21 @@ toc: false
 ## ¿Cómo trabajamos? {#como-trabajamos}
 
 ```{=html}
-<div class="be-shell be-reveal">
+<div class="be-shell be-reveal be-anchor-offset">
   <div class="grid-2">
-    <div class="card">
+    <div class="card be-glow">
       <h3>1) Descubrimiento</h3>
       <p>Entendemos objetivos, KPIs, fuentes y usuarios. Alineamos alcance y prioridades.</p>
     </div>
-    <div class="card">
+    <div class="card be-glow">
       <h3>2) Propuesta & timeline</h3>
       <p>Definimos entregables, esfuerzo, hitos y plan de publicación.</p>
     </div>
-    <div class="card">
+    <div class="card be-glow">
       <h3>3) Implementación</h3>
       <p>Modelado de datos, DAX/medidas, visuales y validaciones con usuarios clave.</p>
     </div>
-    <div class="card">
+    <div class="card be-glow">
       <h3>4) Publicación & handover</h3>
       <p>Despliegue en Power BI Service, RLS (si aplica) y transferencia de conocimiento.</p>
     </div>
@@ -230,7 +230,7 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
 ## Contáctame {#contacto}
 
 ```{=html}
-<div class="be-shell be-reveal">
+<div class="be-shell be-reveal be-anchor-offset">
   <div class="cta-row">
     <a class="btn btn-primary btn-xl"
        href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
@@ -239,21 +239,33 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
 </div>
 
 <style>
-/* ========= Base (si tu tema ya es oscuro, esto solo mejora contraste) ========= */
-.be-shell{ max-width: 1180px; margin-left:auto; margin-right:auto; padding: 0 14px; }
+/* ========= Base ========= */
+:root{
+  --content-max: 1180px;
+  --be-nav-h: 62px;
+
+  /* (NUEVO) mismos colores de glow suave tipo "Plantillas" */
+  --glow-cyan: rgba(64,214,255,.22);
+  --glow-green: rgba(110,231,183,.18);
+}
+.be-shell{ max-width: var(--content-max); margin-left:auto; margin-right:auto; padding: 0 14px; }
+
+/* anclas: evita que sticky tape */
+html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
+.be-anchor-offset{ scroll-margin-top: calc(var(--be-nav-h) + 14px); }
 
 /* ========= Topbar ========= */
 .be-topnav{
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 200;
   padding: .55rem 0;
-  background: rgba(10,14,25,.55);
+  background: rgba(10,14,25,.62);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.10);
 }
 .be-topnav__inner{
-  max-width: 1180px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: 0 14px;
   display:flex;
@@ -287,38 +299,35 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
   font-size: .92rem;
   padding: .32rem .58rem;
   border-radius: 999px;
-  transition: background .16s ease, color .16s ease, transform .16s ease;
+  transition: background .16s ease, color .16s ease, transform .16s ease, box-shadow .16s ease;
 }
 .be-topnav .links a:hover{
   background: rgba(255,255,255,.08);
   color: rgba(255,255,255,.95);
   transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.20);
 }
 .btn-nav{ margin-left: 8px; }
 
-/* Responsive: evita que se “rompa” */
 @media (max-width: 900px){
   .be-topnav__inner{ justify-content:space-between; }
   .be-topnav .links{ display:none; }
 }
 
-/* ========= HERO (VISIBLE) ========= */
+/* ========= HERO (panel) ========= */
 .hero{
   position: relative;
   margin: 1.1rem auto 1.2rem;
   padding: 1.15rem 0 1.0rem;
   border-radius: 22px;
   overflow:hidden;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.02);
+  box-shadow: 0 18px 48px rgba(0,0,0,.26);
 }
-.hero-content{
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
+.hero-content{ position: relative; z-index: 1; text-align: center; }
 .hero-title{
-  font-weight: 850;
+  font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.08;
   margin: .45rem 0 .65rem;
@@ -336,7 +345,7 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
   color: rgba(255,255,255,.90);
 }
 
-/* blobs fondo (más variedad, pero suave) */
+/* blobs */
 .hero-bg{ position:absolute; inset:-40px; z-index:0; pointer-events:none; filter: blur(30px); opacity:.55; }
 .hero-bg .blob{ position:absolute; width:420px; height:420px; border-radius:999px; background: radial-gradient(circle, rgba(64,214,255,.35), transparent 60%); }
 .hero-bg .b1{ top:-110px; left:-120px; }
@@ -364,7 +373,7 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
 .cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.05rem 0 .2rem;justify-content:center}
 .btn-xl{padding:.88rem 1.25rem;font-size:1.02rem;border-radius:.95rem}
 
-/* ========= TICKER (CARRUSEL) ========= */
+/* ========= TICKER ========= */
 .logo-ticker{
   position:relative;
   margin: 1.05rem auto 0;
@@ -380,10 +389,19 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
   align-items:center;
   gap: 18px;
   width: max-content;
-  padding-left: 0;
   will-change: transform;
   animation: tickerMove 28s linear infinite;
 }
+@keyframes tickerMove{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+.ticker-fade{
+  position:absolute; top:0; bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index:2;
+}
+.ticker-fade.left{ left:0; background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0)); }
+.ticker-fade.right{ right:0; background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0)); }
+
 .tk{
   font-size: .92rem;
   padding: .35rem .65rem;
@@ -401,52 +419,68 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
   border-color: rgba(255,255,255,.22);
   box-shadow: 0 10px 22px rgba(0,0,0,.26);
 }
-@keyframes tickerMove{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
-}
-.ticker-fade{
-  position:absolute; top:0; bottom:0;
-  width: 80px;
-  pointer-events:none;
-  z-index:2;
-}
-.ticker-fade.left{
-  left:0;
-  background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0));
-}
-.ticker-fade.right{
-  right:0;
-  background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0));
-}
 @media (prefers-reduced-motion: reduce){
   .ticker-row{ animation:none; }
 }
 
-/* tarjetas de plans */
+/* ========= Cards (PAQUETES) — MISMO “lift + borde + luz” de Plantillas ========= */
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin: .9rem 0 1.15rem}
 .card{
+  position:relative;
   border:1px solid rgba(255,255,255,.12);
   background:rgba(255,255,255,.03);
-  border-radius:1.05rem;padding:1.15rem;
+  border-radius: 18px;
+  padding: 1.15rem;
   color: rgba(255,255,255,.92);
+
+  /* (NUEVO) sombra base tipo Plantillas */
+  box-shadow: 0 14px 34px rgba(0,0,0,.20);
+
   transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
 }
 .card:hover{
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   background: rgba(255,255,255,.05);
   border-color: rgba(255,255,255,.18);
-  box-shadow: 0 18px 40px rgba(0,0,0,.26);
+
+  /* (NUEVO) borde + lift + “luz” como en Elige tu plantilla (rápido) */
+  box-shadow:
+    0 22px 56px rgba(0,0,0,.30),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 0 10px rgba(64,214,255,.06),
+    0 0 28px var(--glow-cyan),
+    0 0 42px var(--glow-green);
 }
+
+/* foco accesible (similar al comportamiento de Plantillas) */
+.card:focus-within{
+  transform: translateY(-3px);
+  border-color: rgba(64,214,255,.30);
+  box-shadow:
+    0 22px 56px rgba(0,0,0,.30),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 0 10px rgba(64,214,255,.06),
+    0 0 28px var(--glow-cyan);
+}
+
 .card.highlight{
   border-color: rgba(64,214,255,.26);
-  box-shadow: 0 0 0 1px rgba(64,214,255,.14) inset;
+  box-shadow: 0 0 0 1px rgba(64,214,255,.12) inset, 0 14px 34px rgba(0,0,0,.20);
 }
+.card.highlight:hover{
+  border-color: rgba(64,214,255,.32);
+}
+
 .card h3{margin:.25rem 0 .35rem}
-.price{font-weight:750;font-size:1.06rem;opacity:.98;margin:.25rem 0 .55rem}
+.price{font-weight:800;font-size:1.06rem;opacity:.98;margin:.25rem 0 .55rem}
 .badge{
-  font-size:.8rem;border:1px solid rgba(255,255,255,.18);
-  border-radius:999px;padding:.18rem .55rem;display:inline-flex;gap:.4rem;align-items:center;
+  font-size:.8rem;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  padding:.18rem .55rem;
+  display:inline-flex;
+  gap:.4rem;
+  align-items:center;
   background: rgba(255,255,255,.03);
 }
 
@@ -455,8 +489,17 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
 .list-check li{margin:.38rem 0;opacity:.95}
 .list-check li::before{content:"✓";margin-right:.55rem;opacity:.9}
 
-/* embed responsive Power BI */
-.viz{position:relative;width:100%;aspect-ratio:16/9;background:#0b132b;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.10) inset}
+/* embed Power BI */
+.viz{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background: rgba(255,255,255,.02);
+  border-radius: 16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
 .viz iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* grids */
@@ -469,14 +512,42 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
   .logo-ticker{ max-width: 100%; }
 }
 
-/* reveal on scroll */
-.be-reveal{ opacity:1; transform:none; }
-.be-reveal.is-visible{ opacity:1; transform:none; }
-@media (prefers-reduced-motion: reduce){ .be-reveal{ opacity:1; transform:none; transition:none; } }
+/* ========= Glow (MISMO QUE "Sobre mí") ========= */
+.be-glow{ position: relative; }
+.be-glow::after{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius: inherit;
+  background: radial-gradient(900px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.11), transparent 40%);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .18s ease;
+}
+.be-glow:hover::after{ opacity:1; }
+
+/* ========= Reveal on scroll (ACTIVO) ========= */
+.be-reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.be-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .be-reveal{ opacity:1; transform:none; transition:none; }
+  .card, .chip, .tk, .be-topnav .links a{ transition:none; }
+  .ticker-row{ animation:none; }
+  .be-glow::after{ display:none; }
+}
 </style>
 
 <script>
 (function(){
+  // 1) Reveal on scroll
   const els = document.querySelectorAll('.be-reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
@@ -488,7 +559,16 @@ Se trabaja con accesos controlados. Se firma NDA si lo requieres.
   }, {threshold: 0.12});
   els.forEach(el=>io.observe(el));
 
-  // Scroll suave para anclas (evita que la topbar tape el título)
+  // 2) Glow que sigue al mouse (MISMO QUE "Sobre mí")
+  document.addEventListener('mousemove', (e) => {
+    const el = e.target.closest('.be-glow');
+    if(!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100).toFixed(2)+'%');
+    el.style.setProperty('--my', ((e.clientY - r.top)/r.height*100).toFixed(2)+'%');
+  }, {passive:true});
+
+  // 3) Scroll suave para anclas (evita que la topbar tape el título)
   document.querySelectorAll('.be-topnav a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (ev)=>{
       const id = a.getAttribute('href');

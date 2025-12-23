@@ -1,29 +1,441 @@
 ---
 title: "Sobre mí"
-page-layout: article
+page-layout: full
 toc: false
 ---
 
-# Hola, soy César Goyzueta 👋
+```{=html}
+<!-- =========================
+     ABOUT — PANEL PRO (BORDE REDONDEADO + FOTO + TICKER)
+     Ajustes: glow dinámico, micro-sección de “qué puedes esperar”, mejor jerarquía, y CTA más “ventas”.
+     ========================= -->
 
-- Data Scientist con más de 4 años de experiencia de Data Science, BI & Data practitioner — modelado, DAX, visualización y publicación en **Power BI**, con experiencia en AI Engineering
-- Foco en **resultados aplicables** y buenas prácticas reproducibles.
-- He trabajado con finanzas, operaciones, marketing y productos digitales.
+<section class="be-shell be-reveal be-anchor-offset" id="inicio" aria-label="Sobre mí">
+  <div class="about-panel be-glow">
+    <!-- Fondo vivo sutil -->
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+    </div>
 
-## Qué me diferencia
-- **Flujos reproducibles** (no solo “bonitos”), con control de cambios.
-- **Storytelling con datos** y UX clara (tableros accionables).
-- Publicación segura en **Power BI Service** (RLS, workspaces, permisos).
+    <div class="about-inner">
+      <div class="about-badge">BUSINESS INTELLIGENCE · DATA SCIENCE · AI ENGINEERING</div>
 
-## Machine Learning & AI Engineering
-- Diseño de **pipelines de ML** de punta a punta: preparación de datos, feature engineering, entrenamiento, validación y despliegue.
-- Modelos supervisados/ no supervisados y **series de tiempo** para forecasting.
-- Integración de modelos con aplicaciones analíticas y tableros para generar **impacto de negocio**.
-- Generación de chatbot, RAG y flujos para enriquecimiento de datos con modelos LLM's.
+      <!-- Header con foto -->
+      <div class="about-head">
+        <img class="about-photo" src="assets/cesar.jpg" alt="César Goyzueta" loading="lazy">
+        <div class="about-head__text">
+          <h1 class="about-title">Hola, soy César Goyzueta 👋</h1>
+          <p class="about-subtitle">
+            Ayudo a <strong>emprendedores</strong>, <strong>MYPES</strong> y <strong>empresas</strong> a convertir sus datos en
+            <strong>decisiones claras</strong>, <strong>accionables</strong> y con <strong>impacto real</strong>.
+          </p>
 
-## Herramientas
-Power BI, Power Query (M), DAX, **Python (pandas, scikit-learn,etc)**, R, SQL, Langchain/LangGraph/LangSmith, Databricks & Azure.
+          <!-- micro “promesa” para vender sin sonar vendedor -->
+          <div class="about-pills" aria-label="Qué puedes esperar">
+            <span class="pill">📌 KPIs ejecutivos en 10s</span>
+            <span class="pill">⚡ Quick wins + roadmap</span>
+            <span class="pill">🔁 Flujos reproducibles</span>
+            <span class="pill">🛡️ Publicación segura</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="about-grid">
+        <div class="about-card be-glow">
+          <h3>🌱 Mi propósito</h3>
+          <p>
+            Creo firmemente que los datos no están para impresionar, sino para
+            <strong>reducir la incertidumbre</strong>, <strong>priorizar mejor</strong> y <strong>crecer con criterio</strong>.
+          </p>
+          <p style="margin:0;opacity:.95">
+            Desde hace más de <strong>4 años</strong> combino <strong>Business Intelligence</strong>, <strong>Analítica Avanzada</strong>
+            y <strong>Machine Learning</strong>, siempre con foco en el negocio.
+          </p>
+        </div>
 
-## Contacto
-- Newsletter: [SendFox](https://sendfox.com/cesargoyzuetameneses)
+        <div class="about-card be-glow">
+          <h3>🚀 Cómo ayudo</h3>
+          <ul class="list-check">
+            <li>Dashboards ejecutivos y analíticos en <strong>Power BI</strong>.</li>
+            <li>Modelos predictivos y segmentación aplicados (ventas, riesgo, operaciones).</li>
+            <li>Automatización y asistentes con <strong>IA Generativa</strong> (LLMs + RAG).</li>
+            <li>Flujos reproducibles y escalables (de la data al impacto).</li>
+          </ul>
+        </div>
+
+        <div class="about-card be-glow">
+          <h3>🧭 Qué me diferencia</h3>
+          <ul class="list-check">
+            <li>Enfoque en <strong>valor de negocio</strong>, no solo técnica.</li>
+            <li><strong>Storytelling</strong> y UX para decisiones rápidas.</li>
+            <li>Puente real entre negocio y tecnología (hablamos “claro”).</li>
+            <li>Soluciones pensadas para usarse, no para quedarse en teoría.</li>
+          </ul>
+        </div>
+
+        <div class="about-card be-glow">
+          <h3>🧰 Herramientas</h3>
+          <p class="tools">
+            Power BI · DAX · Power Query · SQL · Python · R · Databricks · Azure ·
+            LangChain · LangGraph · LangSmith · LLMs · RAG
+          </p>
+
+          <!-- mini-bloque “ideal para…” (muy útil para emprendedores/MYPES) -->
+          <div class="about-fit">
+            <span class="fit-tag">Ideal para</span>
+            <div class="fit-list">
+              <span>📊 Ventas & Marketing</span>
+              <span>💰 Finanzas & Control</span>
+              <span>⚙️ Operaciones</span>
+              <span>🧑‍💼 Dirección / Gerencia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticker (carrusel de herramientas / keywords) -->
+      <div class="be-ticker" aria-label="Tecnologías y enfoques">
+        <div class="be-ticker__fade left"></div>
+        <div class="be-ticker__fade right"></div>
+
+        <div class="be-ticker__track">
+          <div class="be-ticker__row" aria-hidden="true">
+            <span class="tk">Power BI</span>
+            <span class="tk">DAX</span>
+            <span class="tk">Power Query</span>
+            <span class="tk">SQL</span>
+            <span class="tk">Python</span>
+            <span class="tk">Databricks</span>
+            <span class="tk">Azure</span>
+            <span class="tk">MLflow</span>
+            <span class="tk">RAG</span>
+            <span class="tk">LLMs</span>
+            <span class="tk">Automatización</span>
+            <span class="tk">Storytelling</span>
+
+            <!-- duplicado para loop perfecto -->
+            <span class="tk">Power BI</span>
+            <span class="tk">DAX</span>
+            <span class="tk">Power Query</span>
+            <span class="tk">SQL</span>
+            <span class="tk">Python</span>
+            <span class="tk">Databricks</span>
+            <span class="tk">Azure</span>
+            <span class="tk">MLflow</span>
+            <span class="tk">RAG</span>
+            <span class="tk">LLMs</span>
+            <span class="tk">Automatización</span>
+            <span class="tk">Storytelling</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="about-foot">
+        Si buscas a alguien que te ayude a <strong>entender tus datos</strong> y usarlos para tomar mejores decisiones, conversemos.
+      </p>
+
+      <div class="about-cta">
+        <a class="btn btn-primary"
+           href="https://www.linkedin.com/in/cesargoyzueta/"
+           target="_blank" rel="noopener">Ver mi LinkedIn</a>
+
+        <a class="btn btn-outline-secondary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20conversar%20sobre%20c%C3%B3mo%20podemos%20dar%20valor%20a%20mis%20datos.%20Mi%20rubro%20es%3A%20%5B...%5D%20y%20tengo%20esta%20meta%3A%20%5B...%5D."
+           target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ========= Base ========= */
+:root{
+  --content-max: 1180px;
+  --be-nav-h: 62px;
+}
+
+/* ancho */
+.be-shell{ max-width: var(--content-max); margin-left:auto; margin-right:auto; padding: 0 14px; }
+
+/* anclas */
+html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
+.be-anchor-offset{ scroll-margin-top: calc(var(--be-nav-h) + 14px); }
+
+/* ========= Panel ========= */
+.about-panel{
+  position:relative;
+  margin: 1.05rem auto 1.15rem;
+  border-radius: 22px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+  box-shadow: 0 18px 48px rgba(0,0,0,.26);
+}
+
+/* glow dinámico (como tus cards) */
+.be-glow{ position: relative; }
+.be-glow::after{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius: inherit;
+  background: radial-gradient(900px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.11), transparent 40%);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .18s ease;
+}
+.be-glow:hover::after{ opacity:1; }
+
+.about-inner{
+  position:relative;
+  z-index:1;
+  padding: 1.2rem 1.1rem 1.05rem;
+  text-align:center;
+}
+.about-badge{
+  display:inline-block;
+  font-size:.78rem;
+  letter-spacing:.14em;
+  opacity:.80;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.045);
+  padding:.35rem .7rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  margin-bottom: .9rem;
+}
+
+/* header con foto */
+.about-head{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 14px;
+  flex-wrap:wrap;
+  margin-bottom: .7rem;
+}
+.about-photo{
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 18px 34px rgba(0,0,0,.30);
+}
+.about-head__text{ max-width: 920px; }
+.about-title{
+  margin:.1rem 0 .35rem 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(2.05rem, 2.9vw, 3.05rem);
+  color: rgba(255,255,255,.97);
+}
+.about-subtitle{
+  margin: 0 auto;
+  max-width: 78ch;
+  opacity: .92;
+  line-height: 1.48;
+}
+
+/* mini pills */
+.about-pills{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top: .75rem;
+}
+
+/* pills reutilizadas */
+.pill{
+  display:inline-flex;
+  gap:.45rem;
+  align-items:center;
+  padding:.42rem .72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.90);
+  font-size:.92rem;
+  transition: transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
+}
+.pill:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 14px 26px rgba(0,0,0,.22);
+}
+
+/* grid */
+.about-grid{
+  margin: 1.05rem auto .85rem;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+  text-align:left;
+}
+.about-card{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius: 18px;
+  padding: 1.0rem 1.0rem .95rem;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.about-card:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 18px 40px rgba(0,0,0,.26);
+}
+.about-card h3{ margin:.1rem 0 .55rem; }
+
+/* lista checks */
+.list-check{ padding-left: 0; list-style: none; margin:.4rem 0 0; }
+.list-check li{ margin:.35rem 0; opacity:.95; }
+.list-check li::before{ content:"✓"; margin-right:.55rem; opacity:.9; }
+
+.tools{ margin:0; opacity:.92; line-height: 1.55; }
+
+/* “ideal para” */
+.about-fit{ margin-top:.8rem; padding-top:.75rem; border-top: 1px solid rgba(255,255,255,.08); }
+.fit-tag{
+  display:inline-block;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  opacity:.78;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+  padding:.30rem .6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.fit-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem .75rem;
+  margin-top:.65rem;
+  opacity:.92;
+}
+.fit-list span{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius: 999px;
+  padding: .32rem .58rem;
+  font-size: .9rem;
+}
+
+/* footer + CTA */
+.about-foot{
+  margin: .75rem auto .9rem;
+  opacity:.92;
+  max-width: 78ch;
+}
+.about-cta{
+  display:flex;
+  justify-content:center;
+  gap: .7rem;
+  flex-wrap:wrap;
+  margin-bottom: .25rem;
+}
+
+/* ========= blobs ========= */
+.hero-bg{ position:absolute; inset:-40px; z-index:0; pointer-events:none; filter: blur(28px); opacity:.52; }
+.hero-bg .blob{ position:absolute; width:380px; height:380px; border-radius:999px; background: radial-gradient(circle, rgba(64,214,255,.40), transparent 60%); }
+.hero-bg .b1{ top:-85px; left:-90px; }
+.hero-bg .b2{ top:20px; right:-130px; background: radial-gradient(circle, rgba(110,231,183,.28), transparent 60%); }
+.hero-bg .b3{ bottom:-150px; left:35%; background: radial-gradient(circle, rgba(167,139,250,.24), transparent 60%); }
+
+/* ========= ticker ========= */
+.be-ticker{
+  position:relative;
+  margin: .9rem auto .6rem;
+  padding: .55rem 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+.be-ticker__track{ overflow:hidden; width:100%; }
+.be-ticker__row{
+  display:flex;
+  align-items:center;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+  animation: tickerMove 26s linear infinite;
+}
+@keyframes tickerMove{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+.be-ticker__fade{
+  position:absolute; top:0; bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index:2;
+}
+.be-ticker__fade.left{ left:0; background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0)); }
+.be-ticker__fade.right{ right:0; background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0)); }
+.tk{
+  font-size: .92rem;
+  padding: .34rem .64rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  white-space: nowrap;
+  opacity: .92;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease, opacity .16s ease;
+}
+.tk:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 10px 22px rgba(0,0,0,.26);
+}
+@media (prefers-reduced-motion: reduce){
+  .be-ticker__row{ animation:none; }
+}
+
+/* ========= reveal ========= */
+.be-reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.be-reveal.is-visible{ opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .be-reveal{ opacity:1; transform:none; transition:none; }
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .about-grid{ grid-template-columns: 1fr; }
+  .about-inner{ padding: 1.05rem .9rem 1.0rem; }
+  .about-photo{ width: 84px; height: 84px; }
+}
+</style>
+
+<script>
+(function(){
+  // Reveal on scroll (mismo dinamismo)
+  const els = document.querySelectorAll('.be-reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.12});
+  els.forEach(el=>io.observe(el));
+
+  // Glow que sigue al mouse (panel + cards)
+  document.addEventListener('mousemove', (e) => {
+    const el = e.target.closest('.be-glow');
+    if(!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100).toFixed(2)+'%');
+    el.style.setProperty('--my', ((e.clientY - r.top)/r.height*100).toFixed(2)+'%');
+  });
+})();
+</script>
+```
