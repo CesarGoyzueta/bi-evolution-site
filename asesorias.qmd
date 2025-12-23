@@ -1,320 +1,365 @@
 ---
-title: "Soluciones (IA & Analítica)"
+title: "Asesorías & Freelance — Dashboards"
 page-layout: full
 toc: false
 ---
 
 ```{=html}
-<!-- =========================
- NAV STICKY CENTRADO (TIPO HOME)
- ========================= -->
-<header class="be-topnav" role="banner">
-  <div class="be-topnav__inner be-shell">
-    <a class="be-brand" href="#inicio" aria-label="BI Evolution - Inicio">
-      <span class="be-brand__dot" aria-hidden="true"></span>
-      <strong>BI Evolution</strong>
-    </a>
-
-    <nav class="be-menu" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#inicio" aria-current="page">Soluciones (IA &amp; Analítica)</a>
-      <a href="#asesorias">Asesorías &amp; Freelance</a>
-      <a href="#plantillas">Plantillas</a>
-      <a href="#mas">Más</a>
-    </nav>
-
-    <a class="btn btn-primary be-topnav__cta"
-       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
-       target="_blank" rel="noopener">
-      WhatsApp
-    </a>
-  </div>
-</header>
-
-<p align="center" style="margin-top:12px">
+<p align="center">
   <img src="logo.png" alt="BI Evolution" width="180" class="hero-logo" />
 </p>
 
-<!-- =========================
- HERO con BORDE + FONDO REDONDEADO (estilo dashboards)
- + glow mouse (be-glow)
- ========================= -->
-<section class="hero-shell be-anchor-offset" id="inicio">
-  <div class="be-hero-card be-reveal be-glow">
+<!-- ===== Topbar in-page (centrado) ===== -->
+<nav class="be-topnav" aria-label="Navegación de la página">
+  <div class="be-topnav__inner">
+    <a class="brand" href="index.html" aria-label="Ir al inicio de BI Evolution">
+      <span class="dot"></span>
+      <span>BI Evolution</span>
+    </a>
 
-    <div class="hero-bg" aria-hidden="true">
-      <span class="blob b1"></span>
-      <span class="blob b2"></span>
-      <span class="blob b3"></span>
+    <div class="links" role="navigation" aria-label="Secciones">
+      <a href="#inicio">Inicio</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
     </div>
 
-    <section class="hero-1col">
-      <div class="hero-tag">SOLUCIONES IA &amp; ANALÍTICA</div>
+    <a class="btn btn-whatsapp btn-nav"
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+       target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</nav>
 
-      <h1 class="hero-title">Framework de IA para acelerar ventas</h1>
+<!-- ===== HERO (panel pro + glow) ===== -->
+<header id="inicio" class="hero be-shell be-anchor-offset be-reveal be-glow" aria-label="Asesorías y freelance">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
 
-      <p class="hero-sub">
-        Convierte tus datos en resultados reales (sin complicarte).<br>
-        <strong>Prospección → Conversión → Priorización → Crecimiento</strong>
-      </p>
+  <div class="hero-content">
+    <div class="hero-eyebrow chip"><span class="icon">🧭</span> Servicios profesionales</div>
 
-      <!-- Chips (mejor que bullets en hero centrado) -->
-      <div class="hero-chips" aria-label="Beneficios principales">
-        <span class="chip">📌 Prioriza leads (Lead Scoring)</span>
-        <span class="chip">🧠 Segmenta clientes (Clustering)</span>
-        <span class="chip">📈 Proyecta valor (CLV + RFM)</span>
-      </div>
+    <h1 class="hero-title">Dashboards en Power BI para decisiones rápidas</h1>
 
-      <div class="hero-cta">
-        <a class="btn btn-primary"
-           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20un%20diagn%C3%B3stico%20r%C3%A1pido%20del%20Framework%20de%20IA%20para%20ventas%20(5%20pasos)."
-           target="_blank" rel="noopener">
-          📌 Quiero un diagnóstico
-        </a>
+    <p class="lead">
+      Diseño e implementación de tableros en <strong>Power BI</strong> y flujos de datos reproducibles.
+      Cotización rápida por <strong>WhatsApp</strong>. Si solo quieres el <em>reporte tal cual</em> (implementación del flujo),
+      el costo es menor.
+    </p>
 
-        <a class="btn btn-whatsapp"
-           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
-           target="_blank" rel="noopener">
-          WhatsApp
-        </a>
-      </div>
-    </section>
+    <div class="chips" aria-label="Beneficios">
+      <span class="chip"><span class="icon">⚡</span> Entregas ágiles</span>
+      <span class="chip"><span class="icon">🔁</span> Flujos reproducibles</span>
+      <span class="chip"><span class="icon">🔒</span> Buenas prácticas</span>
+      <span class="chip"><span class="icon">📊</span> Visuales accionables</span>
+    </div>
 
-    <!-- TICKER (DENTRO del card) -->
-    <div class="logo-ticker" aria-label="Tecnologías y enfoques">
+    <div class="cta-row">
+      <a class="btn btn-primary btn-xl"
+         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+         target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
+        💬 Cotizar por WhatsApp
+      </a>
+
+      <a class="btn btn-outline-secondary btn-xl"
+         href="#paquetes" aria-label="Ver paquetes">
+        Ver paquetes
+      </a>
+    </div>
+
+    <!-- ===== TICKER / CARRUSEL ===== -->
+    <div class="logo-ticker" aria-label="Capacidades y enfoque">
       <div class="ticker-fade left"></div>
       <div class="ticker-fade right"></div>
 
       <div class="ticker-track">
         <div class="ticker-row" aria-hidden="true">
           <span class="tk">Power BI</span>
-          <span class="tk">Python</span>
-          <span class="tk">SQL</span>
-          <span class="tk">Azure</span>
-          <span class="tk">Databricks</span>
-          <span class="tk">MLflow</span>
-          <span class="tk">RFM</span>
-          <span class="tk">Lead Scoring</span>
-          <span class="tk">Clustering</span>
-          <span class="tk">CLV</span>
+          <span class="tk">DAX</span>
+          <span class="tk">Power Query</span>
+          <span class="tk">Modelado</span>
+          <span class="tk">Star Schema</span>
+          <span class="tk">KPIs</span>
+          <span class="tk">RLS</span>
+          <span class="tk">Dataflows</span>
+          <span class="tk">Performance</span>
+          <span class="tk">Storytelling</span>
+          <span class="tk">UX</span>
 
           <!-- duplicado para loop perfecto -->
           <span class="tk">Power BI</span>
-          <span class="tk">Python</span>
-          <span class="tk">SQL</span>
-          <span class="tk">Azure</span>
-          <span class="tk">Databricks</span>
-          <span class="tk">MLflow</span>
-          <span class="tk">RFM</span>
-          <span class="tk">Lead Scoring</span>
-          <span class="tk">Clustering</span>
-          <span class="tk">CLV</span>
+          <span class="tk">DAX</span>
+          <span class="tk">Power Query</span>
+          <span class="tk">Modelado</span>
+          <span class="tk">Star Schema</span>
+          <span class="tk">KPIs</span>
+          <span class="tk">RLS</span>
+          <span class="tk">Dataflows</span>
+          <span class="tk">Performance</span>
+          <span class="tk">Storytelling</span>
+          <span class="tk">UX</span>
         </div>
       </div>
     </div>
+    <!-- ===== /TICKER ===== -->
 
   </div>
-</section>
+</header>
+```
+
+## Paquetes y modalidades {#paquetes}
+
+```{=html}
+<div class="be-shell be-reveal be-anchor-offset">
+  <div class="plans">
+    <div class="card be-glow">
+      <div class="badge"><span class="icon">🧩</span> Implementación</div>
+      <h3>Reporte tal cual (flujo existente)</h3>
+      <div class="price">Precio menor · según alcance</div>
+      <ul class="list-check">
+        <li>Implemento el flujo y tablero actual (sin cambios de alcance).</li>
+        <li>Conexión a tus datos y publicación.</li>
+        <li>Checklist de uso y breve handover.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-outline-primary btn-xl"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20b%C3%A1sico."
+           target="_blank" rel="noopener">Solicitar</a>
+      </div>
+    </div>
+
+    <div class="card highlight be-glow">
+      <div class="badge"><span class="icon">🛠️</span> Personalizado</div>
+      <h3>Diseño + Modelado + Publicación</h3>
+      <div class="price">A medida · según requerimientos</div>
+      <ul class="list-check">
+        <li>Relevamiento de KPIs, UX/UI y storytelling.</li>
+        <li>Modelado de datos y DAX (buenas prácticas).</li>
+        <li>Publicación en Power BI Service + RLS (si aplica).</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-xl"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20un%20reporte%20personalizado."
+           target="_blank" rel="noopener">Cotizar ahora</a>
+      </div>
+    </div>
+
+    <div class="card be-glow">
+      <div class="badge"><span class="icon">🤝</span> Soporte</div>
+      <h3>Mantenimiento mensual (opcional)</h3>
+      <div class="price">Plan mensual</div>
+      <ul class="list-check">
+        <li>Monitoreo básico y actualizaciones menores.</li>
+        <li>Pequeñas mejoras y soporte funcional.</li>
+        <li>Horas de consulta prioritaria.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-outline-primary btn-xl"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20sobre%20mantenimiento%20mensual%20de%20un%20dashboard."
+           target="_blank" rel="noopener">Más info</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="tip">
+    💡 <strong>Tip:</strong> si aún no tienes claro el alcance, empezamos con un discovery de 30–45 min (sin costo)
+    para alinear expectativas y estimar esfuerzo.
+  </p>
+</div>
+```
+
+## Portafolio / Ejemplos {#portafolio}
+
+### 📘 Registro Contable, Facebook & Instagram y Google Analytics (Power BI)
+
+```{=html}
+<div class="be-shell be-reveal">
+  <div class="viz be-glow">
+    <iframe title="registro_contable"
+            src="https://app.powerbi.com/view?r=eyJrIjoiZDBiYjMxNzgtNWFiYy00YzI2LWIzY2QtZWY2NDhjNmQ5NjcxIiwidCI6ImIwMWRiMjFlLWYzMmUtNDYxMS1iNTU1LTcyMDExZjEwYTA4NiIsImMiOjR9"
+            allowfullscreen="true"></iframe>
+  </div>
+</div>
+```
+
+## ¿Cómo trabajamos? {#como-trabajamos}
+
+```{=html}
+<div class="be-shell be-reveal be-anchor-offset">
+  <div class="grid-2">
+    <div class="card be-glow">
+      <h3>1) Descubrimiento</h3>
+      <p>Entendemos objetivos, KPIs, fuentes y usuarios. Alineamos alcance y prioridades.</p>
+    </div>
+    <div class="card be-glow">
+      <h3>2) Propuesta & timeline</h3>
+      <p>Definimos entregables, esfuerzo, hitos y plan de publicación.</p>
+    </div>
+    <div class="card be-glow">
+      <h3>3) Implementación</h3>
+      <p>Modelado de datos, DAX/medidas, visuales y validaciones con usuarios clave.</p>
+    </div>
+    <div class="card be-glow">
+      <h3>4) Publicación & handover</h3>
+      <p>Despliegue en Power BI Service, RLS (si aplica) y transferencia de conocimiento.</p>
+    </div>
+  </div>
+</div>
+```
+
+## Preguntas frecuentes {#faq}
+
+::: {.callout-tip title="¿Puedo pedir solo la implementación del flujo tal cual?"}
+Sí. Si ya tienes el tablero definido y solo necesitas conectarlo a tus datos y dejarlo funcionando, el costo es menor.
+:::
+
+::: {.callout-tip title="¿Entregas archivos fuente?"}
+Sí. comparto el `.pbix` (y documentación breve del flujo). Si hay scripts externos, se documenta la ruta de ejecución y se brinda el servicio.
+:::
+
+::: {.callout-tip title="¿Trabajas con datos sensibles?"}
+Se trabaja con accesos controlados. Se firma NDA si lo requieres.
+:::
+
+---
+
+## Contáctame {#contacto}
+
+```{=html}
+<div class="be-shell be-reveal be-anchor-offset">
+  <div class="cta-row">
+    <a class="btn btn-primary btn-xl"
+       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20consultar%20sobre%20asesor%C3%ADas%20y%20freelance."
+       target="_blank" rel="noopener">💬 Cotizar por WhatsApp</a>
+  </div>
+</div>
 
 <style>
-/* =========================
-   Fondo diferente (variedad)
-   ========================= */
-body{
-  background:
-    radial-gradient(900px circle at 18% 10%, rgba(36,136,255,.18), transparent 55%),
-    radial-gradient(820px circle at 86% 18%, rgba(0,214,170,.12), transparent 55%),
-    radial-gradient(900px circle at 55% 95%, rgba(163,97,255,.12), transparent 55%),
-    linear-gradient(180deg, rgba(6,10,18,1), rgba(7,12,22,1));
-}
-
-/* =========================
-   0) Ancho “pro” y centrado
-   ========================= */
+/* ========= Base ========= */
 :root{
   --content-max: 1180px;
-  --be-nav-h: 64px;
+  --be-nav-h: 62px;
 
-  /* Glow (mismo look "Sobre mí") */
-  --be-glow-size: 900px;
-  --be-glow-alpha: .11; /* rgba(255,255,255,alpha) */
-  /* Glow (igual que Asesorías/Plantillas) */
+  /* (NUEVO) mismos colores de glow suave tipo "Plantillas" */
   --glow-cyan: rgba(64,214,255,.22);
   --glow-green: rgba(110,231,183,.18);
 }
+.be-shell{ max-width: var(--content-max); margin-left:auto; margin-right:auto; padding: 0 14px; }
 
-/* Para que los anchors no queden tapados por el navbar */
+/* anclas: evita que sticky tape */
 html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
 .be-anchor-offset{ scroll-margin-top: calc(var(--be-nav-h) + 14px); }
 
-/* Contenedor centrado */
-.be-shell{
-  max-width: var(--content-max);
-  margin-left:auto;
-  margin-right:auto;
-  padding: 0 14px;
-}
-
-/* Fuerza el contenido principal a un ancho consistente y centrado */
-#quarto-document-content,
-main.content,
-.page-columns .content{
-  max-width: var(--content-max);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* =========================
-   NAV centrado (tipo home)
-   ========================= */
+/* ========= Topbar ========= */
 .be-topnav{
   position: sticky;
   top: 0;
-  z-index: 300;
+  z-index: 200;
+  padding: .55rem 0;
   background: rgba(10,14,25,.62);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,.10);
 }
 .be-topnav__inner{
-  height: var(--be-nav-h);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 14px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
   gap: 14px;
 }
-.be-brand{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  color: rgba(255,255,255,.95);
+.be-topnav .brand{
+  display:flex; align-items:center; gap:.55rem;
+  color: rgba(255,255,255,.92);
   text-decoration:none;
+  font-weight: 650;
+  margin-right: 6px;
 }
-.be-brand__dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 99px;
-  background: radial-gradient(circle, rgba(0,214,170,1), rgba(36,136,255,1));
+.be-topnav .brand .dot{
+  width: 8px; height: 8px; border-radius: 999px;
+  background: rgba(64,214,255,.9);
+  box-shadow: 0 0 0 6px rgba(64,214,255,.10);
 }
-.be-menu{
+.be-topnav .links{
   display:flex;
-  align-items:center;
   gap: 12px;
-  flex-wrap: wrap;
-  justify-content:center;
+  padding: .28rem .38rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
 }
-.be-menu a{
-  color: rgba(255,255,255,.86);
+.be-topnav .links a{
+  color: rgba(255,255,255,.85);
   text-decoration:none;
   font-size: .92rem;
-  padding: .35rem .6rem;
+  padding: .32rem .58rem;
   border-radius: 999px;
+  transition: background .16s ease, color .16s ease, transform .16s ease, box-shadow .16s ease;
 }
-.be-menu a:hover{ background: rgba(255,255,255,.06); }
+.be-topnav .links a:hover{
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.95);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.20);
+}
+.btn-nav{ margin-left: 8px; }
+
 @media (max-width: 900px){
-  .be-menu{ display:none; }
+  .be-topnav__inner{ justify-content:space-between; }
+  .be-topnav .links{ display:none; }
 }
 
-/* =========================
-   HERO: CARD redondeado
-   ========================= */
-.hero-shell{
-  max-width: var(--content-max);
-  margin: 1.2rem auto 1rem;
-  padding: 0 14px;
-}
-.be-hero-card{
+/* ========= HERO (panel) ========= */
+.hero{
   position: relative;
+  margin: 1.1rem auto 1.2rem;
+  padding: 1.15rem 0 1.0rem;
   border-radius: 22px;
-  overflow: hidden;
+  overflow:hidden;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.02);
-  box-shadow: 0 20px 60px rgba(0,0,0,.28);
-  padding: 1.1rem 0 .85rem;
+  box-shadow: 0 18px 48px rgba(0,0,0,.26);
 }
-.be-hero-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(900px circle at 20% 10%, rgba(64,214,255,.14), transparent 55%),
-    radial-gradient(900px circle at 85% 25%, rgba(110,231,183,.10), transparent 55%);
-  opacity:.85;
-  pointer-events:none;
+.hero-content{ position: relative; z-index: 1; text-align: center; }
+.hero-title{
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: .45rem 0 .65rem;
+  font-size: clamp(2.05rem, 2.8vw, 3.0rem);
+  color: rgba(255,255,255,.96);
+}
+.hero-eyebrow{ opacity:.92; font-size:.95rem; }
+
+.lead{
+  margin: 0 auto;
+  max-width: 70ch;
+  opacity: .92;
+  line-height: 1.55;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.90);
 }
 
-/* Fondo blobs */
-.hero-bg{
-  position:absolute;
-  inset:-40px;
-  z-index:0;
-  pointer-events:none;
-  filter: blur(30px);
-  opacity:.55;
-}
-.hero-bg .blob{
-  position:absolute;
-  width:420px;
-  height:420px;
-  border-radius:999px;
-  background: radial-gradient(circle, rgba(64,214,255,.35), transparent 60%);
-}
+/* blobs */
+.hero-bg{ position:absolute; inset:-40px; z-index:0; pointer-events:none; filter: blur(30px); opacity:.55; }
+.hero-bg .blob{ position:absolute; width:420px; height:420px; border-radius:999px; background: radial-gradient(circle, rgba(64,214,255,.35), transparent 60%); }
 .hero-bg .b1{ top:-110px; left:-120px; }
 .hero-bg .b2{ top:10px; right:-140px; background: radial-gradient(circle, rgba(110,231,183,.28), transparent 60%); }
 .hero-bg .b3{ bottom:-160px; left:35%; background: radial-gradient(circle, rgba(167,139,250,.22), transparent 60%); }
 
-/* Contenido */
-.hero-1col{
-  position: relative;
-  z-index: 1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: .25rem 0 .3rem;
-}
-.hero-tag{
-  display:inline-block;
-  font-size:.78rem;
-  letter-spacing:.12em;
-  opacity:.82;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  padding:.35rem .7rem;
-  border-radius: 999px;
-  margin-bottom: .8rem;
-  text-transform: uppercase;
-}
-.hero-title{
-  margin:0 0 .55rem 0;
-  font-size: clamp(2.05rem, 2.6vw, 2.75rem);
-  letter-spacing:-0.02em;
-  color: rgba(255,255,255,.96);
-}
-.hero-sub{
-  margin:0 0 .85rem 0;
-  opacity:.92;
-  line-height: 1.45;
-  max-width: 62ch;
-  color: rgba(255,255,255,.90);
-}
-
-/* chips */
-.hero-chips{
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin: .15rem 0 1rem;
-}
+/* chips + botones */
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:.9rem 0 0;justify-content:center}
 .chip{
-  font-size:.92rem;
-  padding:.40rem .75rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.05);
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.38rem .68rem;border-radius:999px;font-size:.92rem;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
   color: rgba(255,255,255,.90);
-  opacity:.98;
-  white-space: nowrap;
   transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 .chip:hover{
@@ -323,40 +368,40 @@ main.content,
   border-color: rgba(255,255,255,.20);
   box-shadow: 0 14px 28px rgba(0,0,0,.22);
 }
+.icon{font-size:1rem;opacity:.95}
 
-/* CTA centrado */
-.hero-cta{
-  display:flex;
-  gap:.7rem;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top: .2rem;
-  position: relative;
-  z-index: 1;
-}
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.05rem 0 .2rem;justify-content:center}
+.btn-xl{padding:.88rem 1.25rem;font-size:1.02rem;border-radius:.95rem}
 
-/* =========================
-   Ticker
-   ========================= */
+/* ========= TICKER ========= */
 .logo-ticker{
   position:relative;
-  z-index: 1;
   margin: 1.05rem auto 0;
   padding: .55rem 0;
   border-top: 1px solid rgba(255,255,255,.08);
   border-bottom: 1px solid rgba(255,255,255,.08);
   overflow:hidden;
+  max-width: 980px;
 }
-.ticker-track{ overflow:hidden; width: 100%; }
+.ticker-track{ overflow:hidden; width:100%; }
 .ticker-row{
   display:flex;
   align-items:center;
   gap: 18px;
   width: max-content;
-  padding-left: 0;
   will-change: transform;
   animation: tickerMove 28s linear infinite;
 }
+@keyframes tickerMove{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+.ticker-fade{
+  position:absolute; top:0; bottom:0;
+  width: 80px;
+  pointer-events:none;
+  z-index:2;
+}
+.ticker-fade.left{ left:0; background: linear-gradient(to right, rgba(10,14,25,1), rgba(10,14,25,0)); }
+.ticker-fade.right{ right:0; background: linear-gradient(to left, rgba(10,14,25,1), rgba(10,14,25,0)); }
+
 .tk{
   font-size: .92rem;
   padding: .35rem .65rem;
@@ -374,86 +419,111 @@ main.content,
   border-color: rgba(255,255,255,.22);
   box-shadow: 0 10px 22px rgba(0,0,0,.26);
 }
-@keyframes tickerMove{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
-.ticker-fade{
-  position:absolute; top:0; bottom:0;
-  width: 80px;
-  pointer-events:none;
-  z-index:2;
-}
-.ticker-fade.left{ left:0; background: linear-gradient(to right, rgba(6,10,18,1), rgba(6,10,18,0)); }
-.ticker-fade.right{ right:0; background: linear-gradient(to left, rgba(6,10,18,1), rgba(6,10,18,0)); }
 @media (prefers-reduced-motion: reduce){
   .ticker-row{ animation:none; }
 }
 
-/* =========================
-   COURSE CARDS (para que SÍ se vean en fondo oscuro)
-   ========================= */
-.course-card h3, .course-card h4{ color: rgba(255,255,255,.96); }
-.course-card p, .course-card li{ color: rgba(255,255,255,.90); }
-.course-card ul{ margin: .55rem 0 0 1.05rem; opacity: .95; }
+/* ========= Cards (PAQUETES) — MISMO “lift + borde + luz” de Plantillas ========= */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin: .9rem 0 1.15rem}
+.card{
+  position:relative;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.03);
+  border-radius: 18px;
+  padding: 1.15rem;
+  color: rgba(255,255,255,.92);
 
-.course-card.be-glow:hover{
+  /* (NUEVO) sombra base tipo Plantillas */
+  box-shadow: 0 14px 34px rgba(0,0,0,.20);
+
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.card:hover{
   transform: translateY(-3px);
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.05);
   border-color: rgba(255,255,255,.18);
+
+  /* (NUEVO) borde + lift + “luz” como en Elige tu plantilla (rápido) */
   box-shadow:
     0 22px 56px rgba(0,0,0,.30),
     0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 0 10px rgba(64,214,255,.06);
+    0 0 0 10px rgba(64,214,255,.06),
+    0 0 28px var(--glow-cyan),
+    0 0 42px var(--glow-green);
 }
 
-.enroll-cta{
-  display:flex;
-  gap:.6rem;
-  flex-wrap:wrap;
-  margin-top:.75rem;
+/* foco accesible (similar al comportamiento de Plantillas) */
+.card:focus-within{
+  transform: translateY(-3px);
+  border-color: rgba(64,214,255,.30);
+  box-shadow:
+    0 22px 56px rgba(0,0,0,.30),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 0 10px rgba(64,214,255,.06),
+    0 0 28px var(--glow-cyan);
 }
 
-.grid{ display:grid; gap: 16px; }
-.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-.grid-4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
-@media (max-width: 980px){
-  .grid-2{ grid-template-columns: 1fr; }
-  .grid-4{ grid-template-columns: 1fr; }
+.card.highlight{
+  border-color: rgba(64,214,255,.26);
+  box-shadow: 0 0 0 1px rgba(64,214,255,.12) inset, 0 14px 34px rgba(0,0,0,.20);
+}
+.card.highlight:hover{
+  border-color: rgba(64,214,255,.32);
 }
 
-/* =========================
-   GLOW (mouse)
-   ========================= */
+.card h3{margin:.25rem 0 .35rem}
+.price{font-weight:800;font-size:1.06rem;opacity:.98;margin:.25rem 0 .55rem}
+.badge{
+  font-size:.8rem;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  padding:.18rem .55rem;
+  display:inline-flex;
+  gap:.4rem;
+  align-items:center;
+  background: rgba(255,255,255,.03);
+}
+
+/* lista con checks */
+.list-check{padding-left:0;list-style:none;margin:.55rem 0 .15rem}
+.list-check li{margin:.38rem 0;opacity:.95}
+.list-check li::before{content:"✓";margin-right:.55rem;opacity:.9}
+
+/* embed Power BI */
+.viz{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background: rgba(255,255,255,.02);
+  border-radius: 16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+.viz iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* grids */
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.tip{ margin: 0; opacity:.9; }
+
+@media (max-width: 900px){
+  .plans{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .logo-ticker{ max-width: 100%; }
+}
+
+/* ========= Glow (MISMO QUE "Sobre mí") ========= */
 .be-glow{ position: relative; }
 .be-glow::after{
   content:"";
-  position:absolute;
-  inset:-1px;
+  position:absolute; inset:-1px;
   border-radius: inherit;
-  background: radial-gradient(
-    var(--be-glow-size) circle
-    at var(--mx,50%) var(--my,30%),
-    rgba(255,255,255,var(--be-glow-alpha)),
-    transparent 40%
-  );
+  background: radial-gradient(900px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.11), transparent 40%);
   opacity:0;
   pointer-events:none;
   transition: opacity .18s ease;
 }
 .be-glow:hover::after{ opacity:1; }
-
-/* Reveal */
-.be-reveal{
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .45s ease, transform .45s ease;
-}
-.be-reveal.is-visible{ opacity: 1; transform: translateY(0); }
-
-@media (prefers-reduced-motion: reduce){
-  .be-reveal{ opacity:1; transform:none; transition:none; }
-  .be-glow::after{ display:none; }
-  .course-card, .chip, .tk{ transition:none; }
-}
-
 
 /* ========= Reveal on scroll (ACTIVO) ========= */
 .be-reveal{
@@ -466,301 +536,50 @@ main.content,
   transform: translateY(0);
 }
 
-/* ========= Glow (MISMO QUE "Sobre mí") ========= */
-.be-glow, .be-hero-card, .course-card{ position: relative; }
-.be-glow::after, .be-hero-card::after, .course-card::after{
-  content:"";
-  position:absolute; inset:-1px;
-  border-radius: inherit;
-  background: radial-gradient(900px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.11), transparent 40%);
-  opacity:0;
-  pointer-events:none;
-  transition: opacity .18s ease;
-}
-.be-glow:hover::after, .be-hero-card:hover::after, .course-card:hover::after{ opacity:1; }
-
-/* ========= Cards (course-card) — MISMA ILUMINACIÓN que "Asesorías" ========= */
-.course-card{
-  position: relative;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.03);
-  border-radius: 18px;
-  padding: 1.05rem 1.05rem;
-  color: rgba(255,255,255,.92);
-  box-shadow: 0 14px 34px rgba(0,0,0,.20);
-  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
-}
-.course-card:hover{
-  transform: translateY(-3px);
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.18);
-  box-shadow:
-    0 22px 56px rgba(0,0,0,.30),
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 0 10px rgba(64,214,255,.06),
-    0 0 28px var(--glow-cyan),
-    0 0 42px var(--glow-green);
-}
-.course-card:focus-within{
-  transform: translateY(-3px);
-  border-color: rgba(64,214,255,.30);
-  box-shadow:
-    0 22px 56px rgba(0,0,0,.30),
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 0 10px rgba(64,214,255,.06),
-    0 0 28px var(--glow-cyan);
-}
-
-/* ========= Hero card — misma sensación "panel + glow" de Asesorías ========= */
-.be-hero-card{
-  box-shadow: 0 18px 48px rgba(0,0,0,.26);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.02);
-  transition: box-shadow .16s ease, transform .16s ease;
-}
-.be-hero-card:hover{
-  transform: translateY(-2px);
-  box-shadow:
-    0 24px 70px rgba(0,0,0,.34),
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 0 12px rgba(64,214,255,.05),
-    0 0 28px var(--glow-cyan),
-    0 0 42px var(--glow-green);
-}
-
-/* Accesibilidad */
+/* accesibilidad */
 @media (prefers-reduced-motion: reduce){
   .be-reveal{ opacity:1; transform:none; transition:none; }
-  .course-card, .be-hero-card{ transition:none; }
-  .be-glow::after, .be-hero-card::after, .course-card::after{ display:none; }
+  .card, .chip, .tk, .be-topnav .links a{ transition:none; }
+  .ticker-row{ animation:none; }
+  .be-glow::after{ display:none; }
 }
-
 </style>
-```
 
----
-
-## 🧭 Los 5 pasos del framework
-```{=html}
-<div class="course-card be-glow be-reveal">
-  <p style="margin:0;opacity:.92">
-    Este framework está diseñado para equipos comerciales y marketing que necesitan <strong>enfocar esfuerzos</strong>,
-    <strong>priorizar oportunidades</strong> y <strong>mejorar resultados</strong> con decisiones basadas en datos (sin tecnicismos).
-    <br>
-    Puedes empezar por un paso (rápido) o implementar el ciclo completo (máximo impacto).
-  </p>
-</div>
-
-<div class="grid grid-2" style="align-items:stretch;margin-top:14px">
-
-  <div class="course-card be-glow be-reveal">
-    <h3 style="margin-top:0">🔎 Paso 1 — Segmenta mejor <span style="opacity:.75;font-weight:400">(Clustering)</span></h3>
-    <p>Identifica qué tipo de clientes generan más valor y enfoca tus esfuerzos donde realmente importa.</p>
-    <ul>
-      <li>Grupos de clientes claros (para campañas y ventas)</li>
-      <li>Visual simple para entenderlos (sin complejidad)</li>
-      <li>Acciones recomendadas por segmento</li>
-    </ul>
-    <div class="enroll-cta">
-      <a class="btn btn-primary" href="ML/Cluster_analysis/Cluster_analysis_marketing.html">Ver reporte</a>
-      <a class="btn btn-outline-secondary"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%201%20(Segmentaci%C3%B3n%20-%20Clustering)%20para%20mi%20negocio.%20%C2%BFQu%C3%A9%20data%20necesitas%3F"
-         target="_blank" rel="noopener">Evaluar por WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="course-card be-glow be-reveal">
-    <h3 style="margin-top:0">⚡ Paso 2 — Vende más rápido <span style="opacity:.75;font-weight:400">(Lead Scoring)</span></h3>
-    <p>Detecta quién está más cerca de comprar y prioriza el contacto del equipo comercial.</p>
-    <ul>
-      <li>Ranking de leads (a quién llamar primero)</li>
-      <li>Qué factores influyen en la decisión (claridad)</li>
-      <li>Lista de acción diaria por prioridad</li>
-    </ul>
-    <div class="enroll-cta">
-      <a class="btn btn-primary" href="ML/Lead_scoring/lead_scoring.html">Ver reporte</a>
-      <a class="btn btn-outline-secondary"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%202%20(Lead%20Scoring)%20para%20mi%20negocio."
-         target="_blank" rel="noopener">Evaluar por WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="course-card be-glow be-reveal">
-    <h3 style="margin-top:0">🧷 Paso 3 — Asegura ventas futuras <span style="opacity:.75;font-weight:400">(Propensity to Return)</span></h3>
-    <p>Identifica a tiempo quién puede irse y a quién conviene reactivar para sostener ingresos futuros.</p>
-    <ul>
-      <li>Señales de fuga o retorno (tempranas)</li>
-      <li>Alertas automáticas para seguimiento</li>
-      <li>Plan de acción por nivel de riesgo</li>
-    </ul>
-    <div class="enroll-cta">
-      <a class="btn btn-primary" href="ML/Propensity_return/propensity_return.html">Ver reporte</a>
-      <a class="btn btn-outline-secondary"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%203%20(Propensity%20to%20Return)%20para%20mi%20negocio."
-         target="_blank" rel="noopener">Evaluar por WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="course-card be-glow be-reveal">
-    <h3 style="margin-top:0">💰 Paso 4 — Aumenta el ticket <span style="opacity:.75;font-weight:400">(Ticket Predictor)</span></h3>
-    <p>Encuentra oportunidades de upsell/cross-sell y enfoca el esfuerzo en clientes de mayor potencial.</p>
-    <ul>
-      <li>Estimación de ticket o rango esperado</li>
-      <li>Recomendaciones para elevar margen</li>
-      <li>Priorización por potencial de compra</li>
-    </ul>
-    <div class="enroll-cta">
-      <a class="btn btn-primary" href="ML/Ticket_predictor/ticket_predictor.html">Ver reporte</a>
-      <a class="btn btn-outline-secondary"
-         href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%204%20(Ticket%20Predictor)%20para%20mi%20negocio."
-         target="_blank" rel="noopener">Evaluar por WhatsApp</a>
-    </div>
-  </div>
-
-</div>
-
-<div class="course-card be-glow be-reveal" style="margin-top:16px">
-  <h3 style="margin-top:0">📈 Paso 5 — Proyecta tu crecimiento <span style="opacity:.75;font-weight:400">(CLV + RFM)</span></h3>
-  <p>Proyecta el valor futuro de cada cliente y define dónde invertir para crecer (ventas y marketing).</p>
-  <div class="grid grid-2" style="gap:12px;align-items:start;margin-top:.35rem">
-    <ul style="margin:0">
-      <li>Valor futuro por cliente/segmento (CLV)</li>
-      <li>Frecuencia y oportunidad de recompra (RFM)</li>
-      <li>Priorización por retorno esperado</li>
-    </ul>
-    <ul style="margin:0">
-      <li>Escenarios de crecimiento (conservador/optimista)</li>
-      <li>Mapas de oportunidad para campañas</li>
-      <li>Recomendaciones accionables</li>
-    </ul>
-  </div>
-  <div class="enroll-cta" style="margin-top:10px">
-    <a class="btn btn-primary" href="ML/CLV/CLV.html">Ver reporte</a>
-    <a class="btn btn-outline-secondary"
-       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20evaluar%20el%20Paso%205%20(CLV%20%2B%20RFM)%20para%20mi%20negocio."
-       target="_blank" rel="noopener">Evaluar por WhatsApp</a>
-  </div>
-</div>
-```
-
----
-
-## 🧩 Plantillas dashboards {#plantillas}
-```{=html}
-<div class="course-card be-glow be-reveal" style="margin-top:14px">
-  <h3 style="margin-top:0">Plantillas listas para usar</h3>
-  <p style="opacity:.92;margin:0 0 .55rem 0">
-    Tableros y flujos listos para arrancar rápido (ejemplos: control de gastos, marketing digital, analítica comercial).
-    Incluye guía y soporte de instalación si lo necesitas.
-  </p>
-  <div class="enroll-cta" style="margin-top:10px">
-    <a class="btn btn-primary" href="plantillas.html">Ver página de plantillas</a>
-    <a class="btn btn-outline-secondary"
-       href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20ver%20opciones%20de%20plantillas%20de%20dashboards%20(Plantillas%20BI%20Evolution)."
-       target="_blank" rel="noopener">Pedir recomendación</a>
-  </div>
-</div>
-```
-
----
-
-## 📦 ¿Qué datos necesitas?
-```{=html}
-<div class="course-card be-glow be-reveal" style="margin-top:14px">
-  <h3 style="margin-top:0">Requisitos mínimos (sin Big Data)</h3>
-  <ul>
-    <li><strong>Leads/Clientes:</strong> ID, fecha, canal, fuente, estado/etapa (si existe CRM).</li>
-    <li><strong>Actividad:</strong> visitas, respuestas, intentos de contacto, tiempos (si aplica).</li>
-    <li><strong>Ventas:</strong> fecha, producto/servicio, monto, frecuencia (si aplica).</li>
-  </ul>
-  <p style="margin:0;opacity:.9">
-    Si tu data está desordenada, podemos hacer un paso previo de <strong>modelado y preparación</strong> para que el framework funcione.
-  </p>
-</div>
-```
-
----
-
-## 🤝 Asesorías & Freelance {#asesorias}
-```{=html}
-<div class="course-card be-glow be-reveal" style="margin-top:14px">
-  <h3 style="margin-top:0">Dashboards, automatización y analítica aplicada</h3>
-  <p style="opacity:.92;margin:0 0 .55rem 0">
-    Si necesitas construir o mejorar un tablero en Power BI (modelo, DAX, performance, RLS, publicación en Service),
-    o automatizar la carga de datos, podemos trabajarlo por alcance y entregables claros.
-  </p>
-  <ul style="margin:0 0 .7rem 1.1rem;opacity:.92">
-    <li>Auditoría de dashboard y recomendaciones (quick wins)</li>
-    <li>Modelo estrella + medidas DAX + buenas prácticas</li>
-    <li>Publicación en Service, RLS y handover</li>
-  </ul>
-  <div class="enroll-cta" style="margin-top:10px">
-    <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20cotizar%20una%20asesor%C3%ADa%20o%20servicio%20freelance%20de%20dashboards%20en%20Power%20BI."
-       target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    <a class="btn btn-outline-secondary" href="asesorias.html">Ver página de asesorías</a>
-  </div>
-</div>
-```
-
----
-
-## 🔁 Cómo trabajamos
-```{=html}
-<div class="grid grid-4" style="align-items:stretch;margin-top:12px">
-
-  <div class="course-card be-glow be-reveal">
-    <h4 style="margin-top:0">1) Diagnóstico</h4>
-    <p style="opacity:.9;margin:0">Revisión rápida de datos, objetivos y proceso comercial.</p>
-  </div>
-
-  <div class="course-card be-glow be-reveal">
-    <h4 style="margin-top:0">2) Propuesta</h4>
-    <p style="opacity:.9;margin:0">Alcance, entregables, tiempos y accesos necesarios.</p>
-  </div>
-
-  <div class="course-card be-glow be-reveal">
-    <h4 style="margin-top:0">3)&nbsp;Construcción</h4>
-    <p style="opacity:.9;margin:0">Modelos, validaciones, explicabilidad y métricas.</p>
-  </div>
-
-  <div class="course-card be-glow be-reveal">
-    <h4 style="margin-top:0">4) Entrega</h4>
-    <p style="opacity:.9;margin:0">Informe, recomendaciones y handover (si aplica).</p>
-  </div>
-
-</div>
-
-<div align="center" style="margin-top:14px">
-  <a class="btn btn-primary"
-     href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20agendar%20una%20llamada%20corta%20para%20evaluar%20el%20Framework%20de%20IA%20(5%20pasos).">
-    📞 Agendar evaluación
-  </a>
-  <a class="btn btn-outline-secondary" href="asesorias.html">Ver Asesorías dashboards</a>
-</div>
-```
-
-```{=html}
 <script>
 (function(){
-  // Reveal on scroll
+  // 1) Reveal on scroll
   const els = document.querySelectorAll('.be-reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
+        e.target.classList.add('is-visible');
         io.unobserve(e.target);
       }
     });
   }, {threshold: 0.12});
   els.forEach(el=>io.observe(el));
 
-  // Glow que sigue al mouse
+  // 2) Glow que sigue al mouse (MISMO QUE "Sobre mí")
   document.addEventListener('mousemove', (e) => {
-    const el = e.target.closest('.be-glow, .be-hero-card, .course-card');
+    const el = e.target.closest('.be-glow');
     if(!el) return;
     const r = el.getBoundingClientRect();
     el.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100).toFixed(2)+'%');
     el.style.setProperty('--my', ((e.clientY - r.top)/r.height*100).toFixed(2)+'%');
   }, {passive:true});
+
+  // 3) Scroll suave para anclas (evita que la topbar tape el título)
+  document.querySelectorAll('.be-topnav a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (ev)=>{
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if(!el) return;
+      ev.preventDefault();
+      const y = el.getBoundingClientRect().top + window.scrollY - 86;
+      window.scrollTo({top:y, behavior:'smooth'});
+      history.replaceState(null, '', id);
+    });
+  });
 })();
 </script>
 ```
