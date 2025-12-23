@@ -48,7 +48,7 @@ toc: false
   </div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow chip"></span> Plantillas listas para decidir</div>
+    <div class="hero-eyebrow chip">Plantillas listas para decidir</div>
 
     <h1 class="hero-title">Decide en minutos, no en meses</h1>
 
@@ -123,6 +123,97 @@ toc: false
             allowfullscreen="true"></iframe>
   </div>
 </div>
+```
+
+```{=html}
+<!-- =========================
+     SELECCIÓN RÁPIDA (3 CARDS)
+     ========================= -->
+<section class="be-shell be-reveal be-anchor-offset" style="margin-top:.9rem" aria-label="Elegir plantilla">
+  <div class="be-section-head">
+    <h2 style="margin:0">Elige tu plantilla (rápido)</h2>
+    <p style="margin:.35rem 0 0;opacity:.92">
+      Si no estás seguro, escríbeme por WhatsApp y te recomiendo la mejor según tu caso.
+    </p>
+  </div>
+
+  <div class="be-products" style="margin-top:.9rem">
+    <!-- META -->
+    <article class="be-product">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">M</div>
+        <div>
+          <div class="be-product__badge">Marketing · Performance</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Meta Ads (FB/IG/Messenger)</h3>
+          <div class="be-product__price">Desde <strong>US$ 33</strong></div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Beneficios">
+        <li>Vista unificada + KPIs fijos (lectura ejecutiva).</li>
+        <li>Embudo + burbuja Frecuencia↔CTR (saturación).</li>
+        <li>Refresh automático (API) y filtros globales.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="#meta">Ver detalles</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Facebook%20%26%20Instagram%20%28Meta%29%20con%20dashboard."
+           target="_blank" rel="noopener">Quiero esta</a>
+      </div>
+    </article>
+
+    <!-- GA4 -->
+    <article class="be-product">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">G</div>
+        <div>
+          <div class="be-product__badge">Web · Growth</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Google Analytics 4 (GA4)</h3>
+          <div class="be-product__price">Desde <strong>US$ 23</strong></div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Beneficios">
+        <li>Header ejecutivo (lectura en 10s).</li>
+        <li>Embudo integrado + Sankey (flujo real).</li>
+        <li>Comparativos por canal/país/dispositivo en el tiempo.</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="#ga4">Ver detalles</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Google%20Analytics%20%28GA4%29."
+           target="_blank" rel="noopener">Quiero esta</a>
+      </div>
+    </article>
+
+    <!-- GASTOS -->
+    <article class="be-product">
+      <div class="be-product__top">
+        <div class="be-product__icon" aria-hidden="true">$</div>
+        <div>
+          <div class="be-product__badge">Finanzas personales</div>
+          <h3 class="be-product__title" style="margin:.25rem 0 .1rem">Control de Gastos (Excel/CSV → Power BI)</h3>
+          <div class="be-product__price"><strong>US$ 7</strong></div>
+        </div>
+      </div>
+
+      <ul class="be-bullets" aria-label="Beneficios">
+        <li>Presupuesto vs real + tendencia mensual.</li>
+        <li>Top gastos + insight de ahorro.</li>
+        <li>Medidas listas (mes, categoría, cuenta, medio).</li>
+      </ul>
+
+      <div class="be-product__cta">
+        <a class="btn btn-outline-secondary" href="#gastos">Ver detalles</a>
+        <a class="btn btn-primary"
+           href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20la%20plantilla%20de%20Control%20de%20Gastos."
+           target="_blank" rel="noopener">Quiero esta</a>
+      </div>
+    </article>
+  </div>
+</section>
 ```
 
 ---
@@ -263,6 +354,7 @@ Transferencia, Yape/Plin. Escríbeme y te comparto el checkout.
 ```{=html}
 <!-- =========================
      ESTILOS (MISMO LOOK & FEEL)
+     + SECCIONES ENVUELTAS EN PANEL (AUTOMÁTICO)
      ========================= -->
 <style>
 /* ========= Base ========= */
@@ -385,7 +477,6 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
   background:rgba(255,255,255,.05);
   color: rgba(255,255,255,.90);
 }
-.icon{font-size:1rem;opacity:.95}
 
 /* pills */
 .stat-pills{
@@ -499,11 +590,83 @@ html{ scroll-padding-top: calc(var(--be-nav-h) + 14px); }
 table{ border-collapse: separate; border-spacing: 0; overflow:hidden; border-radius: 14px; }
 thead th{ background: rgba(255,255,255,.04); }
 
+/* ========= PRODUCT CARDS ========= */
+.be-section-head h2{
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+.be-products{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+}
+.be-product{
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  border-radius: 18px;
+  padding: 1.0rem 1.05rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,.22);
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.be-product:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 22px 50px rgba(0,0,0,.26);
+}
+.be-product__top{ display:flex; gap:.75rem; align-items:flex-start; }
+.be-product__icon{
+  width:44px; height:44px; border-radius: 14px;
+  display:grid; place-items:center;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 12px 26px rgba(0,0,0,.20);
+}
+.be-product__badge{
+  display:inline-flex;
+  padding:.22rem .55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  font-size:.78rem;
+  opacity:.92;
+}
+.be-product__title{ font-size: 1.05rem; }
+.be-product__price{ opacity:.92; font-size:.95rem; }
+
+.be-bullets{ margin:.65rem 0 .2rem; padding-left: 1.05rem; opacity:.92; }
+.be-bullets li{ margin:.34rem 0; }
+.be-product__cta{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem; }
+
+@media (max-width: 980px){
+  .be-products{ grid-template-columns: 1fr; }
+}
+
+/* ========= SECCIONES EN PANEL (AUTO-WRAP CON JS) ========= */
+.be-section{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+  border-radius: 18px;
+  padding: 1.05rem 1.05rem .95rem;
+  box-shadow: 0 18px 44px rgba(0,0,0,.20);
+  margin: .9rem 0 1.05rem;
+}
+.be-section h2{ margin-top: .15rem; }
+.be-section h2 + p{ margin-top: .45rem; }
+.be-section > :last-child{ margin-bottom: 0; }
+
+/* Callout más premium */
+.callout-note{
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  background: rgba(255,255,255,.03) !important;
+}
 </style>
 
 <script>
 (function(){
-  // Reveal on scroll
+  // 1) Reveal on scroll
   const els = document.querySelectorAll('.be-reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
@@ -515,7 +678,7 @@ thead th{ background: rgba(255,255,255,.04); }
   }, {threshold: 0.12});
   els.forEach(el=>io.observe(el));
 
-  // Scroll suave para anclas (evita que el sticky tape títulos)
+  // 2) Scroll suave para anclas (evita que el sticky tape títulos)
   document.querySelectorAll('.be-topnav a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (ev)=>{
       const id = a.getAttribute('href');
@@ -527,6 +690,31 @@ thead th{ background: rgba(255,255,255,.04); }
       history.replaceState(null, '', id);
     });
   });
+
+  // 3) Envolver secciones (sin tocar tu markdown)
+  // Busca los H2 con ids específicos y envuelve TODO lo que sigue hasta el próximo H2.
+  function wrapSectionById(id){
+    const h2 = document.getElementById(id);
+    if(!h2) return;
+    if(h2.closest('.be-section')) return;
+
+    const wrapper = document.createElement('section');
+    wrapper.className = 'be-shell be-section be-reveal';
+    h2.parentNode.insertBefore(wrapper, h2);
+
+    let node = h2;
+    while(node){
+      const next = node.nextSibling;
+      wrapper.appendChild(node);
+      if(next && next.nodeType === 1 && next.tagName === 'H2') break;
+      node = next;
+    }
+  }
+
+  ['demo','meta','ga4','gastos','incluye','faq'].forEach(wrapSectionById);
+
+  // Re-observar reveal para wrappers creados dinámicamente
+  document.querySelectorAll('.be-reveal:not(.is-visible)').forEach(el=>io.observe(el));
 })();
 </script>
 ```
