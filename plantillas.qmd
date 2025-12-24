@@ -25,7 +25,7 @@ toc: false
       <a href="#faq">FAQ</a>
     </nav>
 
-    <a class="btn btn-primary be-topnav__cta"
+    <a class="btn btn-whatsapp"
        href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20plantillas%20de%20BI%20Evolution."
        target="_blank" rel="noopener">
       WhatsApp

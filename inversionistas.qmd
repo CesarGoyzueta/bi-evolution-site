@@ -362,7 +362,7 @@ format:
       <a href="#disclaimer">Disclaimer</a>
     </nav>
 
-    <a class="btn btn-primary be-topnav__cta"
+    <a class="btn btn-whatsapp"
        href="{{< meta whatsapp >}}?text=Hola%20BI%20Evolution%2C%20quiero%20informaci%C3%B3n%20del%20sistema%20de%20inversi%C3%B3n%20disciplinada%20con%20control%20de%20riesgo."
        target="_blank" rel="noopener">
       WhatsApp

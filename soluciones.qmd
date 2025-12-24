@@ -23,7 +23,7 @@ toc: false
       <a href="#mas">Más</a>
     </nav>
 
-    <a class="btn btn-primary be-topnav__cta"
+    <a class="btn btn-whatsapp"
        href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20informaci%C3%B3n%20de%20las%20Soluciones%20de%20IA%20%26%20Anal%C3%ADtica%20(Framework%205%20pasos)."
        target="_blank" rel="noopener">
       WhatsApp
