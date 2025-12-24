@@ -23,7 +23,7 @@ toc: false
       <a href="#contacto">Contacto</a>
     </nav>
 
-    <a class="btn btn-primary be-topnav__cta" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">
+    <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Quiero%20m%C3%A1s%20info%20general">
       WhatsApp
     </a>
   </div>
@@ -424,7 +424,7 @@ Recibe avisos de nuevas cohortes, descuentos y material gratuito.
 <div class="sticky-cta" role="region" aria-label="Contacto rápido">
   <div class="sticky-cta__inner">
     <span>¿Quieres una recomendación rápida?</span>
-    <a class="btn btn-primary" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20una%20recomendaci%C3%B3n%20r%C3%A1pida.">WhatsApp</a>
+    <a class="btn btn-whatsapp" href="{{< meta whatsapp >}}?text=Hola%20C%C3%A9sar%2C%20quiero%20una%20recomendaci%C3%B3n%20r%C3%A1pida.">WhatsApp</a>
   </div>
 </div>
 
